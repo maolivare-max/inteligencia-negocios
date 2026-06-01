@@ -15,7 +15,7 @@ reportes-inmobiliario/YYYY-MM-DD.md  ← MISIÓN 2: marketing inmobiliario
 ```
 
 Flujo diario (08:00): generar reporte → guardar .md → `python3 build_dashboard.py`
-→ commit + push → email a m.a.olivare@gmail.com.
+→ commit + push. La revisión se hace en el dashboard (sin email).
 
 ---
 
@@ -39,9 +39,11 @@ git push -u origin main
 
 En https://claude.ai/code/routines → **New routine**. Crear DOS, ambas con:
 - Trigger: **Schedule → Daily → 08:00** (hora local)
-- Conector: **Gmail** activado
 - Repositorio: el subido en el paso 1
 - Permisos: **Allow unrestricted branch pushes** activado (para que pueda escribir en main)
+
+> NOTA: la entrega NO es por email. El reporte queda en el dashboard tras commit + push.
+> No es necesario el conector de Gmail.
 
 ### Routine 1 — Oportunidades de Negocio
 Nombre: `Reporte diario · Oportunidades`
@@ -54,8 +56,8 @@ Compara con el último archivo en reportes/ para NO repetir oportunidades; marca
 "Actualización" si algo cambió. Activa el bloque SEGUIMIENTO DE CRECIMIENTO en toda
 oportunidad que supere la media o cumpla el criterio de activación. Guarda el reporte
 en reportes/YYYY-MM-DD.md, ejecuta `python3 build_dashboard.py` para actualizar el
-dashboard, haz commit y push de los cambios, y envíame el reporte por email a
-m.a.olivare@gmail.com con asunto "Reporte de Oportunidades — YYYY-MM-DD".
+dashboard, y haz commit y push de los cambios. NO envíes email: el dashboard es el medio
+de revisión.
 ```
 
 ### Routine 2 — Marketing Inmobiliario
@@ -69,8 +71,8 @@ y LATAM). Busca ideas innovadoras que generen leads con métricas (CPL, conversi
 volumen) y actualiza la sección "FORMA DE VENTA — qué cambió". Aplica los TRES filtros
 y el scoring /20. Compara con el último archivo en reportes-inmobiliario/ para priorizar
 lo nuevo. Guarda en reportes-inmobiliario/YYYY-MM-DD.md, ejecuta
-`python3 build_dashboard.py`, haz commit y push, y envíame el reporte por email a
-m.a.olivare@gmail.com con asunto "Tendencias Marketing Inmobiliario — YYYY-MM-DD".
+`python3 build_dashboard.py`, y haz commit y push. NO envíes email: el dashboard es el
+medio de revisión.
 ```
 
 ---
@@ -89,7 +91,7 @@ python3 build_dashboard.py
 ## 4. Operación manual (si una routine falla)
 
 Pídele a Claude Code, dentro de una sesión con este repo:
-> "Ejecuta el flujo de CLAUDE.md para hoy" (genera, guarda, actualiza dashboard, email).
+> "Ejecuta el flujo de CLAUDE.md para hoy" (genera, guarda, actualiza dashboard, commit + push).
 
 ---
 

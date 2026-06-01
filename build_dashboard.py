@@ -200,12 +200,13 @@ def main():
     out = (TEMPLATE
            .replace("__DATA__", json.dumps(data, ensure_ascii=False))
            .replace("__UPDATED__", updated))
-    dest = os.path.join(BASE, "dashboard.html")
-    with open(dest, "w", encoding="utf-8") as f:
-        f.write(out)
+    # Escribe dashboard.html y también index.html (para GitHub Pages).
+    for fname in ("dashboard.html", "index.html"):
+        with open(os.path.join(BASE, fname), "w", encoding="utf-8") as f:
+            f.write(out)
     n_rep = sum(len(g["reports"]) for g in data)
     n_opp = sum(r["n_opps"] for g in data for r in g["reports"])
-    print(f"✓ dashboard.html generado: {n_rep} reportes, {n_opp} oportunidades → {dest}")
+    print(f"✓ dashboard.html + index.html generados: {n_rep} reportes, {n_opp} oportunidades")
 
 if __name__ == "__main__":
     main()

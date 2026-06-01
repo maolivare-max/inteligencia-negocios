@@ -9,12 +9,12 @@ razonables y las dejas anotadas.
 
 ## ENTREGA DIARIA (ORDEN PERMANENTE)
 
-- El reporte se genera y entrega **todos los días a las 08:00 (hora local del usuario)**.
+- El reporte se genera **todos los días a las 08:00 (hora local del usuario)**.
 - Mecanismo: una **Routine** de Claude Code (trigger Schedule → daily 08:00) ejecuta este
   flujo de forma autónoma en la nube. Ver instrucciones de configuración abajo.
-- Entrega: además de guardar el archivo, **enviar el reporte por email a
-  m.a.olivare@gmail.com** usando el conector de Gmail (asunto:
-  "Reporte de Oportunidades — YYYY-MM-DD").
+- Entrega: **NO se envía por email.** El medio de revisión es el **dashboard**. Tras
+  generar, se guarda el .md, se regenera `dashboard.html` y se hace commit + push al repo
+  para que el usuario lo revise en el dashboard cuando quiera.
 - Cada reporte se guarda como `/home/user/reportes/YYYY-MM-DD.md` (un archivo por día).
 - **Tras guardar cualquier reporte (de cualquiera de las dos misiones), ejecutar
   `python3 /home/user/build_dashboard.py`** para regenerar `dashboard.html`. El dashboard
@@ -237,8 +237,8 @@ c) **Implementable** con presupuesto razonable y herramientas accesibles.
 ## ENTREGA Y GUARDADO
 
 - Se guarda en `/home/user/reportes-inmobiliario/YYYY-MM-DD.md`.
-- Se entrega por email a m.a.olivare@gmail.com (asunto:
-  "Tendencias Marketing Inmobiliario — YYYY-MM-DD").
+- **NO se envía por email.** Entrega = dashboard: tras guardar, regenerar
+  `dashboard.html` (`python3 build_dashboard.py`) y hacer commit + push al repo.
 - Misma Routine diaria de las 08:00, o una segunda Routine paralela dedicada.
 - Comparar con el día anterior: priorizar lo nuevo, marcar "Actualización" si cambió.
 
