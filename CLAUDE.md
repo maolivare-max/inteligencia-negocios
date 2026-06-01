@@ -16,6 +16,9 @@ razonables y las dejas anotadas.
   m.a.olivare@gmail.com** usando el conector de Gmail (asunto:
   "Reporte de Oportunidades — YYYY-MM-DD").
 - Cada reporte se guarda como `/home/user/reportes/YYYY-MM-DD.md` (un archivo por día).
+- **Tras guardar cualquier reporte (de cualquiera de las dos misiones), ejecutar
+  `python3 /home/user/build_dashboard.py`** para regenerar `dashboard.html`. El dashboard
+  se actualiza solo; el usuario no debe hacer nada manual.
 - Antes de generar, comparar con el reporte del día anterior para no repetir oportunidades
   (ver sección EVITAR REPETICIÓN).
 - Si una oportunidad supera el promedio del reporte, activar SIEMPRE el bloque
