@@ -1,1 +1,4 @@
 # El dashboard se regenera con build_dashboard.py; opcional versionarlo.
+__pycache__/
+*.pyc
+*.pyo
