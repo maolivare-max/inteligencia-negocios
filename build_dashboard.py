@@ -465,11 +465,11 @@ function renderOpp(o){
 }
 
 function applyFilter(oppsHtml, opps){
-  if(activeFilter==='all') return oppsHtml;
+  if(activeFilter==='all') return oppsHtml.join('');
   return opps.map((o,i)=>{
-    if(activeFilter==='destacada' && o.score < DT) return '';
-    if(activeFilter==='seguimiento' && !o.seguimiento)  return '';
-    if(activeFilter==='alta' && !(o.conf||'').toLowerCase().includes('alta')) return '';
+    if(activeFilter==='destacada'   && o.score < DT) return '';
+    if(activeFilter==='seguimiento' && !o.seguimiento) return '';
+    if(activeFilter==='alta'        && !(o.conf||'').toLowerCase().includes('alta')) return '';
     return oppsHtml[i];
   }).join('');
 }
