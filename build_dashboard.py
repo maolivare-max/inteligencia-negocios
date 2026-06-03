@@ -208,11 +208,11 @@ def render_seguimiento(seg, uid):
             tl_html += f'<div class="tl-item"><span class="tl-dot"></span><span>{esc(s)}</span></div>'
     return f"""
   <div class="seg-block" id="seg-{uid}">
-    <button class="seg-head" onclick="tog('seg-{uid}')" aria-expanded="false">
+    <button class="seg-head" onclick="tog('seg-body-{uid}')" aria-expanded="false">
       <span>&#9733; SEGUIMIENTO &mdash; {esc(seg['subject'])}</span>
       <span class="seg-chev">&#9658;</span>
     </button>
-    <div class="seg-body" hidden>
+    <div class="seg-body" id="seg-body-{uid}" hidden>
       <p class="seg-act">Activado por: {esc(seg['activation'])}</p>
       {palanca_html}{items_html}{tl_html}
     </div>
@@ -278,17 +278,21 @@ def render_opp(opp, uid):
 </div>"""
 
 def render_report(report, group_key, group_label, report_idx):
-    uid_base = f"{group_key}-{report['date']}"
-    opps_html = "".join(
+    uid_base   = f"{group_key}-{report['date']}"
+    is_first   = (report_idx == 0)   # más reciente → abierto por defecto en el HTML
+    opps_html  = "".join(
         render_opp(o, f"{uid_base}-{i}")
         for i, o in enumerate(report["opps"])
     )
     follow_pill = (f'<span class="pill">&#9733; {report["follow_count"]} SEGUIM.</span>'
                    if report["follow_count"] > 0 else "")
-    open_attr   = "" if report_idx > 0 else ""   # all start closed; JS opens first
+    # El primer reporte (más reciente) aparece abierto sin necesitar JavaScript
+    body_hidden  = "" if is_first else " hidden"
+    head_expanded = "true" if is_first else "false"
+    chev_style   = 'style="transform:rotate(90deg)"' if is_first else ""
     return f"""
 <div class="report" data-group="{esc(group_key)}" id="rep-{esc(uid_base)}">
-  <button class="report-head" onclick="togRep('rep-{esc(uid_base)}')" aria-expanded="false">
+  <button class="report-head" onclick="togRep('{esc(uid_base)}')" aria-expanded="{head_expanded}">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">{esc(report['date'])}</span>
@@ -300,10 +304,10 @@ def render_report(report, group_key, group_label, report_idx):
       <span class="pill">{report['n_opps']} IDEAS</span>
       <span class="pill">PROM {report['avg']}</span>
       {follow_pill}
-      <span class="chev">&#9658;</span>
+      <span class="chev" {chev_style}>&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-{esc(uid_base)}" hidden>
+  <div class="report-body" id="rep-body-{esc(uid_base)}"{body_hidden}>
     <div class="fuentes">FUENTES: {esc(report.get('fuentes',''))}</div>
     {opps_html or '<div class="empty">Sin oportunidades parseadas.</div>'}
   </div>
@@ -435,33 +439,12 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 """
 
 JS = """
-// Toggle opp body
-function tog(id) {
-  const body = document.getElementById(id);
-  if (!body) return;
-  const btn = body.previousElementSibling;
-  const hidden = body.hasAttribute('hidden');
-  if (hidden) { body.removeAttribute('hidden'); if(btn) btn.setAttribute('aria-expanded','true'); }
-  else        { body.setAttribute('hidden',''); if(btn) btn.setAttribute('aria-expanded','false'); }
-}
-
-// Toggle seg body
-function tog(id) {
-  const body = document.getElementById(id + '-body') || document.querySelector('#' + id + ' .seg-body');
-  const btn  = document.querySelector('#' + id + ' .seg-head') || document.querySelector('[onclick*="' + id + '"]');
-  if (!body) return;
-  const hidden = body.hasAttribute('hidden');
-  if (hidden) { body.removeAttribute('hidden'); if(btn) btn.setAttribute('aria-expanded','true'); }
-  else        { body.setAttribute('hidden',''); if(btn) btn.setAttribute('aria-expanded','false'); }
-}
-
-// Generic toggle by element id (opp body has explicit id)
+// Toggle any element by its explicit id; button must be its previousElementSibling
 function tog(id) {
   var el = document.getElementById(id);
   if (!el) return;
-  var isHidden = el.hasAttribute('hidden');
-  // find closest button above el
   var btn = el.previousElementSibling;
+  var isHidden = el.hasAttribute('hidden');
   if (isHidden) {
     el.removeAttribute('hidden');
     if (btn) btn.setAttribute('aria-expanded', 'true');
@@ -471,10 +454,10 @@ function tog(id) {
   }
 }
 
-function togRep(repId) {
-  var body = document.getElementById('rep-body-' + repId.replace('rep-',''));
+function togRep(uid) {
+  var body = document.getElementById('rep-body-' + uid);
   if (!body) return;
-  var btn = document.querySelector('#' + repId + ' .report-head');
+  var btn = document.querySelector('#rep-' + uid + ' .report-head');
   var isHidden = body.hasAttribute('hidden');
   if (isHidden) {
     body.removeAttribute('hidden');
