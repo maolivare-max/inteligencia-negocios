@@ -3,333 +3,818 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>INTELIGENCIA DE NEGOCIOS — Chile</title>
+<title>Inteligencia de Negocios &mdash; Chile</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#F5F0E8;--paper:#FFFDF7;--black:#0A0A0A;
-  --red:#D4001A;--yellow:#FFE600;--green:#008A57;--blue:#0050EE;--orange:#E06000;
-  --border:3px solid #0A0A0A;--shadow:5px 5px 0 #0A0A0A;--shadow-lg:8px 8px 0 #0A0A0A;
+  --red:#D4001A;--yellow:#FFE600;--green:#008A57;--blue:#0050EE;--orange:#C85000;
+  --border:3px solid #0A0A0A;--shadow:5px 5px 0 #0A0A0A;
 }
 body{background:var(--bg);color:var(--black);font-family:"Courier New",Courier,monospace;min-height:100vh}
+button{font-family:inherit;cursor:pointer;background:none;border:none;text-align:left;width:100%}
 
 /* HEADER */
-.header{background:var(--black);color:var(--yellow);padding:20px 32px;border-bottom:5px solid var(--yellow);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.header h1{font-size:clamp(18px,4vw,28px);font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.header .stamp{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.header{background:var(--black);color:var(--yellow);padding:20px 28px;border-bottom:5px solid var(--yellow);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.header h1{font-size:clamp(16px,3.5vw,26px);font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.stamp{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
 .badge-chile{background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border:2px solid var(--yellow);letter-spacing:2px}
+.header-right{text-align:right}
+.header-date{font-size:24px;font-weight:900;color:#fff}
+.header-sub{font-size:11px;color:#aaa;letter-spacing:1px}
 
-/* STATS BAR */
+/* STATS */
 .stats-bar{display:flex;flex-wrap:wrap;border-bottom:var(--border);background:var(--paper)}
-.stat{flex:1;min-width:80px;padding:16px 20px;border-right:var(--border)}
+.stat{flex:1;min-width:80px;padding:14px 18px;border-right:var(--border)}
 .stat:last-child{border-right:none}
-.stat .num{font-size:clamp(22px,3.5vw,38px);font-weight:900;line-height:1}
-.stat .num.red{color:var(--red)}
-.stat .num.green{color:var(--green)}
+.stat .num{font-size:clamp(20px,3vw,36px);font-weight:900;line-height:1}
+.stat .num.green{color:var(--green)} .stat .num.red{color:var(--red)}
 .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-top:4px;color:#666}
 
 /* LEGEND */
-.legend{display:flex;gap:16px;flex-wrap:wrap;padding:8px 32px;background:var(--black);border-bottom:var(--border);font-size:11px;color:#aaa;letter-spacing:.5px}
-.legend span{display:flex;align-items:center;gap:6px}
-.ldot{width:10px;height:10px;border:2px solid;flex-shrink:0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:8px 28px;background:var(--black);border-bottom:var(--border);font-size:11px;color:#aaa}
+.legend span{display:flex;align-items:center;gap:5px}
+.ldot{width:9px;height:9px;border:2px solid;flex-shrink:0}
 
-/* TABS */
-.tabs{display:flex;padding:16px 32px;border-bottom:var(--border);background:var(--bg);flex-wrap:wrap;gap:8px}
-.tab{background:var(--paper);border:var(--border);color:var(--black);padding:8px 20px;cursor:pointer;font-family:"Courier New",monospace;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;box-shadow:3px 3px 0 var(--black);transition:transform .1s,box-shadow .1s}
-.tab:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--black)}
-.tab.active{background:var(--yellow);transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--black)}
-
-/* FILTERS */
-.filters{padding:12px 32px;border-bottom:var(--border);background:var(--paper);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.filters label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-right:4px}
-.filter-btn{font-size:11px;padding:4px 12px;border:2px solid var(--black);background:var(--bg);cursor:pointer;font-family:"Courier New",monospace;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.filter-btn.active{background:var(--black);color:var(--yellow)}
+/* CONTROLS */
+.controls{display:flex;flex-wrap:wrap;gap:0;border-bottom:var(--border);background:var(--bg)}
+.ctrl-group{display:flex;flex-wrap:wrap;gap:8px;padding:10px 28px;align-items:center;border-right:var(--border)}
+.ctrl-group:last-child{border-right:none}
+.ctrl-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-right:2px}
+.tab,.filter-btn{background:var(--paper);border:var(--border);color:var(--black);padding:6px 16px;font-family:inherit;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;box-shadow:3px 3px 0 var(--black);cursor:pointer;transition:transform .1s,box-shadow .1s}
+.tab:hover,.filter-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
+.tab.active,.filter-btn.active{background:var(--yellow);transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
 
 /* MAIN */
-.main{padding:24px 32px;max-width:1200px;margin:0 auto}
+.main{padding:20px 28px;max-width:1200px;margin:0 auto}
 
-/* REPORT CARD */
-.report{border:var(--border);box-shadow:var(--shadow-lg);background:var(--paper);margin-bottom:24px}
-.report-head{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:var(--border);background:var(--black);color:var(--yellow)}
+/* REPORT */
+.report{border:var(--border);box-shadow:var(--shadow);background:var(--paper);margin-bottom:20px}
+.report[hidden]{display:none}
+.report-head{padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:var(--border);background:var(--black);color:var(--yellow);width:100%}
 .report-head:hover{background:#111}
 .report-date{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa}
 .report-cat{font-size:11px;font-weight:900;padding:2px 8px;border:1px solid var(--yellow);color:var(--yellow);letter-spacing:1px;text-transform:uppercase}
-.report-resumen{font-size:12px;color:#ccc;margin-top:4px;max-width:700px;line-height:1.5}
-.report-badges{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap}
-.pill{font-size:11px;padding:4px 10px;border:2px solid var(--yellow);color:var(--yellow);font-weight:700;letter-spacing:1px;white-space:nowrap}
-.chev{font-size:18px;color:var(--yellow);transition:.2s;font-weight:900}
-.report.open .chev{transform:rotate(90deg)}
-.report-body{display:none;padding:20px}
-.report.open .report-body{display:block}
-.fuentes{font-size:11px;color:#666;border-bottom:2px dashed var(--black);padding-bottom:12px;margin-bottom:20px;line-height:1.6}
+.report-resumen{font-size:12px;color:#ccc;margin-top:4px;max-width:680px;line-height:1.5}
+.report-badges{display:flex;gap:6px;align-items:center;flex-shrink:0;flex-wrap:wrap}
+.pill{font-size:11px;padding:3px 9px;border:2px solid var(--yellow);color:var(--yellow);font-weight:700;letter-spacing:1px;white-space:nowrap}
+.chev{font-size:16px;color:var(--yellow);transition:transform .2s;font-weight:900;display:inline-block}
+.report-head[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.report-body{padding:18px}
+.report-body[hidden]{display:none}
+.fuentes{font-size:11px;color:#666;border-bottom:2px dashed #ccc;padding-bottom:10px;margin-bottom:18px;line-height:1.6}
 
-/* OPP CARD */
-.opp{border:var(--border);background:var(--paper);margin-bottom:14px}
-.opp.destacada{border-color:var(--green);border-width:4px;box-shadow:6px 6px 0 var(--green)}
-.opp.seguimiento{border-color:var(--orange);border-width:4px;box-shadow:6px 6px 0 var(--orange)}
-.opp-banner{display:none;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;text-align:center;border-bottom:3px solid var(--black)}
-.opp.destacada .opp-banner{display:block;background:var(--green);color:#fff}
-.opp.seguimiento .opp-banner{display:block;background:var(--orange);color:#fff}
-.opp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px 10px;border-bottom:2px solid #ddd;cursor:pointer}
+/* OPP */
+.opp{border:var(--border);background:var(--paper);margin-bottom:12px}
+.opp[hidden]{display:none}
+.opp.destacada{border-color:var(--green);border-width:4px;box-shadow:5px 5px 0 var(--green)}
+.opp.seguimiento{border-color:var(--orange);border-width:4px;box-shadow:5px 5px 0 var(--orange)}
+.opp-banner{font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;text-align:center;border-bottom:3px solid var(--black)}
+.dest-banner{background:var(--green);color:#fff}
+.seg-banner{background:var(--orange);color:#fff}
+.opp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:10px 12px 8px;border-bottom:2px solid #ddd;width:100%}
 .opp-head:hover{background:#f7f3e6}
-.opp-name{font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.5px}
+.opp-name{font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
 .opp-axes{font-size:11px;color:#777;margin-top:3px}
-.score{font-weight:900;font-size:17px;padding:5px 12px;border:var(--border);white-space:nowrap;min-width:66px;text-align:center;line-height:1.2}
-.score.destacada{background:var(--green);color:#fff;border-color:var(--green);font-size:20px}
+.score{font-weight:900;font-size:16px;padding:5px 11px;border:var(--border);white-space:nowrap;min-width:62px;text-align:center;flex-shrink:0}
+.score.destacada{background:var(--green);color:#fff;border-color:var(--green);font-size:19px}
 .score.high{background:#e8f7ef;color:var(--green);border-color:var(--green)}
 .score.mid{background:#fffbe6;color:#7a6000;border-color:#b89a00}
 .score.low{background:#eee;color:#777;border-color:#bbb}
-.opp-body{display:none;padding:14px}
-.opp.open .opp-body{display:block}
+.opp-body{padding:14px}
+.opp-body[hidden]{display:none}
 .opp-desc{font-size:13px;line-height:1.7;margin-bottom:12px;color:#222}
-.box{padding:10px 14px;font-size:12px;margin-bottom:10px;line-height:1.6;border-left:4px solid}
+.box{padding:9px 13px;font-size:12px;margin-bottom:9px;line-height:1.6;border-left:4px solid}
 .box.why{background:#FFFBE8;border-color:var(--yellow)}
 .box.chile{background:#fff0f0;border-color:var(--red)}
-.box strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;opacity:.7}
-.opp-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
-.conf{font-size:11px;padding:3px 10px;border:2px solid;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.box strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;opacity:.6}
+.opp-foot{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:8px;margin-bottom:2px}
+.conf{font-size:11px;padding:3px 9px;border:2px solid;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .conf-alta{border-color:var(--green);color:var(--green)}
 .conf-media{border-color:#cc8800;color:#cc8800}
 .conf-baja{border-color:var(--red);color:var(--red)}
-.tag-seg{font-size:11px;padding:3px 10px;background:var(--orange);color:#fff;font-weight:700;letter-spacing:1px}
-.src-link{display:inline-block;font-size:11px;padding:4px 12px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;border:2px solid var(--black);letter-spacing:.5px;box-shadow:2px 2px 0 var(--black)}
+.tag-seg{font-size:11px;padding:3px 9px;background:var(--orange);color:#fff;font-weight:700;letter-spacing:1px}
+.src-link{display:inline-block;font-size:11px;padding:4px 11px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;border:2px solid var(--black);letter-spacing:.5px;box-shadow:2px 2px 0 var(--black)}
 .src-link:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black)}
 
 /* PASOS */
-.pasos{background:var(--black);color:var(--yellow);padding:14px;margin-top:12px;border:2px solid var(--yellow)}
-.pasos h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;border-bottom:1px solid #555;padding-bottom:6px;color:#fff}
-.paso{display:flex;gap:10px;margin-bottom:9px;font-size:12px;line-height:1.6;color:#e8e8e8}
-.paso-num{background:var(--yellow);color:var(--black);font-weight:900;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+.pasos{background:var(--black);color:var(--yellow);padding:12px;margin-top:12px;border:2px solid var(--yellow)}
+.pasos h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:9px;border-bottom:1px solid #444;padding-bottom:5px;color:#fff}
+.paso{display:flex;gap:9px;margin-bottom:8px;font-size:12px;line-height:1.6;color:#e8e8e8}
+.paso-num{background:var(--yellow);color:var(--black);font-weight:900;min-width:21px;height:21px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
 
-/* SEGUIMIENTO BLOCK */
+/* SEGUIMIENTO */
 .seg-block{border:3px solid var(--orange);background:#fff8f0;margin-top:12px}
-.seg-head{background:var(--orange);color:#fff;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.seg-head span{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.seg-body{display:none;padding:14px}
-.seg-block.open .seg-body{display:block}
-.palanca{background:var(--black);color:var(--yellow);padding:10px 14px;margin-bottom:12px;border-left:4px solid var(--yellow)}
-.palanca strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;color:#aaa}
+.seg-head{background:var(--orange);color:#fff;padding:7px 13px;display:flex;justify-content:space-between;align-items:center;width:100%}
+.seg-head span:first-child{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.seg-chev{font-size:14px;font-weight:900;transition:transform .2s;display:inline-block}
+.seg-head[aria-expanded="true"] .seg-chev{transform:rotate(90deg)}
+.seg-body{padding:12px}
+.seg-body[hidden]{display:none}
+.seg-act{font-size:11px;color:#888;margin-bottom:10px;border-bottom:1px dashed #ccc;padding-bottom:8px}
+.palanca{background:var(--black);color:var(--yellow);padding:9px 13px;margin-bottom:11px;border-left:4px solid var(--yellow)}
+.palanca strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;color:#aaa}
 .palanca p{font-size:13px;line-height:1.6}
-.replicate-title{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:900;margin-bottom:8px;color:#555}
-.replicate-item{display:flex;gap:10px;margin-bottom:8px;font-size:12px;line-height:1.6}
-.replicate-num{background:var(--orange);color:#fff;font-weight:900;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
-.timeline-title{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:900;margin-top:12px;margin-bottom:8px;color:#555}
-.tl-item{display:flex;gap:8px;font-size:11px;margin-bottom:5px;line-height:1.5}
-.tl-dot{width:8px;height:8px;background:var(--orange);border:2px solid var(--black);flex-shrink:0;margin-top:4px}
+.replicate-title,.tl-title{font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:900;margin-bottom:7px;color:#555}
+.tl-title{margin-top:11px}
+.replicate-item{display:flex;gap:9px;margin-bottom:7px;font-size:12px;line-height:1.6}
+.r-num{background:var(--orange);color:#fff;font-weight:900;min-width:21px;height:21px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+.tl-item{display:flex;gap:7px;font-size:11px;margin-bottom:5px;line-height:1.5}
+.tl-dot{width:7px;height:7px;background:var(--orange);border:2px solid var(--black);flex-shrink:0;margin-top:4px}
 
 /* MISC */
-.empty{font-size:13px;color:#aaa;padding:40px;text-align:center;text-transform:uppercase;letter-spacing:2px}
-.footer{background:var(--black);color:#666;font-size:11px;padding:14px 32px;text-align:center;letter-spacing:1px;text-transform:uppercase;border-top:var(--border);margin-top:32px}
+.empty{font-size:13px;color:#aaa;padding:36px;text-align:center;text-transform:uppercase;letter-spacing:2px}
+.footer{background:var(--black);color:#666;font-size:11px;padding:13px 28px;text-align:center;letter-spacing:1px;text-transform:uppercase;border-top:var(--border);margin-top:28px}
 </style>
 </head>
-<body>
+<body data-dest="15">
 
 <div class="header">
   <div>
     <div style="display:flex;align-items:center;gap:12px">
       <h1>&#9889; Inteligencia de Negocios</h1>
-      <span class="badge-chile">&#127464;&#127473; CHILE</span>
+      <span class="badge-chile">&#127464;&#127473; Chile</span>
     </div>
-    <div class="stamp">Ultima actualizacion: 2026-06-03 21:03 &middot; Agente Claude automatico</div>
+    <div class="stamp">Actualizado: 2026-06-03 21:10 &middot; Agente Claude</div>
   </div>
-  <div style="text-align:right">
-    <div style="font-size:26px;font-weight:900;color:#fff">WED 03 JUN</div>
-    <div style="font-size:11px;color:#aaa;letter-spacing:1px">SCORE /20 &middot; PASOS ACCIONABLES</div>
+  <div class="header-right">
+    <div class="header-date">WED 03 JUN 2026</div>
+    <div class="header-sub">Score /20 &middot; Pasos accionables</div>
   </div>
 </div>
 
 <div class="legend">
-  <span><span class="ldot" style="background:#008A57;border-color:#008A57"></span>DESTACADA &ge;15 &mdash; pasos de acci&oacute;n incluidos</span>
-  <span><span class="ldot" style="background:#e8f7ef;border-color:#008A57"></span>BUENA &ge;13</span>
-  <span><span class="ldot" style="background:#fffbe6;border-color:#b89a00"></span>MEDIA 10&ndash;12</span>
-  <span><span class="ldot" style="background:#eee;border-color:#bbb"></span>EXPLORAR &lt;10</span>
+  <span><span class="ldot" style="background:#008A57;border-color:#008A57"></span>Destacada &ge;15</span>
+  <span><span class="ldot" style="background:#e8f7ef;border-color:#008A57"></span>Buena &ge;13</span>
+  <span><span class="ldot" style="background:#fffbe6;border-color:#b89a00"></span>Media 10&ndash;12</span>
+  <span><span class="ldot" style="background:#eee;border-color:#bbb"></span>Explorar &lt;10</span>
   <span style="margin-left:auto;color:#FFE600">&#9733; = Con seguimiento de crecimiento</span>
 </div>
 
-<div class="stats-bar" id="stats"></div>
-<div class="tabs" id="tabs"></div>
-<div class="filters">
-  <label>Filtrar:</label>
-  <button class="filter-btn active" onclick="setFilter('all')">TODAS</button>
-  <button class="filter-btn" onclick="setFilter('destacada')">DESTACADAS &ge;15</button>
-  <button class="filter-btn" onclick="setFilter('seguimiento')">CON SEGUIMIENTO</button>
-  <button class="filter-btn" onclick="setFilter('alta')">CONFIANZA ALTA</button>
+<div class="stats-bar">
+<div class="stat"><div class="num">3</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">21</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">9</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">14.5</div><div class="lbl">Score prom.</div></div>
+<div class="stat"><div class="num red">5</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num" style="font-size:14px">2026-06-03</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
+
+<div class="controls">
+  <div class="ctrl-group"><span class="ctrl-label">Categor&iacute;a:</span><button class="tab active" data-tab="all" onclick="setTab('all')">TODAS</button><button class="tab" data-tab="oportunidades" onclick="setTab('oportunidades')">OPORTUNIDADES DE NEGOCIO</button><button class="tab" data-tab="inmobiliario" onclick="setTab('inmobiliario')">MARKETING INMOBILIARIO</button></div>
+  <div class="ctrl-group">
+    <span class="ctrl-label">Filtro:</span>
+    <button class="filter-btn active" data-filter="all"        onclick="setFilter('all')">TODAS</button>
+    <button class="filter-btn"        data-filter="destacada"  onclick="setFilter('destacada')">DESTACADAS &ge;15</button>
+    <button class="filter-btn"        data-filter="seguimiento" onclick="setFilter('seguimiento')">CON SEGUIMIENTO</button>
+    <button class="filter-btn"        data-filter="alta"       onclick="setFilter('alta')">CONFIANZA ALTA</button>
+  </div>
 </div>
-<div class="main" id="content"></div>
-<div class="footer">Generado por agentes remotos Claude &middot; repo: maolivare-max/inteligencia-negocios &middot; <span id="count"></span></div>
+
+<div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-03">
+  <button class="report-head" onclick="togRep('rep-oportunidades-2026-06-03')" aria-expanded="false">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-06-03</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">Dos casos con tracción excepcional verificada (Leadmore AI en $1M ARR, Robopost en $55K MRR, ambos fundadores solos) más cinco oportunidades replicables. La señal dominante: distribución comunitaria orgánica (Reddit, LinkedIn) como canal sin costo supera a los canales pagos en velocidad de validación para productos B2B.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">7 IDEAS</span>
+      <span class="pill">PROM 13.6</span>
+      <span class="pill">&#9733; 2 SEGUIM.</span>
+      <span class="chev">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-06-03" hidden>
+    <div class="fuentes">FUENTES: 14 (Indie Hackers, Product Hunt Junio 2026, YC RFS Spring+Summer 2026, Starter Story, robopost.app/blog, MicroFounder, BuiltWithAgents.ai, Superframeworks, BoringCashCow, entrepreneurloop.com, easyai.indevs.in, GetLatka, PainOnSocial, VC Cafe)</div>
+    
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Herramienta de Distribución y Marketing vía Reddit</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Defensibilidad 3 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-0" hidden>
+    <p class="opp-desc">SaaS/tool que usa IA para monitorear conversaciones en Reddit, identificar posts con alta intención de compra, y generar respuestas contextuales auténticas vía cuentas de alto karma gestionadas por el sistema. Precio: crédito-based, entrada ~$10, heavy users pagan $200–$500/mes.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Leadmore AI (Richard Wang, solo fundador) pasó de $0 a $30K MRR en 4 meses y hoy supera $1M ARR — sin invertir un solo dólar en marketing pagado. La adquisición fue 100% Reddit-orgánica. El canal tiene 1.900M de usuarios, intención de búsqueda nativa y audiencia B2B activa. Reddit indexa bien en Google, convirtiendo cada comentario útil en SEO residual. El modelo de precios crédito-based con entrada ultra-baja ($9.90) maximiza conversión sin sacrificar ARPU.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/i-built-a-reddit-marketing-product-leadmore-ai-and-it-just-crossed-1m-arr-f8b758eb1a" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Versión accesible sin construir tecnología: ofrece &quot;Reddit monitoring + respuestas borrador&quot; como servicio gestionado para una sola industria (ej. SaaS de RRHH o herramientas de productividad). Cobra $500/mes por 50 respuestas/mes. Valida con 3 clientes antes de automatizar.</span></div><div class="paso"><span class="paso-num">2</span><span>Con 3 clientes validados: construye el tool con Claude API para clasificar posts y generar borradores. Reddit API pública + scraping de subreddits públicos.</span></div><div class="paso"><span class="paso-num">3</span><span>Lanza el SaaS a $29/mes con acceso básico. Canal de adquisición: posts propios en r/SaaS y r/Entrepreneur explicando el problema en primera persona.</span></div></div>
+  <div class="seg-block" id="seg-oportunidades-2026-06-03-0-seg">
+    <button class="seg-head" onclick="tog('seg-oportunidades-2026-06-03-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Leadmore AI (Richard Wang)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" hidden>
+      <p class="seg-act">Activado por: ARR documentado $1M+ siendo ≤ 2 personas · $0 a $30K MRR en 4 meses</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>El fundador construyó autoridad en Reddit meses antes del lanzamiento y distribuyó el producto exactamente donde vivía la audiencia. El canal de distribución del producto era el mismo canal donde el fundador ya era referente.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Elige un subreddit de ≥50K miembros donde tu cliente ideal esté activo (ej. r/SaaS, r/LegalAdvice, r/personalfinance). Pasa 30 días respondiendo preguntas con valor real sin mencionar ningún producto. Ese capital social se convierte en distribución gratuita al lanzar.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Implementa precios crédito-based con entrada ultra-baja ($9–$15) en vez de freemium. Reduce la fricción del primer pago, califica al cliente real, y luego sube el ARPU con el uso. El modelo de Leadmore AI demuestra que entry price bajo + heavy use pricing maximiza conversión y LTV simultáneamente.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0 (mid-2024): Lanzamiento. MVP con safe-publishing y base de datos de subreddits.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes ~4 (Oct 2024): $30K MRR — documentado en post Indie Hackers.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes ~6 (Dic 2024): $1M ARR run rate — confirmado en segundo post Indie Hackers.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Q1 2025: Pricing unificado global, descuento de entrada $9.90, feature de comment timing.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2026: $1M+ ARR sostenido. Discord activo con fundador respondiendo en horas.</span></div><div class="tl-item"><span class="tl-dot"></span><span>*Nota: no se publicaron fechas exactas de $1K y $10K MRR. El ritmo de $0→$30K en 4 meses sugiere $10K MRR alrededor del mes 2–3.*</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="14"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Scheduler de Redes Sociales con IA</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-1" hidden>
+    <p class="opp-desc">SaaS de scheduling + generación de contenido con IA para un nicho específico de profesionales. Precio: $15–$79/mes. Meta Ads como canal de adquisición pagado escalable.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Mako (solo fundadora, Japón) construyó Robopost.app en 2 meses (FastAPI + React), escaló a $55K MRR en 12 meses usando Meta Ads y SEO. Añadió generación de imágenes con DALL-E como diferenciador de retención. Márgenes &gt;80%. El mercado de gestión de redes sociales para pymes es un dolor crónico y pagable; la clave es que Meta Ads tiene el mejor CAC payback para SaaS con precio $30–$80/mes.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://robopost.app/blog/the-journey-of-building-robopost-how-i-grew-to-55k-mrr-in-one-year/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Nicho diferenciador: scheduler para agentes inmobiliarios latinoamericanos o clínicas dentales. Función clave: genera posts con descripción de propiedades o casos clínicos automáticamente desde una URL o formulario simple.</span></div><div class="paso"><span class="paso-num">2</span><span>MVP en 4–6 semanas: Next.js + Claude API para generación de contenido + integración directa con Meta/Instagram Business API. No construyas desde cero el scheduling — usa SocialBee o Buffer API como backend.</span></div><div class="paso"><span class="paso-num">3</span><span>Lanza Meta Ads con $200 de test, 3 variantes de creativos. Si CPL &lt; $20, escala. Mako iteró 2–3 meses de campañas antes de encontrar el target correcto — es un proceso, no un botón.</span></div></div>
+  <div class="seg-block" id="seg-oportunidades-2026-06-03-1-seg">
+    <button class="seg-head" onclick="tog('seg-oportunidades-2026-06-03-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Robopost (Mako)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" hidden>
+      <p class="seg-act">Activado por: ARR ~$660K siendo 1 persona (criterio: ARR documentado &gt; $500K, ≤ 2 personas en equipo)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>Meta Ads es el canal de adquisición más eficiente para SaaS con precio $30–$80/mes dirigido a SMBs o profesionales independientes — no LinkedIn ni Google. Mako lo descubrió en sus primeros 3 meses y lo escaló sin cambiar de canal.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Para SaaS con precio $30–$100/mes dirigido a profesionales o pymes, prueba Meta Ads antes que Google Ads o LinkedIn. El CAC payback es mejor en este rango de precio. Comienza con $200/mes y 3 creativos distintos — no con una sola campaña perfecta.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Añade generación de contenido con IA desde el día 1. En 2026, los usuarios de schedulers esperan que el producto cree el contenido, no solo lo programe. Es el diferenciador de retención más poderoso del segmento.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0–2: Construcción del MVP (FastAPI backend + ReactJS). Primeros clientes de red personal — dueños de negocio que confiaban en Mako antes de que hubiera producto.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 3–6: Experimentos con Meta Ads. CPL inicialmente alto; iteración continua de creativos y audiencias.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 8–10: Meta Ads escala correctamente. SEO orgánico empieza a contribuir tráfico.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 12: $55K MRR ($660K ARR). 1 sola persona.</span></div><div class="tl-item"><span class="tl-dot"></span><span>*Nota: fechas exactas de $1K MRR y $10K MRR no publicadas en fuentes verificables.*</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">LinkedIn Outreach Chrome Extension para Industria Específica</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 4 · Defensibilidad 2</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-2" hidden>
+    <p class="opp-desc">Chrome extension que extrae el perfil LinkedIn del lead y genera un mensaje de cold outreach hiperpersonalizado con IA, entrenado en el lenguaje y el dolor de una sola industria. Precio: $49–$99/mes por usuario.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Un fundador construyó esta extensión enfocada exclusivamente en agentes inmobiliarios y alcanzó $4.200 MRR en 4 meses. La clave es la especialización extrema en un solo sector: los outreach tools genéricos no convierten, los hipersegmentados sí porque el mensaje suena nativo al receptor. El mercado de sales teams y founders que hacen outbound manual en LinkedIn es enorme.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://painonsocial.com/blog/service-business-niches" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Elige industria con compradores que usan LinkedIn activamente: recruiters especializados, mortgage brokers, AEs de SaaS, consultores de IT. Entrevista a 10 personas en 1 semana para validar el dolor de personalización manual.</span></div><div class="paso"><span class="paso-num">2</span><span>Construye con Plasmo (framework Chrome extensions) + Claude API. Tiempo estimado: 2–3 semanas para MVP funcional. El modelo: clic en perfil → genera 3 variantes de primer mensaje en el tono del sector.</span></div><div class="paso"><span class="paso-num">3</span><span>Adquisición: cold email a 200 prospectos del nicho con demo video de 60 segundos mostrando output real. Precio: $49/mes. Meta: $1K MRR en 30 días (21 usuarios).</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Vertical SaaS de Compliance para Sectores Regulados</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-3" hidden>
+    <p class="opp-desc">Software de gestión de compliance y documentación para un sector con obligaciones regulatorias específicas: consultorios dentales, guarderías, food trucks, servicios de limpieza. Precio: $49–$299/mes. Lock-in natural una vez que el historial de cumplimiento vive en el sistema.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Auxpanel (dental compliance, EE.UU.) alcanzó $30K–$50K MRR bootstrapped. La ecuación económica es simple: el costo promedio de una multa por inspección fallida en una pyme es $5K–$50K; pagar $99/mes para evitarla es una decisión racional sin negociación. El mercado es grande, boring, y sin penetración de software — la mayoría de operadores usan papel o Excel.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://bigideasdb.com/guides/profitable-micro-saas-ideas-2026-solo-founder" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Elige 1 sector + 1 jurisdicción (ej. guarderías en Chile bajo normativa JUNJI, clínicas dentales bajo MINSAL). Entrevista a 10 dueños — si 5 de 10 mencionan auditorías como problema activo, hay mercado.</span></div><div class="paso"><span class="paso-num">2</span><span>MVP: checklist digital de inspección + generador de actas en PDF + historial de cumplimiento. No-code viable: Glide o Bubble + Claude API para el resumen de estado. Tiempo: 3–4 semanas.</span></div><div class="paso"><span class="paso-num">3</span><span>Canal de adquisición no competitivo: newsletters o eventos de los gremios sectoriales (ASOFARMA, cámaras de guarderías, asociaciones de clínicas). Un email al newsletter del gremio equivale a 500 dueños calificados sin costo de ads.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Virtual Staging con IA</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 5 · Defensibilidad 2</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-4" hidden>
+    <p class="opp-desc">Servicio que toma fotos de propiedades vacías o mal amuebladas y entrega imágenes con mobiliario virtual generado con IA en menos de 2 horas. Precio: $25–$50 por imagen o $199–$499/mes por agente en subscripción. Arranca como servicio manual y se automatiza con clientes.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Propiedades con staging virtual se venden 73% más rápido; listings con staging IA generan 40% más leads documentados. El staging físico cuesta $500–$5.000 por propiedad; el virtual cuesta $15–$50. Las APIs de producción (Lift My Place a $0.60/imagen, ZSky AI) permiten lanzar el servicio esta semana sin construir tecnología propia. El ROI es cuantificable y fácil de mostrar en el pitch.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><a class="src-link" href="https://aivideobootcamp.com/blog/ai-virtual-staging-real-estate-guide-2026/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Regístrate en Lift My Place o ZSky AI. Procesa 5 fotos de propiedades de portales públicos (Portalinmobiliario.cl) como demo con antes/después. Costo total: &lt; $5.</span></div><div class="paso"><span class="paso-num">2</span><span>Contacta 20 agentes en LinkedIn con el antes/después como mensaje de apertura. Precio de validación: $25/imagen o $199/mes por 10 imágenes al mes. Meta: 5 clientes pagos en 2 semanas.</span></div><div class="paso"><span class="paso-num">3</span><span>Con 10 clientes activos: automatiza con Zapier (agente sube fotos → API → entrega por email en &lt; 2 horas). El operador puede manejar 30–50 clientes en paralelo con &lt; 2 horas/día de trabajo manual.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agencia B2B de Producción de Podcasts</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Defensibilidad 2</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-5" hidden>
+    <p class="opp-desc">Agencia que gestiona end-to-end el podcast de una empresa B2B: estrategia, invitados, edición, distribución, repurposing. Precio recurrente: $3.000–$8.000/mes por cliente. Con 5 clientes: $15K–$40K MRR.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Las empresas B2B usan podcasts como generador de pipeline (cada episodio es una excusa para contactar a un cliente potencial como invitado). El mercado de producción profesional está creciendo pero dominado por agencias grandes; el segmento SMB/startup está desatendido. La IA (Descript, ElevenLabs, Claude) reduce el tiempo de edición y notas en 70–80%, haciendo el modelo rentable para 1 persona con 4–6 clientes.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.podmuse.com/post/b-2-b-podcast-production-agency" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Nicho de entrada: startups SaaS de 10–50 empleados con fundador activo en LinkedIn pero sin podcast. LinkedIn Sales Navigator: filtra &quot;SaaS&quot; + busca manualmente quién habla en newsletters o eventos pero no tiene show.</span></div><div class="paso"><span class="paso-num">2</span><span>Paquete de lanzamiento: $1.500 fijo por los primeros 3 episodios (grabación en Riverside.fm, edición en Descript + Claude para notas y clips, distribución en Buzzsprout). Después: retainer $3.000/mes por 2 episodios/mes.</span></div><div class="paso"><span class="paso-num">3</span><span>Pitch: &quot;Tu podcast es el pretexto para contactar a tu próximo cliente o socio como invitado. Cada episodio es un pipeline activo.&quot; Convierte el costo en herramienta de ventas, no en gasto de marketing.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-03-6')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Software Vertical para Industrias &quot;Aburridas&quot; (Metal Mills / Field Service)</div>
+      <div class="opp-axes">Factibilidad 2 · Impacto 5 · Velocidad 2 · Defensibilidad 3</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-03-6" hidden>
+    <p class="opp-desc">ERP ligero / gestión de operaciones para sectores industriales sin software moderno: talleres de metal, empresas de mantenimiento de flota, servicios de campo técnico. Precio: $300–$2.000/mes por empresa. YC RFS Spring+Summer 2026 lo solicita explícitamente.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Talleres de metal y empresas industriales operan con Excel y papel. Lead times de 8–30 semanas por planificación manual deficiente. Alta disposición a pagar por software que funcione porque el dolor es crónico y los competidores actuales son sistemas legacy de $50K+/año. YC cita que tiendas de metal con márgenes de $2M+ anuales se gestionan con hojas de cálculo — es el tipo de mercado donde un solo founder con SaaS moderno puede dominar verticalmente.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Habla con 5 dueños de taller o gerentes de operaciones antes de escribir una línea de código. Una sola pregunta: &quot;¿qué parte de tu operación te hace perder más dinero actualmente?&quot; Si la respuesta apunta a scheduling/quoting/tracking: hay mercado.</span></div><div class="paso"><span class="paso-num">2</span><span>MVP en 6–8 semanas: cotizador automático + tracking de pedidos + notificaciones al cliente final. No-code si el proceso es simple (Glide + Airtable). Cobra $299/mes desde el piloto — no regales acceso.</span></div><div class="paso"><span class="paso-num">3</span><span>Canal de adquisición: asociaciones industriales (Chile: ASIMET para metalurgia, Cámara Chilena de la Construcción para contratistas). LinkedIn buscando &quot;gerente producción&quot; + &quot;dueño taller&quot;. El canal es lento pero los contratos son grandes y el churn es bajo.</span></div></div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-06-01">
+  <button class="report-head" onclick="togRep('rep-inmobiliario-2026-06-01')" aria-expanded="false">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-06-01</span>
+        <span class="report-cat">Marketing Inmobiliario</span>
+      </div>
+      <div class="report-resumen">El video corto + IA de respuesta instantánea son hoy el mayor diferenciador de leads; en Chile solo las inmobiliarias top los están usando bien, lo que deja ventana abierta para corredores ágiles.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 16.0</span>
+      
+      <span class="chev">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-inmobiliario-2026-06-01" hidden>
+    <div class="fuentes">FUENTES: ~15 (Chile: Muller y Pérez, Neohaus, Houm, Dataprop, Portal Innova, Grupo Colibrí PropTech, Assetplan · Mundo: NAR, The Close, HousingWire, Luxury Presence, TikTok for Business, Jamil Academy, Virtuance, HomeStack)</div>
+    
+<div class="opp destacada"
+     data-score="18"
+     data-seg="0"
+     data-conf="alta">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Respuesta instantánea con chatbot IA (lead en &lt;60 seg)</div>
+      <div class="opp-axes">Leads 5 · Implementación 5 · Costo-eficiencia 5 · Innovación 3</div>
+    </div>
+    <div class="score destacada">18/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-0" hidden>
+    <p class="opp-desc">Un chatbot con IA en el sitio/landing y WhatsApp que responde, califica y agenda 24/7, en lugar del formulario estático.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>NAR documenta que **78% de los compradores trabajan con el primer agente que responde**, y el tiempo promedio de respuesta del agente es **&gt;15 horas**. Cerrar esa brecha captura leads que hoy se pierden. Costo: $50–$200/mes.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><a class="src-link" href="https://www.spurnow.com/en/blogs/ai-chatbot-for-real-estate-lead-qualification" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Instala un chatbot (ej. Tidio, Landbot o uno con WhatsApp Business API) conectado a tu CRM. Setup en 1 día.</span></div><div class="paso"><span class="paso-num">2</span><span>Carga 10 preguntas de calificación (presupuesto, plazo, financiamiento pre-aprobado, comuna).</span></div><div class="paso"><span class="paso-num">3</span><span>Regla de oro: todo lead nuevo recibe respuesta automática &lt;60 seg + handoff a humano si califica.</span></div></div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="17"
+     data-seg="0"
+     data-conf="alta">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Video corto multi-plataforma (filmar 1 vez, publicar en TikTok+Reels+Shorts)</div>
+      <div class="opp-axes">Leads 5 · Implementación 4 · Costo-eficiencia 5 · Innovación 3</div>
+    </div>
+    <div class="score destacada">17/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-1" hidden>
+    <p class="opp-desc">Guías de barrio y tours de 60 seg grabados una vez y distribuidos el mismo día en TikTok, Reels y Shorts.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Los **video listings aumentan las consultas en 403%**. Solo **12% de los agentes están en TikTok vs. 92% en Facebook** → arbitraje de atención. La autenticidad supera a la producción pulida.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><a class="src-link" href="https://www.jamilacademy.com/blog/tiktok-real-estate-leads" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Graba 3 &quot;guías de barrio&quot; de 60 seg de tus comunas objetivo (Vitacura, Ñuñoa, etc.): precios, colegios, comercio, tu comentario de tasación.</span></div><div class="paso"><span class="paso-num">2</span><span>Publica las 3 en la misma hora en TikTok, Reels y Shorts. Benchmark: 3 reels/semana durante 90 días.</span></div><div class="paso"><span class="paso-num">3</span><span>Pon un CTA claro (&quot;escríbeme &#x27;BARRIO&#x27; por DM&quot;) y conéctalo al chatbot del punto 1.</span></div></div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="media-alta">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Home staging virtual con IA</div>
+      <div class="opp-axes">Leads 4 · Implementación 5 · Costo-eficiencia 5 · Innovación 2</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-2" hidden>
+    <p class="opp-desc">Transformar fotos de propiedades vacías o anticuadas en interiores modernos con IA, en 30–90 segundos por imagen.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**+200% en solicitudes de visita**, **−50% en tiempo de publicación**, a un costo **70–80% menor** que el staging físico ($10–$50 por propiedad vs. miles).</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta</span><a class="src-link" href="https://www.virtuance.com/blog/real-estate-marketing-trends-strategies-2026/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Toma tus 3 listings con peores fotos (vacíos o desactualizados).</span></div><div class="paso"><span class="paso-num">2</span><span>Pásalos por REimageHome o Virtual Staging AI ($10–$50). Declara siempre &quot;imagen con staging virtual&quot;.</span></div><div class="paso"><span class="paso-num">3</span><span>Re-publica en Portalinmobiliario/Toctoc y mide el cambio en clics y consultas a 14 días.</span></div></div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="media-alta">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Tours virtuales 360° como pre-calificador</div>
+      <div class="opp-axes">Leads 4 · Implementación 3 · Costo-eficiencia 4 · Innovación 5</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-3" hidden>
+    <p class="opp-desc">Recorrido 360°/3D que deja al cliente pre-calificar la propiedad sin visita física.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Conversión **3.2x superior** a fotos tradicionales. Inmobiliaria Aconcagua (Chile) sumó **+35% de leads calificados** con drone + tours interactivos. Mejora el ratio visita→oferta porque quien pide visita ya viene interesado.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta</span><a class="src-link" href="https://aceleradorarealestate.com/blog/cl/marketing-digital-inmobiliario.html" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Para tus 3 listings de mayor ticket, graba un tour con Matterport o una app 360° de celular.</span></div><div class="paso"><span class="paso-num">2</span><span>Embebe el tour en la ficha y en un Reel (&quot;recorre esta casa sin salir de tu sofá&quot;).</span></div><div class="paso"><span class="paso-num">3</span><span>Exige el tour visto antes de agendar visita presencial → filtra curiosos.</span></div></div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="15"
+     data-seg="0"
+     data-conf="media">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Google Ads geo-segmentado + landing por comuna</div>
+      <div class="opp-axes">Leads 5 · Implementación 3 · Costo-eficiencia 3 · Innovación 2</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-4" hidden>
+    <p class="opp-desc">Campañas de búsqueda por &quot;casas en venta + comuna&quot; con landing dedicada por zona y captura conectada al CRM.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>En Chile las corredoras concentran **67% del presupuesto digital en Google Ads** porque captura intención alta de compra. La inversión digital del sector creció **+28% YoY** (Q1 2026: $12.3B CLP) → el canal está validado por gasto real.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.mulleryperez.cl/blog/tendencias-de-marketing-digital-por-sector-en-chile-2026-inmobiliario-salud-fint" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Crea 1 landing por comuna objetivo con tour 360° + chatbot + formulario corto.</span></div><div class="paso"><span class="paso-num">2</span><span>Lanza campaña de búsqueda con keywords de intención (&quot;departamento en venta Ñuñoa 2 dormitorios&quot;). Presupuesto de prueba: $150–$300 USD.</span></div><div class="paso"><span class="paso-num">3</span><span>Mide CPL real por comuna y reasigna al ganador a los 10 días.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-inmobiliario-2026-06-01-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Nurturing por WhatsApp + email (7.3 touchpoints)</div>
+      <div class="opp-axes">Leads 4 · Implementación 4 · Costo-eficiencia 4 · Innovación 2</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-inmobiliario-2026-06-01-5" hidden>
+    <p class="opp-desc">Secuencia automatizada de seguimiento que acompaña al lead durante el ciclo de ~45 días hasta la consulta calificada.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Un usuario necesita en promedio **7.3 puntos de contacto** antes de una consulta calificada; **WhatsApp Business y email son los canales de nurturing más efectivos** en Chile. Sin secuencia, el 90% de los leads se enfrían.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.mulleryperez.cl/blog/marketing-inmobiliario-agencia-marketing-digital-chile-2025" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Arma una secuencia de 7 mensajes (mezcla WhatsApp + email) repartidos en 45 días: valor primero (guía de financiamiento, comparativa de comunas), venta después.</span></div><div class="paso"><span class="paso-num">2</span><span>Automatízala desde tu CRM o con una herramienta como Follow Up Boss / kvCORE / un flujo en n8n.</span></div><div class="paso"><span class="paso-num">3</span><span>Marca el lead como &quot;caliente&quot; cuando responda 2+ veces y pásalo a llamada.</span></div></div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-05-30">
+  <button class="report-head" onclick="togRep('rep-oportunidades-2026-05-30')" aria-expanded="false">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-05-30</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El modelo &quot;usa IA internamente y cobra por el resultado, no por el acceso&quot; domina las señales de 2026 — YC lo pide explícitamente, el mercado lo valida, y los costos de arranque son mínimos.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">8 IDEAS</span>
+      <span class="pill">PROM 14.2</span>
+      <span class="pill">&#9733; 3 SEGUIM.</span>
+      <span class="chev">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-05-30" hidden>
+    <div class="fuentes">FUENTES: ~18 (Indie Hackers, Hacker News, Reddit, Product Hunt Mayo 2026, YC Spring+Summer 2026 RFS, GetLatka, Starter Story, GitHub Gist AI Playbook, Fortune, Jobboardly, Acquire.com, Upwork, Superframeworks, VC Cafe, Medium/blogs especializados)</div>
+    
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="media-alta">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agencia de Automatización con IA (Productized Service)</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 4 · Velocidad 5 · Defensibilidad 2</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-0" hidden>
+    <p class="opp-desc">Usas AI (Claude, GPT-4o, n8n, Make) para entregar trabajo terminado — pipelines de contenido, automatizaciones de CRM, reportes automatizados — y cobras $1.500–$5.000/mes por cliente en retainer.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Upwork reporta +27% de demanda YoY para freelancers con skills de AI automation (mayo 2026). YC Summer 2026 RFS lo formula textualmente: &quot;Don&#x27;t sell access to an AI tool for $50/mo. Use the AI yourself and sell the finished work for $5,000.&quot;</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta</span><a class="src-link" href="https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Elige un dolor específico con comprador claro. Valida con 5 posts en LinkedIn describiendo el problema.</span></div><div class="paso"><span class="paso-num">2</span><span>Construye un pipeline demo en n8n o Make con Claude API en &lt;48h.</span></div><div class="paso"><span class="paso-num">3</span><span>Cobra $1.500/mes de entrada. Primer cliente en 30 días vía LinkedIn Sales Navigator o Slack communities del nicho.</span></div></div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Producto &quot;Sube algo → IA procesa → resultado profesional&quot;</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 5 · Velocidad 3 · Defensibilidad 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-1" hidden>
+    <p class="opp-desc">El usuario sube un input (selfie, PDF, URL, audio) → la IA produce un output de valor (foto profesional, resumen, briefing). Se cobra por lote o suscripción.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>- HeadshotPro (Danny Postma): $300K/mes, cobro único $29–$69, 60% tráfico orgánico SEO.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://supabird.io/articles/danny-postma-how-a-solo-hacker-built-an-ai-empire-from-bali" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Identifica nicho con demanda pero sin competencia en español/LATAM (ej. fotos profesionales LinkedIn LATAM).</span></div><div class="paso"><span class="paso-num">2</span><span>Lanza con Replicate API + Next.js en 1 semana. Precio validación: $9–$19 por lote de 10.</span></div><div class="paso"><span class="paso-num">3</span><span>SEO de cola larga + TikTok antes/después en &lt;30 segundos.</span></div></div>
+  <div class="seg-block" id="seg-oportunidades-2026-05-30-1-seg">
+    <button class="seg-head" onclick="tog('seg-oportunidades-2026-05-30-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; HeadshotPro (Danny Postma)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" hidden>
+      <p class="seg-act">Activado por: Score 15/20 + ARR $3.6M siendo 1 persona</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>Audiencia pre-existente en Twitter/X desde la venta de Headlime + SEO agresivo en inglés en un nicho sin competencia en los primeros 90 días.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Antes de lanzar, construye audiencia en Twitter/X o LinkedIn publicando el proceso de construcción semana a semana (&quot;build in public&quot;). 500 seguidores reales valen más que $5K en ads al lanzar.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Identifica las 5 keywords principales de tu nicho, crea una página de destino optimizada por cada una antes del lanzamiento. Danny tenía SEO listo antes de tener clientes.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Nov 2022: Vende Headlime a $1M ARR → tiene audiencia y capital</span></div><div class="tl-item"><span class="tl-dot"></span><span>Dic 2022: Lanza HeadshotPro como side project</span></div><div class="tl-item"><span class="tl-dot"></span><span>Ene 2023: $100K ARR en las primeras 2 semanas</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mid 2023: $1M ARR</span></div><div class="tl-item"><span class="tl-dot"></span><span>2024: $300K/mes MRR (~$3.6M ARR)</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="media">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Job Board de Nicho</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 4 · Defensibilidad 3 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-2" hidden>
+    <p class="opp-desc">Tablero de empleo para un sector muy específico. Cobra $99–$299 por listing a empleadores. Sin código complejo.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Un fundador lanzó un job board para UX writers en 2023, llegó a $4.200/mes en 14 meses y lo vendió por $96.000.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://jakeinsight.com/side-income/2026-03-26-build-a-niche-job-board-with-revenue-from-listings/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Valida: busca en LinkedIn Jobs el nicho (últimos 30 días). Si hay ≥200 postings activos, hay mercado.</span></div><div class="paso"><span class="paso-num">2</span><span>Lanza con Job Board Fire o Niceboard ($49/mes). Setup: 2 días.</span></div><div class="paso"><span class="paso-num">3</span><span>Primeras 10 empresas por cold email al responsable de RRHH. Primer listing gratis.</span></div></div>
+  <div class="seg-block" id="seg-oportunidades-2026-05-30-2-seg">
+    <button class="seg-head" onclick="tog('seg-oportunidades-2026-05-30-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Job Board UX Writers (caso anónimo)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" hidden>
+      <p class="seg-act">Activado por: Score 15/20</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>SEO pasivo de cola larga en un nicho sin job board dedicado, con adquisición inicial 100% manual (cold email) que generó los primeros datos de tracción para el canal orgánico.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Lanza en un nicho con contratación recurrente predecible: cybersecurity, climate tech, remote nurses en LATAM. Filtra en LinkedIn Jobs — si hay &gt;200 postings en 30 días, procede.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Primeras 2 semanas: solo cold email. No gastes en SEO ni herramientas hasta tener 5 listings pagos. Valida primero, construye después.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0: Lanzamiento con 0 listings</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 1–3: $0–$400/mes (3–4 listings manuales a $99 c/u)</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 7–12: $800–$2.500/mes (mix inbound + primer tier de suscripción)</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 14: $4.200/mes → venta por $96.000 (múltiplo ~23x MRR)</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Herramienta &quot;Company Brain&quot; / IA para Gestión de Conocimiento</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 5 · Velocidad 2 · Defensibilidad 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-3" hidden>
+    <p class="opp-desc">SaaS B2B que conecta Slack, Notion, emails y docs internos, los estructura, y los convierte en un sistema de respuestas ejecutables para agentes IA. Precio: $199–$999/mes por empresa.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>YC Summer 2026 RFS lo pide explícitamente. Sin jugador dominante en el segmento SMB.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Nicho específico: agencias de marketing con conocimiento fragmentado en Slack + Notion + Drive.</span></div><div class="paso"><span class="paso-num">2</span><span>MVP con Claude API + Supabase pgvector. Solo Notion primero. Tiempo: 3 semanas.</span></div><div class="paso"><span class="paso-num">3</span><span>Cobra $299/mes desde día 1 a cambio de onboarding personalizado.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicios Profesionales AI-Native (Contabilidad / Compliance / Admin)</div>
+      <div class="opp-axes">Factibilidad 2 · Impacto 5 · Velocidad 3 · Defensibilidad 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-4" hidden>
+    <p class="opp-desc">Empresa de servicios que reemplaza outsourcers humanos con IA para contabilidad, auditoría, cumplimiento fiscal o admin de healthcare. Cobra igual que una firma tradicional, con márgenes del 80–90%.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>YC Spring + Summer 2026 RFS citan específicamente estas áreas como las que los AI-native operators ganarán.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://startupill.com/15-startup-ideas-y-combinator-wants-in-2026-startup-pill/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Sub-nicho de menor regulación: bookkeeping para freelancers remotos. Sin CPA requerido en muchos países.</span></div><div class="paso"><span class="paso-num">2</span><span>Automatiza con Claude + Zapier + plantillas de informes. Setup: 2 semanas.</span></div><div class="paso"><span class="paso-num">3</span><span>Primeros 3 clientes por referidos. Precio: $300–$600/mes. Con 10 clientes: $3K–$6K/mes a ~$200/mes en costos.</span></div></div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="14"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">API de Automatización de Medios / Imágenes (estilo Bannerbear)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-5" hidden>
+    <p class="opp-desc">API que permite a otras empresas generar automáticamente imágenes, banners, PDFs o videos a partir de templates y datos. Facturación por uso.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Bannerbear (Jon Yongfook, 1 persona) alcanzó $1M ARR en septiembre 2025. El moat es fuerte: una vez que un cliente integra el API, no se va.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.starterstory.com/stories/bannerbear-breakdown" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Caso de uso de menor resistencia: e-commerce que necesita miles de imágenes de producto con overlays de precio.</span></div><div class="paso"><span class="paso-num">2</span><span>MVP con Cloudinary API + Pillow (Python). Ofrece 500 llamadas gratis para validar.</span></div><div class="paso"><span class="paso-num">3</span><span>Precio inicial: $49/mes para 2.000 llamadas. Target: developers en Indie Hackers y r/webdev.</span></div></div>
+  <div class="seg-block" id="seg-oportunidades-2026-05-30-5-seg">
+    <button class="seg-head" onclick="tog('seg-oportunidades-2026-05-30-5-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Bannerbear (Jon Yongfook)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" hidden>
+      <p class="seg-act">Activado por: ARR $1M siendo 1 persona</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>Integraciones nativas con Zapier y Make convirtieron Bannerbear en un nodo de automatización pasivo — los usuarios lo descubrían buscando &quot;automatizar imágenes en Zapier&quot;, no buscando Bannerbear directamente.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Antes de construir el producto, publica en el directorio de integraciones de Zapier y Make. Aparece donde tu cliente ya está buscando soluciones.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Escribe un tutorial técnico de 1.500 palabras sobre el problema que resuelve tu API (ej. &quot;cómo generar 1.000 imágenes de producto automáticamente&quot;). Ese artículo puede ser tu canal de adquisición principal durante 2 años.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>2019: Lanza Bannerbear como side project</span></div><div class="tl-item"><span class="tl-dot"></span><span>Ene 2021: $10K MRR — documentado en Twitter/X (tweet verificado)</span></div><div class="tl-item"><span class="tl-dot"></span><span>2023: ~$50K MRR ($630K ARR)</span></div><div class="tl-item"><span class="tl-dot"></span><span>Sep 2025: $1M ARR</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-6')" aria-expanded="false">
+    <div>
+      <div class="opp-name">CRM Vertical / Herramienta Industry-Specific</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 2 · Defensibilidad 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-6" hidden>
+    <p class="opp-desc">CRM hecho para un solo tipo de profesional (fotógrafo, coach fitness, contratista). Precio: $49–$99/mes. 500 clientes = $24.500 MRR con márgenes &gt;80%.</p>
+    
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://superframeworks.com/articles/best-micro-saas-ideas-solopreneurs" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Elige nicho con comunidad activa (r/PersonalTrainers, grupos Facebook de fotógrafos de boda). 15 entrevistas en una semana.</span></div><div class="paso"><span class="paso-num">2</span><span>Lanza con Bubble o Glide. Funciones mínimas: CRM + facturación + tareas. Tiempo: 3–4 semanas.</span></div><div class="paso"><span class="paso-num">3</span><span>Precio de lanzamiento: $29/mes los primeros 50 usuarios.</span></div></div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-05-30-7')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Interface Premium para Modelos IA (estilo TypingMind)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Defensibilidad 2</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-05-30-7" hidden>
+    <p class="opp-desc">Frontend de alto valor para modelos de IA con features específicos por vertical. TypingMind: $500K primer año (Tony Dinh, solo), ahora $817K ARR.</p>
+    
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><a class="src-link" href="https://getlatka.com/companies/typingmind" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    <div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4><div class="paso"><span class="paso-num">1</span><span>Nicho no cubierto: interface para equipos de ventas B2B con memoria de CRM nativa.</span></div><div class="paso"><span class="paso-num">2</span><span>Lanza en &lt;2 semanas con Next.js + Vercel + Claude API. Precio: $29/mes usuario.</span></div><div class="paso"><span class="paso-num">3</span><span>Distribución: comunidades de Slack de ventas (Revenue Collective, Sales Hacker) antes del lanzamiento.</span></div></div>
+  </div>
+</div>
+  </div>
+</div></div>
+
+<div class="footer">
+  Generado por agentes remotos Claude &middot;
+  repo: maolivare-max/inteligencia-negocios &middot;
+  3 reportes &middot; 21 ideas en archivo
+</div>
 
 <script>
-const DATA = [{"key": "oportunidades", "label": "Oportunidades de Negocio", "reports": [{"date": "2026-06-03", "title": "REPORTE DE INTELIGENCIA DE OPORTUNIDADES — 3 junio 2026", "fuentes": "14 (Indie Hackers, Product Hunt Junio 2026, YC RFS Spring+Summer 2026, Starter Story, robopost.app/blog, MicroFounder, BuiltWithAgents.ai, Superframeworks, BoringCashCow, entrepreneurloop.com, easyai.indevs.in, GetLatka, PainOnSocial, VC Cafe)", "resumen": "Dos casos con tracción excepcional verificada (Leadmore AI en $1M ARR, Robopost en $55K MRR, ambos fundadores solos) más cinco oportunidades replicables. La señal dominante: distribución comunitaria orgánica (Reddit, LinkedIn) como canal sin costo supera a los canales pagos en velocidad de validación para productos B2B.", "opps": [{"name": "Herramienta de Distribución y Marketing vía Reddit", "score": 15, "axes": "Factibilidad 4 · Impacto 4 · Velocidad 4 · Defensibilidad 3", "desc": "SaaS/tool que usa IA para monitorear conversaciones en Reddit, identificar posts con alta intención de compra, y generar respuestas contextuales auténticas vía cuentas de alto karma gestionadas por el sistema. Precio: crédito-based, entrada ~$10, heavy users pagan $200–$500/mes.", "why": "Leadmore AI (Richard Wang, solo fundador) pasó de $0 a $30K MRR en 4 meses y hoy supera $1M ARR — sin invertir un solo dólar en marketing pagado. La adquisición fue 100% Reddit-orgánica. El canal tiene 1.900M de usuarios, intención de búsqueda nativa y audiencia B2B activa. Reddit indexa bien en Google, convirtiendo cada comentario útil en SEO residual. El modelo de precios crédito-based con entrada ultra-baja ($9.90) maximiza conversión sin sacrificar ARPU.", "conf": "Alta", "chile": "", "link": "https://www.indiehackers.com/post/i-built-a-reddit-marketing-product-leadmore-ai-and-it-just-crossed-1m-arr-f8b758eb1a", "pasos": ["Versión accesible sin construir tecnología: ofrece \"Reddit monitoring + respuestas borrador\" como servicio gestionado para una sola industria (ej. SaaS de RRHH o herramientas de productividad). Cobra $500/mes por 50 respuestas/mes. Valida con 3 clientes antes de automatizar.", "Con 3 clientes validados: construye el tool con Claude API para clasificar posts y generar borradores. Reddit API pública + scraping de subreddits públicos.", "Lanza el SaaS a $29/mes con acceso básico. Canal de adquisición: posts propios en r/SaaS y r/Entrepreneur explicando el problema en primera persona."], "follow": true, "seguimiento": {"subject": "Leadmore AI (Richard Wang)", "activation": "ARR documentado $1M+ siendo ≤ 2 personas · $0 a $30K MRR en 4 meses", "palanca": "El fundador construyó autoridad en Reddit meses antes del lanzamiento y distribuyó el producto exactamente donde vivía la audiencia. El canal de distribución del producto era el mismo canal donde el fundador ya era referente.", "replicate_items": ["Elige un subreddit de ≥50K miembros donde tu cliente ideal esté activo (ej. r/SaaS, r/LegalAdvice, r/personalfinance). Pasa 30 días respondiendo preguntas con valor real sin mencionar ningún producto. Ese capital social se convierte en distribución gratuita al lanzar.", "Implementa precios crédito-based con entrada ultra-baja ($9–$15) en vez de freemium. Reduce la fricción del primer pago, califica al cliente real, y luego sube el ARPU con el uso. El modelo de Leadmore AI demuestra que entry price bajo + heavy use pricing maximiza conversión y LTV simultáneamente."], "timeline_items": ["Mes 0 (mid-2024): Lanzamiento. MVP con safe-publishing y base de datos de subreddits.", "Mes ~4 (Oct 2024): $30K MRR — documentado en post Indie Hackers.", "Mes ~6 (Dic 2024): $1M ARR run rate — confirmado en segundo post Indie Hackers.", "Q1 2025: Pricing unificado global, descuento de entrada $9.90, feature de comment timing.", "2026: $1M+ ARR sostenido. Discord activo con fundador respondiendo en horas.", "*Nota: no se publicaron fechas exactas de $1K y $10K MRR. El ritmo de $0→$30K en 4 meses sugiere $10K MRR alrededor del mes 2–3.*"], "channels": "- 0→$1K MRR: El fundador construyó comunidad en Reddit durante meses antes del lanzamiento — respondía preguntas en r/SaaS, r/marketing, r/entrepreneur, compartía insights sin mencionar producto. Cuando lanzó, ya tenía credibilidad y early adopters esperando.\n- $1K→$30K MRR: Distribución 100% Reddit-orgánica. Zero paid marketing confirmado. Cada comentario útil generaba visibilidad que indexaba en Google.\n- $30K MRR en adelante: Product-led growth. El producto mismo es el canal: los usuarios de Leadmore AI postean vía Leadmore, lo que genera exposición pasiva. Discord activo como retención."}}, {"name": "Scheduler de Redes Sociales con IA", "score": 14, "axes": "Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4", "desc": "SaaS de scheduling + generación de contenido con IA para un nicho específico de profesionales. Precio: $15–$79/mes. Meta Ads como canal de adquisición pagado escalable.", "why": "Mako (solo fundadora, Japón) construyó Robopost.app en 2 meses (FastAPI + React), escaló a $55K MRR en 12 meses usando Meta Ads y SEO. Añadió generación de imágenes con DALL-E como diferenciador de retención. Márgenes >80%. El mercado de gestión de redes sociales para pymes es un dolor crónico y pagable; la clave es que Meta Ads tiene el mejor CAC payback para SaaS con precio $30–$80/mes.", "conf": "Alta", "chile": "", "link": "https://robopost.app/blog/the-journey-of-building-robopost-how-i-grew-to-55k-mrr-in-one-year/", "pasos": ["Nicho diferenciador: scheduler para agentes inmobiliarios latinoamericanos o clínicas dentales. Función clave: genera posts con descripción de propiedades o casos clínicos automáticamente desde una URL o formulario simple.", "MVP en 4–6 semanas: Next.js + Claude API para generación de contenido + integración directa con Meta/Instagram Business API. No construyas desde cero el scheduling — usa SocialBee o Buffer API como backend.", "Lanza Meta Ads con $200 de test, 3 variantes de creativos. Si CPL < $20, escala. Mako iteró 2–3 meses de campañas antes de encontrar el target correcto — es un proceso, no un botón."], "follow": true, "seguimiento": {"subject": "Robopost (Mako)", "activation": "ARR ~$660K siendo 1 persona (criterio: ARR documentado > $500K, ≤ 2 personas en equipo)", "palanca": "Meta Ads es el canal de adquisición más eficiente para SaaS con precio $30–$80/mes dirigido a SMBs o profesionales independientes — no LinkedIn ni Google. Mako lo descubrió en sus primeros 3 meses y lo escaló sin cambiar de canal.", "replicate_items": ["Para SaaS con precio $30–$100/mes dirigido a profesionales o pymes, prueba Meta Ads antes que Google Ads o LinkedIn. El CAC payback es mejor en este rango de precio. Comienza con $200/mes y 3 creativos distintos — no con una sola campaña perfecta.", "Añade generación de contenido con IA desde el día 1. En 2026, los usuarios de schedulers esperan que el producto cree el contenido, no solo lo programe. Es el diferenciador de retención más poderoso del segmento."], "timeline_items": ["Mes 0–2: Construcción del MVP (FastAPI backend + ReactJS). Primeros clientes de red personal — dueños de negocio que confiaban en Mako antes de que hubiera producto.", "Mes 3–6: Experimentos con Meta Ads. CPL inicialmente alto; iteración continua de creativos y audiencias.", "Mes 8–10: Meta Ads escala correctamente. SEO orgánico empieza a contribuir tráfico.", "Mes 12: $55K MRR ($660K ARR). 1 sola persona.", "*Nota: fechas exactas de $1K MRR y $10K MRR no publicadas en fuentes verificables.*"], "channels": "- 0→$1K MRR: Red personal de la fundadora. Sin ads, sin SEO — solo confianza previa.\n- $1K→$10K MRR: Meta Ads con optimización continua. Múltiples iteraciones de audiencia y creativos hasta afinar el targeting correcto.\n- $10K MRR en adelante: Meta Ads escalado como canal principal + SEO orgánico como canal secundario. Las AI features (DALL-E) añadidas como diferenciador y palanca de retención."}}, {"name": "LinkedIn Outreach Chrome Extension para Industria Específica", "score": 14, "axes": "Factibilidad 5 · Impacto 3 · Velocidad 4 · Defensibilidad 2", "desc": "Chrome extension que extrae el perfil LinkedIn del lead y genera un mensaje de cold outreach hiperpersonalizado con IA, entrenado en el lenguaje y el dolor de una sola industria. Precio: $49–$99/mes por usuario.", "why": "Un fundador construyó esta extensión enfocada exclusivamente en agentes inmobiliarios y alcanzó $4.200 MRR en 4 meses. La clave es la especialización extrema en un solo sector: los outreach tools genéricos no convierten, los hipersegmentados sí porque el mensaje suena nativo al receptor. El mercado de sales teams y founders que hacen outbound manual en LinkedIn es enorme.", "conf": "Media", "chile": "", "link": "https://painonsocial.com/blog/service-business-niches", "pasos": ["Elige industria con compradores que usan LinkedIn activamente: recruiters especializados, mortgage brokers, AEs de SaaS, consultores de IT. Entrevista a 10 personas en 1 semana para validar el dolor de personalización manual.", "Construye con Plasmo (framework Chrome extensions) + Claude API. Tiempo estimado: 2–3 semanas para MVP funcional. El modelo: clic en perfil → genera 3 variantes de primer mensaje en el tono del sector.", "Adquisición: cold email a 200 prospectos del nicho con demo video de 60 segundos mostrando output real. Precio: $49/mes. Meta: $1K MRR en 30 días (21 usuarios)."], "follow": false, "seguimiento": null}, {"name": "Vertical SaaS de Compliance para Sectores Regulados", "score": 14, "axes": "Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4", "desc": "Software de gestión de compliance y documentación para un sector con obligaciones regulatorias específicas: consultorios dentales, guarderías, food trucks, servicios de limpieza. Precio: $49–$299/mes. Lock-in natural una vez que el historial de cumplimiento vive en el sistema.", "why": "Auxpanel (dental compliance, EE.UU.) alcanzó $30K–$50K MRR bootstrapped. La ecuación económica es simple: el costo promedio de una multa por inspección fallida en una pyme es $5K–$50K; pagar $99/mes para evitarla es una decisión racional sin negociación. El mercado es grande, boring, y sin penetración de software — la mayoría de operadores usan papel o Excel.", "conf": "Media", "chile": "", "link": "https://bigideasdb.com/guides/profitable-micro-saas-ideas-2026-solo-founder", "pasos": ["Elige 1 sector + 1 jurisdicción (ej. guarderías en Chile bajo normativa JUNJI, clínicas dentales bajo MINSAL). Entrevista a 10 dueños — si 5 de 10 mencionan auditorías como problema activo, hay mercado.", "MVP: checklist digital de inspección + generador de actas en PDF + historial de cumplimiento. No-code viable: Glide o Bubble + Claude API para el resumen de estado. Tiempo: 3–4 semanas.", "Canal de adquisición no competitivo: newsletters o eventos de los gremios sectoriales (ASOFARMA, cámaras de guarderías, asociaciones de clínicas). Un email al newsletter del gremio equivale a 500 dueños calificados sin costo de ads."], "follow": false, "seguimiento": null}, {"name": "Servicio de Virtual Staging con IA", "score": 13, "axes": "Factibilidad 5 · Impacto 3 · Velocidad 5 · Defensibilidad 2", "desc": "Servicio que toma fotos de propiedades vacías o mal amuebladas y entrega imágenes con mobiliario virtual generado con IA en menos de 2 horas. Precio: $25–$50 por imagen o $199–$499/mes por agente en subscripción. Arranca como servicio manual y se automatiza con clientes.", "why": "Propiedades con staging virtual se venden 73% más rápido; listings con staging IA generan 40% más leads documentados. El staging físico cuesta $500–$5.000 por propiedad; el virtual cuesta $15–$50. Las APIs de producción (Lift My Place a $0.60/imagen, ZSky AI) permiten lanzar el servicio esta semana sin construir tecnología propia. El ROI es cuantificable y fácil de mostrar en el pitch.", "conf": "Alta", "chile": "", "link": "https://aivideobootcamp.com/blog/ai-virtual-staging-real-estate-guide-2026/", "pasos": ["Regístrate en Lift My Place o ZSky AI. Procesa 5 fotos de propiedades de portales públicos (Portalinmobiliario.cl) como demo con antes/después. Costo total: < $5.", "Contacta 20 agentes en LinkedIn con el antes/después como mensaje de apertura. Precio de validación: $25/imagen o $199/mes por 10 imágenes al mes. Meta: 5 clientes pagos en 2 semanas.", "Con 10 clientes activos: automatiza con Zapier (agente sube fotos → API → entrega por email en < 2 horas). El operador puede manejar 30–50 clientes en paralelo con < 2 horas/día de trabajo manual."], "follow": false, "seguimiento": null}, {"name": "Agencia B2B de Producción de Podcasts", "score": 13, "axes": "Factibilidad 4 · Impacto 3 · Velocidad 4 · Defensibilidad 2", "desc": "Agencia que gestiona end-to-end el podcast de una empresa B2B: estrategia, invitados, edición, distribución, repurposing. Precio recurrente: $3.000–$8.000/mes por cliente. Con 5 clientes: $15K–$40K MRR.", "why": "Las empresas B2B usan podcasts como generador de pipeline (cada episodio es una excusa para contactar a un cliente potencial como invitado). El mercado de producción profesional está creciendo pero dominado por agencias grandes; el segmento SMB/startup está desatendido. La IA (Descript, ElevenLabs, Claude) reduce el tiempo de edición y notas en 70–80%, haciendo el modelo rentable para 1 persona con 4–6 clientes.", "conf": "Media", "chile": "", "link": "https://www.podmuse.com/post/b-2-b-podcast-production-agency", "pasos": ["Nicho de entrada: startups SaaS de 10–50 empleados con fundador activo en LinkedIn pero sin podcast. LinkedIn Sales Navigator: filtra \"SaaS\" + busca manualmente quién habla en newsletters o eventos pero no tiene show.", "Paquete de lanzamiento: $1.500 fijo por los primeros 3 episodios (grabación en Riverside.fm, edición en Descript + Claude para notas y clips, distribución en Buzzsprout). Después: retainer $3.000/mes por 2 episodios/mes.", "Pitch: \"Tu podcast es el pretexto para contactar a tu próximo cliente o socio como invitado. Cada episodio es un pipeline activo.\" Convierte el costo en herramienta de ventas, no en gasto de marketing."], "follow": false, "seguimiento": null}, {"name": "Software Vertical para Industrias \"Aburridas\" (Metal Mills / Field Service)", "score": 12, "axes": "Factibilidad 2 · Impacto 5 · Velocidad 2 · Defensibilidad 3", "desc": "ERP ligero / gestión de operaciones para sectores industriales sin software moderno: talleres de metal, empresas de mantenimiento de flota, servicios de campo técnico. Precio: $300–$2.000/mes por empresa. YC RFS Spring+Summer 2026 lo solicita explícitamente.", "why": "Talleres de metal y empresas industriales operan con Excel y papel. Lead times de 8–30 semanas por planificación manual deficiente. Alta disposición a pagar por software que funcione porque el dolor es crónico y los competidores actuales son sistemas legacy de $50K+/año. YC cita que tiendas de metal con márgenes de $2M+ anuales se gestionan con hojas de cálculo — es el tipo de mercado donde un solo founder con SaaS moderno puede dominar verticalmente.", "conf": "Media", "chile": "", "link": "https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas", "pasos": ["Habla con 5 dueños de taller o gerentes de operaciones antes de escribir una línea de código. Una sola pregunta: \"¿qué parte de tu operación te hace perder más dinero actualmente?\" Si la respuesta apunta a scheduling/quoting/tracking: hay mercado.", "MVP en 6–8 semanas: cotizador automático + tracking de pedidos + notificaciones al cliente final. No-code si el proceso es simple (Glide + Airtable). Cobra $299/mes desde el piloto — no regales acceso.", "Canal de adquisición: asociaciones industriales (Chile: ASIMET para metalurgia, Cámara Chilena de la Construcción para contratistas). LinkedIn buscando \"gerente producción\" + \"dueño taller\". El canal es lento pero los contratos son grandes y el churn es bajo."], "follow": false, "seguimiento": null}], "n_opps": 7, "avg": 13.6, "follow_count": 2}, {"date": "2026-05-30", "title": "REPORTE DE INTELIGENCIA DE OPORTUNIDADES — 30 mayo 2026", "fuentes": "~18 (Indie Hackers, Hacker News, Reddit, Product Hunt Mayo 2026, YC Spring+Summer 2026 RFS, GetLatka, Starter Story, GitHub Gist AI Playbook, Fortune, Jobboardly, Acquire.com, Upwork, Superframeworks, VC Cafe, Medium/blogs especializados)", "resumen": "El modelo \"usa IA internamente y cobra por el resultado, no por el acceso\" domina las señales de 2026 — YC lo pide explícitamente, el mercado lo valida, y los costos de arranque son mínimos.", "opps": [{"name": "Agencia de Automatización con IA (Productized Service)", "score": 16, "axes": "Factibilidad 5 · Impacto 4 · Velocidad 5 · Defensibilidad 2", "desc": "Usas AI (Claude, GPT-4o, n8n, Make) para entregar trabajo terminado — pipelines de contenido, automatizaciones de CRM, reportes automatizados — y cobras $1.500–$5.000/mes por cliente en retainer.", "why": "Upwork reporta +27% de demanda YoY para freelancers con skills de AI automation (mayo 2026). YC Summer 2026 RFS lo formula textualmente: \"Don't sell access to an AI tool for $50/mo. Use the AI yourself and sell the finished work for $5,000.\"", "conf": "Media-Alta", "chile": "", "link": "https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas", "pasos": ["Elige un dolor específico con comprador claro. Valida con 5 posts en LinkedIn describiendo el problema.", "Construye un pipeline demo en n8n o Make con Claude API en <48h.", "Cobra $1.500/mes de entrada. Primer cliente en 30 días vía LinkedIn Sales Navigator o Slack communities del nicho."], "follow": false, "seguimiento": null}, {"name": "Producto \"Sube algo → IA procesa → resultado profesional\"", "score": 15, "axes": "Factibilidad 3 · Impacto 5 · Velocidad 3 · Defensibilidad 4", "desc": "El usuario sube un input (selfie, PDF, URL, audio) → la IA produce un output de valor (foto profesional, resumen, briefing). Se cobra por lote o suscripción.", "why": "- HeadshotPro (Danny Postma): $300K/mes, cobro único $29–$69, 60% tráfico orgánico SEO.", "conf": "Alta", "chile": "", "link": "https://supabird.io/articles/danny-postma-how-a-solo-hacker-built-an-ai-empire-from-bali", "pasos": ["Identifica nicho con demanda pero sin competencia en español/LATAM (ej. fotos profesionales LinkedIn LATAM).", "Lanza con Replicate API + Next.js en 1 semana. Precio validación: $9–$19 por lote de 10.", "SEO de cola larga + TikTok antes/después en <30 segundos."], "follow": true, "seguimiento": {"subject": "HeadshotPro (Danny Postma)", "activation": "Score 15/20 + ARR $3.6M siendo 1 persona", "palanca": "Audiencia pre-existente en Twitter/X desde la venta de Headlime + SEO agresivo en inglés en un nicho sin competencia en los primeros 90 días.", "replicate_items": ["Antes de lanzar, construye audiencia en Twitter/X o LinkedIn publicando el proceso de construcción semana a semana (\"build in public\"). 500 seguidores reales valen más que $5K en ads al lanzar.", "Identifica las 5 keywords principales de tu nicho, crea una página de destino optimizada por cada una antes del lanzamiento. Danny tenía SEO listo antes de tener clientes."], "timeline_items": ["Nov 2022: Vende Headlime a $1M ARR → tiene audiencia y capital", "Dic 2022: Lanza HeadshotPro como side project", "Ene 2023: $100K ARR en las primeras 2 semanas", "Mid 2023: $1M ARR", "2024: $300K/mes MRR (~$3.6M ARR)"], "channels": "- 0→$1K MRR: Twitter/X — anunció el lanzamiento a sus ~50K seguidores existentes. Sin ads.\n- $1K→$10K MRR: SEO de cola larga (\"AI professional headshots\") + Product Hunt launch.\n- $10K MRR en adelante: SEO orgánico domina (60% del tráfico total). Reinvirtió en contenido y backlinks."}}, {"name": "Job Board de Nicho", "score": 15, "axes": "Factibilidad 5 · Impacto 3 · Velocidad 4 · Defensibilidad 3", "desc": "Tablero de empleo para un sector muy específico. Cobra $99–$299 por listing a empleadores. Sin código complejo.", "why": "Un fundador lanzó un job board para UX writers en 2023, llegó a $4.200/mes en 14 meses y lo vendió por $96.000.", "conf": "Media", "chile": "", "link": "https://jakeinsight.com/side-income/2026-03-26-build-a-niche-job-board-with-revenue-from-listings/", "pasos": ["Valida: busca en LinkedIn Jobs el nicho (últimos 30 días). Si hay ≥200 postings activos, hay mercado.", "Lanza con Job Board Fire o Niceboard ($49/mes). Setup: 2 días.", "Primeras 10 empresas por cold email al responsable de RRHH. Primer listing gratis."], "follow": true, "seguimiento": {"subject": "Job Board UX Writers (caso anónimo)", "activation": "Score 15/20", "palanca": "SEO pasivo de cola larga en un nicho sin job board dedicado, con adquisición inicial 100% manual (cold email) que generó los primeros datos de tracción para el canal orgánico.", "replicate_items": ["Lanza en un nicho con contratación recurrente predecible: cybersecurity, climate tech, remote nurses en LATAM. Filtra en LinkedIn Jobs — si hay >200 postings en 30 días, procede.", "Primeras 2 semanas: solo cold email. No gastes en SEO ni herramientas hasta tener 5 listings pagos. Valida primero, construye después."], "timeline_items": ["Mes 0: Lanzamiento con 0 listings", "Mes 1–3: $0–$400/mes (3–4 listings manuales a $99 c/u)", "Mes 7–12: $800–$2.500/mes (mix inbound + primer tier de suscripción)", "Mes 14: $4.200/mes → venta por $96.000 (múltiplo ~23x MRR)"], "channels": "- 0→$1K MRR: Cold email manual a HR managers y engineering managers del nicho. Sin automatización.\n- $1K→$4K MRR: SEO orgánico por búsquedas tipo \"UX writer jobs remote\". Inbound empezó a dominar mes 8.\n- Scale: No hubo escala mayor — el fundador eligió vender antes de intentar escalar."}}, {"name": "Herramienta \"Company Brain\" / IA para Gestión de Conocimiento", "score": 14, "axes": "Factibilidad 3 · Impacto 5 · Velocidad 2 · Defensibilidad 4", "desc": "SaaS B2B que conecta Slack, Notion, emails y docs internos, los estructura, y los convierte en un sistema de respuestas ejecutables para agentes IA. Precio: $199–$999/mes por empresa.", "why": "YC Summer 2026 RFS lo pide explícitamente. Sin jugador dominante en el segmento SMB.", "conf": "Media", "chile": "", "link": "https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas", "pasos": ["Nicho específico: agencias de marketing con conocimiento fragmentado en Slack + Notion + Drive.", "MVP con Claude API + Supabase pgvector. Solo Notion primero. Tiempo: 3 semanas.", "Cobra $299/mes desde día 1 a cambio de onboarding personalizado."], "follow": false, "seguimiento": null}, {"name": "Servicios Profesionales AI-Native (Contabilidad / Compliance / Admin)", "score": 14, "axes": "Factibilidad 2 · Impacto 5 · Velocidad 3 · Defensibilidad 4", "desc": "Empresa de servicios que reemplaza outsourcers humanos con IA para contabilidad, auditoría, cumplimiento fiscal o admin de healthcare. Cobra igual que una firma tradicional, con márgenes del 80–90%.", "why": "YC Spring + Summer 2026 RFS citan específicamente estas áreas como las que los AI-native operators ganarán.", "conf": "Media", "chile": "", "link": "https://startupill.com/15-startup-ideas-y-combinator-wants-in-2026-startup-pill/", "pasos": ["Sub-nicho de menor regulación: bookkeeping para freelancers remotos. Sin CPA requerido en muchos países.", "Automatiza con Claude + Zapier + plantillas de informes. Setup: 2 semanas.", "Primeros 3 clientes por referidos. Precio: $300–$600/mes. Con 10 clientes: $3K–$6K/mes a ~$200/mes en costos."], "follow": false, "seguimiento": null}, {"name": "API de Automatización de Medios / Imágenes (estilo Bannerbear)", "score": 14, "axes": "Factibilidad 3 · Impacto 4 · Velocidad 3 · Defensibilidad 4", "desc": "API que permite a otras empresas generar automáticamente imágenes, banners, PDFs o videos a partir de templates y datos. Facturación por uso.", "why": "Bannerbear (Jon Yongfook, 1 persona) alcanzó $1M ARR en septiembre 2025. El moat es fuerte: una vez que un cliente integra el API, no se va.", "conf": "Alta", "chile": "", "link": "https://www.starterstory.com/stories/bannerbear-breakdown", "pasos": ["Caso de uso de menor resistencia: e-commerce que necesita miles de imágenes de producto con overlays de precio.", "MVP con Cloudinary API + Pillow (Python). Ofrece 500 llamadas gratis para validar.", "Precio inicial: $49/mes para 2.000 llamadas. Target: developers en Indie Hackers y r/webdev."], "follow": true, "seguimiento": {"subject": "Bannerbear (Jon Yongfook)", "activation": "ARR $1M siendo 1 persona", "palanca": "Integraciones nativas con Zapier y Make convirtieron Bannerbear en un nodo de automatización pasivo — los usuarios lo descubrían buscando \"automatizar imágenes en Zapier\", no buscando Bannerbear directamente.", "replicate_items": ["Antes de construir el producto, publica en el directorio de integraciones de Zapier y Make. Aparece donde tu cliente ya está buscando soluciones.", "Escribe un tutorial técnico de 1.500 palabras sobre el problema que resuelve tu API (ej. \"cómo generar 1.000 imágenes de producto automáticamente\"). Ese artículo puede ser tu canal de adquisición principal durante 2 años."], "timeline_items": ["2019: Lanza Bannerbear como side project", "Ene 2021: $10K MRR — documentado en Twitter/X (tweet verificado)", "2023: ~$50K MRR ($630K ARR)", "Sep 2025: $1M ARR"], "channels": "- 0→$1K MRR: Contenido técnico (tutoriales de cómo automatizar imágenes para no-devs). Publicación en comunidades de makers.\n- $1K→$10K MRR: Indie Hackers (episodio de podcast). SEO técnico. Twitter/X build-in-public.\n- $10K MRR en adelante: SEO dominó. Integraciones con Zapier y Make generaron tráfico pasivo recurrente."}}, {"name": "CRM Vertical / Herramienta Industry-Specific", "score": 13, "axes": "Factibilidad 3 · Impacto 4 · Velocidad 2 · Defensibilidad 4", "desc": "CRM hecho para un solo tipo de profesional (fotógrafo, coach fitness, contratista). Precio: $49–$99/mes. 500 clientes = $24.500 MRR con márgenes >80%.", "why": "", "conf": "Media", "chile": "", "link": "https://superframeworks.com/articles/best-micro-saas-ideas-solopreneurs", "pasos": ["Elige nicho con comunidad activa (r/PersonalTrainers, grupos Facebook de fotógrafos de boda). 15 entrevistas en una semana.", "Lanza con Bubble o Glide. Funciones mínimas: CRM + facturación + tareas. Tiempo: 3–4 semanas.", "Precio de lanzamiento: $29/mes los primeros 50 usuarios."], "follow": false, "seguimiento": null}, {"name": "Interface Premium para Modelos IA (estilo TypingMind)", "score": 13, "axes": "Factibilidad 4 · Impacto 3 · Velocidad 4 · Defensibilidad 2", "desc": "Frontend de alto valor para modelos de IA con features específicos por vertical. TypingMind: $500K primer año (Tony Dinh, solo), ahora $817K ARR.", "why": "", "conf": "Alta", "chile": "", "link": "https://getlatka.com/companies/typingmind", "pasos": ["Nicho no cubierto: interface para equipos de ventas B2B con memoria de CRM nativa.", "Lanza en <2 semanas con Next.js + Vercel + Claude API. Precio: $29/mes usuario.", "Distribución: comunidades de Slack de ventas (Revenue Collective, Sales Hacker) antes del lanzamiento."], "follow": false, "seguimiento": null}], "n_opps": 8, "avg": 14.2, "follow_count": 3}]}, {"key": "inmobiliario", "label": "Marketing Inmobiliario", "reports": [{"date": "2026-06-01", "title": "TENDENCIAS DE MARKETING INMOBILIARIO — 1 junio 2026", "fuentes": "~15 (Chile: Muller y Pérez, Neohaus, Houm, Dataprop, Portal Innova, Grupo Colibrí PropTech, Assetplan · Mundo: NAR, The Close, HousingWire, Luxury Presence, TikTok for Business, Jamil Academy, Virtuance, HomeStack)", "resumen": "El video corto + IA de respuesta instantánea son hoy el mayor diferenciador de leads; en Chile solo las inmobiliarias top los están usando bien, lo que deja ventana abierta para corredores ágiles.", "opps": [{"name": "Respuesta instantánea con chatbot IA (lead en <60 seg)", "score": 18, "axes": "Leads 5 · Implementación 5 · Costo-eficiencia 5 · Innovación 3", "desc": "Un chatbot con IA en el sitio/landing y WhatsApp que responde, califica y agenda 24/7, en lugar del formulario estático.", "why": "NAR documenta que **78% de los compradores trabajan con el primer agente que responde**, y el tiempo promedio de respuesta del agente es **>15 horas**. Cerrar esa brecha captura leads que hoy se pierden. Costo: $50–$200/mes.", "conf": "Alta", "chile": "", "link": "https://www.spurnow.com/en/blogs/ai-chatbot-for-real-estate-lead-qualification", "pasos": ["Instala un chatbot (ej. Tidio, Landbot o uno con WhatsApp Business API) conectado a tu CRM. Setup en 1 día.", "Carga 10 preguntas de calificación (presupuesto, plazo, financiamiento pre-aprobado, comuna).", "Regla de oro: todo lead nuevo recibe respuesta automática <60 seg + handoff a humano si califica."], "follow": false, "seguimiento": null}, {"name": "Video corto multi-plataforma (filmar 1 vez, publicar en TikTok+Reels+Shorts)", "score": 17, "axes": "Leads 5 · Implementación 4 · Costo-eficiencia 5 · Innovación 3", "desc": "Guías de barrio y tours de 60 seg grabados una vez y distribuidos el mismo día en TikTok, Reels y Shorts.", "why": "Los **video listings aumentan las consultas en 403%**. Solo **12% de los agentes están en TikTok vs. 92% en Facebook** → arbitraje de atención. La autenticidad supera a la producción pulida.", "conf": "Alta", "chile": "", "link": "https://www.jamilacademy.com/blog/tiktok-real-estate-leads", "pasos": ["Graba 3 \"guías de barrio\" de 60 seg de tus comunas objetivo (Vitacura, Ñuñoa, etc.): precios, colegios, comercio, tu comentario de tasación.", "Publica las 3 en la misma hora en TikTok, Reels y Shorts. Benchmark: 3 reels/semana durante 90 días.", "Pon un CTA claro (\"escríbeme 'BARRIO' por DM\") y conéctalo al chatbot del punto 1."], "follow": false, "seguimiento": null}, {"name": "Home staging virtual con IA", "score": 16, "axes": "Leads 4 · Implementación 5 · Costo-eficiencia 5 · Innovación 2", "desc": "Transformar fotos de propiedades vacías o anticuadas en interiores modernos con IA, en 30–90 segundos por imagen.", "why": "**+200% en solicitudes de visita**, **−50% en tiempo de publicación**, a un costo **70–80% menor** que el staging físico ($10–$50 por propiedad vs. miles).", "conf": "Media-Alta", "chile": "", "link": "https://www.virtuance.com/blog/real-estate-marketing-trends-strategies-2026/", "pasos": ["Toma tus 3 listings con peores fotos (vacíos o desactualizados).", "Pásalos por REimageHome o Virtual Staging AI ($10–$50). Declara siempre \"imagen con staging virtual\".", "Re-publica en Portalinmobiliario/Toctoc y mide el cambio en clics y consultas a 14 días."], "follow": false, "seguimiento": null}, {"name": "Tours virtuales 360° como pre-calificador", "score": 16, "axes": "Leads 4 · Implementación 3 · Costo-eficiencia 4 · Innovación 5", "desc": "Recorrido 360°/3D que deja al cliente pre-calificar la propiedad sin visita física.", "why": "Conversión **3.2x superior** a fotos tradicionales. Inmobiliaria Aconcagua (Chile) sumó **+35% de leads calificados** con drone + tours interactivos. Mejora el ratio visita→oferta porque quien pide visita ya viene interesado.", "conf": "Media-Alta", "chile": "", "link": "https://aceleradorarealestate.com/blog/cl/marketing-digital-inmobiliario.html", "pasos": ["Para tus 3 listings de mayor ticket, graba un tour con Matterport o una app 360° de celular.", "Embebe el tour en la ficha y en un Reel (\"recorre esta casa sin salir de tu sofá\").", "Exige el tour visto antes de agendar visita presencial → filtra curiosos."], "follow": false, "seguimiento": null}, {"name": "Google Ads geo-segmentado + landing por comuna", "score": 15, "axes": "Leads 5 · Implementación 3 · Costo-eficiencia 3 · Innovación 2", "desc": "Campañas de búsqueda por \"casas en venta + comuna\" con landing dedicada por zona y captura conectada al CRM.", "why": "En Chile las corredoras concentran **67% del presupuesto digital en Google Ads** porque captura intención alta de compra. La inversión digital del sector creció **+28% YoY** (Q1 2026: $12.3B CLP) → el canal está validado por gasto real.", "conf": "Media", "chile": "", "link": "https://www.mulleryperez.cl/blog/tendencias-de-marketing-digital-por-sector-en-chile-2026-inmobiliario-salud-fint", "pasos": ["Crea 1 landing por comuna objetivo con tour 360° + chatbot + formulario corto.", "Lanza campaña de búsqueda con keywords de intención (\"departamento en venta Ñuñoa 2 dormitorios\"). Presupuesto de prueba: $150–$300 USD.", "Mide CPL real por comuna y reasigna al ganador a los 10 días."], "follow": false, "seguimiento": null}, {"name": "Nurturing por WhatsApp + email (7.3 touchpoints)", "score": 14, "axes": "Leads 4 · Implementación 4 · Costo-eficiencia 4 · Innovación 2", "desc": "Secuencia automatizada de seguimiento que acompaña al lead durante el ciclo de ~45 días hasta la consulta calificada.", "why": "Un usuario necesita en promedio **7.3 puntos de contacto** antes de una consulta calificada; **WhatsApp Business y email son los canales de nurturing más efectivos** en Chile. Sin secuencia, el 90% de los leads se enfrían.", "conf": "Media", "chile": "", "link": "https://www.mulleryperez.cl/blog/marketing-inmobiliario-agencia-marketing-digital-chile-2025", "pasos": ["Arma una secuencia de 7 mensajes (mezcla WhatsApp + email) repartidos en 45 días: valor primero (guía de financiamiento, comparativa de comunas), venta después.", "Automatízala desde tu CRM o con una herramienta como Follow Up Boss / kvCORE / un flujo en n8n.", "Marca el lead como \"caliente\" cuando responda 2+ veces y pásalo a llamada."], "follow": false, "seguimiento": null}], "n_opps": 6, "avg": 16.0, "follow_count": 0}]}];
-const DT   = 15;
-const HT   = 13;
-
-function scoreClass(s){ return s>=DT?'destacada': s>=HT?'high': s>=10?'mid': 'low' }
-function confClass(c){
-  c=(c||'').toLowerCase();
-  if(c.includes('alta')) return 'conf-alta';
-  if(c.includes('baja')) return 'conf-baja';
-  return 'conf-media';
-}
-function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
-
-let activeTab='all', activeFilter='all';
-
-function renderSeg(seg){
-  if(!seg) return '';
-  const items = seg.replicate_items||[];
-  const tl    = seg.timeline_items||[];
-  const itemsHtml = items.length ? `
-    <div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div>
-    ${items.map((s,i)=>`<div class="replicate-item"><span class="replicate-num">${i+1}</span><span>${esc(s)}</span></div>`).join('')}
-  ` : '';
-  const tlHtml = tl.length ? `
-    <div class="timeline-title">&#128336; Hitos documentados</div>
-    ${tl.map(s=>`<div class="tl-item"><span class="tl-dot"></span><span>${esc(s)}</span></div>`).join('')}
-  ` : '';
-  return `
-  <div class="seg-block" id="seg-${Math.random().toString(36).slice(2)}">
-    <div class="seg-head" onclick="this.parentNode.classList.toggle('open')">
-      <span>&#9733; SEGUIMIENTO DE CRECIMIENTO &mdash; ${esc(seg.subject)}</span>
-      <span style="font-size:16px;font-weight:900">&#9658;</span>
-    </div>
-    <div class="seg-body">
-      <div style="font-size:11px;color:#888;margin-bottom:10px;border-bottom:1px dashed #ccc;padding-bottom:8px">
-        Activado por: ${esc(seg.activation)}
-      </div>
-      ${seg.palanca ? `<div class="palanca"><strong>&#128273; Palanca clave</strong><p>${esc(seg.palanca)}</p></div>` : ''}
-      ${itemsHtml}
-      ${tlHtml}
-    </div>
-  </div>`;
+// Toggle opp body
+function tog(id) {
+  const body = document.getElementById(id);
+  if (!body) return;
+  const btn = body.previousElementSibling;
+  const hidden = body.hasAttribute('hidden');
+  if (hidden) { body.removeAttribute('hidden'); if(btn) btn.setAttribute('aria-expanded','true'); }
+  else        { body.setAttribute('hidden',''); if(btn) btn.setAttribute('aria-expanded','false'); }
 }
 
-function renderOpp(o){
-  const sc  = scoreClass(o.score);
-  const hasSeg = !!o.seguimiento;
-  const cardClass = hasSeg ? 'seguimiento' : (sc==='destacada' ? 'destacada' : '');
-  const bannerText = hasSeg
-    ? '&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;'
-    : (sc==='destacada' ? '&#9733; IDEA DESTACADA &#9733;' : '');
-
-  const pasos = o.pasos||[];
-  const pasosHtml = pasos.length ? `
-    <div class="pasos">
-      <h4>&#9889; Plan de acci&oacute;n &mdash; pasos concretos</h4>
-      ${pasos.map((s,i)=>`<div class="paso"><span class="paso-num">${i+1}</span><span>${esc(s)}</span></div>`).join('')}
-    </div>` : '';
-
-  const whyHtml  = o.why  ? `<div class="box why"><strong>Por qu&eacute; funciona</strong>${esc(o.why)}</div>` : '';
-  const chileHtml= o.chile? `<div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>${esc(o.chile)}</div>` : '';
-  const linkHtml = o.link ? `<a class="src-link" href="${esc(o.link)}" target="_blank" rel="noopener">&rarr; VER FUENTE</a>` : '';
-  const segHtml  = renderSeg(o.seguimiento);
-
-  return `
-  <div class="opp ${cardClass}" data-score="${o.score}" data-follow="${hasSeg?1:0}" data-conf="${(o.conf||'').toLowerCase()}">
-    ${bannerText ? `<div class="opp-banner">${bannerText}</div>` : ''}
-    <div class="opp-head" onclick="this.parentNode.classList.toggle('open')">
-      <div>
-        <div class="opp-name">${esc(o.name)}</div>
-        <div class="opp-axes">${esc(o.axes)}${hasSeg?' &nbsp;&#9733; seguimiento':''}</div>
-      </div>
-      <div class="score ${sc}">${o.score}/20</div>
-    </div>
-    <div class="opp-body">
-      <div class="opp-desc">${esc(o.desc)}</div>
-      ${whyHtml}${chileHtml}
-      <div class="opp-foot">
-        ${o.conf ? `<span class="conf ${confClass(o.conf)}">Confianza: ${esc(o.conf)}</span>` : ''}
-        ${hasSeg ? '<span class="tag-seg">&#9733; En seguimiento</span>' : ''}
-        ${linkHtml}
-      </div>
-      ${pasosHtml}
-      ${segHtml}
-    </div>
-  </div>`;
+// Toggle seg body
+function tog(id) {
+  const body = document.getElementById(id + '-body') || document.querySelector('#' + id + ' .seg-body');
+  const btn  = document.querySelector('#' + id + ' .seg-head') || document.querySelector('[onclick*="' + id + '"]');
+  if (!body) return;
+  const hidden = body.hasAttribute('hidden');
+  if (hidden) { body.removeAttribute('hidden'); if(btn) btn.setAttribute('aria-expanded','true'); }
+  else        { body.setAttribute('hidden',''); if(btn) btn.setAttribute('aria-expanded','false'); }
 }
 
-function applyFilter(oppsHtml, opps){
-  if(activeFilter==='all') return oppsHtml.join('');
-  return opps.map((o,i)=>{
-    if(activeFilter==='destacada'   && o.score < DT) return '';
-    if(activeFilter==='seguimiento' && !o.seguimiento) return '';
-    if(activeFilter==='alta'        && !(o.conf||'').toLowerCase().includes('alta')) return '';
-    return oppsHtml[i];
-  }).join('');
+// Generic toggle by element id (opp body has explicit id)
+function tog(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var isHidden = el.hasAttribute('hidden');
+  // find closest button above el
+  var btn = el.previousElementSibling;
+  if (isHidden) {
+    el.removeAttribute('hidden');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  } else {
+    el.setAttribute('hidden', '');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
 }
 
-function render(){
-  const allReports=[];
-  DATA.forEach(g=>g.reports.forEach(r=>allReports.push({...r,group:g.key,glabel:g.label})));
-  const shown = activeTab==='all' ? allReports : allReports.filter(r=>r.group===activeTab);
+function togRep(repId) {
+  var body = document.getElementById('rep-body-' + repId.replace('rep-',''));
+  if (!body) return;
+  var btn = document.querySelector('#' + repId + ' .report-head');
+  var isHidden = body.hasAttribute('hidden');
+  if (isHidden) {
+    body.removeAttribute('hidden');
+    if (btn) btn.setAttribute('aria-expanded','true');
+  } else {
+    body.setAttribute('hidden','');
+    if (btn) btn.setAttribute('aria-expanded','false');
+  }
+}
 
-  const totalOpps    = shown.reduce((a,r)=>a+r.n_opps,0);
-  const totalFollow  = shown.reduce((a,r)=>a+r.follow_count,0);
-  const allScores    = []; shown.forEach(r=>r.opps.forEach(o=>allScores.push(o.score)));
-  const avg          = allScores.length ? (allScores.reduce((a,b)=>a+b,0)/allScores.length).toFixed(1) : '–';
-  const destacadas   = allScores.filter(s=>s>=DT).length;
-  const latestDate   = shown.length ? shown.sort((a,b)=>b.date.localeCompare(a.date))[0].date : '–';
-
-  document.getElementById('stats').innerHTML=`
-    <div class="stat"><div class="num">${shown.length}</div><div class="lbl">Reportes</div></div>
-    <div class="stat"><div class="num">${totalOpps}</div><div class="lbl">Ideas totales</div></div>
-    <div class="stat"><div class="num green">${destacadas}</div><div class="lbl">Destacadas &ge;${DT}</div></div>
-    <div class="stat"><div class="num">${avg}</div><div class="lbl">Score prom.</div></div>
-    <div class="stat"><div class="num red">${totalFollow}</div><div class="lbl">Con seguimiento</div></div>
-    <div class="stat"><div class="num" style="font-size:14px">${latestDate}</div><div class="lbl">Ultimo reporte</div></div>`;
-
-  let tabs=`<div class="tab ${activeTab==='all'?'active':''}" onclick="setTab('all')">TODOS</div>`;
-  DATA.forEach(g=>{
-    tabs+=`<div class="tab ${activeTab===g.key?'active':''}" onclick="setTab('${esc(g.key)}')">${esc(g.label.toUpperCase())}</div>`;
+// Tabs
+var activeTab = 'all';
+function setTab(t) {
+  activeTab = t;
+  document.querySelectorAll('.tab').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.tab === t);
   });
-  document.getElementById('tabs').innerHTML=tabs;
+  applyFilters();
+}
 
-  const byDate=[...shown].sort((a,b)=>b.date.localeCompare(a.date));
-  let html = byDate.length ? '' : '<div class="empty">No hay reportes todavia.</div>';
-  byDate.forEach((r,i)=>{
-    const oppHtmls = r.opps.map(renderOpp);
-    const filtered = applyFilter(oppHtmls, r.opps);
-    const visible  = r.opps.filter(o=>{
-      if(activeFilter==='destacada' && o.score < DT) return false;
-      if(activeFilter==='seguimiento' && !o.seguimiento) return false;
-      if(activeFilter==='alta' && !(o.conf||'').toLowerCase().includes('alta')) return false;
-      return true;
-    }).length;
-    if(!filtered.trim()) return;
-    html+=`
-    <div class="report ${i===0?'open':''}">
-      <div class="report-head" onclick="this.parentNode.classList.toggle('open')">
-        <div style="flex:1">
-          <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
-            <span class="report-date">${esc(r.date)}</span>
-            <span class="report-cat">${esc(r.glabel)}</span>
-          </div>
-          <div class="report-resumen">${esc(r.resumen)}</div>
-        </div>
-        <div class="report-badges">
-          <span class="pill">${visible} IDEAS</span>
-          <span class="pill">PROM ${r.avg}</span>
-          ${r.follow_count>0?`<span class="pill">&#9733; ${r.follow_count} SEGUIM.</span>`:''}
-          <span class="chev">&#9658;</span>
-        </div>
-      </div>
-      <div class="report-body">
-        <div class="fuentes">FUENTES: ${esc(r.fuentes)}</div>
-        ${filtered||'<div class="empty">Sin ideas que coincidan con el filtro.</div>'}
-      </div>
-    </div>`;
+// Filters
+var activeFilter = 'all';
+function setFilter(f) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.filter === f);
   });
-  document.getElementById('content').innerHTML=html;
-  document.getElementById('count').textContent=allReports.length+' reportes en archivo';
+  applyFilters();
+}
 
-  // Sync filter buttons
-  document.querySelectorAll('.filter-btn').forEach(btn=>{
-    btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${activeFilter}'`));
+function applyFilters() {
+  var DEST = parseInt(document.body.dataset.dest || '15');
+  document.querySelectorAll('.report').forEach(function(rep) {
+    var grp = rep.dataset.group;
+    if (activeTab !== 'all' && grp !== activeTab) {
+      rep.setAttribute('hidden',''); return;
+    }
+    rep.removeAttribute('hidden');
+    var visible = 0;
+    rep.querySelectorAll('.opp').forEach(function(opp) {
+      var score = parseInt(opp.dataset.score || '0');
+      var seg   = opp.dataset.seg === '1';
+      var conf  = opp.dataset.conf || '';
+      var show  = true;
+      if (activeFilter === 'destacada' && score < DEST) show = false;
+      if (activeFilter === 'seguimiento' && !seg) show = false;
+      if (activeFilter === 'alta' && !conf.includes('alta')) show = false;
+      if (show) { opp.removeAttribute('hidden'); visible++; }
+      else        opp.setAttribute('hidden','');
+    });
   });
 }
 
-function setTab(t){ activeTab=t; render(); }
-function setFilter(f){ activeFilter=f; render(); }
-render();
+// Open most recent report on load
+document.addEventListener('DOMContentLoaded', function() {
+  var reports = document.querySelectorAll('.report');
+  if (reports.length > 0) {
+    var body = document.getElementById(reports[0].id.replace('rep-','rep-body-'));
+    var btn  = reports[0].querySelector('.report-head');
+    if (body) { body.removeAttribute('hidden'); }
+    if (btn)  { btn.setAttribute('aria-expanded','true'); }
+  }
+  applyFilters();
+});
 </script>
 </body>
 </html>
