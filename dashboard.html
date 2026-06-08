@@ -135,10 +135,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <h1>&#9889; Inteligencia de Negocios</h1>
       <span class="badge-chile">&#127464;&#127473; Chile</span>
     </div>
-    <div class="stamp">Actualizado: 2026-06-03 21:34 &middot; Agente Claude</div>
+    <div class="stamp">Actualizado: 2026-06-08 12:22 &middot; Agente Claude</div>
   </div>
   <div class="header-right">
-    <div class="header-date">WED 03 JUN 2026</div>
+    <div class="header-date">MON 08 JUN 2026</div>
     <div class="header-sub">Score /20 &middot; Pasos accionables</div>
   </div>
 </div>
@@ -152,12 +152,12 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">4</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">28</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">14</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">5</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">34</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">17</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.6</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">5</div><div class="lbl">Con seguimiento</div></div>
-<div class="stat"><div class="num" style="font-size:14px">2026-06-03</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
+<div class="stat"><div class="num red">8</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num" style="font-size:14px">2026-06-08</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
   <div class="ctrl-group"><span class="ctrl-label">Categor&iacute;a:</span><button class="tab active" data-tab="all" onclick="setTab('all')">TODAS</button><button class="tab" data-tab="oportunidades" onclick="setTab('oportunidades')">OPORTUNIDADES DE NEGOCIO</button><button class="tab" data-tab="inmobiliario" onclick="setTab('inmobiliario')">MARKETING INMOBILIARIO</button></div>
@@ -171,8 +171,185 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-08">
+  <button class="report-head" onclick="togRep('oportunidades-2026-06-08')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-06-08</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">Tres modelos de negocio con tracción excepcional verificada — el &quot;marketplace plugin&quot; como estrategia de distribución zero-costo (Data Fetcher $23K MRR), Polsia como el caso más extremo de empresa AI autónoma ($7M ARR en 5 meses, 1 persona), y Base44 como validación del mercado &quot;vibe coding&quot; ($3.5M ARR en 9 meses, vendido por $80M). La señal dominante: la distribución vía marketplace de plataformas (Airtable, Notion, Google Workspace) es el canal con menor CAC documentado de 2026.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.2</span>
+      <span class="pill">&#9733; 3 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-06-08">
+    <div class="fuentes">FUENTES: 18 (Indie Hackers, Hacker News Show/Ask HN, TrustMRR, Starter Story, Superframeworks, Product Hunt Junio 2026, YC RFS Summer 2026, VC Cafe, BigIdeasDB, Exploding Topics, StackStarts, ProductMarketFit.tech, GetLatka, TeamDay.ai, Fortune, Dealroom, Medium/Startup analysis, Booqable)</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Integration SaaS en Marketplace de Plataforma</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-0" hidden>
+    <p class="opp-desc">Construir un plugin o extensión para una plataforma de software popular (Airtable, Notion, Monday.com, Google Workspace) que resuelve un dolor específico de sus usuarios, y distribuirlo a través del marketplace oficial de esa plataforma. El mercado integrado actúa como canal de distribución con CAC efectivo ≈ $0.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Andy Cloke construyó Data Fetcher (plugin de Airtable para importar datos de APIs externas) y alcanzó $23K MRR con 1 persona. Lo comenzó con el problema de no poder obtener datos financieros en Airtable. El marketplace oficial de Airtable fue su única fuente de adquisición. Leandro Zubrezki construyó Sync2Sheets (Notion↔Google Sheets), con $9K MRR, 175K+ instalaciones, empresas como Canva y Wix usándolo. Lo construyó en 3 semanas y fue rentable en el primer mes. Ambos sin gastos en marketing pagado.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Notion, Monday.com y Google Workspace tienen penetración alta en startups, agencias y empresas medianas chilenas. La estrategia es 100% global: el marketplace de Notion o Airtable entrega usuarios en Chile sin esfuerzo adicional. El arbitraje regional: los builders chilenos siguen construyendo apps desde cero sin aprovechar la distribución orgánica de estos marketplaces. El TAM chileno no es el objetivo principal — el modelo es global desde el día 1 pero Chile es un mercado de validación accesible. Estimación: si el 0.5% de los 175K usuarios de Sync2Sheets fueran de Chile = 875 usuarios. Con conversión del 5% a pago = 44 clientes × $15/mes = $660 MRR en Chile solo.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://stackstarts.com/andy-cloke-datafetcher-23k-platform-playbook/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-08-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-08-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Data Fetcher (Andy Cloke)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-08-0-seg" hidden>
+      <p class="seg-act">Activado por: Score del reporte ≥15/20 · Modelo verificado con múltiples fundadores independientes</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>Distribuye el producto exactamente donde el usuario ya está buscando la solución. El marketplace de la plataforma elimina el problema de distribución: tu único trabajo es resolver un dolor real y aparecer en el lugar correcto cuando el usuario lo busca.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Antes de construir, pasa 3 horas en el foro de soporte de la plataforma elegida buscando preguntas sin respuesta o features pedidas. Si el mismo dolor aparece 5+ veces, es suficiente señal. No construyas más de lo que resuelve ese dolor exacto.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Crea un YouTube tutorial mostrando el flujo completo del producto (antes/después). Andy dice que sus tutoriales en YouTube generaron más conversiones que cualquier blog post. El video ranking en &quot;cómo conectar X con Y&quot; es SEO pasivo con alta intención de compra.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0 (2021): Construyó el primer MVP mientras gestionaba una newsletter de IPOs — quería datos financieros en Airtable. Lanzó directamente en el marketplace.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 1-4: ~$500–$1K MRR. Primeros clientes del marketplace sin marketing activo.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes ~12: $3K MRR. Blog posts y YouTube tutoriales para integraciones populares empiezan a generar SEO.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes ~18: $6K MRR documentado en Starter Story (primera entrevista pública).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes ~24: $23K MRR. Incorporó integraciones no-code (Facebook Ads, Google Analytics, Shopify) que multiplicó la audiencia de usuarios no técnicos.</span></div><div class="tl-item"><span class="tl-dot"></span><span>*Nota: Andy tardó ~1 año en hablar con sus usuarios por primera vez. Una sola tarde de user testing reveló bugs de UX que, al corregirlos, aumentaron los ingresos y el uso casi inmediatamente.*</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Operador de Negocios con Agentes AI</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-1" hidden>
+    <p class="opp-desc">Servicio gestionado donde el operador usa un stack de agentes AI (Claude API + herramientas de automatización como Make/n8n + CRM) para manejar marketing, generación de leads, atención al cliente y operaciones básicas de 5-15 PYMEs clientes. El operador cobra $1.500–$4.000/mes por cliente, mientras los agentes hacen el 80% del trabajo. Con 10 clientes: $15K–$40K MRR.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Ben Broca construyó Polsia — una plataforma que gestiona 1.000+ empresas autónomamente con agentes AI. Alcanzó $1M ARR en 30 días de lanzamiento (Latent Space Podcast, 26 febrero 2026), $7M ARR en 5 meses, recaudó $30M a valuación de $250M. El modelo es verificable: Fortune dedicó un artículo (&quot;The One-Person Unicorn&quot;, marzo 2026), y el sistema maneja engineering, marketing, cold outreach, redes sociales y Meta Ads simultáneamente, sin empleados. La diferencia con una agencia AI genérica: el operador no vende servicios puntuales, administra empresas completas de forma continua con los agentes como infraestructura permanente.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Chile tiene ~1,6M PYMEs. Menos del 5% tiene sistemas de automatización de marketing activos. El dolor es doble: no pueden pagar equipos (un community manager cuesta $600K–$1M CLP/mes; un CMO, más del doble). El modelo de &quot;operador AI&quot; cubre exactamente esa brecha: entrega resultado de equipo de marketing completo a $500K–$1.5M CLP/mes. Arbitraje regional claro: en EE.UU. ya existen operadores AI cobrando $2K–$5K/mes por cliente; en Chile el concepto no está establecido, el mercado es virgen. TAM estimado: 50.000 PYMEs chilenas con ventas sobre $500M CLP anuales que no tienen área de marketing × $600K CLP/mes = mercado addressable &gt; $360B CLP anuales.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.contextstudios.ai/blog/polsia-how-a-solo-founder-hit-1m-arr-in-30-days-with-ai-agents" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-08-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-08-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Polsia (Ben Broca)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-08-1-seg" hidden>
+      <p class="seg-act">Activado por: $0 a $7M ARR en 5 meses · Solo fundador · Recaudación $30M a $250M de valuación</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>El producto gestiona la distribución de sí mismo. Cada empresa que Polsia lanza hace marketing y genera presencia digital — todo eso referencia implícitamente a Polsia. El canal de distribución del producto era el producto mismo.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Construye el servicio como un sistema, no como trabajo freelance. Documenta cada proceso (cómo generas posts, cómo calificás leads, cómo escribís emails de outreach para el cliente) y luego automatiza con agentes. La clave de Polsia: la infraestructura es reutilizable entre clientes, no reconstruyes nada por cliente nuevo.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Lanza en X con build-in-public. Cuando tengas el primer cliente con resultados (ejemplo: &quot;generamos 15 leads calificados para una clínica dental en Providencia en 30 días&quot;), documenta el proceso completo en un thread. Ben Broca dice que el first-mover advantage en X para AI-native operators es enorme porque la audiencia ya está buscando estas historias.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Noviembre 2025: Lanzamiento de Polsia. Primer día: Andreas Klinger (inversor notable) compartió su experiencia con el producto en X, generando viral orgánico.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Diciembre 2025: Sistema gestionando 200+ empresas. Primeras métricas de revenue visibles.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Enero-Febrero 2026: $200K → $2M ARR run rate en dos semanas (documentado en Dealroom).</span></div><div class="tl-item"><span class="tl-dot"></span><span>26 de febrero 2026: Ben Broca en Latent Space Podcast — anuncia cruzar $1M ARR. Compartió que gestiona 1.000+ empresas simultáneamente.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Marzo 2026: Fortune publica &quot;The One-Person Unicorn&quot; dedicado a Polsia. $30M levantados a $250M de valuación.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Abril-Mayo 2026: $7M ARR. Confirmado en YouTube (entrevista pública con datos en pantalla).</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Constructor de Micro-Apps Verticales vía Vibe Coding</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 3 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-2" hidden>
+    <p class="opp-desc">Usar herramientas de &quot;vibe coding&quot; (Bolt.new, Lovable, Replit) para construir mini-aplicaciones web personalizadas para un nicho específico de negocios, en horas en vez de semanas. Se vende como producto productizado a $300-700 de setup + $200-400/mes de retainer de mantenimiento/hosting. Con 25 clientes: $5K–$10K MRR.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Maor Shlomo construyó Base44 (plataforma de vibe coding en español para crear apps con lenguaje natural) solo, sin inversión inicial y con $10K-$20K USD de costos. Alcanzó $3.5M ARR en 9 meses, 300K usuarios, y vendió a Wix por $80M en junio 2025 (22x múltiplo de revenue). La oportunidad para el fundador chileno no es construir la plataforma (ya existe: Bolt.new a $40M ARR, Lovable a $400M ARR), sino ser el OPERADOR: el experto que usa estas herramientas para construir apps específicas para PYMEs locales que no pueden acceder a desarrollo tradicional ($5K-$15K por app). El costo de construcción bajó de semanas a horas. El precio sigue siendo $300-800 USD para el cliente. El margen explota.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>~500K PYMEs chilenas sin sistema de reservas, portal de clientes o app de inventario propio. Un desarrollo tradicional cuesta $3M-$10M CLP y tarda 3-4 meses. Con vibe coding, el mismo sistema se entrega en 2-5 días a $300K-500K CLP. La brecha de precio/tiempo crea un mercado nuevo: clientes que antes no podían pagar ahora sí pueden. El arbitraje: en EE.UU. ya existen &quot;vibe coding agencies&quot; cobrando $5K-$15K por app + retainer; en Chile no existe todavía.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://whatastartup.substack.com/p/a-solo-founder-just-sold-his-6-months-old-ai-startup-for-80-million-dollars" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-08-2-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-08-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Base44 (Maor Shlomo)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-08-2-seg" hidden>
+      <p class="seg-act">Activado por: $0 a $3.5M ARR en 9 meses · Solo fundador · Adquisición a 22x múltiplo ($80M)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>Build-in-public con demos visuales (no texto: video o GIF mostrando el producto en acción) en LinkedIn fue la palanca de distribución. La audiencia de tecnología latinoamericana amplificó; Maor publicó en inglés pero el producto tenía interfaz visual universal.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Construye un template específico por nicho (no un app builder genérico). &quot;Sistema de reservas para peluquerías chilenas&quot; es 10x más convertible que &quot;construye cualquier app&quot;. El nicho especializado reduce la competencia y aumenta la autoridad percibida. Maor tenía un producto genérico porque era la plataforma; vos podés ser el especialista del nicho que usa la plataforma.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Documenta el proceso de construcción en video: &quot;construí la app de reservas de esta peluquería en 3 horas&quot;. Publica en LinkedIn y TikTok con el antes (problema) / después (solución funcionando). Los primeros 5 clientes vendrán de ese contenido, sin necesidad de ads.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Nov-Dic 2024: Maor vuelve del servicio militar reservista. Comienza Base44 como side project con ~$10K-$20K USD de inversión propia (principalmente costos de LLM).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Enero 2025: MVP funcional. Primeros usuarios de LinkedIn y X a través de build-in-public.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Marzo 2025: 50K usuarios. Crecimiento orgánico viral. $500K ARR estimado.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mayo 2025: 300K usuarios. $3.5M ARR documentado por GetLatka.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Junio 2025: Adquisición por Wix a $80M. 22x múltiplo de revenue. Solo fundador al momento de la venta.</span></div><div class="tl-item"><span class="tl-dot"></span><span>*Nota: Maor era co-fundador de Explorium (levantó $130M VC). Base44 fue construido por él solo.*</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Open Source Alternative + Hosted SaaS (Papermark model)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 2 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-3" hidden>
+    <p class="opp-desc">Identificar una herramienta SaaS popular con precio alto ($50-300/mes), construir una alternativa open source (código en GitHub), generar tracción orgánica vía GitHub stars y SEO (&quot;alternativa open source a X&quot;), y monetizar con una versión hosted managed (sin necesidad de que el usuario instale nada) a $15-80/mes.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Marc Seitz e Iuliia Shnai construyeron Papermark — alternativa open source a DocSend. El primer tweet de lanzamiento tuvo 95K vistas y 450 likes. El repo acumuló 6.9K GitHub stars y 945 forks. Ingresos: $900K ARR con 2 personas. DocSend cobra $65-250/mes; Papermark cobra €24/mes. La ecuación: el usuario paga 80% menos y confía en la transparencia del open source. El modelo funciona porque el SEO de &quot;alternativa a X&quot; tiene intención de compra muy alta (el usuario ya sabe que quiere resolver el problema, solo busca mejor precio).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Alta adopción de herramientas SaaS globales caras entre startups y profesionales chilenos (DocSend, Calendly, Typeform, Hotjar). Una versión hosted en español, con soporte local, y precios en CLP crearía un diferenciador real. Oportunidad de arbitraje: Cal.com (open source Calendly) tiene 42K GitHub stars y aún no existe un operador chileno que ofrezca hosting + soporte local de esta herramienta.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><a class="src-link" href="https://techwithram.medium.com/how-papermark-bootstrapped-to-900k-arr-by-open-sourcing-docsend-cfeae8e3a6c3" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">AI Contract Review para PYMEs y Freelancers Chilenos</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-4" hidden>
+    <p class="opp-desc">Web app que permite subir un contrato en PDF, analizarlo con IA (Claude API), e identificar cláusulas riesgosas, traduce lenguaje legal a lenguaje simple, y genera un resumen ejecutivo en español. Precio: $9.990 CLP/análisis o $29.990 CLP/mes por revisiones ilimitadas.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Una revisión contractual con abogado en Chile cuesta $150.000–$300.000 CLP. La mayoría de contratos que firman freelancers, PYMEs y agencias nunca pasa por un abogado — no por negligencia sino por precio. La IA puede hacer el 80% del trabajo de screening en segundos. Webdox CLM (empresa chilena) opera en el espacio de gestión de contratos enterprise, pero no existe una solución accesible para el segmento PYME/freelancer. La demanda está documentada en foros chilenos de emprendimiento y en el artículo &quot;ai-legal-claude&quot; — un proyecto open source de revisión de contratos con Claude que figura como uno de los skills más descargados del ecosistema Claude Code en 2026.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Brecha clara: Webdox sirve el segmento enterprise (cobros de $200K-$1M CLP/mes). El segmento SME/freelancer (&gt;500K personas en Chile) no tiene herramienta accesible. Los freelancers firman contratos de servicios, los PYMEs firman con proveedores y clientes sin revisión legal. El caso de uso más urgente: contrato de trabajo independiente, arriendo de local comercial, contrato con proveedor de servicios.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.despegapyme.cl/las-7-mejores-herramientas-de-ia-para-abogados-y-despachos-juridicos/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-08-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Alquiler de Equipos para Bebés</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-08-5" hidden>
+    <p class="opp-desc">Servicio de alquiler de equipos para bebés (coches, sillas de carro, cunas de viaje, sillas de comer) a familias que viajan o a residentes que no quieren comprar equipos de uso temporal. Precio: $20-80 USD/semana por ítem. Modelo: inventario propio + plataforma de reservas.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>BabyQuip (EE.UU.) tiene 3.000+ proveedores independientes, cumplió 385K órdenes y generó $6M en ingresos en 2024. El modelo crece al 7-9% anual. El caso de uso es universal: familias viajando con bebés no quieren (o no pueden) cargar equipos pesados en aviones, y el alquiler en destino es 80% más barato que comprar + regalar. Startup cost verificado: $10K-$20K USD en inventario inicial.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Turismo crece consistentemente en Chile — Santiago, Atacama y la Zona Sur reciben turistas internacionales con bebés que necesitan equipo en destino. No existe un proveedor establecido de baby gear rental en Chile. Mercado adicional: familias locales de ingresos medios-altos que prefieren rentar para visitas de abuelos u ocasiones puntuales. La plataforma puede ser simple (WhatsApp + link de pago + retiro en domicilio).</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://kingscrowd.com/babyquip-on-startengine-2025/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-03">
-  <button class="report-head" onclick="togRep('oportunidades-2026-06-03')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('oportunidades-2026-06-03')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-06-03</span>
@@ -184,10 +361,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">7 IDEAS</span>
       <span class="pill">PROM 13.6</span>
       <span class="pill">&#9733; 2 SEGUIM.</span>
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-oportunidades-2026-06-03">
+  <div class="report-body" id="rep-body-oportunidades-2026-06-03" hidden>
     <div class="fuentes">FUENTES: 14 (Indie Hackers, Product Hunt Junio 2026, YC RFS Spring+Summer 2026, Starter Story, robopost.app/blog, MicroFounder, BuiltWithAgents.ai, Superframeworks, BoringCashCow, entrepreneurloop.com, easyai.indevs.in, GetLatka, PainOnSocial, VC Cafe)</div>
     
 <div class="opp seguimiento"
@@ -861,7 +1038,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  4 reportes &middot; 28 ideas en archivo
+  5 reportes &middot; 34 ideas en archivo
 </div>
 
 <script>
