@@ -135,7 +135,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <h1>&#9889; Inteligencia de Negocios</h1>
       <span class="badge-chile">&#127464;&#127473; Chile</span>
     </div>
-    <div class="stamp">Actualizado: 2026-06-15 12:14 &middot; Agente Claude</div>
+    <div class="stamp">Actualizado: 2026-06-15 12:18 &middot; Agente Claude</div>
   </div>
   <div class="header-right">
     <div class="header-date">MON 15 JUN 2026</div>
@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">14</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">81</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">40</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">15</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">87</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">43</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.6</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">17</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">20</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-06-15</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,185 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-15">
+  <button class="report-head" onclick="togRep('oportunidades-2026-06-15')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-06-15</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">Tres vectores convergen hoy. Primero: el SII obliga a todos los contribuyentes chilenos a emitir DTE desde 2018, lo que significa que cada contador del país procesa cientos de XMLs cada mes — nadie ha construido el Docuclipper chileno para ese flujo. Segundo: Chatbase llegó a $10M ARR bootstrapped con un modelo que la IA ha democratizado completamente; el ángulo Chilean es WhatsApp-first + español-nativo y no hay un equivalente local autogestionado. Tercero: Subscribr demuestra que el mercado anglohablante de YouTube scriptwriting ya está validado a $30K MRR — el equivalente en español para los 600M hispanohablantes es una ventana limpia que nadie ha tomado.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.5</span>
+      <span class="pill">&#9733; 3 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-06-15">
+    <div class="fuentes">FUENTES: 28 (Indie Hackers posts verificados junio 2026, HN &quot;Ask HN: side projects making $500+/mo&quot; hilos enero 2026, Starter Story podcast Subscribr/SARAL, YC Summer 2026 RFS vía VC Cafe/TheVCCorner/Superframeworks, Product Hunt leaderboard semana 23-24 junio 2026, BuildMVPFast case studies Chatbase y portfolio apps, startupstorys.com Gil Hildebrand, AppSumo/Subscribr, SII.cl DTE XML formato v2.5, Chileatiende.gob.cl DTEs, dtepdf.cl tipos DTE Chile, bigideasdb.com bootstrapping 2026, docuclipper.com, bankstatementwizard.com, gbq.com AI bookkeeping, businesswire.com Gelt Series A, gotofu.com Tofu Xero, productled.com Chatbase $8M ARR, villelabs.cl chatbot Chile 2026, buk.cl módulos RRHH Chile 2026, hivedesk.com compliance Chile, square MarketMan integración restaurantes, restauranttechnologynews.com Crunchtime 2026, growwstacks.com AI restaurantes 2026, imarcgroup.com LATAM SaaS market, trustmrr.com revenue database, ecosistemastartup.com LATAM IA 47%)</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Parser de Documentos SII-DTE con IA para Contadores Chilenos</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-0" hidden>
+    <p class="opp-desc">Micro-SaaS ($25K–$79K CLP/mes por firma contable) que toma cualquier DTE del SII — facturas electrónicas, boletas, notas de crédito, liquidaciones de sueldo — y los convierte en datos estructurados listos para registrar en el sistema contable del cliente: Excel, CSV, JSON, o por API a Nubox/Bsale/Defontana. El usuario sube el PDF o XML del DTE, la IA extrae: emisor, receptor, RUT, monto neto, IVA, folio, fecha, glosa, ítems de detalle. En segundos, no en minutos. La versión avanzada extrae todos los DTEs directamente de la bandeja del SII usando las credenciales del cliente (con consentimiento explícito).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>El mercado anglohablante ya validó el modelo. Un fundador bootstrapped que construyó un conversor de estados de cuenta bancarios a Excel llegó a $16K MRR en EE.UU. (caso documentado en BigIdeasDB, diciembre 2025). Docuclipper, BankStatementWizard, y ConvertMyBankStatement tienen miles de clientes pagando $20–$99/mes por resolver exactamente el mismo dolor — datos atrapados en PDFs que se procesan a mano. En Chile, el dolor es idéntico pero con la especificidad regulatoria del DTE: 10 tipos de documentos distintos, cada uno con su estructura XML oficial publicada por el SII (versión 2.5, febrero 2026). El SII procesa más de 6.000 millones de documentos electrónicos al año — cada uno es una entrada manual potencial para algún contador.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Desde 2018, el SII obliga a todos los contribuyentes a emitir, recibir y almacenar DTEs electrónicos. Hay más de 50.000 firmas contables activas en Chile. Una firma mediana gestiona 50–200 clientes, cada uno con decenas a cientos de DTEs mensuales. El flujo actual: descargar PDFs del portal SII → abrir en Excel → transcribir manualmente los datos → registrar en el software contable. Con IA, ese flujo colapsa de 30 minutos a 30 segundos por documento. No existe un producto chileno que automatice este flujo específicamente para el ecosistema SII-DTE. Las herramientas globales (Docuclipper, etc.) no conocen los tipos de DTE chilenos, no se integran con las APIs del SII, y no están calibradas para el formato XML chileno. TAM conservador: 50K firmas × $35K CLP/mes = $1.75B CLP TAM anual, solo en firmas. Si se incluye el segmento de empresas con departamento contable propio (añade otras 30K+ entidades), el TAM se duplica.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://bigideasdb.com/bootstrapping-a-company-in-2026" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-15-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-15-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Parser DTE Chile</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-15-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 · caso $16K MRR PDF converter bootstrapped verificado · mercado SII de 6.000M+ DTEs/año · TAM $1.75B CLP solo en firmas contables</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>El SII ya estandarizó el problema — cada tipo de DTE tiene un XML con estructura fija y conocida. Eso significa que la IA no necesita &quot;aprender&quot; documentos arbitrarios; necesita mapear campos fijos a una tabla estructurada. La tasa de precisión puede ser 99%+ desde el primer mes, lo que hace el caso de ventas casi automático: el contador lo prueba una vez y no vuelve a procesar a mano.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Copia el modelo de distribución de Docuclipper: crea una landing page con un demo en vivo — el visitante sube un DTE de ejemplo y ve el Excel generado al instante, sin registro. La conversión de demo→pago en este modelo supera el 15–20% porque elimina la fricción de &quot;¿funciona con mis documentos?&quot;.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Agrega integración con la API del SII para extraer DTEs en lote (el SII tiene un portal de acceso programático). Eso transforma el producto de &quot;conversor manual&quot; a &quot;sincronización automática&quot; — de $25K CLP/mes a $75K CLP/mes de precio sin objeción, porque el cliente no necesita hacer nada, los datos llegan solos.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>El modelo de &quot;PDF a datos estructurados para contadores&quot; está validado desde 2018–2020 con los primeros bank statement converters (Docuclipper, ParseBankStatements, etc.).</span></div><div class="tl-item"><span class="tl-dot"></span><span>2022–2024: La categoría creó un nicho estable: Docuclipper publica precios de $14.99–$74.99/mes, tiene miles de usuarios activos, y no necesita funding externo.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Diciembre 2025: BigIdeasDB documenta caso anónimo de fundador que llegó a $16K MRR con conversor bancario solo, sin marketing paid. Canal de adquisición: SEO orgánico + comunidades de contadores.</span></div><div class="tl-item"><span class="tl-dot"></span><span>El patrón: el producto no necesita ser &quot;sexy&quot;. Necesita resolver exactamente un dolor repetitivo de los contadores.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">AI Scriptwriter para Creadores de YouTube en Español</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-1" hidden>
+    <p class="opp-desc">SaaS ($19–$49 USD/mes) que genera guiones completos de YouTube en español — con hooks de apertura virales, estructura de retención por minuto, y llamados a la acción — analizando qué está funcionando en YouTube en tiempo real para cada nicho. El creador ingresa: tema del video, audiencia objetivo, y duración deseada. La IA entrega: título optimizado para CTR, guión completo con timestamps, descripción SEO, y 3 variantes del hook de apertura. Diferenciador clave vs. simplemente &quot;usar ChatGPT&quot;: los hooks y la estructura de retención están calibrados con datos reales de YouTube Analytics de videos virales, no con teoría general.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Gil Hildebrand fundó Subscribr con esta premisa exacta para el mercado anglohablante. Resultado documentado: $20.000 en preventas antes del lanzamiento (50 lifetime deals vendidos a través de Twitter antes de que el producto existiera), $10K MRR en los primeros 100 días, y ~$30.000/mes de ingresos actuales en trayectoria hacia $1M ARR. El canal de adquisición principal: SEO programático (30.000+ visitas orgánicas mensuales desde Google con artículos como &quot;cómo hacer guiones de YouTube sobre [nicho]&quot;) + distribución en comunidades de YouTubers. Gil tenía experiencia previa en startups (cofundó Squidoo, $10M revenue, con Seth Godin) pero no un canal de YouTube propio — el producto funciona por la utilidad intrínseca, no por la audiencia del fundador.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Los creadores hispanohablantes de YouTube enfrentan el mismo problema que los angloparlantes pero con menos recursos disponibles. No existe ningún equivalente de Subscribr en español. Los 3 millones de YouTubers activos en LATAM — de los cuales Chile, México, Colombia y Argentina representan el 60%+ — usan ChatGPT directamente (sin calibración para YouTube) o contratan guionistas humanos a $50K–$150K CLP por video. Una herramienta en español nativo, que analice qué temas y estructuras funcionan en la audiencia hispanohablante específicamente, es un arbitraje directo sobre el producto anglohablante. El primer mercado de validación: creadores chilenos de 10K–200K suscriptores en los nichos de finanzas personales, emprendimiento, y educación — segmentos con alta capacidad de pago y alta demanda de contenido consistente. TAM rough: 1M creadores activos en español con más de 1K suscriptores × 5% dispuesto a pagar $29/mes = $14.5M USD ARR potencial.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.thestartupstorys.com/2026/03/gil-hildebrands-subscribr-story.html" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-15-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-15-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; AI Scriptwriter YouTube en Español</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-15-1-seg" hidden>
+      <p class="seg-act">Activado por: Subscribr verificado con $0→$10K MRR en ~100 días (≤3 meses) · $20K en preventas antes del lanzamiento · ~$30K MRR actual en trayectoria a $1M ARR</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>El SEO programático de cola larga — no un blog genérico de &quot;cómo hacer videos de YouTube&quot;, sino cientos de páginas hiperspecializadas como &quot;guión de YouTube para nicho de finanzas personales para millennials&quot; — atraen exactamente al usuario que ya sabe lo que quiere. Cuando ese usuario llega y genera su primer guión en 3 minutos, la conversión al pago es casi inevitable.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Antes de construir, entiende dónde están los creadores hispanohablantes: Discord de DeCopas (comunidad de creadores en español), grupos de Facebook &quot;Creadores de YouTube Hispanos&quot;, Reddit r/CrearEnYouTube. Esas comunidades son el canal zero-cost para las primeras 50 ventas.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Diferénciate con algo que Subscribr no puede replicar fácilmente: &quot;guiones calibrados para el algoritmo de YouTube en español&quot; — el algoritmo hispano tiene patrones distintos al angloparlante (temas locales, referencias culturales, duraciones preferidas). Esa especificidad es un moat defensible.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Pre-lanzamiento: Gil Hildebrand publicó en Twitter/X su plan de construir un scriptwriter de YouTube. Vendió 50 lifetime deals a $400 cada uno = $20.000 antes de tener producto. Canal: audiencia propia en Twitter de creadores y fundadores.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Día 1–30: Lanzamiento del MVP con integración básica de YouTube API. Canal principal: AppSumo (deal de lifetime access que generó pico inicial de usuarios) + SEO programático.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 3: $10K MRR. Los artículos SEO de cola larga (&quot;cómo escribir guión de YouTube para [tema específico]&quot;) empezaron a posicionarse en Google. Cada artículo es una landing page que capta exactamente al usuario con el problema.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2025–2026: ~$30K MRR, ~4.000 clientes activos. La palanca de retención: creadores que publican videos con guiones de Subscribr y ven mejor retención en sus analytics → no cancelan.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Chatbot Builder Self-Serve con WhatsApp-First para PYMEs Chilenas</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-2" hidden>
+    <p class="opp-desc">SaaS ($29K–$89K CLP/mes según volumen de conversaciones) donde cualquier empresa —sin saber programar— sube sus documentos (catálogo de productos, FAQ, política de devoluciones, contrato de servicio) y obtiene un chatbot entrenado con ese contenido, listo para desplegar en WhatsApp Business API en menos de 10 minutos. El chatbot responde preguntas, califica leads, toma pedidos, y agenda reuniones de forma autónoma las 24 horas. Diferenciado del &quot;AI Agente para eCommerce&quot; cubierto el 13 de junio: ese era un servicio gestionado donde un tercero implementa el agente. Esto es un **constructor autogestionado**: la empresa lo configura sola en minutos, sin contratar a nadie.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Chatbase — el benchmark global de este modelo — cruzó $10M ARR bootstrapped. Yasser Elsaid llegó a $1M ARR en 117 días desde el lanzamiento, sin un solo dólar de funding. El modelo técnico (RAG sobre documentos propios del usuario → chatbot deployable en múltiples canales) es ahora un commodity técnico: Claude/OpenAI API + embeddings + una UI sencilla. El moat no es la IA — es la distribución. En Chile, la distribución está en WhatsApp: 94% de los chilenos lo usan. Un chatbot que se instala en el número de WhatsApp de negocio de una PYME y responde consultas las 24 horas resuelve el dolor más universal del pequeño comerciante: &quot;no puedo responder todos los mensajes&quot;.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>El mercado de chatbots en Chile tiene agencias (chatbotai.cl, softnet.cl, villelabs.cl) que cobran $500K–$3M CLP por implementaciones a medida. No existe un producto self-serve donde una panadería, clínica dental, o tienda de ropa pueda tener su chatbot funcionando en WhatsApp en 10 minutos sin pagar a un desarrollador. El análisis de mercado de villelabs (2026) confirma que el MVP técnico cuesta &lt;$100 USD/mes en APIs pero las agencias cobran $2.000–$8.000 USD por implementación — ahí está el arbitraje de precios. TAM: 100K PYMEs activas en Chile con WhatsApp Business × $50K CLP/mes = $5B CLP TAM. Si captura 1% = $50M CLP MRR.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.buildmvpfast.com/blog/chatbase-10m-arr-bootstrapped-ai-saas-case-study-2026" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-06-15-2-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-06-15-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Chatbot Builder WhatsApp Chile</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-06-15-2-seg" hidden>
+      <p class="seg-act">Activado por: Chatbase verificado con $0→$1M ARR en 117 días (≤3 meses) · $10M ARR bootstrapped · WhatsApp 94% penetración Chile = canal de distribución validado · gap de precio self-serve vs. agencias confirmado en mercado local</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>La demo es el producto de ventas. Chatbase creció sin marketing porque cualquiera que veía la demo entendía el valor inmediatamente. En Chile, la demo equivalente es: el visitante escribe el nombre de su negocio en WhatsApp y en 3 segundos el chatbot responde con información real. Esa experiencia es irresistible sin necesidad de explicación.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Copia el modelo de demo instantánea de Chatbase: la landing page tiene un número de WhatsApp de demo donde cualquier visitante puede chatear con un chatbot de ejemplo (&quot;una tienda de deportes imaginaria&quot;). La demo funciona antes de que el visitante ingrese su email.</span></div><div class="replicate-item"><span class="r-num">2</span><span>El moat chileno son las integraciones locales que Chatbase no tiene: Transbank/Fintoc para que el chatbot pueda procesar pagos directamente en el chat; integración con las guías de despacho de Chilexpress y Starken para que el chatbot dé seguimiento de pedidos en tiempo real. Esas dos integraciones convierten el tool de &quot;soporte&quot; a &quot;ventas y logística&quot;.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Lanzamiento 2023: Chatbase arrancó como una app simple — &quot;entrena un chatbot con tus PDFs&quot;. Primer viralidad en Twitter cuando Yasser Elsaid tuiteó el demo y consiguió 10K usuarios en 24 horas.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 4: $1M ARR. Canal: puro word-of-mouth + Product Hunt + Twitter. Sin paid ads. La demo (subir un PDF y chatear con él) era suficientemente llamativa para ser compartida.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2024: $8M ARR, 18 personas (11 ingenieros). Movimiento upmarket hacia enterprise: IHG Hotels, Siemens, PwC.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mayo 2026: $10M ARR, cruce de la marca. Anuncio de Chatbase Voice con integración Twilio.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Paralelamente: aparece en Indie Hackers el &quot;mini-Chatbase&quot; anónimo a $5.8K MRR — confirma que versiones de nicho o geográficas del modelo también son viables sin competir con Chatbase directamente.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media-alta">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">AI-Native Servicio de Contabilidad para PYMEs Chilenas</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-3" hidden>
+    <p class="opp-desc">Servicio mensual ($120K–$350K CLP/mes por empresa, según tamaño) donde la IA hace la contabilidad y un contador humano la supervisa — pero el cliente no compra software, compra el trabajo terminado. Cuadre de libros mensual, declaración de IVA, flujo de caja, y reporte ejecutivo de una página — entregados el día 5 de cada mes, sin que el dueño de la PYME tenga que aprender ningún software. Diferenciado del &quot;SaaS de tributaria para freelancers&quot; (cubierto el 30 de mayo): ese era una herramienta para que el propio freelancer gestionara su tributación. Esto es un **servicio entero donde el cliente no hace nada** — &quot;bring me the invoice, I handle the rest&quot;.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Y Combinator Summer 2026 Request for Startups identifica explícitamente &quot;AI-Native Service Companies&quot; como una de sus 15 categorías prioritarias. La tesis de YC: &quot;La diferencia es sutil pero importante: muchas startups venden software que ayuda al cliente a hacer el trabajo. Las AI-native service companies venden el trabajo terminado.&quot; Gelt — la primera firma de taxes AI-native en EE.UU. — levantó $13M en Serie A en septiembre 2025 (BusinessWire, verificado) para construir exactamente este modelo en el nicho de high-net-worth individuals. Tofu, plataforma de AI bookkeeping para firmas contables, fue nombrada Xero Global Emerging App of the Year Finalist 2025 — confirma que el mercado institucional ya ve el AI bookkeeping como servicio, no como software. El modelo &quot;contabilidad como servicio&quot; ya existe (outsourcing contable), lo que cambia es que la IA reduce el costo de entrega en 10x, haciendo rentable servir a PYMEs pequeñas que antes no podían pagarlo.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>La contabilidad está sub-atendida en el segmento de PYMEs con $10M–$500M CLP de ventas anuales. El SII obliga a todos a llevar libros, pero el 60%+ de las PYMEs pequeñas en Chile declara su IVA tarde o tiene su contabilidad al día solo en el momento de la declaración anual (estimación propia basada en comportamiento de búsquedas de &quot;contabilidad PYME Chile&quot; + reportes SII sobre multas). La SII ya tiene integración de DTE estructurado — cada boleta y factura que emite o recibe una empresa llega en XML al SII, lo que significa que la IA puede leer todos los movimientos del negocio directamente desde los archivos XML. Eso hace que el costo de &quot;hacer la contabilidad&quot; sea 20–30 minutos de procesamiento de IA, no 20–30 horas de un contador. TAM: 200K PYMEs con facturación $30M–$500M CLP × $180K CLP/mes = $36B CLP TAM anual.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta</span><a class="src-link" href="https://www.vccafe.com/2026/04/28/requests-for-startups-summer-2026-edition/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">SaaS de RRHH Micro para PYMEs Chilenas (5–50 empleados)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-4" hidden>
+    <p class="opp-desc">SaaS ($25K–$79K CLP/mes según nº de empleados) que digitaliza los 5 procesos de RRHH más dolorosos para PYMEs chilenas con 5–50 empleados: (1) contratos de trabajo con firmas electrónicas, (2) liquidaciones de sueldo calculadas automáticamente con los topes de AFP e Isapre vigentes, (3) finiquitos generados en minutos según el Código del Trabajo, (4) gestión de vacaciones y permisos con cumplimiento automático de la Ley 20.940, y (5) registro de asistencia conectado al cálculo de horas extra. Sin los módulos complejos ni el precio de Buk (que apunta a 50+ empleados) ni la complejidad de SAP.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Buk domina el mercado chileno de software RRHH para empresas medianas y grandes. Pero el segmento de PYMEs con 5–50 empleados —la base de la pirámide— usa Excel, WhatsApp, y papeles. El mercado LATAM de HR tech para PYMEs está creciendo pero dominado por soluciones genéricas (Rippling, Deel) que no conocen los específicos del Código del Trabajo chileno: las semanas corridas, el cálculo de proporcional de vacaciones, las cotizaciones previsionales con los topes de la AFP, los finiquitos con el recargo del 30%. Rokisoft cubre LATAM pero genéricamente. Una solución específicamente chilena, con las actualizaciones de ley automáticas (el sueldo mínimo sube en julio de cada año, los topes de AFP se actualizan, etc.), tiene un moat de compliance que es muy difícil de replicar desde afuera. El patrón: vertical SaaS wins 2026 — 7–10x ARR múltiple en M&amp;A vs. horizontal, churn bajo por lock-in operacional.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>La Dirección del Trabajo fiscaliza con mayor intensidad desde 2024. Las multas por liquidaciones incorrectas van de 1 a 10 UTM por trabajador afectado. Para una PYME con 20 empleados, una multa de 5 UTM por error = $350K CLP por incidente. El segmento de PYMEs 5–50 empleados incluye +300K empresas en Chile (estimado SENCE/SII). Si solo el 2% adopta un micro-SaaS a $40K CLP/mes = $240M CLP MRR TAM.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://www.buk.cl/blog/mejores-softwares-recursos-humanos-chile" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-06-15-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">AI para Gestión de Costos y Menú en Restaurantes Chilenos</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-06-15-5" hidden>
+    <p class="opp-desc">App móvil simple ($19K–$49K CLP/mes) donde el dueño de un restaurante fotografia o ingresa los ingredientes de cada plato → la IA calcula el food cost % por plato → alerta cuando un ingrediente sube de precio → sugiere el precio de venta mínimo para mantener el margen objetivo (habitualmente 30% de food cost). Sin integraciones complejas, sin hardware. El dueño solo ingresa: lista de platos, ingredientes, y porciones. La IA hace el resto.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Square lanzó en abril 2026 su integración con MarketMan para AI-driven inventory management de restaurantes (confirmado en press release oficial Square). Crunchtime anunció en abril 2026 su expansión de capacidades AI para restaurant operations management — incluyendo &quot;Voice-Based Inventory&quot; que reduce el tiempo de conteo de inventario 3–4x. El mercado global de AI para restaurantes está maduro en EE.UU. En Chile, el dolor es agudísimo por una razón específica: el salario mínimo subió a $550K CLP en 2026, y el personal representa el 25–35% de los costos operativos de un restaurante. Cada punto porcentual de margen importa más que nunca. La mayoría de los restaurantes en Chile fija sus precios &quot;por intuición&quot; o &quot;comparando con la competencia&quot; — sin saber si su Food Cost % está en 28% (saludable) o en 45% (en pérdida).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>El sector de alimentos y bebidas emplea a 400K+ personas en Chile y mueve ~$8.000B CLP anuales (estimado Cámara de Comercio). Las cadenas grandes (McDonald&#x27;s, Aramark) tienen sistemas sofisticados. El gap está en los 100K+ restaurantes independientes y cadenas pequeñas (2–10 locales) que operan sin datos. No existe un SaaS chileno de gestión de costos de menú — solo planillas Excel y estimaciones intuitivas.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media</span><a class="src-link" href="https://squareup.com/us/en/press/square-restaurant-inventory-marketman" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-06-15">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-06-15')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-06-15')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-06-15</span>
@@ -184,10 +361,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">6 IDEAS</span>
       <span class="pill">PROM 14.8</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-06-15">
+  <div class="report-body" id="rep-body-inmobiliario-2026-06-15" hidden>
     <div class="fuentes">FUENTES: ~22 (oidaindustries.com, falkonsms.com, wifitalents.com, engagelab.com, dealmachine.com, homevalueleads.com, homestack.com, luxurypresence.com, wavecnct.com, blinq.me, tappett.com, qrcodechimp.com, thebrokerlist.com, theclose.com, milehightitleguy.com, goliathdata.com, smartzip.com, dmrmedia.org, proptechlatamconnection.com, startupslatam.com, ebankingnews.com, grupocolibri.cl)</div>
     
 <div class="opp destacada"
@@ -2246,7 +2423,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  14 reportes &middot; 81 ideas en archivo
+  15 reportes &middot; 87 ideas en archivo
 </div>
 
 <script>
