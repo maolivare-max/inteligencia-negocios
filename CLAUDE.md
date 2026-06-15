@@ -22,6 +22,9 @@ Prioriza modelos con arbitraje regional (lo que ya funciona afuera pero aún no 
 - **GIT: siempre hacer push a `main`.** Si la sesión corre en una rama distinta, hacer
   merge a `main` y push a `main` antes de terminar. El dashboard de GitHub Pages sirve
   desde `main`; sin este paso el usuario no ve los cambios.
+- **LINK AL DASHBOARD: tras cada actualización, incluir siempre el link directo al
+  dashboard en la notificación y en la respuesta al usuario:**
+  https://maolivare-max.github.io/inteligencia-negocios/
 - Cada reporte se guarda como `/home/user/reportes/YYYY-MM-DD.md` (un archivo por día).
 - **Tras guardar cualquier reporte (de cualquiera de las dos misiones), ejecutar
   `python3 /home/user/build_dashboard.py`** para regenerar `dashboard.html`. El dashboard
