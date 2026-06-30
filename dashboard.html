@@ -135,10 +135,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <h1>&#9889; Inteligencia de Negocios</h1>
       <span class="badge-chile">&#127464;&#127473; Chile</span>
     </div>
-    <div class="stamp">Actualizado: 2026-06-29 12:22 &middot; Agente Claude</div>
+    <div class="stamp">Actualizado: 2026-06-30 12:08 &middot; Agente Claude</div>
   </div>
   <div class="header-right">
-    <div class="header-date">MON 29 JUN 2026</div>
+    <div class="header-date">TUE 30 JUN 2026</div>
     <div class="header-sub">Score /20 &middot; Pasos accionables</div>
   </div>
 </div>
@@ -152,12 +152,12 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">42</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">43</div><div class="lbl">Reportes</div></div>
 <div class="stat"><div class="num">231</div><div class="lbl">Ideas totales</div></div>
 <div class="stat"><div class="num green">138</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.9</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">64</div><div class="lbl">Con seguimiento</div></div>
-<div class="stat"><div class="num" style="font-size:14px">2026-06-29</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
+<div class="stat"><div class="num red">65</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num" style="font-size:14px">2026-06-30</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
   <div class="ctrl-group"><span class="ctrl-label">Categor&iacute;a:</span><button class="tab active" data-tab="all" onclick="setTab('all')">TODAS</button><button class="tab" data-tab="oportunidades" onclick="setTab('oportunidades')">OPORTUNIDADES DE NEGOCIO</button><button class="tab" data-tab="inmobiliario" onclick="setTab('inmobiliario')">MARKETING INMOBILIARIO</button></div>
@@ -171,8 +171,29 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-30">
+  <button class="report-head" onclick="togRep('oportunidades-2026-06-30')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-06-30</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">Día sólido en arbitraje de modelos ya validados con revenue documentado. Cuatro oportunidades nuevas sin solapamiento con reportes anteriores. La más urgente: WhatsApp Commerce SaaS para ecommerce chileno, donde Chile lidera LATAM en adopción API pero no hay un equivalente local del TxtCart norteamericano. Segunda oportunidad de alta urgencia: clínicas de peptidos/semaglutida, donde la ventana regulatoria en Chile abre en 2026 con la aprobación del genérico Selfix.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">0 IDEAS</span>
+      <span class="pill">PROM 0</span>
+      <span class="pill">&#9733; 1 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-06-30">
+    <div class="fuentes">FUENTES: Indie Hackers ($23K MRR post, $62K MRR post, Bannerbear), Starter Story (TxtCart, Bannerbear), Exploding Topics (LinkedIn post June 2026), Bootstrappers.com, Aurora Inbox (estadísticas WhatsApp LATAM, marzo 2026), Sherlock Comms (WhatsApp Commerce LATAM), Diario Financiero Chile (semaglutida genérica), La Tercera (Selfix Ozempic chileno), Emol, T13.cl (ISP aprobación), Grand View Research (peptide market), AltosConsulting (peptide clinic 2026), GetLatka (Bannerbear revenue), IndiePattern, MakerRecap, Flowjam (27 micro-SaaS examples), entrepreneurloop.com (bootstrapped niches 2026), Mordor Intelligence (GLP-1 LATAM), Bloomberg Peptides Gold Rush 2026, DigitalCommerce360 (Mercado Libre Negocios), ComparaSoftware.cl (construcción Chile), iConstruye.com, X/@kylebigley</div>
+    <div class="empty">Sin oportunidades parseadas.</div>
+  </div>
+</div>
 <div class="report" data-group="oportunidades" id="rep-oportunidades-2026-06-29">
-  <button class="report-head" onclick="togRep('oportunidades-2026-06-29')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('oportunidades-2026-06-29')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-06-29</span>
@@ -184,10 +205,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">0 IDEAS</span>
       <span class="pill">PROM 0</span>
       <span class="pill">&#9733; 3 SEGUIM.</span>
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-oportunidades-2026-06-29">
+  <div class="report-body" id="rep-body-oportunidades-2026-06-29" hidden>
     <div class="fuentes">FUENTES: Indie Hackers, Hacker News, Reddit (r/SaaS, r/Entrepreneur, r/SideProject), Product Hunt, YC RFS Summer 2026, Exploding Topics, Starter Story, Mixergy, Prieto Abogados, CMF Chile, Ministerio del Medio Ambiente SISREP, SEC Chile, GetApp Chile, Quansa, Payflow/Buk, Minu México, Polsia, Rain, Jobber, ServiceTitan</div>
     <div class="empty">Sin oportunidades parseadas.</div>
   </div>
@@ -6322,7 +6343,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  42 reportes &middot; 231 ideas en archivo
+  43 reportes &middot; 231 ideas en archivo
 </div>
 
 <script>
