@@ -93,7 +93,7 @@ def _parse_opps(text):
         axes  = _re(r"\*\(([^)]+)\)\*", body)
         desc  = _re(r"\*\*(?:Modelo|Qué es|Descripci[oó]n)[^:]*:\*\*\s*(.+)", body)
         why   = _re(r"\*\*(?:Por qué funciona|Por qué genera leads|Porque funciona)[^:]*:\*\*\s*(.+)", body)
-        conf  = _re(r"\*\*Confianza:\s*([^\*\n]+)", body).strip()
+        conf  = _re(r"\*\*Confianza:\*\*\s*([^\n]+)", body).strip()
         chile = _re(r"\*\*(?:En Chile|Oportunidad en Chile)[^:]*:\*\*\s*(.+)", body)
 
         # Link — try several field headings then first URL in bullets
