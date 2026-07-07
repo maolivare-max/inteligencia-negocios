@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-07 · Oportunidades de Negocio · Agencia de Agentes de Voz IA para PYMEs Chilenas (stack Callin.io + n8n + Cal.com) (Score 17/20)
+- 2026-07-07 · Oportunidades de Negocio · Regularización Exprés del Certificado de Cumplimiento Tributario SII (nueva retención automática de IVA) (Score 15/20)
+- 2026-07-07 · Oportunidades de Negocio · Kit de Compliance "Low-Cost" Ley 21.719 para PyMEs (riesgo de exclusión de licitaciones públicas) (Score 15/20)
+- 2026-07-07 · Oportunidades de Negocio · Servicio de Postulación Exprés a Fondos Estatales (Sercotec/CORFO) con Modelo de Success Fee (Score 14/20)
+- 2026-07-07 · Oportunidades de Negocio · Agregador Multi-IA en Español para Profesionales y PyMEs Chilenas (arbitraje del modelo Magai) (Score 14/20)
+- 2026-07-07 · Oportunidades de Negocio · Alternativa Low-Cost en Español a Typeform/Jotform (modelo Youform) (Score 13/20)
 - 2026-07-07 · Marketing Inmobiliario · Subsidio de Arriendo DS-52 2026 — Convocatoria Abre Hoy, Cierra 7 de Agosto (Score 17/20)
 - 2026-07-07 · Marketing Inmobiliario · Ley 21.748: Subsidio a la Tasa Hipotecaria se Agotaría Antes de su Plazo Legal (Score 16/20)
 - 2026-07-07 · Marketing Inmobiliario · Lofty "Homeowner Agent": IA que Reactiva Contactos Dormidos del CRM (Score 14/20)

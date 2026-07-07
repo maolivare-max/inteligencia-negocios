@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">56</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">309</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">174</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">57</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">315</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">177</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.8</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">85</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">89</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-07</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,199 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-07">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-07')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-07</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El ángulo regulatorio de hoy destapó dos ventanas de financiamiento estatal con plazo esta misma semana (Sercotec) y dos frentes de compliance chileno con mecánicas nuevas no cubiertas antes (retención automática de IVA del SII, exclusión de licitaciones públicas por incumplir la Ley 21.719) — ambos generan demanda inmediata de servicios de regularización. En paralelo, el barrido global encontró un patrón fuerte de &quot;agencia productizada sobre stack no-code de IA&quot; (agentes de voz) con métricas de margen y velocidad de ingreso muy sólidas para replicar en Chile.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.7</span>
+      <span class="pill">&#9733; 4 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-07">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch — (1) regulación/financiamiento/subsidios Chile: Sercotec (Fondo Crece Sostenible 2026, Capital Pioneras 2026), CORFO (convocatorias regionales), SII (Ley de Cumplimiento Tributario), Ley 21.719 (Protección de Datos) y su cruce con Mercado Público, prensa (BioBioChile, El Mostrador, Diario Emprende, Mundo en Línea, Ecosistema Startup, Inputsoft, madero.cl); (2) modelos de negocio globales validados: Indie Hackers (vía snippets indexados), Starter Story, TrustMRR, arr.club, dustinstout.com — r/SideProject y r/Entrepreneur no devolvieron posts específicos indexados hoy con cifras verificables (señal para rotar el enfoque de búsqueda mañana). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la gran mayoría de sitios en este entorno; todo el reporte se construyó vía WebSearch, con nivel de confianza marcado explícitamente donde solo hay una fuente.</div>
+    
+<div class="opp seguimiento"
+     data-score="17"
+     data-seg="1"
+     data-conf="media (una sola fuente primaria — post de indie hackers indexado vía búsqueda, no verificado de forma cruzada con una segunda fuente independiente; las cifras de margen y setup fee son consistentes con el modelo de negocio de agencias sobre plataformas white-label, pero no hay verificación externa tipo stripe/trustmrr).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agencia de Agentes de Voz IA para PYMEs Chilenas (stack Callin.io + n8n + Cal.com)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">17/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-0" hidden>
+    <p class="opp-desc">freelancer o agencia chica que arma y opera agentes de voz con IA (atención telefónica, agendamiento, calificación de leads) para negocios locales pequeños — clínicas, talleres, inmobiliarias chicas — usando una plataforma white-label (Callin.io) conectada a n8n para automatización y Cal.com para agendamiento, sin necesidad de desarrollar tecnología propia desde cero.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>un fundador documentó en Indie Hackers ingresos de **$300-800 USD de MRR por cliente**, con un fee de setup inicial de $1.000-2.000 USD, **~80% de margen** y primeros ingresos en **2-3 semanas** desde el arranque. El target son PyMEs de $500.000-$5.000.000 USD de facturación que hoy operan con procesos telefónicos manuales o de hace dos décadas — un segmento amplio y desatendido por la oferta actual de software vertical.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>casi ningún corredor, clínica dental, taller mecánico o inmobiliaria chica en Chile usa hoy un agente de voz IA para recepción o calificación de leads — la categoría es prácticamente inexistente fuera de las grandes cadenas con call center propio. Barrera de entrada baja (sin licencias, sin certificación), y el modelo de setup fee + MRR recurrente calza directo con el ticket que puede pagar una PyME chilena. Vender primero como &quot;recepcionista IA que nunca deja un llamado sin responder&quot; a clínicas y talleres es el ángulo de venta más directo.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (una sola fuente primaria — post de Indie Hackers indexado vía búsqueda, no verificado de forma cruzada con una segunda fuente independiente; las cifras de margen y setup fee son consistentes con el modelo de negocio de agencias sobre plataformas white-label, pero no hay verificación externa tipo Stripe/TrustMRR).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/building-a-profitable-ai-voice-saas-agency-300-800-mrr-per-client-frAbgO1yQMfHOFFtY3gE" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-07-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-07-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Agencia de Agentes de Voz IA</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-07-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 17/20 ≥ 15</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Vender el resultado medible (llamadas atendidas, leads calificados, horas de recepción liberadas) en vez de la tecnología — el cliente no compra &#x27;IA&#x27;, compra dejar de perder llamados fuera de horario.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Empezar con un solo caso de uso muy acotado (agendamiento de horas o calificación de leads telefónicos) antes de ofrecer un agente &quot;todo terreno&quot;.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Cobrar fee de setup + MRR desde el primer cliente piloto, replicando el modelo de márgenes altos (~80%) en vez de regalar el setup para conseguir el primer caso.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>las fuentes disponibles describen este caso como un *playbook* de modelo de negocio (agencia sobre plataforma white-label) más que la trayectoria mes a mes de una sola empresa fundadora — no hay fechas puntuales de &quot;Mes 0 → Mes X&quot; documentadas para un caso individual verificable hoy. Lo que sí está documentado con cifras concretas: **2-3 semanas** desde el arranque hasta el primer ingreso, y un rango estable de **$300-800 MRR por cliente** una vez operando.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="media (la mecánica general —formalización obligatoria desde enero, certificado desde marzo— está confirmada en el sitio oficial del sii; el detalle específico de implementación técnica de la retención automática de iva solo se verificó vía un blog de terceros, no la resolución exacta del sii, así que se marca con cautela).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Regularización Exprés del Certificado de Cumplimiento Tributario SII (nueva retención automática de IVA)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-1" hidden>
+    <p class="opp-desc">servicio (software simple + asesoría) que ayuda a vendedores online y PyMEs informales o con inconsistencias tributarias menores a obtener y mantener vigente su certificado de cumplimiento tributario ante el SII, evitando que plataformas de pago les retengan automáticamente el IVA de sus ventas.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>desde el **2 de enero de 2026** rige la formalización obligatoria y desde el **2 de marzo de 2026** las plataformas digitales, operadores de pago, organismos del Estado y municipalidades deben exigir y verificar un certificado de cumplimiento tributario antes de operar comercialmente con cualquier vendedor. Adicionalmente, si el SII detecta incumplimiento, puede **ordenar a los medios de pago retener automáticamente el 19% de IVA** antes de transferir el dinero al vendedor — un mecanismo de aplicación inmediata y de alto impacto en el flujo de caja de un microemprendedor.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>esto es 100% un problema chileno con fecha de origen esta misma escalonada (2026), y afecta directamente a un segmento amplio: vendedores de MercadoLibre, marketplaces, apps de delivery y plataformas de pago que operan en la informalidad parcial. El servicio se vende con un mensaje de urgencia concreto y verificable (&quot;vas a perder el 19% de tus ventas si no regularizas tu certificado&quot;) en vez de un argumento abstracto de compliance.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (la mecánica general —formalización obligatoria desde enero, certificado desde marzo— está confirmada en el sitio oficial del SII; el detalle específico de implementación técnica de la retención automática de IVA solo se verificó vía un blog de terceros, no la resolución exacta del SII, así que se marca con cautela).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.sii.cl/destacados/ley_cumplimiento_obligaciones_tributarias/combate_elusion_evasion_informalidad.html" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-07-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-07-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Regularización SII (versión abreviada)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-07-1-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15 — nota: esta es una oportunidad de arbitraje regulatorio, no la trayectoria de una empresa ya operando; se omiten los puntos 1-3 del bloque estándar (hitos, canales por etapa, prensa) porque no hay un caso documentado que trackear, y se enfoca el análisis en la implementación Chile, que es la parte accionable real.</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El miedo a perder el 19% de las ventas por una retención automática es un disparador de compra mucho más fuerte y verificable que el argumento genérico de &#x27;cumple la ley&#x27; — la urgencia viene del flujo de caja, no del riesgo legal abstracto.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Vender con el número exacto (19% de retención) y no con jerga de compliance genérica.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Empezar por el canal donde ya está el dolor concentrado — vendedores de MercadoLibre y Shopify Chile con historial de inconsistencias tributarias — en vez de un mercado general.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="media (el ángulo específico de exclusión de licitaciones proviene de un solo medio digital, no de fuente regulatoria primaria de mercado público; la fecha de vigencia y el monto de las multas sí están cruzados en múltiples fuentes de reportes anteriores).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Kit de Compliance &quot;Low-Cost&quot; Ley 21.719 para PyMEs (riesgo de exclusión de licitaciones públicas)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-2" hidden>
+    <p class="opp-desc">paquete simplificado de cumplimiento de protección de datos (política de privacidad, registro de actividades de tratamiento, rol de DPO-as-a-service) vendido a PyMEs chilenas a una fracción del costo de una implementación completa, con foco específico en no quedar excluidas de licitaciones públicas o contratos con grandes empresas.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>la Ley 21.719 entra en pleno vigor el **1 de diciembre de 2026** (quedan ~5 meses), con multas de hasta 20.000 UTM en casos graves. Medios digitales reportan que organismos públicos y grandes empresas ya están incorporando cláusulas de compliance de datos como **requisito habilitante** en procesos de compra — es decir, el riesgo real no es solo la multa, sino perder acceso a contratos con el Estado vía Mercado Público. Una implementación completa cuesta hoy entre USD 5.000-15.000, fuera de alcance de una PyME chica.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>esto es enteramente un problema chileno con fecha límite concreta. El mercado objetivo (PyMEs que venden al Estado o a grandes empresas y necesitan la cláusula de compliance para no quedar fuera del proceso de compra) es amplio y la urgencia es creciente a medida que se acerca diciembre.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (el ángulo específico de exclusión de licitaciones proviene de un solo medio digital, no de fuente regulatoria primaria de Mercado Público; la fecha de vigencia y el monto de las multas sí están cruzados en múltiples fuentes de reportes anteriores).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://mundoenlinea.cl/2026/06/09/startups-y-pymes-podrian-quedar-fuera-de-licitaciones-y-arriesgar-multas-millonarias-por-no-cumplir-nueva-ley-de-datos/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-07-2-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-07-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Kit Compliance Ley 21.719 (versión abreviada)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-07-2-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15 — misma nota que el ítem anterior: es una oportunidad regulatoria sin empresa fundadora documentada que trackear; se omiten hitos/canales/prensa y se prioriza el análisis Chile.</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El comprador (una PyME que vende al Estado) no está comprando &#x27;protección de datos&#x27; en abstracto — está comprando no perder el próximo contrato de licitación, un argumento de venta mucho más concreto y urgente.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Empaquetar el servicio como &quot;requisito habilitante para licitar&quot; en vez de &quot;compliance legal&quot;, apuntando directo al departamento comercial de la PyME, no solo a legal.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Fijar un precio fijo y bajo (vs. la cotización tradicional de USD 5.000-15.000) como wedge de entrada, similar al patrón &quot;alternativa barata&quot; visto en otros casos de este reporte (Youform vs. Typeform).</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media-alta para los montos y fechas de cierre de ambos fondos (cruzados en múltiples medios); baja para el modelo de negocio de &quot;consultoría de postulación&quot; en sí, ya que no se encontró un caso documentado con cifras de ingresos de un consultor/agencia haciendo esto específicamente — es una inferencia razonable a partir de la demanda observable, no una tracción verificada.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Postulación Exprés a Fondos Estatales (Sercotec/CORFO) con Modelo de Success Fee</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 2 · Velocidad 4 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-3" hidden>
+    <p class="opp-desc">consultoría especializada en armar y presentar postulaciones a fondos concursables estatales (Sercotec, CORFO) para PyMEs y emprendedores que no tienen tiempo o experiencia para hacerlo solos, cobrando un success fee (10-15% del monto adjudicado) en vez de una tarifa fija por hora.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>hoy hay dos ventanas activas con plazo esta misma semana — **Fondo Crece Sostenible 2026** de Sercotec (aporte no reembolsable de $7-9 millones CLP para PyMEs, cierra 8 de julio 15:00 hrs) y **Capital Pioneras 2026** de Sercotec (subsidio de $3.500.000 CLP para 325 emprendedoras a nivel nacional, presupuesto total sobre $1.550 millones CLP, cierra 15 de julio 15:00 hrs). Sercotec y CORFO abren decenas de ventanas similares —nacionales y regionales— durante todo el año, la mayoría con baja awareness fuera del emprendedor que ya sigue de cerca estos programas.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el modelo ya existe de forma fragmentada (consultoras de formulación de proyectos), pero rara vez está productizado ni tiene un servicio ágil de &quot;alerta + postulación exprés&quot; para ventanas de días u horas como el Fondo Crece de esta semana. El arbitraje real es la velocidad: la mayoría de las PyMEs se entera tarde de estas ventanas o no tiene la carpeta técnica lista a tiempo.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta para los montos y fechas de cierre de ambos fondos (cruzados en múltiples medios); Baja para el modelo de negocio de &quot;consultoría de postulación&quot; en sí, ya que no se encontró un caso documentado con cifras de ingresos de un consultor/agencia haciendo esto específicamente — es una inferencia razonable a partir de la demanda observable, no una tracción verificada.</span><a class="src-link" href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2026/06/02/sercotec-abre-postulaciones-al-fondo-crece-2026-entrega-subsidios-de-5-millones-para-pymes.shtml" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="14"
+     data-seg="1"
+     data-conf="media-alta para la trayectoria general (cruzada entre el post de indie hackers y el blog del propio fundador); media-baja para la cifra puntual de ~$190-200k mrr citada en alguna fuente adicional, que se trata con cautela por no estar tan corroborada como la cifra de $100k mrr/32 meses.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agregador Multi-IA en Español para Profesionales y PyMEs Chilenas (arbitraje del modelo Magai)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-4" hidden>
+    <p class="opp-desc">panel único que da acceso a los principales modelos de IA (GPT, Claude, Gemini) bajo una sola suscripción, para que un usuario no tenga que pagar y alternar entre 3 apps distintas.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Dustin Stout construyó Magai tras dos productos fallidos previos, lanzándolo 8 semanas después del lanzamiento de ChatGPT. Trayectoria documentada: **$3.000 el primer mes → $10.000 a los 2 meses → $30.000 MRR al año → ~$100.000 MRR / $1.000.000 en ventas acumuladas a los 32 meses**, construido sin publicidad pagada, apalancado en una audiencia propia de blog/newsletter de más de una década.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>no se identificó un competidor local conocido de &quot;agregador multi-IA en español&quot; con soporte y precios en CLP — hoy los profesionales y PyMEs chilenas que quieren usar varios modelos pagan cada suscripción por separado en USD. El arbitraje es empaquetar el acceso combinado con soporte en español y pago vía Flow/Mercado Pago.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta para la trayectoria general (cruzada entre el post de Indie Hackers y el blog del propio fundador); Media-Baja para la cifra puntual de ~$190-200K MRR citada en alguna fuente adicional, que se trata con cautela por no estar tan corroborada como la cifra de $100K MRR/32 meses.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/tech/from-broke-to-100k-mrr-in-four-years-hS1wen0srjGNIWZxSnV9" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-07-4-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-07-4-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Magai</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-07-4-seg" hidden>
+      <p class="seg-act">Activado por: ARR documentado &gt; $500K (~$1,2M ARR estimado a partir de $100K MRR) construido predominantemente por 1 persona</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Audiencia propia construida durante una década de blogging y newsletter, lista para monetizar apenas se detectó la ventana de oportunidad (el lanzamiento de ChatGPT) — no se necesitó publicidad pagada porque la distribución ya existía antes que el producto.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Construir autoridad/audiencia en un nicho específico (aunque sea una newsletter chica) antes de lanzar el producto, en vez de lanzar primero y buscar audiencia después.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Lanzar rápido con stack no-code apenas se detecta una ventana tecnológica abierta (como el salto de modelos de IA disponibles hoy), sin esperar una versión &quot;perfecta&quot;.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0: lanzamiento, 8 semanas después de la salida de ChatGPT, construido sin código (no-code).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 1: $3.000 MRR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 3: $10.000 MRR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 12: $30.000 MRR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 32: ~$100.000 MRR / $1.000.000 USD en ventas acumuladas.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta (cifras de mrr/ingresos cruzadas entre indie hackers y starter story).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-07-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Alternativa Low-Cost en Español a Typeform/Jotform (modelo Youform)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-07-5" hidden>
+    <p class="opp-desc">builder de formularios sin límite de respuestas ni cobro por volumen, competiendo directamente en precio contra Typeform/Jotform, que subieron precios y generaron fuga de usuarios.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Abhishek Chakravarty lanzó Youform tras notar la fuga de usuarios de Typeform por sus alzas de precio, y se asoció con un co-fundador experimentado (Davis Baer, co-fundador de OneUp) para escalarlo. Resultado: **$12.000 USD en 3 semanas** vía lifetime deal, y luego **$18.000 MRR** sostenido (algunas fuentes citan hasta $48.000 ARR en semanas).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Typeform y Jotform dominan el mercado chileno de formularios pero cobran en USD, caro para una PyME chilena típica. Una alternativa local en CLP, con soporte en español, es un wedge de precio directo y rápido de lanzar (el MVP de Youform tardó semanas, no meses).</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (cifras de MRR/ingresos cruzadas entre Indie Hackers y Starter Story).</span><a class="src-link" href="https://www.indiehackers.com/post/tech/competing-on-price-to-carve-out-an-18k-mrr-foothold-Hp57IRVPq7v51y4jVDiD" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-07">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-07')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-07')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-07</span>
@@ -184,10 +375,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">7 IDEAS</span>
       <span class="pill">PROM 13.3</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-07">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-07" hidden>
     <div class="fuentes">FUENTES: ~18 (MINVU/SERVIU, SII, BCN, Diario Financiero, Tinsa Chile, CNN Chile, Emol, Radio Agricultura, Diario Constitucional, T13, Gob.cl, Inman News, HousingWire, Lofty, Cliengo, Trichter Consulting, bancos colombianos).</div>
     
 <div class="opp destacada"
@@ -8328,7 +8519,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  56 reportes &middot; 309 ideas en archivo
+  57 reportes &middot; 315 ideas en archivo
 </div>
 
 <script>
