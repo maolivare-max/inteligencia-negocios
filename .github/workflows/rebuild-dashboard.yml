@@ -1,0 +1,66 @@
+name: Rebuild dashboard
+
+# Regenera dashboard.html, index.html e INDICE_IDEAS.md automáticamente cada vez
+# que se publica un nuevo reporte en main. Esto saca la regeneración del dashboard
+# de las rutinas diarias (Misión 1 y Misión 2), que ya no deben commitear el HTML
+# generado — solo el .md del reporte — eliminando el conflicto de merge que se
+# producía cuando ambas misiones regeneraban y commiteaban el mismo HTML el mismo día.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reportes/**.md"
+      - "reportes-inmobiliario/**.md"
+      - "build_dashboard.py"
+
+concurrency:
+  group: rebuild-dashboard
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerar dashboard.html, index.html e INDICE_IDEAS.md
+        run: python3 build_dashboard.py
+
+      - name: Commit y push si hay cambios
+        run: |
+          set -e
+          git config user.name "dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          if git diff --quiet -- dashboard.html index.html INDICE_IDEAS.md; then
+            echo "Sin cambios en el dashboard, nada que commitear."
+            exit 0
+          fi
+
+          git add dashboard.html index.html INDICE_IDEAS.md
+          git commit -m "Auto-regenerar dashboard e indice de ideas tras nuevo reporte [skip ci]"
+
+          success=0
+          for i in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin main; then
+              success=1
+              break
+            fi
+            sleep $((i * 3))
+          done
+
+          if [ "$success" != "1" ]; then
+            echo "No se pudo pushear el dashboard regenerado tras varios intentos" >&2
+            exit 1
+          fi

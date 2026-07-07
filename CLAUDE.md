@@ -11,14 +11,26 @@ Prioriza modelos con arbitraje regional (lo que ya funciona afuera pero aún no 
 
 ---
 
+## NOTA TÉCNICA: WebFetch bloqueado en este entorno
+
+En este entorno, WebFetch devuelve HTTP 403 en la gran mayoría de los sitios (Indie
+Hackers, Starter Story, Reddit, Product Hunt, Y Combinator, incluso sitios de control
+como Wikipedia). No pierdas llamadas de herramienta reintentando WebFetch de forma
+sistemática: usa WebSearch como método principal de investigación y solo intenta
+WebFetch si un sitio específico ya demostró ser accesible en esta misma sesión. Cuando
+un dato solo pueda verificarse vía snippets de búsqueda (no de primera mano), márcalo
+explícitamente con Confianza Media o Baja según corresponda.
+
+---
+
 ## ENTREGA DIARIA (ORDEN PERMANENTE)
 
 - El reporte se genera **todos los días a las 08:00 (hora local del usuario)**.
 - Mecanismo: una **Routine** de Claude Code (trigger Schedule → daily 08:00) ejecuta este
   flujo de forma autónoma en la nube. Ver instrucciones de configuración abajo.
 - Entrega: **NO se envía por email.** El medio de revisión es el **dashboard**. Tras
-  generar, se guarda el .md, se regenera `dashboard.html` y se hace commit + push al repo
-  para que el usuario lo revise en el dashboard cuando quiera.
+  generar, se guarda el .md y se hace commit + push al repo para que el usuario lo
+  revise en el dashboard cuando quiera.
 - **GIT: siempre hacer push a `main`.** Si la sesión corre en una rama distinta, hacer
   merge a `main` y push a `main` antes de terminar. El dashboard de GitHub Pages sirve
   desde `main`; sin este paso el usuario no ve los cambios.
@@ -26,9 +38,17 @@ Prioriza modelos con arbitraje regional (lo que ya funciona afuera pero aún no 
   dashboard en la notificación y en la respuesta al usuario:**
   https://maolivare-max.github.io/inteligencia-negocios/
 - Cada reporte se guarda como `/home/user/reportes/YYYY-MM-DD.md` (un archivo por día).
-- **Tras guardar cualquier reporte (de cualquiera de las dos misiones), ejecutar
-  `python3 /home/user/build_dashboard.py`** para regenerar `dashboard.html`. El dashboard
-  se actualiza solo; el usuario no debe hacer nada manual.
+- **Regeneración del dashboard: automática vía GitHub Action**
+  (`.github/workflows/rebuild-dashboard.yml`), que corre `build_dashboard.py` y
+  commitea `dashboard.html`, `index.html` e `INDICE_IDEAS.md` apenas detecta un push a
+  `main` que toca `reportes/**` o `reportes-inmobiliario/**`. **La rutina NO debe
+  commitear `dashboard.html` ni `index.html` directamente** — solo el archivo `.md` del
+  reporte. Esto evita el conflicto de merge que ocurría antes, cuando ambas misiones
+  regeneraban y commiteaban el HTML completo el mismo día. Puedes correr
+  `python3 build_dashboard.py` localmente antes de commitear solo para validar que el
+  reporte no tiene errores de parseo, pero descarta ese cambio
+  (`git checkout -- dashboard.html index.html INDICE_IDEAS.md`) antes de hacer commit
+  y dejar que la Action se encargue.
 - Antes de generar, comparar con el reporte del día anterior para no repetir oportunidades
   (ver sección EVITAR REPETICIÓN).
 - Si una oportunidad supera el promedio del reporte, activar SIEMPRE el bloque
@@ -40,8 +60,10 @@ Prioriza modelos con arbitraje regional (lo que ya funciona afuera pero aún no 
 - Crear en `claude.ai/code/routines` → New routine, o desde la CLI con `/schedule`.
 - Trigger: **Schedule → Daily → 08:00** (hora local; se convierte a UTC automáticamente).
 - Prompt de la routine: "Ejecuta el flujo de CLAUDE.md: genera el reporte diario de
-  oportunidades de negocio, guárdalo en reportes/YYYY-MM-DD.md y envíamelo por email."
-- Conector: Gmail (para la entrega). Repo: el que contenga este CLAUDE.md + /reportes.
+  oportunidades de negocio, guárdalo en reportes/YYYY-MM-DD.md, haz commit y push a
+  main. NO enviar por email — la entrega es el dashboard."
+- Conector: ninguno obligatorio (no se usa Gmail; la entrega es 100% vía dashboard +
+  GitHub Pages). Repo: el que contenga este CLAUDE.md + /reportes.
 - NOTA: una Routine clona un repositorio GitHub en cada ejecución. Para que la memoria
   (CLAUDE.md) y el historial (/reportes) persistan entre días, deben vivir en un repo
   de GitHub, no solo en el contenedor efímero.
@@ -92,8 +114,13 @@ d) **Escalable en Chile:** el modelo tiene camino claro en el mercado chileno.
 
 ## EVITAR REPETICIÓN
 
-- Compara con los reportes de días anteriores. No repitas oportunidades ya entregadas,
-  salvo que haya novedad relevante; en ese caso márcala como "Actualización".
+- Antes de investigar, lee `INDICE_IDEAS.md` (en la raíz del repo, generado
+  automáticamente por `build_dashboard.py` vía la GitHub Action) — lista todas las
+  oportunidades ya publicadas en ambas misiones con fecha y score, sin necesidad de
+  grep manual de varios reportes. Si el archivo no existe todavía o parece
+  desactualizado, cae de vuelta a comparar con los últimos 5-10 reportes en `/reportes`.
+- No repitas oportunidades ya entregadas, salvo que haya novedad relevante; en ese
+  caso márcala como "Actualización".
 - Prioriza lo nuevo o lo que cambió.
 
 ---
@@ -289,10 +316,14 @@ Para toda táctica con score ≥ 16/20 o con caso chileno documentado, agregar b
 ## ENTREGA Y GUARDADO
 
 - Se guarda en `/home/user/reportes-inmobiliario/YYYY-MM-DD.md`.
-- **NO se envía por email.** Entrega = dashboard: tras guardar, regenerar
-  `dashboard.html` (`python3 build_dashboard.py`) y hacer commit + push al repo.
+- **NO se envía por email.** Entrega = dashboard. Hacer commit + push a `main` de
+  solo el archivo `.md` — el dashboard (`dashboard.html`, `index.html`,
+  `INDICE_IDEAS.md`) se regenera y commitea automáticamente vía GitHub Action (ver
+  sección "ENTREGA DIARIA" de la Misión 1 para el detalle del mecanismo). No commitear
+  `dashboard.html` ni `index.html` directamente desde esta misión.
 - Misma Routine diaria de las 08:00, o una segunda Routine paralela dedicada.
-- Comparar con el día anterior: priorizar lo nuevo, marcar "Actualización" si cambió.
+- Comparar con el día anterior usando `INDICE_IDEAS.md` (ver "EVITAR REPETICIÓN" de la
+  Misión 1); priorizar lo nuevo, marcar "Actualización" si cambió.
 
 ## IDIOMA Y TONO
 

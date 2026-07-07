@@ -19,6 +19,8 @@ SOURCES = [
      os.path.join(BASE, "reportes-inmobiliario")),
 ]
 
+IDEAS_INDEX_PATH = os.path.join(BASE, "INDICE_IDEAS.md")
+
 DESTACADA = 15
 HIGH      = 13
 
@@ -615,6 +617,35 @@ def build_page(data, updated, date_display):
 </body>
 </html>"""
 
+# ── índice de ideas ya cubiertas (evita repetición día a día) ───────────────
+
+def write_ideas_index(data):
+    """Genera INDICE_IDEAS.md: lista plana de toda idea/oportunidad ya publicada
+    en ambas misiones, ordenada por fecha descendente. Pensado para que la rutina
+    diaria lo lea en vez de grep manual de varios reportes en /reportes."""
+    entries = []
+    for g in data:
+        for r in g["reports"]:
+            for o in r["opps"]:
+                entries.append((r["date"], g["label"], o["name"], o["score"]))
+    entries.sort(key=lambda e: e[0], reverse=True)
+
+    lines = [
+        "# Índice de ideas ya cubiertas",
+        "",
+        "_Generado automáticamente por `build_dashboard.py` — no editar a mano. "
+        "Se regenera solo en cada push a `main` vía "
+        "`.github/workflows/rebuild-dashboard.yml`._",
+        "",
+    ]
+    for date, label, name, score in entries:
+        lines.append(f"- {date} · {label} · {name} (Score {score}/20)")
+    lines.append("")
+
+    with open(IDEAS_INDEX_PATH, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    return len(entries)
+
 # ── main ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -627,6 +658,8 @@ def main():
         with open(os.path.join(BASE, fname), "w", encoding="utf-8") as f:
             f.write(page)
 
+    n_idx  = write_ideas_index(data)
+
     n_rep  = sum(len(g["reports"]) for g in data)
     n_opp  = sum(r["n_opps"] for g in data for r in g["reports"])
     n_dest = sum(1 for g in data for r in g["reports"]
@@ -634,6 +667,7 @@ def main():
     n_seg  = sum(r["follow_count"] for g in data for r in g["reports"])
     print(f"✓ dashboard generado (v3 pre-renderizado):")
     print(f"  {n_rep} reportes · {n_opp} ideas · {n_dest} destacadas ≥{DESTACADA} · {n_seg} con seguimiento")
+    print(f"✓ INDICE_IDEAS.md regenerado: {n_idx} ideas indexadas")
 
 if __name__ == "__main__":
     main()
