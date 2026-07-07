@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-07 · Marketing Inmobiliario · Subsidio de Arriendo DS-52 2026 — Convocatoria Abre Hoy, Cierra 7 de Agosto (Score 17/20)
+- 2026-07-07 · Marketing Inmobiliario · Ley 21.748: Subsidio a la Tasa Hipotecaria se Agotaría Antes de su Plazo Legal (Score 16/20)
+- 2026-07-07 · Marketing Inmobiliario · Lofty "Homeowner Agent": IA que Reactiva Contactos Dormidos del CRM (Score 14/20)
+- 2026-07-07 · Marketing Inmobiliario · Proyecto de Ley de Corretaje de Propiedades Avanza al Senado — Licencia Obligatoria en Camino (Score 13/20)
+- 2026-07-07 · Marketing Inmobiliario · Caso Grupo Herso (México): Chatbot de WhatsApp Genera 22% de los Cierres (Score 12/20)
+- 2026-07-07 · Marketing Inmobiliario · Woperty: Proptech Chilena "Sin Corredores" Duplica Cartera en 6 Meses (Score 11/20)
+- 2026-07-07 · Marketing Inmobiliario · Exención Transitoria de IVA a Vivienda Nueva (Proyecto de Ley, Aún No Vigente) (Score 10/20)
 - 2026-07-06 · Oportunidades de Negocio · Encuestas Zero-Party para E-commerce (modelo Zigpoll) (Score 15/20)
 - 2026-07-06 · Oportunidades de Negocio · Video-Actores IA para Anuncios UGC (modelo Arcads) (Score 15/20)
 - 2026-07-06 · Oportunidades de Negocio · Soporte al Cliente vía IA por WhatsApp para E-commerce (modelo Siena AI) (Score 15/20)
