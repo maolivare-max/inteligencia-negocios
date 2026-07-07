@@ -21,6 +21,12 @@ WebFetch si un sitio específico ya demostró ser accesible en esta misma sesió
 un dato solo pueda verificarse vía snippets de búsqueda (no de primera mano), márcalo
 explícitamente con Confianza Media o Baja según corresponda.
 
+Dominios con 403 confirmado (no gastar intentos de WebFetch ahí): df.cl, latercera.com,
+emol.com, portalinnova.cl, infocheck.cl, enlaciudad.cl, 24horas.cl, inman.com,
+fortune.com, financialcontent.com. Si un dominio nuevo devuelve 403, agregarlo a esta
+lista. Incluir esta nota (y la lista de exclusión de INDICE_IDEAS.md) en el prompt de
+cada agente de investigación, y lanzar los agentes en paralelo (Chile y mundo a la vez).
+
 ---
 
 ## ENTREGA DIARIA (ORDEN PERMANENTE)
@@ -34,6 +40,15 @@ explícitamente con Confianza Media o Baja según corresponda.
 - **GIT: siempre hacer push a `main`.** Si la sesión corre en una rama distinta, hacer
   merge a `main` y push a `main` antes de terminar. El dashboard de GitHub Pages sirve
   desde `main`; sin este paso el usuario no ve los cambios.
+  - **NO pushear la rama de trabajo efímera al remoto** (solo acumula basura de ramas;
+    ya hay decenas de ramas `claude/*` viejas). Mergear localmente a `main` y pushear
+    únicamente `main`.
+  - Si el push a `main` es rechazado porque avanzó (la otra misión corre en paralelo),
+    hacer `git pull --rebase origin main` y reintentar — no crear merges de
+    reconciliación manuales.
+  - **Si la misma sesión ejecuta ambas misiones, hacerlo en secuencia** (negocios
+    primero, inmobiliario después) con UN solo commit + push al final. Si son dos
+    routines separadas, escalonar los horarios (ej. 08:00 y 08:40).
 - **LINK AL DASHBOARD: tras cada actualización, incluir siempre el link directo al
   dashboard en la notificación y en la respuesta al usuario:**
   https://maolivare-max.github.io/inteligencia-negocios/
@@ -119,9 +134,28 @@ d) **Escalable en Chile:** el modelo tiene camino claro en el mercado chileno.
   oportunidades ya publicadas en ambas misiones con fecha y score, sin necesidad de
   grep manual de varios reportes. Si el archivo no existe todavía o parece
   desactualizado, cae de vuelta a comparar con los últimos 5-10 reportes en `/reportes`.
+- **Pegar la sección relevante de `INDICE_IDEAS.md` directamente en el prompt de los
+  agentes de investigación** como lista de exclusión — es más confiable y barato que
+  resumir a mano los temas cubiertos.
 - No repitas oportunidades ya entregadas, salvo que haya novedad relevante; en ese
   caso márcala como "Actualización".
 - Prioriza lo nuevo o lo que cambió.
+
+---
+
+## ROTACIÓN DE ÁNGULOS (anti-estancamiento, aplica a ambas misiones)
+
+Tras semanas de cobertura diaria las tácticas genéricas se agotan. Además de las
+fuentes base, cada día se profundiza un ángulo distinto:
+
+- **Lunes:** PropTech y casos LATAM (México, Colombia, Argentina, Brasil).
+- **Martes:** regulación, financiamiento y subsidios (ventanas con fecha límite valen oro).
+- **Miércoles:** casos chilenos con métricas (corredores, inmobiliarias, startups locales).
+- **Jueves:** herramientas nuevas de IA y lanzamientos de producto (PH, YC, prensa tech).
+- **Viernes:** EE.UU./Europa — cambios estructurales (comisiones, MLS, portales, modelos).
+- **Sábado:** nichos y segmentos demográficos desatendidos.
+- **Domingo:** revisión de la semana — actualizaciones con novedad real de temas ya
+  cubiertos, y señales de demanda (Google Trends, Exploding Topics).
 
 ---
 
@@ -321,9 +355,13 @@ Para toda táctica con score ≥ 16/20 o con caso chileno documentado, agregar b
   `INDICE_IDEAS.md`) se regenera y commitea automáticamente vía GitHub Action (ver
   sección "ENTREGA DIARIA" de la Misión 1 para el detalle del mecanismo). No commitear
   `dashboard.html` ni `index.html` directamente desde esta misión.
-- Misma Routine diaria de las 08:00, o una segunda Routine paralela dedicada.
+- Idealmente en la misma Routine de las 08:00, ejecutada en secuencia después de la
+  Misión 1 (un solo commit + push para las dos). Si es una routine separada, escalonar
+  el horario (ej. 08:40) para reducir choques de push a `main`.
 - Comparar con el día anterior usando `INDICE_IDEAS.md` (ver "EVITAR REPETICIÓN" de la
   Misión 1); priorizar lo nuevo, marcar "Actualización" si cambió.
+- Aplican también la NOTA TÉCNICA de WebFetch/dominios 403 y la ROTACIÓN DE ÁNGULOS
+  de la Misión 1.
 
 ## IDIOMA Y TONO
 

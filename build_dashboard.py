@@ -648,15 +648,33 @@ def write_ideas_index(data):
 
 # ── main ────────────────────────────────────────────────────────────────────
 
-def main():
-    data         = collect()
-    updated      = datetime.now().strftime("%Y-%m-%d %H:%M")
-    date_display = datetime.now().strftime("%a %d %b %Y").upper()
-    page         = build_page(data, updated, date_display)
+REDIRECT_STUB = """<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url=index.html">
+<title>Redirigiendo…</title>
+<a href="index.html">Ir al dashboard</a>
+"""
 
-    for fname in ("dashboard.html", "index.html"):
-        with open(os.path.join(BASE, fname), "w", encoding="utf-8") as f:
-            f.write(page)
+def main():
+    data = collect()
+    # Fecha determinística (la del reporte más reciente, no el reloj): así
+    # regenerar sin reportes nuevos no produce diff y no fuerza commits extra.
+    latest = max((r["date"] for g in data for r in g["reports"]), default=None)
+    if latest:
+        latest_dt    = datetime.strptime(latest, "%Y-%m-%d")
+        updated      = latest
+        date_display = latest_dt.strftime("%a %d %b %Y").upper()
+    else:
+        updated      = datetime.now().strftime("%Y-%m-%d")
+        date_display = datetime.now().strftime("%a %d %b %Y").upper()
+    page = build_page(data, updated, date_display)
+
+    # Solo index.html lleva el contenido; dashboard.html queda como redirect
+    # liviano para no duplicar ~1.3MB por día en el repo.
+    with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
+        f.write(page)
+    with open(os.path.join(BASE, "dashboard.html"), "w", encoding="utf-8") as f:
+        f.write(REDIRECT_STUB)
 
     n_idx  = write_ideas_index(data)
 
