@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">58</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">322</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">180</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">59</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">327</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">182</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.8</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">89</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">91</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-08</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,152 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-08">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-08')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-08</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El ángulo de hoy (casos chilenos con métricas) confirmó que el patrón &quot;vertical SaaS + IA generativa&quot; ya está generando resultados reales y verificables dentro de Chile — no solo como arbitraje de un modelo extranjero, sino como negocios chilenos operando hoy con ARR de 7 cifras y crecimiento mensual de 25-100%. El barrido global aportó menos candidatos nuevos que días anteriores (varios hallazgos coincidían con ideas ya cubiertas o no superaron el filtro de escalabilidad Chile), por lo que el reporte de hoy prioriza calidad sobre volumen: 5 oportunidades, dos con evidencia lo bastante fuerte como para activar SEGUIMIENTO DE CRECIMIENTO.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">5 IDEAS</span>
+      <span class="pill">PROM 13.8</span>
+      <span class="pill">&#9733; 2 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-08">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch — (1) modelos globales validados: Indie Hackers, Hacker News (Show HN / &quot;Who is hiring&quot;), Reddit (r/Entrepreneur, r/SideProject, r/SaaS), Product Hunt, Y Combinator RFS/Launch, Exploding Topics; (2) ángulo del día — casos chilenos con métricas reales: prensa de startups y negocios chilena (Diario Financiero, Forbes Chile, Startups Latam, Entorno VC, Fintechile.org, Chile-Startups, Infinita.cl), comunicados de rondas de inversión y aceleradoras (Platanus Ventures, Carey). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la gran mayoría de sitios en este entorno (incluyendo entorno.vc hoy, agregado a la lista de dominios problemáticos); todo el reporte se construyó vía WebSearch, con nivel de confianza marcado explícitamente donde solo hay una fuente o snippet agregado.</div>
+    
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta para las cifras de magnar (cruzadas entre carey y diario financiero); media para la extrapolación a un nicho profesional distinto (contadores/notarios), que es una inferencia razonable a partir del patrón validado, no un caso ya probado en ese rubro específico.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-08-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Vertical SaaS + IA para Contadores/Notarios Chilenos (Playbook Magnar AI)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-08-0" hidden>
+    <p class="opp-desc">replicar el playbook de Magnar AI —asistente de IA vertical para una profesión regulada chilena con alto volumen de trabajo repetitivo— aplicado a un nicho profesional distinto y aún no atendido, como contadores auditores o notarios, en vez de abogados.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Magnar AI (IA para jurisprudencia y automatización de trabajo legal, fundada por Andrés Arellano, Nicolás López y Andrés Rodríguez, incubada en Platanus Ventures) cerró una ronda semilla de **US$300.000** a los 5 meses de vida (con apoyo de Buenaonda y Platanus Ventures), y 3 meses después una segunda ronda de **US$500.000** liderada por Carey —el estudio de abogados más grande de Chile— en enero 2026. A esa fecha ya facturaba **US$1.000.000 ARR, creciendo 100% mes a mes**, con 15.000 usuarios en Chile, ~4.000 en Perú y 1.000+ en Colombia, 70 estudios jurídicos y 5.000 abogados registrados (100 clientes individuales, 30 cuentas corporativas).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Magnar ya demostró, con datos reales y dentro del propio mercado chileno, que los profesionales regulados SÍ adoptan IA vertical cuando resuelve un dolor específico de su flujo de trabajo. El gremio contable chileno (~30.000 contadores auditores colegiados) usa hoy software de contabilidad tradicional (Softland, Defontana, Nubox) sin capas de IA generativa especializada para tareas repetitivas (clasificación de gastos, declaraciones de IVA, F29); no se identificó un competidor chileno con tracción comparable en ese nicho.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras de Magnar (cruzadas entre Carey y Diario Financiero); Media para la extrapolación a un nicho profesional distinto (contadores/notarios), que es una inferencia razonable a partir del patrón validado, no un caso ya probado en ese rubro específico.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.carey.cl/carey-invierte-en-la-legaltech-de-ia-magnar-para-potenciar-la-expansion-regional-de-la-startup" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-08-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-08-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Magnar AI</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-08-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15 y ARR &gt;US$500K con crecimiento de 100% MoM</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El respaldo de la firma de abogados más grande de Chile (Carey) como inversionista no es solo capital — es la validación de marca definitiva para vender IA a un gremio profesional conservador y desconfiado de la tecnología.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Elegir una profesión regulada chilena con alto volumen de trabajo repetitivo (contadores, notarios, corredores de propiedades) y construir un asistente de IA vertical específico para ese flujo, no un chatbot genérico.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Buscar como primer inversionista o aliado estratégico a un actor reconocido y confiable dentro de esa misma profesión (como hizo Magnar con Carey) para obtener validación instantánea del gremio.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Fundación: Andrés Arellano, Nicolás López y Andrés Rodríguez, incubados en oficinas de Platanus Ventures.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 5 de vida: ronda semilla de US$300.000 con apoyo de Buenaonda y Platanus Ventures.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 8 (3 meses después): segunda ronda de US$500.000 liderada por Carey (estudio jurídico más grande de Chile), enero 2026.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Enero 2026: US$1.000.000 ARR, creciendo 100% mes a mes; 15.000 usuarios en Chile, ~4.000 en Perú, 1.000+ en Colombia, 70 estudios jurídicos, 5.000 abogados registrados (100 clientes individuales, 30 cuentas corporativas).</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="media (cifra reportada por el propio fundador vía indie hackers, sin verificación de terceros).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-08-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicios-a-SaaS: Diagnóstico de Madurez de Datos/IA para PyMEs Chilenas</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-08-1" hidden>
+    <p class="opp-desc">vender primero un diagnóstico de consultoría (assessment de madurez de datos e IA) a empresas medianas, y usar ese ingreso inmediato para autofinanciar el desarrollo de un SaaS que productiza el mismo diagnóstico en modo self-serve — patrón &quot;services-to-SaaS&quot;.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Günter Richter, quien dejó su trabajo corporativo a los 50 años, generó **+US$15.000 MRR** en pocos meses vendiendo consultoría de madurez de datos, y usa ese flujo de caja para financiar el desarrollo de &quot;Data Maturity Lab&quot;, un SaaS B2B que automatiza el mismo assessment que antes vendía como servicio manual.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la Ley 21.719 de Protección de Datos (vigencia plena desde el 1 de diciembre de 2026) y la ola de adopción de IA generativa en empresas medianas chilenas están generando la pregunta &quot;¿qué tan lista está mi empresa para usar/gobernar datos e IA?&quot; sin que exista una oferta local empaquetada de bajo ticket — hoy solo hay consultoras grandes (Deloitte, EY) con tickets fuera de alcance de una PyME, o nada.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifra reportada por el propio fundador vía Indie Hackers, sin verificación de terceros).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/services/building-a-15k-mrr-services-company-to-fund-saas-development-7f368CGtm39oHEoUQPYt" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-08-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-08-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Data Maturity Lab (versión abreviada)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-08-1-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15 — nota: la fuente disponible no documenta fechas puntuales tipo &quot;Mes 0 → Mes X&quot;, por lo que se omiten los puntos de hitos/canales/prensa del bloque estándar y se prioriza el análisis Chile, que es la parte accionable real.</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Vender el diagnóstico como consultoría manual genera caja inmediata y valida exactamente qué preguntas y respuestas importan antes de invertir en construir software — el SaaS se diseña sobre el patrón real de la consultoría, no al revés.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>No construir el SaaS primero: vender el mismo diagnóstico manualmente (planillas/Notion) a los primeros clientes antes de programar una sola línea de producto.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Usar el ingreso de consultoría para autofinanciar el desarrollo, evitando levantar capital externo para validar la hipótesis de producto.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta para las cifras de diio (cruzadas entre startups latam y entorno vc); media para la oportunidad derivada (segmento pyme desatendido), que es una inferencia a partir del patrón de clientes observado, no un caso ya probado.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-08-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Copiloto de Ventas IA Ligero para PyMEs Chilenas (inspirado en diio)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-08-2" hidden>
+    <p class="opp-desc">versión de autoservicio, liviana y de precio bajo de un copiloto de IA que analiza llamadas/reuniones de venta de equipos comerciales chicos (2-10 vendedores), entregando probabilidad de cierre y recomendaciones — sin la complejidad ni el precio de una plataforma enterprise.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>diio, startup chilena de IA para equipos comerciales, levantó **US$3,25 millones** en total (pre-seed US$750K en 2024 vía Fen Ventures + seed US$2,5M en mayo 2025 liderado por Base10 Partners, VC de Silicon Valley), con **25% de crecimiento mensual durante un año** y **+200 empresas clientes en LatAm** —incluyendo Buk, Xepelin, Fintoc, Vambe y Betterfly—, validando fuerte demanda de &quot;AI sales coaching&quot; en el ecosistema de startups/scaleups chilenas.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la cartera de clientes de diio (Buk, Xepelin, Fintoc, Vambe, Betterfly) son todas empresas medianas/grandes ya consolidadas — el segmento de PyMEs chilenas con equipos de venta chicos (seguros, inmobiliarias independientes, servicios B2B) queda fuera de ese ticket y esa complejidad. Una versión &quot;lite&quot; con precio por vendedor bajo (ej. $15.000-25.000 CLP/mes) integrada directo a grabaciones de Zoom/Google Meet o llamadas de WhatsApp podría capturar ese segmento desatendido.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras de diio (cruzadas entre Startups Latam y Entorno VC); Media para la oportunidad derivada (segmento PyME desatendido), que es una inferencia a partir del patrón de clientes observado, no un caso ya probado.</span><a class="src-link" href="https://startupslatam.com/diio-la-startup-chilena-que-potencia-equipos-comerciales-con-ia-cierra-ronda-de-us-25-millones-liderada-por-base10-partners/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media-baja (cifras de agendapro no verificadas con link primario directo, solo snippets agregados).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-08-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Recepcionista IA Especializada en Negocios de Belleza y Bienestar (inspirado en &quot;Julia&quot; de AgendaPro)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 2 · Velocidad 4 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-08-3" hidden>
+    <p class="opp-desc">recepcionista de IA por voz/chat especializada exclusivamente en negocios que funcionan a base de reservas y agenda (peluquerías, spas, estudios de belleza, barberías, clínicas de estética), integrada directamente con el software de agenda que el negocio ya usa — a diferencia del ángulo genérico de &quot;agente de voz para PyMEs&quot; (clínicas, talleres, inmobiliarias) cubierto el 07/07.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>AgendaPro —SaaS chileno-LatAm de agendamiento con +20.000 comercios activos y ~US$10 millones de facturación anual, tras una Serie B de US$35 millones en agosto de 2025— lanzó &quot;Julia&quot;, una recepcionista virtual de IA que responde consultas y agenda citas fuera de horario, validando demanda pagada específica en el segmento de negocios de reserva/agenda.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la base de comercios ya usando AgendaPro o competidores (Fresha, Booksy, Simple, Turnos.cl) en Chile es un mercado direccionable grande y ya &quot;calificado&quot; — son negocios que ya pagan por gestión de agenda y muestran predisposición a herramientas digitales, a diferencia del mercado frío del ángulo genérico. El wedge aquí es un vertical específico (belleza/bienestar) más distribución vía negocios que ya usan software de agenda, en vez de outreach frío generalista.</div>
+    <div class="opp-foot"><span class="conf conf-baja">Confianza: Media-Baja (cifras de AgendaPro no verificadas con link primario directo, solo snippets agregados).</span></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media (cifra de fuente primaria vía indie hackers, mecanismo de preventa verificable en su lógica pero sin comprobante externo).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-08-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">GEO/AEO Chile — Actualización: Validar por Preventa Antes de Construir (caso Vismore)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 2</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-08-4" hidden>
+    <p class="opp-desc">el concepto de fondo (optimizar y monitorear la visibilidad de una marca en respuestas de motores de IA como ChatGPT, Gemini y Perplexity) ya fue cubierto el 2 de julio; lo nuevo hoy es el MÉTODO de validación: Vismore, producto derivado de la base de usuarios de Leadmore AI, facturó **US$8.400 antes de escribir una línea de código**, vendiendo el diagnóstico de visibilidad IA por preventa directa a la base de clientes de un producto hermano (7 clientes de +50 solicitudes, a US$399/mes por 3 meses).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>validar con preventa a una audiencia ya existente elimina el riesgo de construir sin demanda confirmada — el ingreso llega antes que el producto.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>lo accionable hoy no es la oportunidad de GEO/AEO en sí (ya cubierta), sino el método: si ya se tiene o se puede asociar con una agencia/consultora chilena de marketing digital con cartera de clientes propia, se puede vender el diagnóstico de &quot;visibilidad de marca en IA&quot; por preventa a esa cartera antes de construir nada. Se marca Escalabilidad Chile en 2 porque, sin una base de clientes propia ya existente, replicar exactamente este mecanismo desde cero pierde su ventaja principal — de ahí que se reporte como nota táctica y no como oportunidad autónoma de alto puntaje.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifra de fuente primaria vía Indie Hackers, mecanismo de preventa verificable en su lógica pero sin comprobante externo).</span><a class="src-link" href="https://www.indiehackers.com/post/from-reddit-marketing-to-building-an-aeo-platform-8-400-before-writing-a-line-of-code-6bb3276343" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-08">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-08')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-08')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-08</span>
@@ -184,10 +328,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">7 IDEAS</span>
       <span class="pill">PROM 14.1</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-08">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-08" hidden>
     <div class="fuentes">FUENTES: ~20 (g5noticias.cl, construnoticias.com, justdev.it, fintechile.org, latercera.com/pulso, chocale.cl, df.cl, globalbrokers.cl, fuelads.tech, dashly.io, realty-ai.com, reel-e.ai, realestatenews.com, geekwire.com, onlinemarketplaces.com, nar.realtor, housingwire.com, get-ryze.ai, startupmexico.com).</div>
     
 <div class="opp destacada"
@@ -8673,7 +8817,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  58 reportes &middot; 322 ideas en archivo
+  59 reportes &middot; 327 ideas en archivo
 </div>
 
 <script>

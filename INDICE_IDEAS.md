@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-08 · Oportunidades de Negocio · Vertical SaaS + IA para Contadores/Notarios Chilenos (Playbook Magnar AI) (Score 15/20)
+- 2026-07-08 · Oportunidades de Negocio · Servicios-a-SaaS: Diagnóstico de Madurez de Datos/IA para PyMEs Chilenas (Score 15/20)
+- 2026-07-08 · Oportunidades de Negocio · Copiloto de Ventas IA Ligero para PyMEs Chilenas (inspirado en diio) (Score 13/20)
+- 2026-07-08 · Oportunidades de Negocio · Recepcionista IA Especializada en Negocios de Belleza y Bienestar (inspirado en "Julia" de AgendaPro) (Score 13/20)
+- 2026-07-08 · Oportunidades de Negocio · GEO/AEO Chile — Actualización: Validar por Preventa Antes de Construir (caso Vismore) (Score 13/20)
 - 2026-07-08 · Marketing Inmobiliario · Tranio + Dashly: AI SDR Atribuye el 69% de los Leads Entrantes de un Broker Internacional (Score 17/20)
 - 2026-07-08 · Marketing Inmobiliario · Data Inmobiliaria: Catastro Nacional Gratuito con IA — 9,5 Millones de Roles Indexados (Score 16/20)
 - 2026-07-08 · Marketing Inmobiliario · RE/MAX Centre: Chatbot Multi-Oficina Sube los Leads del Sitio Web +385% (Score 16/20)
