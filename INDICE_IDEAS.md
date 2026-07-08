@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-08 · Marketing Inmobiliario · Tranio + Dashly: AI SDR Atribuye el 69% de los Leads Entrantes de un Broker Internacional (Score 17/20)
+- 2026-07-08 · Marketing Inmobiliario · Data Inmobiliaria: Catastro Nacional Gratuito con IA — 9,5 Millones de Roles Indexados (Score 16/20)
+- 2026-07-08 · Marketing Inmobiliario · RE/MAX Centre: Chatbot Multi-Oficina Sube los Leads del Sitio Web +385% (Score 16/20)
+- 2026-07-08 · Marketing Inmobiliario · TOCTOC x Datamart: Precalificación Crediticia Automática Reduce el Expediente Hipotecario de Días a Horas (Score 14/20)
+- 2026-07-08 · Marketing Inmobiliario · Video Orgánico "Hook" en TikTok: Sin Pauta, 2,3M de Vistas y 11 Leads Directos (Score 13/20)
+- 2026-07-08 · Marketing Inmobiliario · Entrenador.ai (Inteliventa): IA de Entrenamiento de Vendedores por WhatsApp, Ya en 32 Inmobiliarias Chilenas (Score 12/20)
+- 2026-07-08 · Marketing Inmobiliario · Houm: Alcanza Rentabilidad y Anuncia Entrada a Multifamily (Score 11/20)
 - 2026-07-07 · Oportunidades de Negocio · Agencia de Agentes de Voz IA para PYMEs Chilenas (stack Callin.io + n8n + Cal.com) (Score 17/20)
 - 2026-07-07 · Oportunidades de Negocio · Regularización Exprés del Certificado de Cumplimiento Tributario SII (nueva retención automática de IVA) (Score 15/20)
 - 2026-07-07 · Oportunidades de Negocio · Kit de Compliance "Low-Cost" Ley 21.719 para PyMEs (riesgo de exclusión de licitaciones públicas) (Score 15/20)
