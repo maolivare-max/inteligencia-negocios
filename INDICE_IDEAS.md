@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-09 · Marketing Inmobiliario · Trichter Consulting / Caso LAFHER Mazatlán: IA de Calificación de Leads por WhatsApp (Score 17/20)
+- 2026-07-09 · Marketing Inmobiliario · AEO/GEO Inmobiliario: Tráfico desde IA Crece 527% y Convierte hasta 5x Mejor — Actualización (Score 17/20)
+- 2026-07-09 · Marketing Inmobiliario · Propiteq y HousePricing.cl: Plataformas Chilenas de Tasación con IA Ganan Tracción (Score 16/20)
+- 2026-07-09 · Marketing Inmobiliario · QuintoAndar Lanza App Nativa en ChatGPT — Primera Inmobiliaria de LATAM en el App Directory de OpenAI (Score 13/20)
+- 2026-07-09 · Marketing Inmobiliario · Dataprop: CRM Inmobiliario Chileno con IA Predictiva de Cierre (Score 12/20)
+- 2026-07-09 · Marketing Inmobiliario · Lidz AI Adquiere Leadnamics (Argentina) — Actualización de Expansión Regional (Score 10/20)
 - 2026-07-08 · Oportunidades de Negocio · Vertical SaaS + IA para Contadores/Notarios Chilenos (Playbook Magnar AI) (Score 15/20)
 - 2026-07-08 · Oportunidades de Negocio · Servicios-a-SaaS: Diagnóstico de Madurez de Datos/IA para PyMEs Chilenas (Score 15/20)
 - 2026-07-08 · Oportunidades de Negocio · Copiloto de Ventas IA Ligero para PyMEs Chilenas (inspirado en diio) (Score 13/20)
