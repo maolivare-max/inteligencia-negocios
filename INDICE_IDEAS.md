@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-09 · Oportunidades de Negocio · Servicio Gestionado de "Cerebro Corporativo" con IA para PyMEs y Consultoras Chilenas (patrón Hyper + GBrain open source) (Score 16/20)
+- 2026-07-09 · Oportunidades de Negocio · Chatbot de Soporte "Efecto IKEA": el Cliente Arma Su Propio Bot en Vez de Comprar una Implementación (inspirado en My AskAI) (Score 15/20)
+- 2026-07-09 · Oportunidades de Negocio · QA Automatizado que Verifica si un Agente de IA Realmente Arregló el Bug (inspirado en Osloq) (Score 14/20)
+- 2026-07-09 · Oportunidades de Negocio · Agencia de Doblaje y Subtitulado con IA para Arbitraje de Contenido LATAM ↔ Inglés/Portugués (Score 14/20)
+- 2026-07-09 · Oportunidades de Negocio · Asistente de Reuniones que Actúa Durante la Llamada, No Solo Transcribe (inspirado en Mina) (Score 12/20)
+- 2026-07-09 · Oportunidades de Negocio · Sistematización de Arbitraje de Renta Corta con Herramientas de Pricing Dinámico (Score 11/20)
 - 2026-07-09 · Marketing Inmobiliario · Trichter Consulting / Caso LAFHER Mazatlán: IA de Calificación de Leads por WhatsApp (Score 17/20)
 - 2026-07-09 · Marketing Inmobiliario · AEO/GEO Inmobiliario: Tráfico desde IA Crece 527% y Convierte hasta 5x Mejor — Actualización (Score 17/20)
 - 2026-07-09 · Marketing Inmobiliario · Propiteq y HousePricing.cl: Plataformas Chilenas de Tasación con IA Ganan Tracción (Score 16/20)

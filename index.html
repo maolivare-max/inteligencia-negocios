@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">60</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">333</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">185</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">61</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">339</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">187</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.8</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">91</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">93</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-09</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,171 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-09">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-09')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-09</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El ángulo de hoy confirmó que la categoría de infraestructura para agentes de IA (memoria persistente, verificación de código, observability/replay) está en plena explosión de lanzamientos — tres hallazgos independientes (Hyper/GBrain, Osloq, Retrace) apuntan al mismo dolor: los agentes de IA generan trabajo que nadie verifica ni recuerda. El caso más fuerte del día es My AskAI, que pasó de $0 a $100K ARR en 2 meses con solo 2 fundadores usando un ángulo de distribución muy replicable (&quot;efecto IKEA&quot;: el cliente arma su propio bot). Se descartaron varios hallazgos por baja Escalabilidad Chile o baja confianza — ver Nota metodológica.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 13.7</span>
+      <span class="pill">&#9733; 2 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-09">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch — (1) ángulo del día: Product Hunt (daily/weekly leaderboards de las últimas 2-4 semanas), Y Combinator (Launch YC Summer 2026, Requests for Startups, Launch HN), prensa tech (TechCrunch, HN, blogs oficiales de founders); (2) modelos globales validados vía Indie Hackers, Starter Story, TrustMRR, Failory, marketplaces de M&amp;A (Acquire.com). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la gran mayoría de sitios en este entorno; todo el reporte se construyó vía WebSearch, con nivel de confianza marcado explícitamente donde solo hay snippet agregado sin fuente primaria de lectura directa.</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta para las cifras de hyper (corroboradas por launch post oficial de yc + hacker news) y para las estrellas de gbrain (verificable en github); media para la extrapolación de oportunidad de negocio en chile, que es una inferencia razonable a partir de dos señales de demanda fuertes, no un caso ya probado en el mercado chileno.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio Gestionado de &quot;Cerebro Corporativo&quot; con IA para PyMEs y Consultoras Chilenas (patrón Hyper + GBrain open source)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-0" hidden>
+    <p class="opp-desc">ofrecer como servicio gestionado la instalación, configuración y mantenimiento de un &quot;cerebro corporativo&quot; de IA —un knowledge graph autoactualizable que ingiere Docs, Slack, Email, GitHub y lo inyecta como contexto a Claude Code/Cursor/ChatGPT vía MCP— usando como base tecnológica GBrain, el proyecto open source (gratuito, licencia MIT) liberado por Garry Tan, CEO de Y Combinator.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Hyper, startup de la cohorte YC Spring/P26 (2 fundadores: Shalin Shah y ex-Snorkel AI Kanyes Thaker) construyó la misma categoría como producto y llegó a **$1.000 MRR en 12 días** desde el lanzamiento, con **50+ equipos onboarded** y pilotos pagados con Razorpay y Snorkel AI, apareciendo simultáneamente top 5-12 en Hacker News y Product Hunt. En paralelo, GBrain —el sistema de memoria personal que Garry Tan usa a diario, liberado como open source el 5 de abril de 2026— pasó de 0 a **~5.000 estrellas en GitHub en 24 horas** y sigue creciendo hacia **14.000-25.000+ estrellas** hacia julio 2026, evidencia de demanda masiva por esta categoría sin que exista aún oferta de implementación gestionada.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>no se identificó ningún actor chileno ofreciendo &quot;cerebro corporativo&quot; como servicio. Las PyMEs y consultoras/estudios profesionales chilenos ya pagan por múltiples herramientas de IA (Claude, ChatGPT, Cursor) pero pierden contexto entre ellas — GBrain es gratuito, pero requiere configuración técnica (instalación, mantenimiento, actualización del knowledge graph) que la mayoría no puede hacer sola. El wedge es exactamente ese: vender la implementación y el mantenimiento, no el software.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras de Hyper (corroboradas por launch post oficial de YC + Hacker News) y para las estrellas de GBrain (verificable en GitHub); Media para la extrapolación de oportunidad de negocio en Chile, que es una inferencia razonable a partir de dos señales de demanda fuertes, no un caso ya probado en el mercado chileno.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.ycombinator.com/launches/QKg-hyper-the-self-driving-company-brain" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-09-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-09-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Hyper / GBrain</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-09-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 ≥ 15</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El lanzamiento simultáneo y coordinado en Hacker News y Product Hunt —potenciado por el respaldo de marca de YC— generó $1K MRR y 50 equipos en 12 días; y el hecho de que el propio CEO de YC abriera su sistema personal como open source generó un halo de credibilidad y adopción viral que ninguna campaña pagada podría comprar.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Lanzar el producto simultáneamente en Hacker News (Show/Launch HN) y Product Hunt el mismo día, coordinado, en vez de escalonado en el tiempo.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Documentar públicamente tu propio uso real del producto (dogfooding transparente, con cifras) como contenido de marketing en lugar de solo listar features.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Fundación de Hyper: Shalin Shah y Kanyes Thaker (ex-Snorkel AI founding engineer), cohorte YC Spring/P26.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Día 12 post-lanzamiento: **$1.000 MRR**, 50+ equipos onboarded, pilotos pagados con Razorpay y Snorkel AI.</span></div><div class="tl-item"><span class="tl-dot"></span><span>5 de abril de 2026: GBrain (proyecto personal de Garry Tan, CEO de YC) liberado como open source, MIT license.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Primeras 24 horas de GBrain: ~5.000 estrellas en GitHub.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mayo-julio 2026: GBrain crece a 14.000-25.000+ estrellas.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta (cifras cruzadas entre indie hackers, entrevista técnica de pinecone y getlatka, consistentes entre sí).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Chatbot de Soporte &quot;Efecto IKEA&quot;: el Cliente Arma Su Propio Bot en Vez de Comprar una Implementación (inspirado en My AskAI)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 3 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-1" hidden>
+    <p class="opp-desc">SaaS self-serve de chatbot de soporte con RAG donde el propio cliente sube su documentación (PDF, URL, FAQ) y arma su bot en minutos, sin proceso de venta ni implementación asistida — la conversión ocurre porque el cliente ya construyó algo antes de pagar, no porque alguien se lo vendió.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>My AskAI (fundadores Alex Rainey y Mike Heap, Reino Unido) llegó a **$100.000 ARR en los primeros 2 meses** desde su lanzamiento en abril de 2023, y a **$6.000 MRR en 1,5 meses**. Hoy opera en **~$40.000 MRR (~$500.000 ARR)**, procesando 75.000+ chats de soporte al mes, con solo 2 fundadores. El &quot;efecto IKEA&quot; —dejar que el usuario arme su propio bot en vez de vender una implementación custom— subió la conversión **+82%**. El 70% de los ingresos vienen de enfocarse en un único caso de uso (soporte al cliente) en vez de dispersarse en múltiples verticales.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el concepto de chatbot de soporte con IA ya es conocido (Siena AI, Chatbase Chile, cubiertos en reportes previos), pero ningún jugador identificado usa el ángulo self-serve puro como diferenciador — los existentes venden implementación asistida. Miles de e-commerce y empresas de servicios chilenas medianas hoy atienden soporte manualmente por WhatsApp Business sin ningún nivel de automatización.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (cifras cruzadas entre Indie Hackers, entrevista técnica de Pinecone y Getlatka, consistentes entre sí).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/tech/bootstrapping-to-40k-mrr-after-his-vc-backed-startup-failed-LF1CwRs1vL3oVLcuoIoE" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-09-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-09-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; My AskAI</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-09-1-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15, y $0 a $100K ARR en 2 meses (excede ampliamente el umbral de $0 a $10K MRR ≤ 3 meses)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El &#x27;efecto IKEA&#x27; — dejar que el cliente arme su propio producto con sus propios datos antes de pagar, en vez de vender una implementación custom — subió la conversión +82% porque el cliente siente ownership del resultado antes de sacar la tarjeta.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Construir un flujo de self-serve onboarding donde el propio cliente &quot;arma&quot; el producto con sus datos en minutos, no un demo genérico presentado por un vendedor.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Concentrar el 100% del mensaje de marketing en un solo caso de uso específico en vez de listar múltiples verticales posibles.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Fundación: inicios de 2023, Alex Rainey (ex-Pluto, insurtech de viajes financiada que cerró en pandemia) y Mike Heap.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Abril 2023: lanzamiento de My AskAI.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 1,5: $6.000 MRR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 2: $100.000 ARR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Estado actual (2026): ~$40.000 MRR (~$500.000 ARR), 75.000+ chats de soporte procesados al mes.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media (tracción medida solo por ranking/votos de product hunt, sin cifras de mrr o clientes reveladas públicamente).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">QA Automatizado que Verifica si un Agente de IA Realmente Arregló el Bug (inspirado en Osloq)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-2" hidden>
+    <p class="opp-desc">servicio/SaaS que conecta con el GitHub de un equipo de desarrollo, toma un issue o un fix propuesto por un agente de código (Cursor, Claude Code, Copilot), lo corre en un sandbox aislado y verifica si el bug realmente se reprodujo y se solucionó — con logs, screenshots y el code path exacto — en vez de confiar en la palabra del agente.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Osloq, lanzado en Product Hunt el 3 de julio de 2026, llegó a **#4 del día con 208 votos**, con un solo fundador (&quot;Enes&quot;), resolviendo un dolor específico y creciente: &quot;el agente dice que arregló el bug pero nadie lo verificó&quot;. Corre en JS/TS/Python/Go, se conecta vía GitHub App de solo lectura.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>las agencias de desarrollo, software factories y consultoras tech chilenas están adoptando agentes de código (Cursor, Claude Code) a gran velocidad, pero sin capa de verificación automática de que lo que el agente &quot;dice haber arreglado&quot; realmente funciona — hoy ese chequeo lo hace un humano manualmente, o no se hace. No se identificó un competidor chileno o LATAM en este nicho específico.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (tracción medida solo por ranking/votos de Product Hunt, sin cifras de MRR o clientes reveladas públicamente).</span><a class="src-link" href="https://www.producthunt.com/products/osloq" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media (cifras autoreportadas por el vendedor en un marketplace de m&amp;a, no auditadas por un tercero independiente — patrón típico de listings de venta de negocios).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agencia de Doblaje y Subtitulado con IA para Arbitraje de Contenido LATAM ↔ Inglés/Portugués</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-3" hidden>
+    <p class="opp-desc">agencia/producto envuelto sobre herramientas de doblaje con IA (ElevenLabs Dubbing Studio, HeyGen) que preserva el tono y la emoción del hablante original, con curación humana sobre la capa de IA, enfocado en doblar contenido de creadores/empresas chilenas al inglés o portugués (para llegar a EE.UU./Brasil) y viceversa.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>un SaaS de doblaje/subtitulado con IA listado en venta en Acquire.com reporta **$200.000+ ARR**, crecimiento **100% orgánico**, **2,5 millones+ de usuarios de 100+ países**, procesando 10.000+ horas de contenido al mes, en 75+ idiomas, operado de forma &quot;lean y low-touch&quot;.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el mercado hispanohablante/LATAM apenas tiene jugadores locales especializados en doblaje IA de alta calidad — la oportunidad de arbitraje regional es clara: creadores y empresas chilenas que quieren llegar a audiencia brasileña (portugués) o angloparlante, y contenido en inglés/portugués que se puede doblar al español chileno/latino para consumo local. La infraestructura de IA base ya existe (ElevenLabs, HeyGen); el valor agregado es la curación humana y la especialización regional.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifras autoreportadas por el vendedor en un marketplace de M&amp;A, no auditadas por un tercero independiente — patrón típico de listings de venta de negocios).</span><a class="src-link" href="https://app.acquire.com/startup/oah2ho8ujh-ai-video-dubbing-subtitling-saas-with-2-5m-users-and-global-traction" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media (tracción medida solo por ranking de product hunt, sin cifras de clientes/ingresos).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Asistente de Reuniones que Actúa Durante la Llamada, No Solo Transcribe (inspirado en Mina)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-4" hidden>
+    <p class="opp-desc">asistente de IA que participa activamente durante una llamada de ventas/entrevista/reunión —no solo transcribe y resume después—, jalando contexto de las herramientas del equipo comercial y generando outputs o respondiendo preguntas en tiempo real durante la conversación misma.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Mina, en su versión 1.0, llegó a **#5 en el weekly leaderboard de Product Hunt** (semana del 1 de junio de 2026) con 138 votos, posicionándose como categoría emergente distinta de los notetakers tradicionales.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>vertical interesante para equipos comerciales chilenos B2B con alto volumen de llamadas (seguros, servicios financieros, inmobiliarias), pero requiere integración con CRMs locales — la oportunidad más realista es como reseller/integrador regional de una herramienta existente, más que construir el producto desde cero.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (tracción medida solo por ranking de Product Hunt, sin cifras de clientes/ingresos).</span><a class="src-link" href="https://www.producthunt.com/products/mina-meeting-assistant" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="11"
+     data-seg="0"
+     data-conf="media (el caso puntual no se pudo leer completo por bloqueo de webfetch; las cifras de escalamiento vienen de guías de industria, no del caso específico verificado de primera mano).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-09-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Sistematización de Arbitraje de Renta Corta con Herramientas de Pricing Dinámico</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 2 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">11/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-09-5" hidden>
+    <p class="opp-desc">arrendar propiedades a largo plazo y subarrendarlas en plataformas de renta corta (Airbnb, Booking) a tarifa nocturna más alta que el costo de arriendo mensual, sistematizando la operación con software de pricing dinámico y mensajería automática (PMS) en vez de gestión manual.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>un caso documentado en Indie Hackers (AMA) reporta haber escalado un portafolio de renta corta a **$20.000 MRR en 15 meses** trabajando full-time en paralelo, descrito como &quot;prácticamente pasivo&quot;. Guías de industria (Hostfully, Awning, Mashvisor) sitúan la escala típica en 10-15 unidades con $1.300-2.000 USD de margen por unidad en mercados donde el ingreso de renta corta supera 2x el arriendo mensual.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el modelo ya existe informalmente (arriendo de departamentos para subarriendo en Airbnb es común en Santiago, Valparaíso/Viña y zonas turísticas), pero la sistematización con pricing dinámico y mensajería automática está poco explotada a nivel de operador chico. Advertencia: revisar cláusulas de subarriendo en los contratos de arriendo base (algunos las prohíben explícitamente) antes de escalar — esto baja el score de Escalabilidad Chile frente a un modelo 100% digital.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (el caso puntual no se pudo leer completo por bloqueo de WebFetch; las cifras de escalamiento vienen de guías de industria, no del caso específico verificado de primera mano).</span><a class="src-link" href="https://www.indiehackers.com/post/hacking-rental-portfolio-to-20k-mrr-in-just-15-months-while-doing-a-full-time-job-ama-094c5f7c1f" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-09">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-09')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-09')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-09</span>
@@ -184,10 +347,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">6 IDEAS</span>
       <span class="pill">PROM 14.2</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-09">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-09" hidden>
     <div class="fuentes">FUENTES: ~22 (elhubdenegocios.com, expovivienda.cl, df.cl *(403, vía snippet)*, theclinic.cl, universo.cl, ecosistemastartup.com, dataprop.cl, housingwire.com, blog.starmorph.com, reflectingwalls.com, newsroom.quintoandar.com.br, prnewswire.com, trichterconsulting.com, inman.com, ycombinator.com, marketscale.com, entre otras vía WebSearch).</div>
     
 <div class="opp destacada"
@@ -8952,7 +9115,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  60 reportes &middot; 333 ideas en archivo
+  61 reportes &middot; 339 ideas en archivo
 </div>
 
 <script>
