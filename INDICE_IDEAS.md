@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-10 · Marketing Inmobiliario · Home Staging Virtual con IA: Ventana de Arbitraje Abierta en Chile (Score 16/20)
+- 2026-07-10 · Marketing Inmobiliario · Compass Sindica Exclusivas "Coming Soon" a Redfin — Red de Pre-Mercado como Canal de Leads (Score 14/20)
+- 2026-07-10 · Marketing Inmobiliario · La Haus + Grupo Arquitectoma (México): Preventa 100% Digital con IA Vende 40% de un Proyecto en Semanas (Score 14/20)
+- 2026-07-10 · Marketing Inmobiliario · Velocidad de Respuesta en LATAM: 90 Segundos vs. 18 Minutos — Actualización con Benchmark Nuevo (Score 14/20)
+- 2026-07-10 · Marketing Inmobiliario · TikTok Ads Pagado: CPL 40-60% Más Barato que Facebook para Inmobiliaria (Score 13/20)
+- 2026-07-10 · Marketing Inmobiliario · Google Ads Performance Max para Inmobiliarias en Chile — Cifras Locales de CPL (Score 12/20)
+- 2026-07-10 · Marketing Inmobiliario · Chile: Mesa Técnica de Autorregulación Gremial del Corretaje (Score 9/20)
 - 2026-07-09 · Oportunidades de Negocio · Servicio Gestionado de "Cerebro Corporativo" con IA para PyMEs y Consultoras Chilenas (patrón Hyper + GBrain open source) (Score 16/20)
 - 2026-07-09 · Oportunidades de Negocio · Chatbot de Soporte "Efecto IKEA": el Cliente Arma Su Propio Bot en Vez de Comprar una Implementación (inspirado en My AskAI) (Score 15/20)
 - 2026-07-09 · Oportunidades de Negocio · QA Automatizado que Verifica si un Agente de IA Realmente Arregló el Bug (inspirado en Osloq) (Score 14/20)
