@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">63</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">353</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">190</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">64</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">359</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">193</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.7</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">93</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">94</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-11</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,157 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-11">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-11')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-11</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El ángulo de nichos desatendidos confirmó que en Chile hay al menos dos vientos de cola regulatorios poco explotados — la Ley 21.015 de inclusión laboral (1% de personas con discapacidad en empresas de 100+ trabajadores) y la Ley 21.303 (lengua de señas chilena oficial) — que crean demanda forzada sin oferta consolidada. El hallazgo más fuerte del día es **Migrante**, fintech chilena 100% enfocada en migrantes recién llegados, que levantó ~US$21M este año y crece &gt;30% mensual; se usa aquí como evidencia de mercado para un servicio adyacente de menor capital (trámites/regularización con IA) más ejecutable por una sola persona. Se descartaron varios hallazgos globales (DayNew, Welcome Tech, Poppy Seed Health, Aira) por falta de cifras de tracción verificables — ver Nota metodológica.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.2</span>
+      <span class="pill">&#9733; 1 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-11">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch — (1) modelos globales validados que sirven a nichos/segmentos demográficos desatendidos (Indie Hackers, Hacker News, Reddit r/Entrepreneur/r/SideProject/r/SaaS, Product Hunt, Y Combinator, Starter Story, prensa tech); (2) demanda y competencia local en Chile para esos mismos nichos (INE/Censo 2024, prensa económica chilena, FinTechile, ecosistema de startups chilenas, comunidades locales). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la mayoría de sitios en este entorno; todo el reporte se construyó vía WebSearch, con nivel de confianza marcado explícitamente donde solo hay snippet agregado sin fuente primaria de lectura directa.</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta para las cifras de migrante (múltiples fuentes coincidentes: fintechile, idb lab); media para la composición demográfica de migrantes (fuente secundaria sin verificación primaria); media para la extrapolación del wedge de trámites, que es una inferencia razonable pero no un caso ya probado en esa sub-vertical específica.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Regularización y Trámites con IA para la Comunidad Migrante en Chile</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-0" hidden>
+    <p class="opp-desc">agencia digital que automatiza con IA (generación de documentos, seguimiento de expedientes, chat de WhatsApp multiidioma) los trámites de regularización migratoria, visas de trabajo, homologación de títulos y garantías de arriendo para migrantes recién llegados a Chile — un servicio, no un producto de crédito, por lo que el capital inicial es bajo.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>la evidencia de mercado es la fintech chilena **Migrante**, que sirve exclusivamente a este segmento con créditos automotrices, garantías de arriendo, préstamos personales y seguros: ha prestado **US$19M a 9.200 migrantes** con mora &lt;90 días de solo **1,4%**, crece **&gt;30% mensual** con ~1.000 clientes nuevos/mes, y levantó **$20.000 millones CLP (~US$21M)** entre enero-marzo de 2026 para escalar a &quot;más de un millón de inmigrantes&quot;, con expansión anunciada a Perú, Colombia, México y España. Esto confirma que el segmento migrante en Chile paga por servicios especializados y crece rápido — pero Migrante se enfocó en crédito/seguros, dejando sin cubrir el dolor administrativo (trámites, documentación, homologación) que es más barato de atacar con un modelo de servicio.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Chile tiene &gt;1,4M de residentes extranjeros (venezolanos 30,5%, peruanos 15,8%, haitianos 12,5%, colombianos 10,8%). El wedge es ofrecer, vía WhatsApp Business + IA, ayuda para regularización migratoria, homologación de títulos profesionales y armado de expedientes de arriendo — cobrando por trámite o por suscripción mensual (&quot;acompañamiento migratorio&quot;). No requiere licencia especial más allá de eventual asociación con un abogado/gestor certificado para trámites que lo requieran. Mercado estimado: si solo el 5% de 1,4M migrantes paga un ticket promedio de $30.000 CLP/año por el servicio, son ~$2.100M CLP/año de mercado direccionable.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras de Migrante (múltiples fuentes coincidentes: FinTechile, IDB Lab); Media para la composición demográfica de migrantes (fuente secundaria sin verificación primaria); Media para la extrapolación del wedge de trámites, que es una inferencia razonable pero no un caso ya probado en esa sub-vertical específica.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.fintechile.org/noticias/fintech-migrante-levanta-fondo-por-20-mil-millones" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-11-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-11-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Migrante</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-11-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 ≥ 15</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>especialización 100% vertical en un segmento con necesidad financiera urgente y mal servida por la banca tradicional (migrantes sin historial crediticio local), lo que reduce el costo de adquisición porque la competencia formal casi no ataca ese nicho.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Elegir un sub-dolor específico y agudo del mismo segmento (no el crédito, que requiere capital y regulación) — trámites, vivienda, empleo — y resolverlo con un servicio ligero.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Distribuir vía los mismos canales comunitarios donde el segmento ya se organiza (grupos de Facebook/WhatsApp por nacionalidad), no vía paid ads genérico.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Fundación: Ignacio Canals, Diego Fleischmann, Sebastián Ayub y Salvador Porta lanzan Migrante enfocada 100% en migrantes recién llegados a Chile (fecha de fundación exacta no encontrada en las fuentes revisadas — Confianza Baja en este punto específico).</span></div><div class="tl-item"><span class="tl-dot"></span><span>A la fecha de las fuentes (2026): US$19M prestados acumulados a 9.200 migrantes, mora &lt;90 días de 1,4%.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Enero-marzo de 2026: cierre de ronda de $20.000 millones CLP (~US$21M).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Crecimiento reportado: &gt;30% mensual, ~1.000 clientes nuevos/mes.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Expansión anunciada (sin fecha de ejecución confirmada): Perú, Colombia, México, España.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="15"
+     data-seg="0"
+     data-conf="alta para la cifra de población 60+ (fuente ine/censo primaria); media para el modelo de pricing de gogograndparent (verificable en su propio sitio, pero sin cifra de ingresos totales o suscriptores); media para la ausencia de un competidor chileno directo (evidencia por omisión, no prueba definitiva).">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Concierge Telefónico para Adultos Mayores sin Smartphone en Chile</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-1" hidden>
+    <p class="opp-desc">servicio de suscripción mensual donde adultos mayores llaman a un número de teléfono (sin necesidad de smartphone ni apps) y un operador humano les pide el Uber/Cabify, el delivery de comida o farmacia, o coordina servicios a domicilio en su nombre.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el modelo validado es **GoGoGrandparent** (EE.UU.), que cobra planes de **$14,99 a $500/mes** más un cargo de concierge de **$0,27/minuto** sobre la tarifa base de Uber/Lyft, opera en los 50 estados de EE.UU. más Canadá y Australia, y ha conseguido alianzas con oficinas municipales de &quot;aging&quot; financiadas por subsidios estatales (ej. grant de $30.000 en Yonkers, NY).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el segmento de 60+ años es de **3.857.662 personas (19,2% de la población)** según el Censo 2024, en clara tendencia de envejecimiento. Ya existen startups chilenas de cuidado a domicilio con tracción (Mis Tatas, con &gt;2.500 adultos mayores atendidos y financiamiento del fondo &quot;Piensa en Grandes&quot;; Situ Care; Reactívate), pero ninguna replica específicamente el modelo &quot;concierge telefónico sin smartphone&quot; para pedir transporte/delivery — todas apuntan a cuidado/compañía, no a resolver la brecha digital de uso de apps. Es un wedge distinto y complementario, aprovechando que Uber y apps de delivery ya operan en Chile pero excluyen de facto a quien no sabe usar el celular.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para la cifra de población 60+ (fuente INE/Censo primaria); Media para el modelo de pricing de GoGoGrandparent (verificable en su propio sitio, pero sin cifra de ingresos totales o suscriptores); Media para la ausencia de un competidor chileno directo (evidencia por omisión, no prueba definitiva).</span><a class="src-link" href="https://www.gogograndparent.com/services/uber-for-seniors" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="15"
+     data-seg="0"
+     data-conf="media-alta para las cifras de alcance de autismo conecta (vienen de la propia startup vía prensa, no de fuente independiente); media para el tamaño del vacío en colocación laboral (basado en investigación cualitativa, no en un estudio de mercado formal).">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Agencia de Colocación Laboral Neuroinclusiva para Empresas Chilenas</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-2" hidden>
+    <p class="opp-desc">agencia de reclutamiento especializada en colocar candidatos neurodivergentes (autismo, TDAH) en empresas chilenas, aprovechando que la Ley 21.015 obliga a empresas de 100+ trabajadores a que el 1% de su dotación sean personas con discapacidad — cobrando fee de colocación a la empresa, sin necesidad de construir plataforma compleja para arrancar.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>en Chile, **Autismo Conecta** (plataforma fundada por Vannia Bascuñán) ya validó demanda del lado de las familias — alcanza a **30.000+ grupos familiares** y una comunidad activa de **7.000+ personas**, ganó fondos CORFO Semilla Inicia Mujeres ($17M CLP) y Chile Converge Emprende 2026 ($5M CLP entre ~3.200 postulantes), y su fundadora fue seleccionada por UNESCO para representar a Chile. Sin embargo, su foco es directorio de profesionales/servicios, no colocación laboral — el propio ecosistema chileno señala que el empleo neuroinclusivo sigue siendo &quot;incipiente&quot; (solo un actor de nicho, Kyklos, identificado).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la Ley 21.015 crea demanda forzada y recurrente (empresas medianas/grandes necesitan cumplir la cuota todos los años), y el enforcement se ha ido endureciendo. El wedge es puramente de servicio: reclutar, pre-seleccionar y acompañar la integración de candidatos neurodivergentes, cobrando a la empresa (no al candidato). Esto es replicable sin plataforma tecnológica compleja — un spreadsheet y una red de candidatos activa alcanza para partir.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta para las cifras de alcance de Autismo Conecta (vienen de la propia startup vía prensa, no de fuente independiente); Media para el tamaño del vacío en colocación laboral (basado en investigación cualitativa, no en un estudio de mercado formal).</span><a class="src-link" href="https://www.tvu.cl/prensa/2026/05/15/autismo-conecta-el-emprendimiento-regional-que-busca-transformar-el-apoyo-a-familias-neurodivergentes.html" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="alta para la cifra de ingresos (fuente de prensa directa, inc.com, aunque de 2021 — podría estar desactualizada al alza o la baja); media para la cifra de 28.000 usuarios (fuente secundaria de 2024); media para la ausencia de competidor chileno directo.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Marketplace de Empleo Remoto para Personas con Discapacidad/Enfermedad Crónica en Chile</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-3" hidden>
+    <p class="opp-desc">plataforma de empleo remoto/flexible enfocada exclusivamente en profesionales con enfermedades crónicas invisibles o discapacidad, conectándolos con empresas que ofrecen trabajo flexible/remoto.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el modelo validado es **Chronically Capable** (EE.UU.), fundada por Hannah Olson (incapacitada por enfermedad de Lyme) junto a Kai Keane: genera **$1M/año en ingresos** con **~28.000 buscadores de empleo** registrados y **100% de retención** de los contratados vía la plataforma — un caso sólido de negocio pequeño (2 fundadores) con ARR documentado sobre el umbral de seguimiento.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la Ley 21.015 (misma que en la oportunidad #3) y el auge del trabajo remoto post-pandemia crean una ventana doble: empresas necesitan cumplir cuota Y ya están acostumbradas a contratar remoto. No se identificó un equivalente chileno de &quot;marketplace de empleo remoto solo para personas con discapacidad/enfermedad crónica&quot; — el ecosistema local (Kyklos, iniciativas de SENADIS) está más orientado a intermediación general, no a un marketplace digital con perfil curado. Arbitraje regional claro.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para la cifra de ingresos (fuente de prensa directa, Inc.com, aunque de 2021 — podría estar desactualizada al alza o la baja); Media para la cifra de 28.000 usuarios (fuente secundaria de 2024); Media para la ausencia de competidor chileno directo.</span><a class="src-link" href="https://www.inc.com/brit-morse/chronically-capable-hannah-olson-kai-keane-lyme-disease.html" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media (la cifra de 712.005 personas con pérdida auditiva, de las cuales ~179.268 con sordera total, no tiene fuente primaria verificada en esta sesión; la demanda regulatoria sí está documentada en la ley).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Video-Interpretación de Lengua de Señas Bajo Demanda en Chile</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-4" hidden>
+    <p class="opp-desc">app/servicio de interpretación de lengua de señas chilena (LSCh) vía videollamada bajo demanda (no agendada), dirigido a empresas, servicios de salud e instituciones públicas que deben cumplir con accesibilidad.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>la Ley 21.303 (2021) reconoció la LSCh como lengua oficial y obliga a servicios públicos y privados a garantizar acceso; el propio Estado ya lanzó un piloto de atención por videollamada en lengua de señas, señal de que la demanda institucional es real pero la infraestructura sigue siendo manual/agendada, no on-demand.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>existen empresas chicas de interpretación (Manos en Acción, Con Señas, Lense Biobío) que ya cobran por servicios de interpretación en vivo/videollamada a empresas e instituciones, pero fuentes oficiales describen el mercado como &quot;muy escaso&quot; — el propio Estado reconoce falta de intérpretes en servicios públicos. El modelo de interpretación remota on-demand vía app (común en EE.UU. para call centers/salud) no tiene un jugador consolidado en Chile todavía.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (la cifra de 712.005 personas con pérdida auditiva, de las cuales ~179.268 con sordera total, no tiene fuente primaria verificada en esta sesión; la demanda regulatoria sí está documentada en la ley).</span><a class="src-link" href="https://www.uss.cl/noticias/lengua-de-senas-inclusion/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media (cifras de mercado general sólidas y de fuente universitaria/prensa económica; el sub-segmento exótico específico no tiene cifra de mercado propia, solo evidencia cualitativa).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-11-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">E-commerce Especializado en Mascotas Exóticas para Chile</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-11-5" hidden>
+    <p class="opp-desc">tienda online de alimento, accesorios y suministros específicos para mascotas exóticas (reptiles, aves, roedores exóticos), con envío a regiones.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el mercado chileno de mascotas alcanzó **~US$1.600-1.645M/año en 2023**, creciendo 77% en 5 años (desde US$924M en 2018) — el sub-segmento exótico ya tiene validación cualitativa vía negocios boutique como PetWild (tienda + veterinaria especializada, Santiago) y aseguradoras como Isapet que ya cubren mascotas exóticas.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la oferta especializada está concentrada en 1-2 jugadores boutique en Santiago, sin presencia clara de e-commerce especializado que llegue a regiones — un dueño de mascota exótica fuera de la RM hoy tiene que importar o conformarse con sustitutos genéricos.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifras de mercado general sólidas y de fuente universitaria/prensa económica; el sub-segmento exótico específico no tiene cifra de mercado propia, solo evidencia cualitativa).</span><a class="src-link" href="https://veterinaria.uchile.cl/noticias/103444/significativo-crecimiento-en-chile-de-mercado-asociado-a-mascotas" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-11">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-11')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-11')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-11</span>
@@ -184,10 +333,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">7 IDEAS</span>
       <span class="pill">PROM 13.7</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-11">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-11" hidden>
     <div class="fuentes">FUENTES: ~29 (zoominmobiliario.com, mobysuite.com, coldwellbanker.cl, tierramarillano.cl, g5noticias.cl, masvalorpropiedades.cl, eldesconcierto.cl, ei.cl, pauta.cl, diario.uach.cl, inmovirtual360.com, portalinmobiliario.com, lahora.cl, duplos.cl, acepta.com, blog.another.co, mioriente.com, vistazo.com, luxurypresence.com, cnbc.com, natlawreview.com, naglrep.com, bluestemmarketing.com, jegodigital.com, geekwire.com, zillow.mediaroom.com, morningstar.com, construnoticias.com, entre otras vía WebSearch).</div>
     
 <div class="opp destacada"
@@ -9423,7 +9572,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  63 reportes &middot; 353 ideas en archivo
+  64 reportes &middot; 359 ideas en archivo
 </div>
 
 <script>

@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-11 · Oportunidades de Negocio · Servicio de Regularización y Trámites con IA para la Comunidad Migrante en Chile (Score 16/20)
+- 2026-07-11 · Oportunidades de Negocio · Concierge Telefónico para Adultos Mayores sin Smartphone en Chile (Score 15/20)
+- 2026-07-11 · Oportunidades de Negocio · Agencia de Colocación Laboral Neuroinclusiva para Empresas Chilenas (Score 15/20)
+- 2026-07-11 · Oportunidades de Negocio · Marketplace de Empleo Remoto para Personas con Discapacidad/Enfermedad Crónica en Chile (Score 14/20)
+- 2026-07-11 · Oportunidades de Negocio · Video-Interpretación de Lengua de Señas Bajo Demanda en Chile (Score 13/20)
+- 2026-07-11 · Oportunidades de Negocio · E-commerce Especializado en Mascotas Exóticas para Chile (Score 12/20)
 - 2026-07-11 · Marketing Inmobiliario · Zillow Showcase — Staging IA y Planos Interactivos con Datos Propios de Conversión (Score 16/20)
 - 2026-07-11 · Marketing Inmobiliario · Migrantes y Arrendatarios Extranjeros: Segmento de Bajo Riesgo Sin Marketing Dirigido (Score 15/20)
 - 2026-07-11 · Marketing Inmobiliario · Homie Rent — "Renta sin Aval" para Inquilinos Sin Historial Crediticio Tradicional (Score 13/20)
