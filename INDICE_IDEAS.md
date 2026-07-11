@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-11 · Marketing Inmobiliario · Zillow Showcase — Staging IA y Planos Interactivos con Datos Propios de Conversión (Score 16/20)
+- 2026-07-11 · Marketing Inmobiliario · Migrantes y Arrendatarios Extranjeros: Segmento de Bajo Riesgo Sin Marketing Dirigido (Score 15/20)
+- 2026-07-11 · Marketing Inmobiliario · Homie Rent — "Renta sin Aval" para Inquilinos Sin Historial Crediticio Tradicional (Score 13/20)
+- 2026-07-11 · Marketing Inmobiliario · Pet-Friendly Housing: Ventana Legal y de Demanda Sin Explotar en Chile (Score 14/20)
+- 2026-07-11 · Marketing Inmobiliario · Mujeres Solteras: El Segmento Comprador Que Creció Sin Campaña Dedicada (Score 13/20)
+- 2026-07-11 · Marketing Inmobiliario · Redes de Referido LGBTQ+ Friendly: Nicho con Conversión Documentada (Score 13/20)
+- 2026-07-11 · Marketing Inmobiliario · Contenido Hiperlocal como Filtro de Leads Calificados — Caso Cape Cod (Score 12/20)
 - 2026-07-10 · Marketing Inmobiliario · Home Staging Virtual con IA: Ventana de Arbitraje Abierta en Chile (Score 16/20)
 - 2026-07-10 · Marketing Inmobiliario · Compass Sindica Exclusivas "Coming Soon" a Redfin — Red de Pre-Mercado como Canal de Leads (Score 14/20)
 - 2026-07-10 · Marketing Inmobiliario · La Haus + Grupo Arquitectoma (México): Preventa 100% Digital con IA Vende 40% de un Proyecto en Semanas (Score 14/20)
