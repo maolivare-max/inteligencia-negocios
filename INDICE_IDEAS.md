@@ -2,6 +2,29 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-12 · Marketing Inmobiliario · Guerra de Descuentos por el Fin del IVA a la Vivienda: Urgencia y Garantía de Precio como Mensaje (Score 15/20)
+- 2026-07-12 · Marketing Inmobiliario · Ghostly Labs lanza "Phantom Realty Engine" (Sarah): Sitio Web + CRM Unificados en una Sola IA (Score 14/20)
+- 2026-07-12 · Marketing Inmobiliario · Roomvu Amplía su Sistema de Visibilidad Autónoma + Recepcionista IA Multiidioma — Score 14/20 *(Actualización)*
+*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 3 · Innovación 3)*
+
+· **Actualización respecto a jul-01/jul-05:** Los reportes previos cubrieron "Roomvu Engage Pages" (landing pages generadas por IA en <5 min). Esta semana Roomvu añadió públicamente (actualización recogida en entrevista al CEO, 30 de junio 2026) un "Autonomous Visibility System" que publica contenido generado desde MLS en vivo en 8 canales sin que el agente tenga que loguearse, más un recepcionista de IA multiidioma para respuesta instantánea de leads — resuelve el problema de "publico dos semanas y luego desaparezco".
+
+· **Por qué genera leads:** **350.000+ profesionales** en la plataforma; **2% de ratio lead-a-venta** (sobre el benchmark de la industria); **49% de los consumidores** cree que habla con un humano; **65 horas/mes ahorradas** en marketing por agente.
+
+· **Dónde funciona:** EE.UU./Canadá (sin presencia confirmada en Chile). Fuente: [Inman, 28-abr-2026](https://www.inman.com/2026/04/28/roomvu-upgrades-ai-platform-to-keep-agents-visible-even-when-they-go-quiet/) · [HousingWire](https://www.housingwire.com/articles/roomvu-expands-ai-marketing-platform-for-agents/) · [Inman — entrevista CEO, 30-jun-2026](https://www.inman.com/2026/06/30/sam-mehrbod-roomvu-ceo-interview-new-era-of-ai-in-real-estate/)
+
+· **Confianza:** Media (cifras de la empresa, pero corroboradas de forma independiente en Inman y HousingWire).
+
+· **Pasos esta semana:**
+  1. Aplicar el concepto localmente sin depender de Roomvu: automatizar la publicación de fichas nuevas del MLS/portal propio en 3-4 canales (Instagram, WhatsApp Estados, Facebook) vía una herramienta de programación simple, para no depender de acordarse de publicar cada semana.
+  2. Configurar respuesta automática de primer contacto (aunque sea plantilla, no IA completa) para cubrir el "vacío" mientras se atiende a otros clientes.
+  3. Medir a 30 días: cantidad de semanas consecutivas con publicación activa vs. el historial de los últimos 3 meses (el problema que ataca esta herramienta es justamente la intermitencia).
+
+---
+
+## 4. Comprador de Ingresos Medios (<UF 4.000) cerca de Metro: Caso Fundamenta Duplica Ventas (Score 13/20)
+- 2026-07-12 · Marketing Inmobiliario · Portal Inmobiliario: Mapa Interactivo de Densidad de Barrio como Nuevo Filtro Pre-Visita (Score 10/20)
+- 2026-07-12 · Marketing Inmobiliario · Comprador Conjunto No-Matrimonial: Segmento en Alza Sin Herramienta ni Mensaje Local (Score 10/20)
 - 2026-07-11 · Oportunidades de Negocio · Servicio de Regularización y Trámites con IA para la Comunidad Migrante en Chile (Score 16/20)
 - 2026-07-11 · Oportunidades de Negocio · Concierge Telefónico para Adultos Mayores sin Smartphone en Chile (Score 15/20)
 - 2026-07-11 · Oportunidades de Negocio · Agencia de Colocación Laboral Neuroinclusiva para Empresas Chilenas (Score 15/20)
