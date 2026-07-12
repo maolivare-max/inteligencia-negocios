@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">65</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">364</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">194</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">66</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">370</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">198</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.7</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">94</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">95</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-12</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,157 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-12">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-12')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-12</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">La revisión semanal confirma que el patrón más replicable de los últimos 7 días sigue siendo &quot;SaaS/servicio vertical con IA distribuido por gremio profesional o comunidad cerrada&quot; — hoy con una actualización fuerte de **Magnar AI** (legaltech chilena que ya cubrimos el 8 de julio), que sumó a Carey como inversionista estratégico y expande a Perú y Colombia con 100% de crecimiento mes a mes. En paralelo, la ronda de US$5,2M de **Blanco** (fintech B2B conversacional vía WhatsApp, 9.000 pymes, ex-founder de Xepelin) valida que el mercado chileno de servicios financieros conversacionales para pymes sigue caliente, y abre un wedge adyacente sin explotar: cobranza, contabilidad y nómina vía WhatsApp — no solo crédito/factoring. Se descartaron dos casos globales muy citados en listicles (&quot;Sarah Chen&quot; agencia de diseño IA, &quot;Daojie&quot; 70 agentes Claude) por falta de fuente primaria verificable — ver nota metodológica al cierre.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.5</span>
+      <span class="pill">&#9733; 1 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-12">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch (48 búsquedas/herramientas en total) — (1) modelos de negocio globales validados con foco en actualizaciones de julio 2026 y señales de Google Trends/Exploding Topics (Indie Hackers, Hacker News, Reddit, Product Hunt, Y Combinator RFS, Starter Story, newsletters de founders); (2) contexto y demanda chilena (startups locales con tracción reciente, ventanas regulatorias, huecos de mercado vs. EE.UU./Europa). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la mayoría de sitios en este entorno; el reporte se construyó casi enteramente vía WebSearch, con confianza marcada explícitamente donde el dato viene solo de snippet agregado.</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta — múltiples fuentes independientes (estudio jurídico, medio vc, medio peruano) coinciden en las cifras de usuarios y en el hecho de la inversión de carey.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Actualización — Magnar AI: Legaltech Chilena Escala a LATAM con Carey como Inversionista Estratégico</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-0" hidden>
+    <p class="opp-desc">SaaS + IA para profesionales del mundo legal (redacción, research, gestión de casos), vendido no directo-a-usuario sino a través del gremio: estudios jurídicos grandes y colegios profesionales como cliente ancla y canal de distribución. Ya cubierto el 8 de julio de 2026 como oportunidad (&quot;Vertical SaaS + IA para Contadores/Notarios Chilenos&quot;); hoy hay novedad real de crecimiento.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>fundada en agosto de 2025 por 3 chilenos con background legal/tech, en 5 meses llegó a **5.000 usuarios/abogados en Chile**, luego expandió a Perú (+2.000 usuarios) y Colombia. Crecimiento declarado de **100% mes a mes**. Clientes nombrados: **KPMG Chile** y el estudio **Carey** — que además invirtió en la ronda de enero de 2026, actuando como validador social del gremio. Meta declarada para 2026: 50.000 usuarios y USD 500K de facturación anual solo en Perú.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el gremio legal ya está probado; la brecha ahora está en OTROS gremios profesionales chilenos sin oferta equivalente — corredores de propiedades, ingenieros, notarías (más allá del ángulo notarial que ya tocamos), auditores. El Colegio de Contadores de Chile agrupa decenas de miles de profesionales y el gremio de corredores de propiedades varios miles más; ninguno tiene hoy un jugador con la tracción de Magnar. Replicar el mismo playbook (cliente ancla prestigioso + distribución B2B2C vía gremio) en un vertical no atendido es la oportunidad concreta esta semana.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta — múltiples fuentes independientes (estudio jurídico, medio VC, medio peruano) coinciden en las cifras de usuarios y en el hecho de la inversión de Carey.</span><span class="tag-seg">&#9733; En seguimiento</span></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-12-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-12-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Magnar AI</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-12-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 ≥ 15, y actualización con hito de inversionista estratégico + expansión internacional</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Vender primero al gremio a través de un cliente ancla de prestigio (no al usuario individual), usando ese logo como validador social para destrabar la venta al resto del gremio.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Identificar el gremio profesional chileno con mayor dolor no resuelto por IA y mapear quién es el &quot;Carey&quot; de ese gremio (el actor más prestigioso, no necesariamente el más grande).</span></div><div class="replicate-item"><span class="r-num">2</span><span>Ofrecer el piloto gratuito específicamente a ese actor ancla, condicionado a poder citarlo públicamente si el piloto funciona.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Agosto 2025: fundación por 3 chilenos con background legal/tech.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mes 5 (enero 2026 aprox.): ~5.000 usuarios/abogados en Chile; ronda de financiamiento con Carey (estudio jurídico líder) como inversionista estratégico.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Post-ronda (2026): expansión a Perú (+2.000 usuarios) y Colombia.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Clientes nombrados: KPMG Chile, estudio Carey.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Meta declarada 2026: 50.000 usuarios y USD 500K de facturación anual solo en el mercado peruano.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Confianza: Alta en los hitos con cifra (coinciden 3 fuentes independientes); Baja en la fecha exacta de fundación día/mes preciso (solo &quot;agosto 2025&quot; reportado).</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="alta para las cifras globales (múltiples fuentes independientes incluyendo el post original del founder); media para la extrapolación al mercado chileno, que es una inferencia razonable pero sin validación local todavía.">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Bot de Fórmulas Excel/SQL en Español para PyMEs y Contadores Chilenos (arbitraje de Formula Bot)</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-1" hidden>
+    <p class="opp-desc">herramienta que convierte instrucciones en lenguaje natural a fórmulas de Excel/Google Sheets y consultas SQL — sin necesidad de saber programar. El caso original (Formula Bot, David Bressler, EE.UU.) se construyó sin código (Bubble.io) durante una licencia de paternidad.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>en el lanzamiento generó **US$30K en ingresos y US$4K MRR en los primeros 3 meses** (1,1M de visitantes). Hoy declara **750.000 usuarios, 5.000 pagantes y US$226.000 MRR** — un crecimiento de ~56x desde el lanzamiento. Múltiples fuentes independientes (post original del founder en Indie Hackers, blog de Bubble.io, newsletter de founders) coinciden en el orden de magnitud.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>no se identificó un competidor en español con tracción equivalente. Excel/Sheets es herramienta base de prácticamente toda pyme y estudio contable chileno, y el 43,2% de microemprendedores recién se está formalizando ante el SII (más contabilidad manual en el corto plazo, no menos). El wedge es un asistente en español, integrado a WhatsApp o como complemento de Excel/Sheets, enfocado en fórmulas contables y tributarias chilenas (IVA, retenciones, boletas de honorarios) — no una traducción genérica del producto en inglés. Estimación gruesa de mercado: si 3% de un universo de ~200.000 profesionales de finanzas/administración/contabilidad en Chile paga una suscripción de $8.000 CLP/mes, son ~$576M CLP/año direccionables.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras globales (múltiples fuentes independientes incluyendo el post original del founder); Media para la extrapolación al mercado chileno, que es una inferencia razonable pero sin validación local todavía.</span><a class="src-link" href="https://www.indiehackers.com/post/excel-formula-bot-made-with-no-code-with-3-3k-mrr-c2d03d31f0" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="15"
+     data-seg="0"
+     data-conf="alta para los datos de blanco (múltiples medios coinciden); media para la extrapolación del wedge de cobranza/contabilidad/nómina, que es un espacio adyacente no probado directamente todavía.">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicios Financieros Conversacionales por WhatsApp para PyMEs Chilenas — Cobranza, Contabilidad y Nómina (adyacente a Blanco)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-2" hidden>
+    <p class="opp-desc">servicio o software que resuelve tareas administrativas de pymes (cobranza de facturas impagas, cierre contable mensual, cálculo y pago de remuneraciones) 100% conversacional vía WhatsApp, integrado al SII — el mismo patrón de UX que usa Blanco, pero para las tareas administrativas que Blanco NO ataca (que se enfoca en crédito/factoring/capital de trabajo).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**Blanco**, fintech chilena B2B fundada por un ex-cofundador de Xepelin, cerró una ronda semilla de **US$5,2M liderada por Krealo** (CVC de Credicorp/Grupo BCP) el 11 de julio de 2026. Ya financió **+US$250M en operaciones** y tiene **+9.000 pymes enroladas**, 100% conversacional vía WhatsApp e integrado con el SII para detectar facturas automáticamente. Esto confirma que las pymes chilenas adoptan sin fricción interfaces financieras por WhatsApp — pero el foco de Blanco es crédito/factoring, dejando sin cubrir cobranza, contabilidad y nómina con la misma UX.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Chile tiene del orden de 1 millón de pymes formalizadas ante el SII; solo el 43,2% de los ~2 millones de trabajadores por cuenta propia está formalizado, lo que además sugiere una ola de nuevas pymes formalizándose que necesitarán herramientas simples. Si un 5% de las pymes formales paga $15.000 CLP/mes por cobranza/contabilidad conversacional, son ~$9.000M CLP/año de mercado direccionable estimado.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para los datos de Blanco (múltiples medios coinciden); Media para la extrapolación del wedge de cobranza/contabilidad/nómina, que es un espacio adyacente no probado directamente todavía.</span></div>
+    
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="alta para la cifra de informalidad (dato de fuente institucional replicado en prensa); media para el proyecto de reforma tributaria, que sigue en tramitación y puede cambiar antes de convertirse en ley.">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Formalización SII y Asesoría de Nuevo Régimen Pyme para Microemprendedores Informales</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-3" hidden>
+    <p class="opp-desc">servicio de acompañamiento (vía WhatsApp/presencial ligero) para formalizar ante el SII a microemprendedores que hoy operan informalmente, y de ahí asesorarlos sobre el nuevo régimen tributario pyme que está en tramitación en el Congreso — cobrando por trámite o suscripción mensual de &quot;contabilidad básica&quot;.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>en Chile, cerca de **2 millones de personas trabajan por cuenta propia**, pero solo el **43,2% está formalizado ante el SII** — es decir, más de 1,1 millones de microemprendedores informales sin acceso a crédito formal, boleta electrónica ni previsión. En paralelo, el proyecto de &quot;Plan de Reconstrucción Nacional&quot; (ingresado al Congreso el 14 de marzo de 2026) mantiene el régimen Pyme transitorio (12,5% en 2026-2027, 15% desde 2028) y crea créditos tributarios nuevos por reinversión y contratación — generando necesidad de asesoría especializada justo cuando se apruebe.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la brecha es doble: (1) el enorme universo de informales sin formalizar, y (2) las pymes ya formales que necesitarán entender el nuevo régimen cuando se convierta en ley. Un servicio low-cost de formalización + educación tributaria puede capturar ambos momentos. Riesgo a monitorear: el proyecto de ley aún puede cambiar en su tramitación — no es una ventana cerrada todavía, así que el ángulo de &quot;formalización SII básica&quot; es más defendible hoy que el de &quot;asesoría del nuevo régimen&quot;, que depende de que se apruebe.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para la cifra de informalidad (dato de fuente institucional replicado en prensa); Media para el proyecto de reforma tributaria, que sigue en tramitación y puede cambiar antes de convertirse en ley.</span></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="alta para la cifra global (caso muy documentado y ya conocido); media/baja para el fit chileno específico, que no se validó con datos locales de demanda o competencia en esta búsqueda.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Fotos Profesionales con IA para LinkedIn en Chile (arbitraje de HeadshotPro)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 2 · Velocidad 4 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-4" hidden>
+    <p class="opp-desc">generación de headshots profesionales tipo estudio a partir de selfies subidas por el usuario, usando IA generativa — sin sesión de fotos ni fotógrafo.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**HeadshotPro** (Danny Postma, sin funding externo, sin cofundadores) mantiene de forma sostenida **US$300K MRR / US$3,6M ARR entre 2024 y 2026** — no fue un pico viral, sino un ingreso que se sostiene en el tiempo, lo que valida el modelo como durable.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>la cultura de perfil profesional en LinkedIn está creciendo pero sigue poco atendida por proveedores locales — hoy la alternativa es una sesión de fotos tradicional (más cara y lenta) o usar herramientas en inglés sin adaptación local. Estimación gruesa: si 0,5% de los usuarios activos de LinkedIn en Chile (universo de varios millones) compra un pack de $15.000 CLP una vez, son ~$300M CLP de mercado direccionable total, con recompra cada 1-2 años.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para la cifra global (caso muy documentado y ya conocido); Media/Baja para el fit chileno específico, que no se validó con datos locales de demanda o competencia en esta búsqueda.</span></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="11"
+     data-seg="0"
+     data-conf="alta para las cifras globales (cruzadas entre fuente de founders y analítica de apps); baja para el fit chileno específico, que es la extrapolación más débil del reporte de hoy.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-12-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">App de Entrenamiento Personal con IA &quot;Cero Empleados&quot; para el Mercado Hispanohablante (arbitraje de GymStreak)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 2 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">11/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-12-5" hidden>
+    <p class="opp-desc">app de entrenador personal con IA (rutinas animadas en 3D, ajuste en tiempo real según el desempeño) operada con cero empleados fijos, solo freelancers para marketing y soporte.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**GymStreak** (Joseph Mambwe, fundador en Zambia) factura **US$2,5M anuales** (2024), creciendo desde US$300K en el año 1, con 420.000 descargas totales y ~3.500 descargas/día en los últimos 30 días, operado con cero empleados fijos.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el mercado de apps de fitness ya tiene oferta global disponible en español (apps internacionales con localización parcial), lo que reduce el ángulo de arbitraje puro respecto a otras oportunidades de este reporte — de ahí el score más bajo. El diferencial posible sería contenido/rutinas adaptadas a equipamiento típico de gimnasios chilenos y precios en CLP, pero no se identificó evidencia de demanda local no cubierta en esta búsqueda.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras globales (cruzadas entre fuente de founders y analítica de apps); Baja para el fit chileno específico, que es la extrapolación más débil del reporte de hoy.</span></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-12">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-12')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-12')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-12</span>
@@ -184,10 +333,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">5 IDEAS</span>
       <span class="pill">PROM 12.4</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-12">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-12" hidden>
     <div class="fuentes">FUENTES: ~40 (df.cl, latercera.com/Pulso, emol.com, biobiochile.cl, toctoc.com/blog, portalinmobiliario.com/blog, theclinic.cl, meganoticias.cl, g5noticias.cl, colliers.com, infocheck.cl, portalfirma.cl, portalterreno.com, manilatimes.net, globenewswire.com, inman.com, housingwire.com, googlecloudpresscorner.com, ycombinator.com, marketscale.com, blog.powerunitcoaching.com, theclose.com, prnewswire.com, studiomoob.com, socialhub.pro, trichterconsulting.com, elsiglodedurango.com.mx, lanacion.com.ar, inmotips.net, cufinder.io, reel-e.ai, placester.com, prweb.com, realestatenews.com, entre otras vía WebSearch).</div>
     
 <div class="opp destacada"
@@ -9706,7 +9855,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  65 reportes &middot; 364 ideas en archivo
+  66 reportes &middot; 370 ideas en archivo
 </div>
 
 <script>

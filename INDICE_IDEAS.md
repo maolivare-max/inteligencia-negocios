@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-12 · Oportunidades de Negocio · Actualización — Magnar AI: Legaltech Chilena Escala a LATAM con Carey como Inversionista Estratégico (Score 16/20)
+- 2026-07-12 · Oportunidades de Negocio · Bot de Fórmulas Excel/SQL en Español para PyMEs y Contadores Chilenos (arbitraje de Formula Bot) (Score 16/20)
+- 2026-07-12 · Oportunidades de Negocio · Servicios Financieros Conversacionales por WhatsApp para PyMEs Chilenas — Cobranza, Contabilidad y Nómina (adyacente a Blanco) (Score 15/20)
+- 2026-07-12 · Oportunidades de Negocio · Servicio de Formalización SII y Asesoría de Nuevo Régimen Pyme para Microemprendedores Informales (Score 16/20)
+- 2026-07-12 · Oportunidades de Negocio · Fotos Profesionales con IA para LinkedIn en Chile (arbitraje de HeadshotPro) (Score 13/20)
+- 2026-07-12 · Oportunidades de Negocio · App de Entrenamiento Personal con IA "Cero Empleados" para el Mercado Hispanohablante (arbitraje de GymStreak) (Score 11/20)
 - 2026-07-12 · Marketing Inmobiliario · Guerra de Descuentos por el Fin del IVA a la Vivienda: Urgencia y Garantía de Precio como Mensaje (Score 15/20)
 - 2026-07-12 · Marketing Inmobiliario · Ghostly Labs lanza "Phantom Realty Engine" (Sarah): Sitio Web + CRM Unificados en una Sola IA (Score 14/20)
 - 2026-07-12 · Marketing Inmobiliario · Roomvu Amplía su Sistema de Visibilidad Autónoma + Recepcionista IA Multiidioma — Score 14/20 *(Actualización)*
