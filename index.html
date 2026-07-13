@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">67</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">376</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">200</div><div class="lbl">Destacadas &ge;15</div></div>
-<div class="stat"><div class="num">14.7</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">95</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num">68</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">381</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">202</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">14.6</div><div class="lbl">Score prom.</div></div>
+<div class="stat"><div class="num red">97</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-13</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,152 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-13">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-13')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-13</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El hallazgo más fuerte de hoy no es un caso nuevo, sino la confirmación de que el patrón &quot;IA conversacional de ventas por WhatsApp&quot; ya escaló en Chile más allá de lo que sabíamos: **Vambe** (nunca cubierta antes en este reporte) pasó de ~US$20.000 a US$6M de ARR en menos de dos años con Serie A de US$14M, y **diio** (cubierta el 8 de julio como idea inspirada, hoy con nombre y cifras reales) muestra 200+ clientes en 5 países y proyección a US$1M ARR. Ambas activan SEGUIMIENTO DE CRECIMIENTO. El resto del reporte se enfoca en ventanas de arbitraje regional más frescas (Wallbit, aún sin llegar a Chile) y en verticalizar modelos chilenos ya validados (Parrotfy, Cheaf) hacia nichos que sus propios jugadores no atacan todavía.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">5 IDEAS</span>
+      <span class="pill">PROM 14.0</span>
+      <span class="pill">&#9733; 2 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-13">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch (~51 búsquedas/herramientas en total) — (1) fuentes globales de alta señal con foco LATAM (Indie Hackers, Hacker News, TechCrunch, Forbes, Product Hunt, prensa de ecosistema startup LATAM); (2) contexto y arbitraje regional chileno (prensa económica chilena, medios VC LATAM, CORFO/Sercotec). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la mayoría de sitios en este entorno (confirmado de nuevo hoy en df.cl); el reporte se construyó casi enteramente vía WebSearch, con confianza marcada explícitamente donde el dato viene solo de snippet agregado.</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta para las cifras de arr y serie a (techcrunch y forbes chile coinciden en el orden de magnitud); media para la sugerencia de nicho específico en chile, que es una inferencia razonable, no un caso ya probado.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-13-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Vambe: De US$20K a US$6M de ARR Vendiendo por WhatsApp con Agentes de IA</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-13-0" hidden>
+    <p class="opp-desc">agente de IA conversacional que atiende y **vende** directamente a clientes de pymes B2C por WhatsApp, Instagram y Messenger — no es un chatbot de soporte, reemplaza o aumenta al vendedor humano en el primer contacto y en el cierre.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Vambe pivotó en marzo de 2024 desde un CRM de cobranza hacia este modelo. Su ARR pasó de ~US$20.000 (pre-pivot) a **US$1M en noviembre de 2024** (8 meses) y a **US$6M en los últimos 12 meses** (reportado feb-2026) — **1.800+ empresas** usando la tecnología, **300+ clientes directos**. Clientes reportan **+70% de conversión** y **+220% en ventas**. Cerró una Serie A de **US$14M** (3-dic-2025, liderada por Monashees) tras una ronda semilla de US$3,85M.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Vambe ya es chilena y ya domina el segmento B2C genérico de retail/servicios — la ventana abierta no es &quot;traer el modelo a Chile&quot; (ya está), sino **verticalizar** en un nicho que Vambe no ataca de forma especializada hoy: educación (matrículas), salud estética/dental (agendamiento + venta de tratamientos), seguros. Construir un agente de WhatsApp con IA y scripts de venta específicos de ese nicho, más barato y más especializado que una plataforma horizontal. Estimación gruesa (no verificada): si 0,5% de la ~1 millón de pymes formalizadas ante el SII (cifra usada en reportes anteriores) paga $50.000 CLP/mes por una versión boutique especializada en su nicho, son ~$3.000M CLP/año de mercado direccionable.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras de ARR y Serie A (TechCrunch y Forbes Chile coinciden en el orden de magnitud); Media para la sugerencia de nicho específico en Chile, que es una inferencia razonable, no un caso ya probado.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://techcrunch.com/2024/12/04/latam-startup-vambe-sees-arr-skyrocket-after-pivot-to-conversational-ai/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-13-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-13-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Vambe</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-13-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 ≥ 15, y ARR $0→$6M documentado con fechas en menos de 24 meses</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Pivotar de un producto genérico (CRM de cobranza) a un agente de IA verticalizado en el canal donde ya estaba el comprador (WhatsApp), y usar la métrica de conversión del cliente (+70%) como el propio gancho de venta para el siguiente cliente.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Si tu producto actual no despega, revisa si el canal donde vive tu cliente (WhatsApp, Instagram) ya tiene fricción de conversión resoluble con IA — el pivot de Vambe fue de canal/producto, no de mercado.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Convierte la métrica de conversión de tu primer cliente piloto en el material de venta para el segundo — no vendas &quot;IA&quot;, vende el número.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Marzo 2024: pivot desde CRM de cobranza a agente conversacional de IA; ARR ~US$20.000.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Noviembre 2024 (8 meses post-pivot): ARR US$1M.</span></div><div class="tl-item"><span class="tl-dot"></span><span>3 de diciembre de 2025: Serie A de US$14M liderada por Monashees, tras seed de US$3,85M.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Febrero de 2026 (fecha de reporte de Forbes Chile): ARR de los últimos 12 meses en US$6M; 1.800+ empresas usando la tecnología, 300+ clientes directos.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Confianza: Alta en los hitos con cifra (TechCrunch y Forbes Chile coinciden); no se encontró fecha exacta de fundación de la empresa (previa al pivot).</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta — cifras cruzadas entre dos medios especializados en vc latam.">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-13-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Actualización — diio: De US$100K a Proyección de US$1M ARR en 6 Meses, Ahora en 5 Países</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-13-1" hidden>
+    <p class="opp-desc">ya cubierta el 8 de julio de 2026 como oportunidad genérica (&quot;Copiloto de Ventas IA Ligero para PyMEs Chilenas&quot;, inspirada en diio, score 13/20 sin nombrar la empresa). Hoy hay nombre, cifras y evidencia real: plataforma de IA que escucha llamadas/reuniones de equipos comerciales B2B y entrega feedback/coaching automatizado en tiempo real.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>fundada en 2024 por **Paolo Colonnello** (ex-CPO de Capitalizarme, inversionista en Cornershop) y **Nicolás Kipreos** (co-fundador de Beetrack). En 1 año: **200+ empresas clientes** en Chile, México, Brasil, Argentina y Colombia — clientes nombrados: **Buk, Xepelin, Fintoc, Nubox, Webdox, Toku**. **US$100.000 ARR** con proyección a **US$1M ARR en 6 meses**; crecimiento de **25% mensual** (top 20% de SaaS global según benchmark de ChartMogul citado en la fuente). Total levantado: **US$3,25M** (pre-seed US$750K en 2024 vía Fen Ventures + seed US$2,5M en mayo de 2025 liderado por Base10 Partners).</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>diio ya opera en Chile con clientes ancla reconocibles del ecosistema tech local (Buk, Fintoc, Xepelin) — confirma que el coaching de ventas por IA tiene demanda validada. La brecha para un tercero está en verticales que diio no ataca directamente hoy: cobranza B2B, inmobiliario comercial, servicios técnicos — mismo mecanismo (IA que escucha llamadas y da feedback) aplicado a un guion de venta distinto.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta — cifras cruzadas entre dos medios especializados en VC LATAM.</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://startupslatam.com/diio-la-startup-chilena-que-potencia-equipos-comerciales-con-ia-cierra-ronda-de-us-25-millones-liderada-por-base10-partners/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-13-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-13-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; diio</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-13-1-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 ≥ 15, y actualización con cifras reales de crecimiento (25% MoM) y ronda de financiamiento</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Usar la red profesional propia de los fundadores (ex-CPO de una fintech, co-fundador de una logtech) para conseguir los primeros clientes ancla reconocibles del ecosistema, y comunicar el % de crecimiento mensual (no solo el ARR absoluto) como prueba social para escalar la venta B2B.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Si tienes red de contactos en un ecosistema profesional específico (fintech, legal, salud), vende primero ahí antes de salir a mercado frío.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Comunica tu tasa de crecimiento mensual como gancho de ventas — un &quot;25% mensual&quot; es más citable y verificable para un prospecto que la cifra absoluta en dólares.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>2024: fundación por Paolo Colonnello y Nicolás Kipreos.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2024: ronda pre-seed de US$750.000 (Fen Ventures).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Mayo de 2025: ronda seed de US$2,5M (Base10 Partners) — total levantado US$3,25M.</span></div><div class="tl-item"><span class="tl-dot"></span><span>~1 año desde fundación (2025): 200+ empresas clientes en Chile, México, Brasil, Argentina y Colombia.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Reporte más reciente (feb-2026, vía cobertura de la ronda): US$100.000 ARR, proyección a US$1M ARR en 6 meses (~agosto 2026), crecimiento de 25% mensual.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Confianza: Alta en los hitos con cifra (2 fuentes coinciden); Baja en la fecha exacta de fundación día/mes.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media (la fecha de llegada a chile es un anuncio de expansión, no confirmado con fecha exacta; el tamaño del segmento freelance chileno con ingresos en usd no está cuantificado en esta búsqueda).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-13-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Cuentas Multi-Moneda y Compliance SII para Freelancers Remotos Chilenos (Ventana Antes de Wallbit)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-13-2" hidden>
+    <p class="opp-desc">servicio de asesoría y gestión (no un banco) que ayuda a freelancers y trabajadores remotos chilenos que cobran en dólares de clientes extranjeros a armar su stack de cuentas multi-moneda (Wise, Payoneer, LLC/Mercury en EE.UU.) y a declarar correctamente ese ingreso ante el SII — cobrando un fee de setup más una suscripción mensual de soporte/compliance.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**Wallbit**, banco digital argentino enfocado 100% en freelancers/remote workers con cuentas multi-moneda, opera hoy en México, Colombia y Argentina y anunció planes de llegar a Chile, Uruguay, Perú, Ecuador y Brasil antes de fin de 2026 — validando que existe un segmento desatendido por la banca tradicional en toda la región.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Wallbit todavía **no ha llegado** — ventana de arbitraje abierta, sin fecha de lanzamiento confirmada. Mientras tanto, ningún jugador chileno ofrece hoy un servicio especializado y en español que combine &quot;cuentas multi-moneda + cumplimiento SII&quot; para este segmento; el freelancer chileno arma esa combinación solo, a prueba y error, con guías genéricas en inglés. Al no requerir licencia bancaria (es asesoría/gestión sobre herramientas ya existentes, no una cuenta propia), es ejecutable por una persona sola con conocimiento tributario, cumpliendo el filtro de barreras livianas.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (la fecha de llegada a Chile es un anuncio de expansión, no confirmado con fecha exacta; el tamaño del segmento freelance chileno con ingresos en USD no está cuantificado en esta búsqueda).</span><a class="src-link" href="https://www.ambito.com/negocios/fintech-cuatro-emprendedores-argentinos-lanzaron-el-primer-banco-digital-trabajadores-remotos-n6073961" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media-alta (monto en pesos de fuente única, no verificado en más de un medio).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-13-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">IA de Facturación y Conciliación Vertical para un Solo Rubro Retail (inspirado en Parrotfy)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-13-3" hidden>
+    <p class="opp-desc">ERP liviano con IA que automatiza emisión/clasificación de facturas, cobranza y conciliación bancaria — pero en vez de vender genérico a &quot;cualquier pyme&quot; (como Parrotfy), construido para **un solo rubro** con documentación específica (ej. farmacias con boletas de medicamentos, ferreterías con guías de despacho de materiales).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**Parrotfy** (Chile) superó **1.000 usuarios en 15 rubros** y levantó **$180 millones CLP** con Magical Startup (6-jul-2026) para reforzar su capa de IA en gestión de pymes — confirma demanda validada de automatización contable/conciliación con IA en el mercado chileno.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Parrotfy ya cubre el caso genérico multi-rubro; la brecha está en un rubro específico con documentación tributaria particular donde una plantilla genérica pierde precisión. Construir la versión mono-rubro permite vender con un pitch más específico (&quot;hecho para tu rubro&quot;) y competir por precio/nicho contra el jugador generalista.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta (monto en pesos de fuente única, no verificado en más de un medio).</span><a class="src-link" href="https://g5noticias.cl/2026/07/06/de-la-factura-hasta-conciliar-con-los-bancos-parrotfy-refuerza-su-apuesta-en-ia-para-la-gestion-de-pymes/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="11"
+     data-seg="0"
+     data-conf="media (cifras agregadas regionales, no desglosadas por país; no se encontró evidencia directa de demanda para categorías no-alimentarias, es una extrapolación razonable).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-13-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Marketplace B2B de Rescate de Excedentes No-Alimentarios en Chile (extensión de Cheaf/Too Good To Go)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 2 · Velocidad 3 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">11/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-13-4" hidden>
+    <p class="opp-desc">marketplace tipo &quot;paquete sorpresa con descuento&quot; pero para categorías no-alimentarias con vencimiento o desactualización (cosmética y farmacia OTC próxima a vencer, retail de temporada con sobre-stock) — mismo mecanismo de Cheaf/Too Good To Go, categoría distinta.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>**Cheaf** (fundada en México en 2020) ya opera en México, Chile, Colombia y Argentina con **~7 millones de usuarios combinados** y crecimiento **2x año contra año** desde fines de 2023 — validando que el consumidor chileno ya adoptó el hábito de compra de &quot;paquete sorpresa con descuento&quot; para excedentes, aunque hoy solo en la categoría alimentaria.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Cheaf ya opera en el país pero no ha extendido el modelo a categorías no-alimentarias — la brecha es de categoría, no de país, lo que reduce el riesgo de &quot;educar al mercado desde cero&quot; porque el hábito de compra ya existe.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifras agregadas regionales, no desglosadas por país; no se encontró evidencia directa de demanda para categorías no-alimentarias, es una extrapolación razonable).</span></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-13">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-13')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-13')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-13</span>
@@ -184,10 +328,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">6 IDEAS</span>
       <span class="pill">PROM 13.7</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-13">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-13" hidden>
     <div class="fuentes">FUENTES: ~30 (adivor.com.mx, xataka.com.mx, inmobiliare.com, papoimobiliario.com, vivienda.com.co, aceleradorarealestate.com, riotimesonline.com, bloomberglinea.com.br, portal.loft.com.br, lahaus.com, portea.com.co, propflow.com.ar, lagrowthmachine.com, trichterconsulting.com, realestatenews.com, inman.com, therealdeal.com, housingwire.com, reel-e.ai, googlecloudpresscorner.com, entre otras vía WebSearch; toctoc.com, portalinmobiliario.com, CChC y ACOP revisados sin hallazgo nuevo relevante esta semana).</div>
     
 <div class="opp destacada"
@@ -9990,7 +10134,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  67 reportes &middot; 376 ideas en archivo
+  68 reportes &middot; 381 ideas en archivo
 </div>
 
 <script>

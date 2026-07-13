@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-13 · Oportunidades de Negocio · Vambe: De US$20K a US$6M de ARR Vendiendo por WhatsApp con Agentes de IA (Score 16/20)
+- 2026-07-13 · Oportunidades de Negocio · Actualización — diio: De US$100K a Proyección de US$1M ARR en 6 Meses, Ahora en 5 Países (Score 16/20)
+- 2026-07-13 · Oportunidades de Negocio · Servicio de Cuentas Multi-Moneda y Compliance SII para Freelancers Remotos Chilenos (Ventana Antes de Wallbit) (Score 14/20)
+- 2026-07-13 · Oportunidades de Negocio · IA de Facturación y Conciliación Vertical para un Solo Rubro Retail (inspirado en Parrotfy) (Score 13/20)
+- 2026-07-13 · Oportunidades de Negocio · Marketplace B2B de Rescate de Excedentes No-Alimentarios en Chile (extensión de Cheaf/Too Good To Go) (Score 11/20)
 - 2026-07-13 · Marketing Inmobiliario · Loft (Brasil) — "Garantía Investe": Elimina el Aval de Arriendo con Bonos del Tesoro (Score 16/20)
 - 2026-07-13 · Marketing Inmobiliario · Meta Business AI Nativo en WhatsApp (México): Calificación y Agenda Automática de Visitas (Score 15/20)
 - 2026-07-13 · Marketing Inmobiliario · Realguru (Alohome, México): Agente Virtual de IA Multiplica 7x las Conversaciones por Lead (Score 14/20)
