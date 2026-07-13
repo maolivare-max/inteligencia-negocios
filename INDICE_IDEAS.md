@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-13 · Marketing Inmobiliario · Loft (Brasil) — "Garantía Investe": Elimina el Aval de Arriendo con Bonos del Tesoro (Score 16/20)
+- 2026-07-13 · Marketing Inmobiliario · Meta Business AI Nativo en WhatsApp (México): Calificación y Agenda Automática de Visitas (Score 15/20)
+- 2026-07-13 · Marketing Inmobiliario · Realguru (Alohome, México): Agente Virtual de IA Multiplica 7x las Conversaciones por Lead (Score 14/20)
+- 2026-07-13 · Marketing Inmobiliario · LaHaus AI (Colombia): De Lead a Cita Confirmada Sin Intervención Humana (Score 13/20)
+- 2026-07-13 · Marketing Inmobiliario · Benchmarks LATAM de Conversión CPL→Venta: la Brecha entre 1,5% y 4,1% Está en el Proceso, No en el Canal (Brasil + Colombia) (Score 13/20)
+- 2026-07-13 · Marketing Inmobiliario · Octia/PropFlow (Argentina): Sistema Operativo de Corretaje con WhatsApp y 30+ Portales Unificados (Score 11/20)
 - 2026-07-12 · Oportunidades de Negocio · Actualización — Magnar AI: Legaltech Chilena Escala a LATAM con Carey como Inversionista Estratégico (Score 16/20)
 - 2026-07-12 · Oportunidades de Negocio · Bot de Fórmulas Excel/SQL en Español para PyMEs y Contadores Chilenos (arbitraje de Formula Bot) (Score 16/20)
 - 2026-07-12 · Oportunidades de Negocio · Servicios Financieros Conversacionales por WhatsApp para PyMEs Chilenas — Cobranza, Contabilidad y Nómina (adyacente a Blanco) (Score 15/20)
