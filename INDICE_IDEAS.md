@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-14 · Oportunidades de Negocio · Auditoría Exprés de Nómina Pre-Reforma Previsional (traspaso SIS → FAPP) (Score 18/20)
+- 2026-07-14 · Oportunidades de Negocio · Servicio de Acogimiento a la Condonación SII-TGR para Pymes con Deuda Tributaria (Score 16/20)
+- 2026-07-14 · Oportunidades de Negocio · Compra y Localización de Micro-SaaS para LATAM (patrón Noosa Labs) (Score 15/20)
+- 2026-07-14 · Oportunidades de Negocio · Gestión de Contracargos (Chargebacks) para E-commerce Chileno (Score 13/20)
+- 2026-07-14 · Oportunidades de Negocio · Evaluador Externo Independiente — Ley 21.595 de Delitos Económicos (Score 12/20)
+- 2026-07-14 · Oportunidades de Negocio · Migración Automatizada de Código Legacy con IA (patrón Laravel Shift) (Score 11/20)
 - 2026-07-14 · Marketing Inmobiliario · Subsidio al Dividendo (Ley 21.748): 46.000 de 50.000 Cupos Ya Entregados, 8 Meses vs. 2 Años Proyectados (Score 18/20)
 - 2026-07-14 · Marketing Inmobiliario · Arbitraje Ownwell: Reclamo de Avalúo Fiscal/Contribuciones "Sin Riesgo" como Generador de Leads Calificados (Score 16/20)
 - 2026-07-14 · Marketing Inmobiliario · BancoEstado "Hipotecario PRO" + FOGAES: Tasa 3,10% y Financiamiento hasta 90% — Score 15/20 *(Actualización con cifras nuevas)*

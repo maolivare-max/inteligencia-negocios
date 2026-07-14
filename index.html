@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">69</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">386</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">205</div><div class="lbl">Destacadas &ge;15</div></div>
-<div class="stat"><div class="num">14.7</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">97</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num">70</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">392</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">208</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">14.6</div><div class="lbl">Score prom.</div></div>
+<div class="stat"><div class="num red">98</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-07-14</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,157 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-07-14">
+  <button class="report-head" onclick="togRep('oportunidades-2026-07-14')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-07-14</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">El hallazgo más fuerte de hoy es un deadline legal duro e ineludible: el **1 de agosto de 2026** (en 18 días) se traspasa el Seguro de Invalidez y Sobrevivencia (SIS) al nuevo Fondo Autónomo de Protección Previsional, cambiando cómo declara nómina TODO empleador en Chile — una ventana de auditoría exprés de menos de tres semanas. Junto a eso, una nueva política permanente de condonación de intereses y multas SII-TGR (vigente desde el 18 de junio) abre otro servicio de asesoría tributaria específico. Del lado global, el patrón más replicable no es un producto nuevo sino un modelo de adquisición: comprar micro-SaaS pequeños en inglés vía Acquire.com y relanzarlos localizados para LATAM — un caso documentado ya llegó a US$120K MRR combinado con solo 4 adquisiciones en un año.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">6 IDEAS</span>
+      <span class="pill">PROM 14.2</span>
+      <span class="pill">&#9733; 1 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-07-14">
+    <div class="fuentes">FUENTES: 2 barridos paralelos vía WebSearch (~41 búsquedas en total) — (1) regulación, financiamiento y subsidios chilenos con foco en deadlines 2026 (SII, Previred/AFP, CORFO, Sercotec, Ley 21.595, Ley 21.719, Ley de IA); (2) fuentes globales de alta señal (Indie Hackers, Hacker News, Reddit, Product Hunt, Y Combinator RFS, Starter Story, señales de demanda). Nota técnica: WebFetch se mantiene bloqueado (HTTP 403) en la mayoría de sitios en este entorno; el reporte se construyó casi enteramente vía WebSearch, con confianza marcada explícitamente donde el dato viene solo de snippet agregado.</div>
+    
+<div class="opp destacada"
+     data-score="18"
+     data-seg="0"
+     data-conf="alta (múltiples fuentes técnicas independientes — gobierno, afp y proveedores de software de nómina — coinciden en fecha y mecanismo).">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Auditoría Exprés de Nómina Pre-Reforma Previsional (traspaso SIS → FAPP)</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 5 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score destacada">18/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-0" hidden>
+    <p class="opp-desc">servicio de diagnóstico y corrección exprés (freelance/contador especializado en remuneraciones) para pymes de 5-50 trabajadores que revisa si su sistema de remuneraciones/ERP y sus declaraciones a Previred están correctamente configurados antes del 1 de agosto de 2026, cuando el Seguro de Invalidez y Sobrevivencia (SIS, 1,5% de la remuneración imponible, hoy recaudado por las AFP) se traspasa al nuevo Fondo Autónomo de Protección Previsional (FAPP), sumado a un 0,9% adicional de cotización del empleador con &quot;rentabilidad protegida&quot;.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el cambio es ley vigente (parte de la Reforma Previsional que empezó a regir en agosto de 2025 y escala 9 años), no un rumor. Proveedores de software de nómina (Buk, Previred) y medios especializados confirman que el sistema de remuneraciones debe tener los nuevos campos actualizados y que &quot;no hay que esperar a que se publique la ley específica del SIS para empezar a prepararse&quot; — señal de que el ecosistema de proveedores ya está alertando a sus clientes. Muchas pymes chilenas siguen gestionando nómina en Excel o plantillas manuales, lo que genera riesgo real de declaración previsional incorrecta, multas e intereses a partir de agosto.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>oportunidad 100% local y con ventana dura. El servicio consiste en: (1) revisar la configuración de campos previsionales del ERP/Previred de la empresa, (2) corregir antes de que se generen declaraciones erróneas del período agosto 2026, (3) dejar un checklist de cumplimiento para los próximos saltos del calendario de la reforma (2027, 2028…). Mercado objetivo: universo amplio de pymes con 5-50 trabajadores que no tienen equipo de RRHH/nómina dedicado — prácticamente todo empleador formal del país es cliente potencial en algún nivel. Ticket sugerido: paquete fijo de diagnóstico + corrección (ej. $150.000-$300.000 CLP por empresa), vendible en volumen antes del 1 de agosto.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (múltiples fuentes técnicas independientes — gobierno, AFP y proveedores de software de nómina — coinciden en fecha y mecanismo).</span><a class="src-link" href="https://www.atcom.cl/como-cambia-pago-sis-agosto-2026-reforma-previsional" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp destacada"
+     data-score="16"
+     data-seg="0"
+     data-conf="alta (fuente primaria: comunicado oficial del sii).">
+  <div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Servicio de Acogimiento a la Condonación SII-TGR para Pymes con Deuda Tributaria</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-1" hidden>
+    <p class="opp-desc">asesoría que ayuda a pymes con deuda tributaria acumulada a acogerse a la nueva política permanente de condonación de intereses y multas del SII-TGR (vigente desde el 18 de junio de 2026), que rebaja progresivamente los recargos por deuda tributaria —con mayor beneficio cuanto más reciente la deuda— y otorga un 5% adicional de descuento si se paga la totalidad de una vez.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>es un mecanismo permanente y automático vía sii.cl/tgr.cl, pero la mayoría de las pymes con deudas tributarias no sabe que existe, no sabe cómo calcular el beneficio real para su caso, o no tiene el flujo de caja para decidir entre pagar todo (5% extra) vs. un plan de pago. Es un problema recurrente y de fecha ya activa (no depende de un deadline de postulación), lo que da una ventana de venta permanente mientras la política siga vigente.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>servicio 100% local para contadores o asesores tributarios independientes: (1) diagnóstico de la deuda SII/TGR de la empresa, (2) simulación de escenarios (pago total vs. plan de pago) para maximizar la condonación, (3) gestión del trámite. Diferente del &quot;Certificado de Cumplimiento Tributario&quot; ya cubierto en un reporte anterior (que evita la retención automática de IVA en plataformas de pago) — este ataca deuda ya acumulada, no cumplimiento futuro. Mercado: universo de pymes con deuda SII/TGR morosa, segmento históricamente desatendido por escasez de asesoría tributaria accesible.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (fuente primaria: comunicado oficial del SII).</span><a class="src-link" href="https://www.sii.cl/noticias/2026/220626noti01smn.htm" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="media (cifra de mrr autoreportada por el fundador; el mecanismo de verificación de acquire.com da mayor credibilidad, pero no hay una fuente externa que audite el us$120k mrr de forma independiente).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Compra y Localización de Micro-SaaS para LATAM (patrón Noosa Labs)</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-2" hidden>
+    <p class="opp-desc">en vez de construir un producto desde cero, comprar micro-SaaS pequeños y rentables en inglés vía marketplaces como Acquire.com (ex-MicroAcquire, que verifica ingresos vía Stripe), y crecerlos — incluyendo la opción de localizarlos al español/LATAM (traducción, soporte en español, cobro en moneda local vía Webpay/Flow) para capturar un mercado que el producto original nunca atacó.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el caso documentado de Noosa Labs hizo 4 adquisiciones en su primer año (Sendtric, Evalart, Mava.app, entre otras), cerró una, vendió dos, y se quedó con Sendtric como ancla — el portafolio combinado llegó a **US$120.000 MRR**. El mecanismo de verificación de Acquire.com (ingresos cruzados con Stripe) reduce el riesgo típico de comprar &quot;a ciegas&quot; un negocio digital.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>casi nadie en Chile/LATAM hace &quot;micro-PE&quot; de SaaS pequeños en inglés para relanzarlos en español. El arbitraje es doble: (1) comprar productos de nicho ya validados y rentables por US$3.000-US$5.000 en Acquire.com, con ingresos ya verificados, reduciendo el riesgo de construir algo que nadie quiere; (2) localizar el producto (idioma, soporte, medios de pago locales) para venderlo a pymes chilenas/LATAM que hoy no tienen acceso a esa categoría de herramienta en español. Requiere capacidad técnica para operar/mantener el software comprado, pero no para construirlo desde cero.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifra de MRR autoreportada por el fundador; el mecanismo de verificación de Acquire.com da mayor credibilidad, pero no hay una fuente externa que audite el US$120K MRR de forma independiente).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.indiehackers.com/post/tech/acquiring-micro-saas-products-and-growing-them-to-120k-mrr-uC42WHXCFk9lKt3HTPK0" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-07-14-2-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-07-14-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Noosa Labs (compra y crecimiento de micro-SaaS)</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-07-14-2-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 ≥ 15</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Comprar tracción ya validada (ingresos verificados por Stripe vía Acquire.com) en vez de apostar a construir un producto nuevo desde cero — el riesgo de producto se traslada del founder al historial de ingresos ya demostrado del negocio adquirido.&quot;</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Usar un marketplace con verificación de ingresos (Acquire.com u otro) para evaluar productos por múltiplos de MRR en vez de partir de una idea propia sin validar.</span></div><div class="replicate-item"><span class="r-num">2</span><span>Aplicar un criterio de &quot;portafolio&quot; en vez de &quot;apuesta única&quot;: comprar 3-4 productos pequeños y quedarse solo con el que muestre mejor retención/crecimiento post-adquisición, vendiendo o cerrando el resto.</span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Año 1 de operación: 4 adquisiciones de micro-SaaS completadas (Sendtric, Evalart, Mava.app, y una cuarta no identificada con precisión en la fuente).</span></div><div class="tl-item"><span class="tl-dot"></span><span>Dentro del mismo año: 1 producto cerrado (descontinuado), 2 vendidos, 1 (Sendtric) retenido como ancla del portafolio.</span></div><div class="tl-item"><span class="tl-dot"></span><span>Estado actual (fecha de publicación no precisada en la fuente, 2026): portafolio combinado en US$120.000 MRR.</span></div><div class="tl-item"><span class="tl-dot"></span><span>No se encontró fecha exacta de fundación de Noosa Labs ni fechas puntuales de cada adquisición — dato ausente en la fuente disponible, no se estima.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media (cifras de mercado provienen de una fuente con interés comercial directo en el sector; no se encontró un caso chileno o latam específico con métricas propias, es una inferencia de oportunidad basada en el tamaño del problema global y la ausencia de jugador local).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Gestión de Contracargos (Chargebacks) para E-commerce Chileno</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-3" hidden>
+    <p class="opp-desc">servicio/SaaS que automatiza la gestión y disputa de contracargos (chargebacks) para comercios online, usando IA para armar la evidencia y presentar la disputa ante el procesador de pago.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Chargeflow, uno de los jugadores del nicho, levantó US$35M en Series A (incluyendo US$10M de deuda) a fines de 2025 y ya sirve a más de 15.000 comercios. El mercado global de contracargos se proyecta por sobre los US$117.000M en 2026, con Mastercard estimando 337 millones de contracargos ese año (+42% vs. 2023). Comercios reportan gastar entre US$100.000 y US$500.000 al año en tecnología de gestión de contracargos.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el ecosistema de e-commerce chileno (Transbank/Webpay, Flow, MACH) sigue creciendo sin un jugador local especializado en gestión de contracargos — hoy los comercios medianos lo resuelven manualmente o simplemente absorben la pérdida. Se puede arrancar como servicio productizado (no requiere licencia especial): revisión y armado manual de evidencia asistido por IA antes de construir automatización completa, cobrando por disputa ganada (modelo de éxito) o suscripción fija.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifras de mercado provienen de una fuente con interés comercial directo en el sector; no se encontró un caso chileno o LATAM específico con métricas propias, es una inferencia de oportunidad basada en el tamaño del problema global y la ausencia de jugador local).</span><a class="src-link" href="https://www.chargeflow.io/blog/chargeback-statistics-trends-costs-solutions" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media (el detalle del cambio normativo viene de fuentes especializadas de compliance, no verificado directamente en el texto legal).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Evaluador Externo Independiente — Ley 21.595 de Delitos Económicos</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 2 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-4" hidden>
+    <p class="opp-desc">servicio de evaluación periódica por un tercero independiente de los modelos de prevención de delitos económicos de empresas medianas, requerido tras un cambio normativo que eliminó la certificación institucional (antes emitida por la CMF) y la reemplazó por esta evaluación externa.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>la Ley 21.595 (Delitos Económicos) aplica a todas las personas jurídicas, con micro y pequeña empresa exentas de las sanciones de los Títulos II y III pero no necesariamente del deber de tener un programa proporcional. El cambio genera un nicho de auditores/consultores externos que puedan generar evidencia defendible en juicio — un servicio distinto al ya cubierto de cumplimiento de la Ley 21.719 de protección de datos.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>oportunidad para consultores legales o de compliance independientes que se especialicen en evaluar (no solo redactar) modelos de prevención de empresas medianas sin equipo legal interno — segmento que no puede costear una Big Four pero sí necesita cumplir la ley.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (el detalle del cambio normativo viene de fuentes especializadas de compliance, no verificado directamente en el texto legal).</span><a class="src-link" href="https://noticias.uai.cl/columna/revision-externa-independiente-de-modelos-de-prevencion-de-delitos/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="11"
+     data-seg="0"
+     data-conf="media-alta para las cifras de laravel shift (consistentes con la reputación pública del producto); baja para la aplicabilidad directa a chile, que es una hipótesis sin caso local validado.">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-07-14-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Migración Automatizada de Código Legacy con IA (patrón Laravel Shift)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 2 · Escalabilidad Chile 3</div>
+    </div>
+    <div class="score mid">11/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-07-14-5" hidden>
+    <p class="opp-desc">herramienta/servicio que automatiza la actualización de aplicaciones entre versiones mayores de un framework o lenguaje específico, generando un PR con los cambios en commits atómicos en vez de requerir una migración manual costosa.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Laravel Shift lleva 10 años operando, con más de 175.000 actualizaciones realizadas y US$50.000 MRR actual, con costos operativos de solo ~US$100/mes (márgenes extremos) y pocas horas de trabajo diario del fundador — validación de que un producto de nicho técnico muy específico puede sostener un negocio &quot;lifestyle&quot; rentable por años.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el producto específico (Laravel) es un nicho global, no chileno, pero el patrón es replicable hacia stacks legacy comunes en empresas medianas chilenas (versiones antiguas de frameworks PHP/Java usados por retailers y bancos locales, o sistemas de gestión municipal/pyme construidos hace 10+ años). Requiere validar primero qué stack legacy específico tiene volumen suficiente de empresas chilenas dispuestas a pagar por migración asistida por IA.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta para las cifras de Laravel Shift (consistentes con la reputación pública del producto); Baja para la aplicabilidad directa a Chile, que es una hipótesis sin caso local validado.</span><a class="src-link" href="https://www.indiehackers.com/post/tech/turning-a-developer-tool-into-a-50k-mrr-lifestyle-business-9GL6b2gcc31LXjx7g3yC" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-07-14">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-07-14')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-07-14')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-07-14</span>
@@ -184,10 +333,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">5 IDEAS</span>
       <span class="pill">PROM 15.2</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-07-14">
+  <div class="report-body" id="rep-body-inmobiliario-2026-07-14" hidden>
     <div class="fuentes">FUENTES: ~27 (biobiochile.cl, theclinic.cl, chocale.cl, senado.cl, economiaynegocios.cl, elmostrador.cl, minvu.gob.cl, cnnchile.com, tinsa.cl, rismedia.com, realestatenews.com, npr.org, cnbc.com, cnn.com, progressive.com, themortgagereports.com, portafolio.co, amarilo.com.co, minut.com, airroi.com, euronews.com, prnewswire.com, housingwire.com, sierrainteractive.com, money.usnews.com, bankrate.com, entre otras vía WebSearch; emol.com, portalinnova.cl e inman.com con 403 confirmado — solo snippets, sin WebFetch).</div>
     
 <div class="opp destacada"
@@ -10268,7 +10417,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  69 reportes &middot; 386 ideas en archivo
+  70 reportes &middot; 392 ideas en archivo
 </div>
 
 <script>
