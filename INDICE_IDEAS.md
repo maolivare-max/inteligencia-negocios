@@ -2,6 +2,29 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-14 · Marketing Inmobiliario · Subsidio al Dividendo (Ley 21.748): 46.000 de 50.000 Cupos Ya Entregados, 8 Meses vs. 2 Años Proyectados (Score 18/20)
+- 2026-07-14 · Marketing Inmobiliario · Arbitraje Ownwell: Reclamo de Avalúo Fiscal/Contribuciones "Sin Riesgo" como Generador de Leads Calificados (Score 16/20)
+- 2026-07-14 · Marketing Inmobiliario · BancoEstado "Hipotecario PRO" + FOGAES: Tasa 3,10% y Financiamiento hasta 90% — Score 15/20 *(Actualización con cifras nuevas)*
+*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 5 · Innovación 2)*
+
+· **Qué es:** Detalle numérico nuevo de la misma ventana FOGAES/BancoEstado que ya cubrimos el 6 de julio (vence 30 de julio): oferta con tasa preferencial UF+3,10%, financiamiento hasta el 90% del valor de la propiedad, plazos hasta 30 años, para viviendas de hasta UF 4.000.
+
+· **Por qué genera leads:** Ahora hay un ejemplo concreto que se puede usar directamente en marketing: una vivienda de 3.000 UF con 90% de financiamiento y 10% de pie a 30 años tiene un dividendo mensual aproximado de **$505.426**. La aprobación comercial debe otorgarse entre el 5 de junio y el **30 de julio de 2026**, con escritura firmada hasta el 30 de septiembre de 2026 — dos fechas límite encadenadas, no solo una.
+
+· **Dónde funciona:** Chile (BancoEstado, nacional). Fuente: [The Clinic, 09-jun-2026](https://www.theclinic.cl/2026/06/09/bancoestado-lanza-oferta-hipotecaria-compatible-con-subsidios-y-garantia-fogaes-financiamiento-puede-llegar-hasta-el-90/) · [Chócale](https://chocale.cl/2026/06/bancoestado-lanzo-hipotecazo-con-tasas-desde-31-y-pie-de-10/).
+
+· **Confianza:** Alta (cifras corroboradas entre dos medios).
+
+· **Pasos esta semana:**
+  1. Incorporar el ejemplo de dividendo ($505.426 para una vivienda de 3.000 UF) en fichas de propiedades elegibles, con la doble fecha límite (aprobación 30-jul, escritura 30-sep) visible.
+  2. Filtrar la cartera propia de propiedades en arriendo/venta que califiquen (≤UF 4.000) y priorizar su promoción activa antes del 30 de julio.
+  3. Medir a 30 días: número de clientes que inician trámite de aprobación comercial con BancoEstado a partir de propiedades promocionadas con este mensaje.
+
+---
+
+## 4. Reglamento UE de Datos de Arriendo de Corto Plazo: Ventana de Arbitraje para un Servicio de Compliance Airbnb en Chile (Score 15/20)
+- 2026-07-14 · Marketing Inmobiliario · Programa "UpPayment" (EE.UU.): Patrón de Ventana Corta de Ayuda al Pie, Replicable con DS19/DS49 (Score 14/20)
+- 2026-07-14 · Marketing Inmobiliario · Colombia: "Mi Casa Ya" sin Presupuesto en 2026, FNA Sube a 100% de Financiamiento (Score 13/20)
 - 2026-07-13 · Oportunidades de Negocio · Vambe: De US$20K a US$6M de ARR Vendiendo por WhatsApp con Agentes de IA (Score 16/20)
 - 2026-07-13 · Oportunidades de Negocio · Actualización — diio: De US$100K a Proyección de US$1M ARR en 6 Meses, Ahora en 5 Países (Score 16/20)
 - 2026-07-13 · Oportunidades de Negocio · Servicio de Cuentas Multi-Moneda y Compliance SII para Freelancers Remotos Chilenos (Ventana Antes de Wallbit) (Score 14/20)
