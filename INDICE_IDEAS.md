@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-15 · Oportunidades de Negocio · Recepcionista/Dispatcher IA por WhatsApp para Oficios de Terreno en Chile (Score 17/20)
+- 2026-07-15 · Oportunidades de Negocio · Vertical SaaS "Software para el Almacén de Barrio" en Chile (Score 15/20)
+- 2026-07-15 · Oportunidades de Negocio · Capital de Trabajo B2B Digital vía WhatsApp para Pymes No Bancarizadas (patrón Blanco, en nicho regional no atendido) (Score 14/20)
+- 2026-07-15 · Oportunidades de Negocio · Red de Micro-Herramientas IA en Español, Monetizada con SEO + Ads (patrón BoredHumans.com) (Score 13/20)
+- 2026-07-15 · Oportunidades de Negocio · Compliance Regulatorio con IA "Ex-Regulador Conoce el Problema", en Otro Organismo Chileno (patrón Inzai) (Score 12/20)
+- 2026-07-15 · Oportunidades de Negocio · Reventa Circular B2C2B en Otro Vertical (patrón Vestuá, aplicado a muebles o electrodomésticos usados) (Score 11/20)
+- 2026-07-15 · Oportunidades de Negocio · Software de Gestión para Funerarias en Chile (arbitraje Gather) (Score 10/20)
 - 2026-07-15 · Marketing Inmobiliario · Frontgate Real Estate + Luxury Presence: US$1.400 en Ads → Venta de US$6 Millones (CPL US$32) (Score 17/20)
 - 2026-07-15 · Marketing Inmobiliario · Portal Inmobiliario: +20% en Contactos por Propiedad y Asistente de Búsqueda con IA en Pruebas (Score 16/20)
 - 2026-07-15 · Marketing Inmobiliario · Kipps.AI: Agente de Voz IA Reactiva 1.420 Leads Dormidos por US$1.840 (CAC ≈US$10/cita) — Score 16/20 *(Actualización — nuevo caso y cifra de CAC sobre la tendencia de reactivación de leads dormidos ya cubierta con Lofty el 7-jul)*
