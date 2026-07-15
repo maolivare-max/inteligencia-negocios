@@ -2,6 +2,37 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-15 · Marketing Inmobiliario · Frontgate Real Estate + Luxury Presence: US$1.400 en Ads → Venta de US$6 Millones (CPL US$32) (Score 17/20)
+- 2026-07-15 · Marketing Inmobiliario · Portal Inmobiliario: +20% en Contactos por Propiedad y Asistente de Búsqueda con IA en Pruebas (Score 16/20)
+- 2026-07-15 · Marketing Inmobiliario · Kipps.AI: Agente de Voz IA Reactiva 1.420 Leads Dormidos por US$1.840 (CAC ≈US$10/cita) — Score 16/20 *(Actualización — nuevo caso y cifra de CAC sobre la tendencia de reactivación de leads dormidos ya cubierta con Lofty el 7-jul)*
+*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 5 · Innovación 3)*
+
+· **Qué es:** Agente de voz con IA que llama telefónicamente a la base histórica de leads dormidos de un agente/inmobiliaria, los califica en conversación real y agenda citas de listing — a diferencia de Lofty (ya cubierto), que reactiva vía texto/CRM, este caso documenta el canal de voz con cifras unitarias de costo.
+
+· **Por qué genera leads:** En una campaña de **30 días**: 12.500 leads históricos marcados, **1.420 contactos dormidos reactivados**, **184 citas de listing calificadas** agendadas, con un costo total de campaña de **US$1.840** (~US$10 por cita agendada) y ROI reportado **&gt;1.100%** sobre comisiones cerradas.
+
+· **Dónde funciona:** EE.UU. Fuente: [Kipps.AI — AI Voice Agents for Real Estate](https://www.kipps.ai/blog/ai-voice-agents-for-real-estate).
+
+· **Confianza:** Media (caso propio del proveedor con cifras muy específicas, sin verificación independiente).
+
+· **Pasos esta semana:**
+  1. Exportar la base de contactos "fríos" de los últimos 12-24 meses (compradores/vendedores que no cerraron) y segmentarla por probabilidad de reactivación (ej. quienes calificaban para subsidios vigentes).
+  2. Evaluar un piloto pequeño (50-100 contactos) con una herramienta de voz IA en español o, si no hay presupuesto para eso, un script de llamada manual estandarizado que replique la lógica de calificación.
+  3. Medir a 30 días: % de contactos reactivados que agendan una visita/cita, y costo real por cita conseguida.
+
+### SEGUIMIENTO — Kipps.AI (voz)
+*Activado por: Score ≥16/20*
+
+1. **Caso documentado más cercano a Chile:** No hay caso LATAM de voz IA para reactivación de leads inmobiliarios; el antecedente más cercano en Chile es el uso de WhatsApp IA (Trichter/LAFHER, Entrenador.ai) para calificación, pero ninguno vía llamada de voz real.
+2. **Brecha de adopción en Chile:** Total en el canal de voz (0% documentado); alta también en general para reactivación sistemática de bases dormidas más allá de un envío de WhatsApp puntual.
+3. **Implementación Chile en 7 días:** Día 1-2: segmentar la base dormida propia por antigüedad y motivo de no-cierre. Día 3-5: piloto con una herramienta de voz IA en español (evaluar disponibilidad regional) o, como alternativa de bajo costo, telemarketing manual con guion estandarizado sobre 100 contactos. Día 6-7: agendar seguimiento de citas logradas. Costo estimado: CLP 200.000-500.000 para el piloto de 100 contactos.
+4. **Métrica de éxito a 30 días:** Número de citas/visitas agendadas sobre el total de contactos reactivados; umbral mínimo: ≥8% de conversión a cita sobre la base tocada.
+
+---
+
+## 4. Zillow Showcase: Fichas Premium Ganan 35% Más Listings y +75% de Engagement (Score 13/20)
+- 2026-07-15 · Marketing Inmobiliario · Google Local Services Ads (Pago por Lead, No por Clic) — Ventana de Arbitraje para Chile (Score 13/20)
+- 2026-07-15 · Marketing Inmobiliario · FincaRaíz (Colombia): Portal con IA de Personalización Duplica Tráfico y Triplica Leads vs. su Competidor Más Cercano (Score 11/20)
 - 2026-07-14 · Oportunidades de Negocio · Auditoría Exprés de Nómina Pre-Reforma Previsional (traspaso SIS → FAPP) (Score 18/20)
 - 2026-07-14 · Oportunidades de Negocio · Servicio de Acogimiento a la Condonación SII-TGR para Pymes con Deuda Tributaria (Score 16/20)
 - 2026-07-14 · Oportunidades de Negocio · Compra y Localización de Micro-SaaS para LATAM (patrón Noosa Labs) (Score 15/20)
