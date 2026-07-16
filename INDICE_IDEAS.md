@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-16 · Marketing Inmobiliario · Ola AEO/GEO: Visibilidad en Motores de IA Como el Próximo SEO (Score 17/20)
+- 2026-07-16 · Marketing Inmobiliario · Rezora IO: Voz IA que Cierra Citas a US$12 vs. US$85 de la Industria (Score 16/20)
+- 2026-07-16 · Marketing Inmobiliario · Hogarízate: "Arriendo con Promesa de Compra" para el Comprador No Bancarizable (Score 15/20)
+- 2026-07-16 · Marketing Inmobiliario · Zillow Buyer Hub / Realtor.com RealAssist AI: el Comprador Ahora Elige Agente Dentro de la Plataforma (Score 12/20)
+- 2026-07-16 · Marketing Inmobiliario · Apelación al Settlement de NAR: Ventana de Incertidumbre Regulatoria en Comisiones (Score 10/20)
 - 2026-07-15 · Oportunidades de Negocio · Recepcionista/Dispatcher IA por WhatsApp para Oficios de Terreno en Chile (Score 17/20)
 - 2026-07-15 · Oportunidades de Negocio · Vertical SaaS "Software para el Almacén de Barrio" en Chile (Score 15/20)
 - 2026-07-15 · Oportunidades de Negocio · Capital de Trabajo B2B Digital vía WhatsApp para Pymes No Bancarizadas (patrón Blanco, en nicho regional no atendido) (Score 14/20)
