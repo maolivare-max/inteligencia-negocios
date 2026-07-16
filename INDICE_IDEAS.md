@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-16 · Oportunidades de Negocio · "Diseño de App Express con IA" — Agencia Productizada sobre el Patrón Sleek.design (Score 16/20)
+- 2026-07-16 · Oportunidades de Negocio · Reventa Circular "White-Label" B2B para Marcas Retail Chilenas (arbitraje del modelo Trove) (Score 13/20)
+- 2026-07-16 · Oportunidades de Negocio · Compliance-as-a-Service para Registro CMF bajo la Ley Fintec (Ventana de Backlog Regulatorio) (Score 16/20)
+- 2026-07-16 · Oportunidades de Negocio · Agencia de Reclutamiento "AI-Native" para Pymes Chilenas (patrón Perfectly, YC W26) (Score 15/20)
+- 2026-07-16 · Oportunidades de Negocio · Marketing/Distribución en Comunidades Online como Servicio para Agencias Chilenas (patrón Leadmore AI) (Score 15/20)
+- 2026-07-16 · Oportunidades de Negocio · Implementación Boutique de Marketing Automation (CRM/Email) para Empresas B2B Chilenas (patrón Tribecto) (Score 14/20)
+- 2026-07-16 · Oportunidades de Negocio · Agencia Freelance de Automatizaciones n8n para Pymes, Sin Marketing Formal (Score 12/20)
 - 2026-07-16 · Marketing Inmobiliario · Ola AEO/GEO: Visibilidad en Motores de IA Como el Próximo SEO (Score 17/20)
 - 2026-07-16 · Marketing Inmobiliario · Rezora IO: Voz IA que Cierra Citas a US$12 vs. US$85 de la Industria (Score 16/20)
 - 2026-07-16 · Marketing Inmobiliario · Hogarízate: "Arriendo con Promesa de Compra" para el Comprador No Bancarizable (Score 15/20)
