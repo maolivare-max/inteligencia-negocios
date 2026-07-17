@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-17 · Marketing Inmobiliario · Tasa Hipotecaria en Mínimo de 24 Años en Chile: Mensaje de Urgencia Sin Explotar (Score 16/20)
+- 2026-07-17 · Marketing Inmobiliario · Benchmarks Chilenos de CPL por Tipo de Propiedad (Muller y Pérez) (Score 13/20)
+- 2026-07-17 · Marketing Inmobiliario · Actualización — Home Staging Virtual con IA: Primer Caso Chileno Documentado (Mocasasboutique) (Score 12/20)
+- 2026-07-17 · Marketing Inmobiliario · Demanda por Comuna en Alza: Casas +42,5% en RM, Providencia +45,2% — Oportunidad de Segmentación de Pauta (Score 11/20)
+- 2026-07-17 · Marketing Inmobiliario · Purplebricks/Strike (UK): el Modelo de Comisión Fija Sigue Mostrando Fragilidad Financiera Real (Score 9/20)
 - 2026-07-16 · Oportunidades de Negocio · "Diseño de App Express con IA" — Agencia Productizada sobre el Patrón Sleek.design (Score 16/20)
 - 2026-07-16 · Oportunidades de Negocio · Reventa Circular "White-Label" B2B para Marcas Retail Chilenas (arbitraje del modelo Trove) (Score 13/20)
 - 2026-07-16 · Oportunidades de Negocio · Compliance-as-a-Service para Registro CMF bajo la Ley Fintec (Ventana de Backlog Regulatorio) (Score 16/20)
