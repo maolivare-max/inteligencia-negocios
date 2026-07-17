@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-17 · Oportunidades de Negocio · Gojiberry AI — Servicio de Prospección B2B con IA, Rentable Desde el Día 1 (Score 15/20)
+- 2026-07-17 · Oportunidades de Negocio · Bro Glo — De un Video Viral de TikTok a US$3,1M en Ventas en 3 Años (Autobronceante para Hombres) (Score 14/20)
+- 2026-07-17 · Oportunidades de Negocio · LunaBill — Voz IA para Cobranza de Reclamos de Seguros de Salud, Adaptado a Isapres/Fonasa (Score 13/20)
+- 2026-07-17 · Oportunidades de Negocio · LegalOS / Parley — Automatización con IA de Trámites Migratorios, Adaptado a la Regularización en Chile (Score 13/20)
+- 2026-07-17 · Oportunidades de Negocio · Cheap Houses Japan — Newsletter Curada de Pago + Instagram FOMO, Adaptado a Terrenos/Parcelas en Chile (Score 12/20)
+- 2026-07-17 · Oportunidades de Negocio · Patrón "Build-and-Flip" de Micro-Herramientas No-Code — Ingreso en USD Operado desde Chile (Score 11/20)
 - 2026-07-17 · Marketing Inmobiliario · Tasa Hipotecaria en Mínimo de 24 Años en Chile: Mensaje de Urgencia Sin Explotar (Score 16/20)
 - 2026-07-17 · Marketing Inmobiliario · Benchmarks Chilenos de CPL por Tipo de Propiedad (Muller y Pérez) (Score 13/20)
 - 2026-07-17 · Marketing Inmobiliario · Actualización — Home Staging Virtual con IA: Primer Caso Chileno Documentado (Mocasasboutique) (Score 12/20)
