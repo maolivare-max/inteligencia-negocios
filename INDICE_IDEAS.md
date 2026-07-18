@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-18 · Marketing Inmobiliario · Subsidio de Arriendo 2026 (MINVU) — Llamado "Protección": Tercera Edad y Discapacidad, Ventana Cierra el 7 de Agosto (Score 15/20)
+- 2026-07-18 · Marketing Inmobiliario · Coliving para Nómades Digitales en Santiago: Vacío de Oferta con Ticket Alto (Score 14/20)
+- 2026-07-18 · Marketing Inmobiliario · Adultos Mayores y Alza de Contribuciones: Nicho de Intermediación para Downsizing (Score 13/20)
+- 2026-07-18 · Marketing Inmobiliario · Certificación AIS de Accesibilidad: Primer Caso en Chile (BAU Accesibilidad + Inmobiliaria 70w) (Score 12/20)
+- 2026-07-18 · Marketing Inmobiliario · Benchmarks Actualizados de CPL en EE.UU. 2026: SEO Local Sigue Siendo el Canal Más Barato Documentado (Score 11/20)
 - 2026-07-17 · Oportunidades de Negocio · Gojiberry AI — Servicio de Prospección B2B con IA, Rentable Desde el Día 1 (Score 15/20)
 - 2026-07-17 · Oportunidades de Negocio · Bro Glo — De un Video Viral de TikTok a US$3,1M en Ventas en 3 Años (Autobronceante para Hombres) (Score 14/20)
 - 2026-07-17 · Oportunidades de Negocio · LunaBill — Voz IA para Cobranza de Reclamos de Seguros de Salud, Adaptado a Isapres/Fonasa (Score 13/20)
