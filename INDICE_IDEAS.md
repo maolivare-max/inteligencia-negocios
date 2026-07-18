@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-18 · Oportunidades de Negocio · Bróker de Postulación a Fondos Sercotec para Mujeres Rurales Emprendedoras (Score 16/20)
+- 2026-07-18 · Oportunidades de Negocio · EF Specialists — Coaching de Funciones Ejecutivas para Adolescentes con TDAH, Adaptado a Chile (Score 16/20)
+- 2026-07-18 · Oportunidades de Negocio · Bróker de Acceso a ChileCompra para Pequeños Agricultores (AFC/INDAP) (Score 15/20)
+- 2026-07-18 · Oportunidades de Negocio · CareYaya — Marketplace de Estudiantes de Salud como Cuidadores, Adaptado a Chile (Score 14/20)
+- 2026-07-18 · Oportunidades de Negocio · Certificación de Accesibilidad Digital para Empresas Chilenas (Ley 21.015), Inspirado en Be My Eyes Workplace (Score 14/20)
+- 2026-07-18 · Oportunidades de Negocio · Formalización con Capa Fintech para Temporeros Agrícolas (Patrón Cosecha Chile) (Score 14/20)
+- 2026-07-18 · Oportunidades de Negocio · Wedding Planning Especializado en Matrimonio Igualitario en Chile (Score 13/20)
+- 2026-07-18 · Oportunidades de Negocio · Comunicación Familiar con Personas Privadas de Libertad, Adaptado a Chile (Patrón Flikshop) (Score 13/20)
 - 2026-07-18 · Marketing Inmobiliario · Subsidio de Arriendo 2026 (MINVU) — Llamado "Protección": Tercera Edad y Discapacidad, Ventana Cierra el 7 de Agosto (Score 15/20)
 - 2026-07-18 · Marketing Inmobiliario · Coliving para Nómades Digitales en Santiago: Vacío de Oferta con Ticket Alto (Score 14/20)
 - 2026-07-18 · Marketing Inmobiliario · Adultos Mayores y Alza de Contribuciones: Nicho de Intermediación para Downsizing (Score 13/20)
