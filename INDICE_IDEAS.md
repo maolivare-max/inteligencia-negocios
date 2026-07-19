@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-19 · Marketing Inmobiliario · Orpi + Kleio (Francia): Catálogo Inmobiliario Nativamente Legible por IA (Score 15/20)
+- 2026-07-19 · Marketing Inmobiliario · Woperty — Actualización: Ronda de Capital Colombiano y Expansión a 4 Regiones (Score 14/20)
+- 2026-07-19 · Marketing Inmobiliario · HouseMe.ai (Toronto): Informes de IA Gratis para Cualquier Propiedad del Mercado (Score 14/20)
+- 2026-07-19 · Marketing Inmobiliario · Subsidio de Arriendo DS52 2026 (Llamado Regular): Universo Amplio, Cierra el 7 de Agosto (Score 14/20)
+- 2026-07-19 · Marketing Inmobiliario · Malls Como Landlords Residenciales: Cencosud, Mallplaza, Parque Arauco y Copec Entran al Arriendo (Score 13/20)
+- 2026-07-19 · Marketing Inmobiliario · Rechat "Testimonials": Reseñas de Clientes Como Señal de Reputación para la IA (Score 12/20)
+- 2026-07-19 · Marketing Inmobiliario · Señales de Demanda Chile 2026: Ciclo en Expansión con Cifras Duras (Score 11/20)
 - 2026-07-18 · Oportunidades de Negocio · Bróker de Postulación a Fondos Sercotec para Mujeres Rurales Emprendedoras (Score 16/20)
 - 2026-07-18 · Oportunidades de Negocio · EF Specialists — Coaching de Funciones Ejecutivas para Adolescentes con TDAH, Adaptado a Chile (Score 16/20)
 - 2026-07-18 · Oportunidades de Negocio · Bróker de Acceso a ChileCompra para Pequeños Agricultores (AFC/INDAP) (Score 15/20)
