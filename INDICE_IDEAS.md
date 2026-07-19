@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-19 · Oportunidades de Negocio · Actualización — Blanco: Ronda Seed de US$5,2M Esta Misma Semana, Rentable desde el Año 1 (Score 17/20)
+- 2026-07-19 · Oportunidades de Negocio · Actualización — Vambe: Serie A de US$14M, Ingresos x6 a US$6M, 2.000 Clientes (Score 16/20)
+- 2026-07-19 · Oportunidades de Negocio · Eclectic — Automatización de Comunicación B2B con Equipo Mínimo y Alto Apalancamiento en IA (Score 15/20)
+- 2026-07-19 · Oportunidades de Negocio · Automatización de Autorizaciones Previas de Seguros para Clínicas de Kinesiología (Isapres/Reembolsos), Patrón "$41K MRR Solo Founder" (Score 15/20)
+- 2026-07-19 · Oportunidades de Negocio · Clickie (Argentina) — Uber de Oficios con Diagnóstico por IA, Fondos Ya Destinados a Entrar a Santiago (Score 14/20)
+- 2026-07-19 · Oportunidades de Negocio · Subscribr — Guionista de IA para YouTube, Adaptado a Creadores Chilenos (Score 14/20)
+- 2026-07-19 · Oportunidades de Negocio · Actualización — Magnar AI: Expansión Confirmada a Perú, +20.000 Usuarios Abogados en LATAM (Score 12/20)
+- 2026-07-19 · Oportunidades de Negocio · AirCaps — Copiloto de IA para Traducción/Subtitulado en Conversaciones Presenciales, Adaptado a Chile (Score 12/20)
 - 2026-07-19 · Marketing Inmobiliario · Orpi + Kleio (Francia): Catálogo Inmobiliario Nativamente Legible por IA (Score 15/20)
 - 2026-07-19 · Marketing Inmobiliario · Woperty — Actualización: Ronda de Capital Colombiano y Expansión a 4 Regiones (Score 14/20)
 - 2026-07-19 · Marketing Inmobiliario · HouseMe.ai (Toronto): Informes de IA Gratis para Cualquier Propiedad del Mercado (Score 14/20)
