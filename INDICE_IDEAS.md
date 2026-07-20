@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-20 · Oportunidades de Negocio · CRM de Pedidos B2B por WhatsApp para Distribuidoras Mayoristas Chilenas (Score 17/20)
+- 2026-07-20 · Oportunidades de Negocio · "Empleado de IA" Multicanal para Pymes Medianas Chilenas Sin Equipo Técnico (Score 14/20)
+- 2026-07-20 · Oportunidades de Negocio · Estimación de Costos de Construcción con IA para Desarrolladores Inmobiliarios en Chile (Score 14/20)
+- 2026-07-20 · Oportunidades de Negocio · Automatización Contable/Cuentas por Pagar para Administradoras de Edificios y Condominios en Chile (Score 13/20)
+- 2026-07-20 · Oportunidades de Negocio · CRM de IA con Cobro por Revenue-Share para Concesionarias Automotrices en Chile (Score 12/20)
 - 2026-07-20 · Marketing Inmobiliario · Hogarízate — Actualización: US$5M de MetLife y Ameris, +100 Familias Sin Pie Suficiente (Score 14/20)
 - 2026-07-20 · Marketing Inmobiliario · Transparencia Como Argumento de Venta: 81% de los Reclamos Contra Corredores en Sernac No Fueron Acogidos (Score 14/20)
 - 2026-07-20 · Marketing Inmobiliario · Oppy — Asistentes de IA Ganan el "Tech Showdown" de RISMedia con Métricas de Conversión Documentadas (Score 14/20)
