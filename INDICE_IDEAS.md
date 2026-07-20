@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-20 · Marketing Inmobiliario · Hogarízate — Actualización: US$5M de MetLife y Ameris, +100 Familias Sin Pie Suficiente (Score 14/20)
+- 2026-07-20 · Marketing Inmobiliario · Transparencia Como Argumento de Venta: 81% de los Reclamos Contra Corredores en Sernac No Fueron Acogidos (Score 14/20)
+- 2026-07-20 · Marketing Inmobiliario · Oppy — Asistentes de IA Ganan el "Tech Showdown" de RISMedia con Métricas de Conversión Documentadas (Score 14/20)
+- 2026-07-20 · Marketing Inmobiliario · Ralo — Primer Bróker Hipotecario 100% Nativo en IA, Cierra en 15-17 Días Sin Loan Officer Humano (Score 13/20)
+- 2026-07-20 · Marketing Inmobiliario · Kina DeSantis — De Cero a US$89M en Ventas en 4 Años Solo con TikTok/Instagram, Sin Cold Calling (Score 13/20)
+- 2026-07-20 · Marketing Inmobiliario · Tokenización Inmobiliaria Avanza en Paralelo: Reity (Chile) Cierra su Primer Ciclo, Pala/Casa Token (Argentina) Suma Escribanos (Score 12/20)
+- 2026-07-20 · Marketing Inmobiliario · BReal — Proptech Chilena Gana "Óscar Inmobiliario" de Latinoamérica (GRI Awards) (Score 10/20)
 - 2026-07-19 · Oportunidades de Negocio · Actualización — Blanco: Ronda Seed de US$5,2M Esta Misma Semana, Rentable desde el Año 1 (Score 17/20)
 - 2026-07-19 · Oportunidades de Negocio · Actualización — Vambe: Serie A de US$14M, Ingresos x6 a US$6M, 2.000 Clientes (Score 16/20)
 - 2026-07-19 · Oportunidades de Negocio · Eclectic — Automatización de Comunicación B2B con Equipo Mínimo y Alto Apalancamiento en IA (Score 15/20)
