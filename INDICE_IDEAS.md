@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-21 · Oportunidades de Negocio · Bróker de Postulación — CORFO Crea y Valida (Fase 2, vence 4 de agosto de 2026) (Score 17/20)
+- 2026-07-21 · Oportunidades de Negocio · Servicio de Adaptación a la Autenticación Reforzada de Clientes (ARC) — Norma CMF (Score 16/20)
+- 2026-07-21 · Oportunidades de Negocio · Servicio de Adecuación a la Ley 40 Horas (segundo tramo, 42h desde el 26 de abril de 2026) (Score 16/20)
+- 2026-07-21 · Oportunidades de Negocio · Asesoría "Apoderado del Grupo Empresarial" — Fiscalización Unificada Ley 21.713 (Score 15/20)
+- 2026-07-21 · Oportunidades de Negocio · Adelanto de Sueldo On-Demand (Earned Wage Access) Standalone para Retail/Logística (Score 15/20)
+- 2026-07-21 · Oportunidades de Negocio · Kleo — De $0 a US$62K MRR en Menos de 90 Días con Audiencia Propia en LinkedIn (Score 14/20)
+- 2026-07-21 · Oportunidades de Negocio · Zigpoll — US$125K MRR como Solo Founder con Encuestas Embebibles (Score 13/20)
+- 2026-07-21 · Oportunidades de Negocio · Compliance de Ciberseguridad para Operadores de Importancia Vital (OIV) — Ley 21.663 (Score 13/20)
 - 2026-07-21 · Marketing Inmobiliario · BancoEstado "Hipotecario PRO 2026" — Tasa 3,10% con FOGAES, Cierra en 9 Días (30 de Julio) (Score 16/20)
 - 2026-07-21 · Marketing Inmobiliario · Subsidio a la Tasa Hipotecaria (Ley 21.748) — Cupos Casi Agotados, un Año Antes de lo Previsto (Score 15/20)
 - 2026-07-21 · Marketing Inmobiliario · Exención de IVA a Vivienda Nueva: Aprobada en el Senado, se Vota en la Cámara Esta Semana (Score 15/20)
