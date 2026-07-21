@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-21 · Marketing Inmobiliario · BancoEstado "Hipotecario PRO 2026" — Tasa 3,10% con FOGAES, Cierra en 9 Días (30 de Julio) (Score 16/20)
+- 2026-07-21 · Marketing Inmobiliario · Subsidio a la Tasa Hipotecaria (Ley 21.748) — Cupos Casi Agotados, un Año Antes de lo Previsto (Score 15/20)
+- 2026-07-21 · Marketing Inmobiliario · Exención de IVA a Vivienda Nueva: Aprobada en el Senado, se Vota en la Cámara Esta Semana (Score 15/20)
+- 2026-07-21 · Marketing Inmobiliario · Tasas Hipotecarias en Mínimo de Casi 2 Años: Bajo 4% por Tercer Mes Consecutivo (Score 15/20)
+- 2026-07-21 · Marketing Inmobiliario · Guía Comparativa de Subsidios como Lead Magnet — Patrón de EE.UU. (FHA/VA/USDA + Grants Estatales) Replicable en Chile (Score 14/20)
+- 2026-07-21 · Marketing Inmobiliario · Registro de Corredores de Propiedades: Podría Ser Voluntario, No Licencia Obligatoria (Score 13/20)
+- 2026-07-21 · Marketing Inmobiliario · Zillow Gana Disputa Antitrust a Compass y la MLS de Chicago — 43.000 Listados Restaurados (Score 10/20)
 - 2026-07-20 · Oportunidades de Negocio · CRM de Pedidos B2B por WhatsApp para Distribuidoras Mayoristas Chilenas (Score 17/20)
 - 2026-07-20 · Oportunidades de Negocio · "Empleado de IA" Multicanal para Pymes Medianas Chilenas Sin Equipo Técnico (Score 14/20)
 - 2026-07-20 · Oportunidades de Negocio · Estimación de Costos de Construcción con IA para Desarrolladores Inmobiliarios en Chile (Score 14/20)
