@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-22 · Marketing Inmobiliario · La Porta Propiedades — De Profesora a Corretaje de Lujo con 90% de Ventas por TikTok (Score 16/20)
+- 2026-07-22 · Marketing Inmobiliario · DS1 Tramo 4 — Subsidio Estatal para Clase Media hasta 4.000 UF (Score 14/20)
+- 2026-07-22 · Marketing Inmobiliario · Fuelads — Benchmarks de CPL/CPM Real Estate LatAm 2026: Chile 4-8x Más Barato que EE.UU. (Score 13/20)
+- 2026-07-22 · Marketing Inmobiliario · Kelley Blue Book Homes — Marketplace de Leads Pay-Per-Lead por Código Postal (Score 13/20)
+- 2026-07-22 · Marketing Inmobiliario · Portales del Mundo Migran a la Búsqueda Conversacional dentro de ChatGPT — Actualización AEO/GEO (Score 12/20)
+- 2026-07-22 · Marketing Inmobiliario · ACOP Suma a GRECOP Maule — La Profesionalización Regional como Argumento de Confianza (Score 11/20)
 - 2026-07-21 · Oportunidades de Negocio · Bróker de Postulación — CORFO Crea y Valida (Fase 2, vence 4 de agosto de 2026) (Score 17/20)
 - 2026-07-21 · Oportunidades de Negocio · Servicio de Adaptación a la Autenticación Reforzada de Clientes (ARC) — Norma CMF (Score 16/20)
 - 2026-07-21 · Oportunidades de Negocio · Servicio de Adecuación a la Ley 40 Horas (segundo tramo, 42h desde el 26 de abril de 2026) (Score 16/20)
