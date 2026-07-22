@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-22 · Oportunidades de Negocio · Patrón Nexor — Agente de IA de Ventas B2B para Pymes Chilenas Sin Equipo Comercial (Score 16/20)
+- 2026-07-22 · Oportunidades de Negocio · Monitoreo de Visibilidad de Marca en Buscadores de IA (AEO/GEO) para Agencias Chilenas (Score 14/20)
+- 2026-07-22 · Oportunidades de Negocio · Meerkats.ai — Automatización de Prospección B2B (SDR de IA) para Pymes Chilenas (Score 14/20)
+- 2026-07-22 · Oportunidades de Negocio · Patrón Keirón — Agenda Médica y Pagos vía WhatsApp para Consultorios y Clínicas Chicas (Score 13/20)
+- 2026-07-22 · Oportunidades de Negocio · StoryShort — Videos "Faceless" con IA para Agencias y Creadores Chilenos (Score 13/20)
+- 2026-07-22 · Oportunidades de Negocio · Launch Fast — Investigación de Producto Adaptada a Mercado Libre Seller Central (Score 12/20)
 - 2026-07-22 · Marketing Inmobiliario · La Porta Propiedades — De Profesora a Corretaje de Lujo con 90% de Ventas por TikTok (Score 16/20)
 - 2026-07-22 · Marketing Inmobiliario · DS1 Tramo 4 — Subsidio Estatal para Clase Media hasta 4.000 UF (Score 14/20)
 - 2026-07-22 · Marketing Inmobiliario · Fuelads — Benchmarks de CPL/CPM Real Estate LatAm 2026: Chile 4-8x Más Barato que EE.UU. (Score 13/20)
