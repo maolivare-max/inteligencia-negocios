@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-23 · Marketing Inmobiliario · WhatsApp Business AI para Calificación de Leads Inmobiliarios (Score 16/20)
+- 2026-07-23 · Marketing Inmobiliario · Lidz.ai — Proptech Chilena de Calificación de Leads y Crédito Hipotecario con IA (Score 13/20)
+- 2026-07-23 · Marketing Inmobiliario · Reactivación de Leads Dormidos con Voz IA (Score 14/20)
+- 2026-07-23 · Marketing Inmobiliario · Virtual Staging con IA — Actualización de Métricas de Conversión (Score 13/20)
+- 2026-07-23 · Marketing Inmobiliario · Propiteq — Tasaciones con IA/ML como Lead Magnet (Chile) (Score 11/20)
+- 2026-07-23 · Marketing Inmobiliario · Benchmarks Actualizados de CPL en Meta Lead Ads — Real Estate 2026 (Score 11/20)
+- 2026-07-23 · Marketing Inmobiliario · RealPact (Y Combinator S2026) — Automatización de Papeleo de Corretaje con IA Agentic (Score 9/20)
 - 2026-07-22 · Oportunidades de Negocio · Patrón Nexor — Agente de IA de Ventas B2B para Pymes Chilenas Sin Equipo Comercial (Score 16/20)
 - 2026-07-22 · Oportunidades de Negocio · Monitoreo de Visibilidad de Marca en Buscadores de IA (AEO/GEO) para Agencias Chilenas (Score 14/20)
 - 2026-07-22 · Oportunidades de Negocio · Meerkats.ai — Automatización de Prospección B2B (SDR de IA) para Pymes Chilenas (Score 14/20)
