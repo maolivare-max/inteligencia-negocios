@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-23 · Oportunidades de Negocio · General Legal — Servicio Legal "a Precio Fijo" con IA, Adaptado a Pymes Chilenas (Score 14/20)
+- 2026-07-23 · Oportunidades de Negocio · CENIA + Subsecretaría de Economía — Consultor de Implementación IA Post-Taller para Pymes (Score 14/20)
+- 2026-07-23 · Oportunidades de Negocio · Zernio — Actualización: De Startup con Capital VC a US$1M ARR en Menos de 9 Meses (API Social Unificada) (Score 13/20)
+- 2026-07-23 · Oportunidades de Negocio · Ley Fintech (CMF) — Actualización: Solo 42 de 300-400 Fintechs Activas Están Registradas, Open Banking Pospuesto a Julio 2027 (Score 13/20)
+- 2026-07-23 · Oportunidades de Negocio · Spira AI — Agentes de IA "Influencer" para Redes Sociales, Adaptado a Pymes/Corredoras Chilenas (Score 12/20)
+- 2026-07-23 · Oportunidades de Negocio · Alt-X — Agentes de IA para Underwriting Inmobiliario (YC W26), Adaptado a Family Offices/Corredoras Institucionales Chilenas (Score 11/20)
 - 2026-07-23 · Marketing Inmobiliario · WhatsApp Business AI para Calificación de Leads Inmobiliarios (Score 16/20)
 - 2026-07-23 · Marketing Inmobiliario · Lidz.ai — Proptech Chilena de Calificación de Leads y Crédito Hipotecario con IA (Score 13/20)
 - 2026-07-23 · Marketing Inmobiliario · Reactivación de Leads Dormidos con Voz IA (Score 14/20)
