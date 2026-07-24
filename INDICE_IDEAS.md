@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-24 · Marketing Inmobiliario · Ley 21.772 — Cierre 100% Remoto de Promesas de Compraventa (Score 15/20)
+- 2026-07-24 · Marketing Inmobiliario · Tours Virtuales 360°/3D vía Portal Inmobiliario (Score 14/20)
+- 2026-07-24 · Marketing Inmobiliario · Vinte (México) — TikTok como Canal de Venta Directa de una Desarrolladora Grande (Score 13/20)
+- 2026-07-24 · Marketing Inmobiliario · QR en Letreros "Se Vende" Enlazado a Ficha Digital/Tour (Score 12/20)
+- 2026-07-24 · Marketing Inmobiliario · Crowdfunding Inmobiliario / Inversión Fraccionada como Gancho de Marketing (Score 11/20)
+- 2026-07-24 · Marketing Inmobiliario · Reseñas de Google Business como Palanca de Confianza (Score 10/20)
 - 2026-07-23 · Oportunidades de Negocio · General Legal — Servicio Legal "a Precio Fijo" con IA, Adaptado a Pymes Chilenas (Score 14/20)
 - 2026-07-23 · Oportunidades de Negocio · CENIA + Subsecretaría de Economía — Consultor de Implementación IA Post-Taller para Pymes (Score 14/20)
 - 2026-07-23 · Oportunidades de Negocio · Zernio — Actualización: De Startup con Capital VC a US$1M ARR en Menos de 9 Meses (API Social Unificada) (Score 13/20)
