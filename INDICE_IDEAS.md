@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-24 · Oportunidades de Negocio · Compliance-as-a-Service Ley 21.719 (Protección de Datos) para Pymes Chilenas (Score 16/20)
+- 2026-07-24 · Oportunidades de Negocio · Servicio de Reporte SISREP para Pymes Bajo el Umbral de la Ley REP (Score 16/20)
+- 2026-07-24 · Oportunidades de Negocio · Financiamiento de Copagos de Salud para Nichos No Cubiertos (Salud Mental / Dental) (Score 15/20)
+- 2026-07-24 · Oportunidades de Negocio · Agencia/Plataforma de Micro-Negocios Operados por IA para Emprendedores Chilenos (patrón Polsia) (Score 13/20)
+- 2026-07-24 · Oportunidades de Negocio · Herramienta de Nicho Vertical dentro de un Ecosistema Dominante (patrón Pckgr) (Score 12/20)
+- 2026-07-24 · Oportunidades de Negocio · Lead-Gen Digital para Seguros Paramétricos Agrícolas (Score 12/20)
 - 2026-07-24 · Marketing Inmobiliario · Ley 21.772 — Cierre 100% Remoto de Promesas de Compraventa (Score 15/20)
 - 2026-07-24 · Marketing Inmobiliario · Tours Virtuales 360°/3D vía Portal Inmobiliario (Score 14/20)
 - 2026-07-24 · Marketing Inmobiliario · Vinte (México) — TikTok como Canal de Venta Directa de una Desarrolladora Grande (Score 13/20)
