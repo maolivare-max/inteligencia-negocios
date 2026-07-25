@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-25 · Oportunidades de Negocio · Quittr — Adaptado a Chile: App de Recuperación de Adicción a Pantallas/Pornografía en Español (Score 17/20)
+- 2026-07-25 · Oportunidades de Negocio · Juno — Adaptado a Chile: Asistente de IA para Enfermedades Crónicas "Invisibles" en Español (Score 15/20)
+- 2026-07-25 · Oportunidades de Negocio · PCOS/SOP — Plataforma de Salud Femenina Especializada en Síndrome de Ovario Poliquístico en Español (Score 14/20)
+- 2026-07-25 · Oportunidades de Negocio · Cariloop — Adaptado a Chile: Coordinación de Cuidado Corporativo para la "Generación Sándwich" (Score 13/20)
+- 2026-07-25 · Oportunidades de Negocio · MoneyStack/GamFin — Adaptado a Chile: Asesoría Financiera para Ludopatía de Apuestas Deportivas (Score 12/20)
+- 2026-07-25 · Oportunidades de Negocio · Rylo (ex-Nagish) — Comunicación por IA para Personas Sordas/Hipoacúsicas, Ángulo B2B Adaptado a Chile (Score 11/20)
+- 2026-07-25 · Oportunidades de Negocio · Bróker de Microcrédito y Capital Semilla para Mujeres Próximas a Salir de la Cárcel en Chile (Score 11/20)
 - 2026-07-25 · Marketing Inmobiliario · Migrantes en Chile: Arriendo Sin Historial Crediticio Local Como Segmento Desatendido (Score 16/20)
 - 2026-07-25 · Marketing Inmobiliario · Pet-Friendly a Nivel de Corredor Individual, Con Tailwind Legal (Score 15/20)
 - 2026-07-25 · Marketing Inmobiliario · Geo-Nicho Hiperlocal: Especialización en Microzona en Vez de Comuna Completa (Score 15/20)
