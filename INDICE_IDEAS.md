@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-25 · Marketing Inmobiliario · Migrantes en Chile: Arriendo Sin Historial Crediticio Local Como Segmento Desatendido (Score 16/20)
+- 2026-07-25 · Marketing Inmobiliario · Pet-Friendly a Nivel de Corredor Individual, Con Tailwind Legal (Score 15/20)
+- 2026-07-25 · Marketing Inmobiliario · Geo-Nicho Hiperlocal: Especialización en Microzona en Vez de Comuna Completa (Score 15/20)
+- 2026-07-25 · Marketing Inmobiliario · Chilenos en el Exterior: El Instrumento Financiero Existe, Falta el Embudo de Marketing (Score 14/20)
+- 2026-07-25 · Marketing Inmobiliario · Freelancers/Independientes: Alianza con Mutuarias Como Diferenciador (Score 14/20)
+- 2026-07-25 · Marketing Inmobiliario · Downsizing de Adultos Mayores: Brecha Documentada en Estudio Académico Local (Score 12/20)
 - 2026-07-24 · Oportunidades de Negocio · Compliance-as-a-Service Ley 21.719 (Protección de Datos) para Pymes Chilenas (Score 16/20)
 - 2026-07-24 · Oportunidades de Negocio · Servicio de Reporte SISREP para Pymes Bajo el Umbral de la Ley REP (Score 16/20)
 - 2026-07-24 · Oportunidades de Negocio · Financiamiento de Copagos de Salud para Nichos No Cubiertos (Salud Mental / Dental) (Score 15/20)
