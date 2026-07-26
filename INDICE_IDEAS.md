@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-26 · Marketing Inmobiliario · FlyDragon "2026 State of AI Search in Real Estate" — El Costo de Ser Invisible para la IA Tiene Cifra (Score 16/20)
+- 2026-07-26 · Marketing Inmobiliario · Ventana Regulatoria de la Semana: BancoEstado 3,10% Vence en 4 Días + Exención de IVA Trabada en el Senado (Score 15/20)
+- 2026-07-26 · Marketing Inmobiliario · Toctoc/Tinsa by Accumin — Radiografía Q2 2026: La Florida Lidera con +20,3% y Departamentos Concentran 85% de la Venta en la RM (Score 14/20)
+- 2026-07-26 · Marketing Inmobiliario · Caso Impetum (CDMX) vía Trichter Consulting — Benchmark de Conversión: 62% Show Rate Automatizado vs. 28% Manual (Score 13/20)
+- 2026-07-26 · Marketing Inmobiliario · Realtor.com RealAssist AI + Pairgap "Prenup de Co-Compra" — Producto de Portal, Idea de Nicho Adaptable (Score 12/20)
 - 2026-07-25 · Oportunidades de Negocio · Quittr — Adaptado a Chile: App de Recuperación de Adicción a Pantallas/Pornografía en Español (Score 17/20)
 - 2026-07-25 · Oportunidades de Negocio · Juno — Adaptado a Chile: Asistente de IA para Enfermedades Crónicas "Invisibles" en Español (Score 15/20)
 - 2026-07-25 · Oportunidades de Negocio · PCOS/SOP — Plataforma de Salud Femenina Especializada en Síndrome de Ovario Poliquístico en Español (Score 14/20)
