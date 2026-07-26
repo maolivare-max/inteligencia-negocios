@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-26 · Oportunidades de Negocio · Condonación de Emergencia SII-TGR (29 Comunas, Temporal de Julio) (Score 18/20)
+- 2026-07-26 · Oportunidades de Negocio · Senja — Adaptado a Chile: SaaS de Testimonios en Video/Texto para Pymes y Corredores (Score 17/20)
+- 2026-07-26 · Oportunidades de Negocio · Postiz — Adaptado a Chile: Scheduler de Redes Sociales Open-Source "Agéntico" para Agencias (Score 16/20)
+- 2026-07-26 · Oportunidades de Negocio · Patrón Javier Araya — Vertical SaaS de IA Construido en Chile, Vendido a Comprador Estratégico de EE.UU. (Score 14/20)
+- 2026-07-26 · Oportunidades de Negocio · Sercotec "Modo Empleo" — Bróker de Postulación a Fondo de Capital Semilla ($5.000 Millones) (Score 14/20)
+- 2026-07-26 · Oportunidades de Negocio · Adaptación de Luuk — Digitalización de Cuadrillas de Terreno para Pymes Chilenas de Logística/Retail (Score 13/20)
+- 2026-07-26 · Oportunidades de Negocio · Adaptación de Cashea — Crédito de Consumo/Referido para Migrantes Sin Historial Crediticio Local en Chile (Score 11/20)
 - 2026-07-26 · Marketing Inmobiliario · FlyDragon "2026 State of AI Search in Real Estate" — El Costo de Ser Invisible para la IA Tiene Cifra (Score 16/20)
 - 2026-07-26 · Marketing Inmobiliario · Ventana Regulatoria de la Semana: BancoEstado 3,10% Vence en 4 Días + Exención de IVA Trabada en el Senado (Score 15/20)
 - 2026-07-26 · Marketing Inmobiliario · Toctoc/Tinsa by Accumin — Radiografía Q2 2026: La Florida Lidera con +20,3% y Departamentos Concentran 85% de la Venta en la RM (Score 14/20)
