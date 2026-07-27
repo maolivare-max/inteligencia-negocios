@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-27 · Marketing Inmobiliario · Corretaje de Lujo Nativo de TikTok — Ricardo Martins y Mônica Poplawski (Brasil) (Score 16/20)
+- 2026-07-27 · Marketing Inmobiliario · Agencia Andaluza de 8 Personas (España) — Velocidad de Respuesta como Factor #1 de Cierre (Score 16/20)
+- 2026-07-27 · Marketing Inmobiliario · Cliperty — OS Inmobiliario Chileno con Precalificación de Leads por WhatsApp/IA (Score 15/20)
+- 2026-07-27 · Marketing Inmobiliario · Loft (Brasil) — Avatares de IA del Propio Corredor Narrando Cada Anuncio en Video (Score 15/20)
+- 2026-07-27 · Marketing Inmobiliario · Roomix (Argentina) — Agente de IA que Crea y Optimiza Solo sus Propias Campañas de Meta (Score 15/20)
+- 2026-07-27 · Marketing Inmobiliario · Lofty Homeowner Agent (EE.UU.) — Minería de Señales de Vendedor en la Base de Contactos Ya Existente (Score 14/20)
+- 2026-07-27 · Marketing Inmobiliario · RE/MAX Centre (EE.UU.) — Chatbot de Calificación con 385% Más Leads desde el Sitio Web (Score 14/20)
 - 2026-07-26 · Oportunidades de Negocio · Condonación de Emergencia SII-TGR (29 Comunas, Temporal de Julio) (Score 18/20)
 - 2026-07-26 · Oportunidades de Negocio · Senja — Adaptado a Chile: SaaS de Testimonios en Video/Texto para Pymes y Corredores (Score 17/20)
 - 2026-07-26 · Oportunidades de Negocio · Postiz — Adaptado a Chile: Scheduler de Redes Sociales Open-Source "Agéntico" para Agencias (Score 16/20)
