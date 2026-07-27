@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-27 · Oportunidades de Negocio · 100+ Labs Chile — Bróker de Postulación a Programa de Innovación Abierta Corporativa (AB InBev + Coca-Cola Andina/Embonor + Nutrisco) (Score 16/20)
+- 2026-07-27 · Oportunidades de Negocio · Handle (México) — Agentes de IA Verticales para Back-Office de Corretaje de Seguros, Adaptado a Chile (Score 15/20)
+- 2026-07-27 · Oportunidades de Negocio · AI Dictation en Español para Profesionales Chilenos — Patrón Wispr Flow / Superwhisper (Score 15/20)
+- 2026-07-27 · Oportunidades de Negocio · Liinks — Adaptación de Link-in-Bio Económico en Pesos para Creadores y Pymes Chilenas (Score 15/20)
+- 2026-07-27 · Oportunidades de Negocio · TickD — Validación de Nicho: Ticketing/Operaciones para Centros de Entretenimiento Independientes en Chile (Score 14/20)
+- 2026-07-27 · Oportunidades de Negocio · Enter (Brasil) — Legaltech de IA para Litigios Corporativos Masivos, Patrón Adaptado a Chile (Score 13/20)
+- 2026-07-27 · Oportunidades de Negocio · GrowSurf — Software de Programas de Referido "Plug-and-Play" para E-commerce Chileno (Score 12/20)
 - 2026-07-27 · Marketing Inmobiliario · Corretaje de Lujo Nativo de TikTok — Ricardo Martins y Mônica Poplawski (Brasil) (Score 16/20)
 - 2026-07-27 · Marketing Inmobiliario · Agencia Andaluza de 8 Personas (España) — Velocidad de Respuesta como Factor #1 de Cierre (Score 16/20)
 - 2026-07-27 · Marketing Inmobiliario · Cliperty — OS Inmobiliario Chileno con Precalificación de Leads por WhatsApp/IA (Score 15/20)
