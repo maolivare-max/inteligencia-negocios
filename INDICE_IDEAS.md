@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-28 · Oportunidades de Negocio · HeadshotPro — Headshots Profesionales con IA, Patrón Directamente Adaptable a Chile (Score 18/20)
+- 2026-07-28 · Oportunidades de Negocio · SuperX — Asistente de Escritura IA con Voz Propia, Adaptado a LinkedIn Chile (Score 15/20)
+- 2026-07-28 · Oportunidades de Negocio · Resolución Exenta N°154 del SII — Consultoría de Adaptación a las Nuevas Guías de Despacho Electrónicas (Score 15/20)
+- 2026-07-28 · Oportunidades de Negocio · Superpower ChatGPT / Daily — Patrón "Extensión Gratis Viral + Newsletter Monetizada", Adaptado a un Nicho Chileno (Score 14/20)
+- 2026-07-28 · Oportunidades de Negocio · Servicio de Formalización Verticalizada para Vendedores Informales de Redes Sociales (Ley 21.713) (Score 14/20)
+- 2026-07-28 · Oportunidades de Negocio · Leadmore AI — Automatización de Generación de Leads B2B en Comunidades Online, Patrón Adaptado a Chile (Score 12/20)
+- 2026-07-28 · Oportunidades de Negocio · Bróker de Compra Ágil Verticalizado (Ley 21.634, Tope Subido a 100 UTM) (Score 12/20)
 - 2026-07-28 · Marketing Inmobiliario · Ventana Regulatoria de Chile — Actualización: IVA a un Paso de Ser Ley + Cupos de la Ley 21.748 Oficialmente Superados + FOGAES Vence en 2 Días (Score 16/20)
 - 2026-07-28 · Marketing Inmobiliario · Rocket + Redfin: Pre-Calificación Embebida en el Portal Genera 23% de Leads Contactables y 12% Inicia Crédito (Score 15/20)
 - 2026-07-28 · Marketing Inmobiliario · Infonavit "Modelo T100" (México) — Baja la Barrera de Entrada al Crédito de 1.080 a 100 Puntos (Score 14/20)
