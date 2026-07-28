@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-28 · Marketing Inmobiliario · Ventana Regulatoria de Chile — Actualización: IVA a un Paso de Ser Ley + Cupos de la Ley 21.748 Oficialmente Superados + FOGAES Vence en 2 Días (Score 16/20)
+- 2026-07-28 · Marketing Inmobiliario · Rocket + Redfin: Pre-Calificación Embebida en el Portal Genera 23% de Leads Contactables y 12% Inicia Crédito (Score 15/20)
+- 2026-07-28 · Marketing Inmobiliario · Infonavit "Modelo T100" (México) — Baja la Barrera de Entrada al Crédito de 1.080 a 100 Puntos (Score 14/20)
+- 2026-07-28 · Marketing Inmobiliario · Faixa 4 do Minha Casa Minha Vida (Brasil) — Techo de Renta y Valor Financiable Suben (Score 13/20)
+- 2026-07-28 · Marketing Inmobiliario · Compass "Home Platform" con Agentes de IA Especializados — 13% de Leads Nutridos Llegan "Agent-Ready" (Score 13/20)
 - 2026-07-27 · Oportunidades de Negocio · 100+ Labs Chile — Bróker de Postulación a Programa de Innovación Abierta Corporativa (AB InBev + Coca-Cola Andina/Embonor + Nutrisco) (Score 16/20)
 - 2026-07-27 · Oportunidades de Negocio · Handle (México) — Agentes de IA Verticales para Back-Office de Corretaje de Seguros, Adaptado a Chile (Score 15/20)
 - 2026-07-27 · Oportunidades de Negocio · AI Dictation en Español para Profesionales Chilenos — Patrón Wispr Flow / Superwhisper (Score 15/20)
