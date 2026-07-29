@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-29 · Marketing Inmobiliario · Beeline "Bob 2.0" (EE.UU.) — Agente de IA que Reemplaza el Chat Humano de Calificación Hipotecaria (Score 16/20)
+- 2026-07-29 · Marketing Inmobiliario · Dataprop — PropTech Chilena de Corretaje Colaborativo (Canje entre Corredores) (Score 14/20)
+- 2026-07-29 · Marketing Inmobiliario · TocToc "Add" + "InfoInmobiliario" — Software de Gestión de Leads ya es el 48% del Negocio del Portal (Score 14/20)
+- 2026-07-29 · Marketing Inmobiliario · Zillow "Preview" — Listados Pre-Mercado con Comisión Compartida (EE.UU.) (Score 13/20)
+- 2026-07-29 · Marketing Inmobiliario · Geo-Targeting por Comuna + Benchmark de CPL Actualizado (Chile) (Score 12/20)
+- 2026-07-29 · Marketing Inmobiliario · Google Ads Performance Max + Search — 80% del Pipeline Calificado (Mundo) (Score 12/20)
 - 2026-07-28 · Oportunidades de Negocio · HeadshotPro — Headshots Profesionales con IA, Patrón Directamente Adaptable a Chile (Score 18/20)
 - 2026-07-28 · Oportunidades de Negocio · SuperX — Asistente de Escritura IA con Voz Propia, Adaptado a LinkedIn Chile (Score 15/20)
 - 2026-07-28 · Oportunidades de Negocio · Resolución Exenta N°154 del SII — Consultoría de Adaptación a las Nuevas Guías de Despacho Electrónicas (Score 15/20)
