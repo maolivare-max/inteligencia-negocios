@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-29 · Oportunidades de Negocio · Design Joy — Servicio de Diseño Productizado por Suscripción, Patrón Sin Competidor Conocido en Chile (Score 17/20)
+- 2026-07-29 · Oportunidades de Negocio · Magnar AI — Legaltech Chilena de IA, Patrón de "Copiloto Legal Vertical" Adaptable a un Nicho Más Angosto (Score 16/20)
+- 2026-07-29 · Oportunidades de Negocio · SiteGPT — "Engineering as Marketing" como Canal de Adquisición, Patrón Subexplotado en Español (Score 15/20)
+- 2026-07-29 · Oportunidades de Negocio · BoredHumans — Fábrica de Micro-Herramientas de IA Monetizadas con SEO + Ads, Patrón Adaptable a Lead-Gen en Español (Score 15/20)
+- 2026-07-29 · Oportunidades de Negocio · Bodeguita.cl — SEO Local + Google Business Profile con IA, Patrón de Agencia Boutique para Pymes Chilenas (Score 15/20)
+- 2026-07-29 · Oportunidades de Negocio · Hilvy — Agencia Webflow de Una Persona, Mismo Patrón que Design Joy Aplicado a Desarrollo Web (Score 14/20)
+- 2026-07-29 · Oportunidades de Negocio · Pallyy — Scheduler de Redes Sociales, Adaptado a Precio y Soporte en Español para LATAM (Score 14/20)
+- 2026-07-29 · Oportunidades de Negocio · Wots — Orquestador de IA para Sistemas Empresariales, Patrón Adaptable a un Segmento SMB Desatendido (Score 12/20)
 - 2026-07-29 · Marketing Inmobiliario · Beeline "Bob 2.0" (EE.UU.) — Agente de IA que Reemplaza el Chat Humano de Calificación Hipotecaria (Score 16/20)
 - 2026-07-29 · Marketing Inmobiliario · Dataprop — PropTech Chilena de Corretaje Colaborativo (Canje entre Corredores) (Score 14/20)
 - 2026-07-29 · Marketing Inmobiliario · TocToc "Add" + "InfoInmobiliario" — Software de Gestión de Leads ya es el 48% del Negocio del Portal (Score 14/20)
