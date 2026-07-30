@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-30 · Marketing Inmobiliario · Realty AI "Madison" (EE.UU.) — Chatbot que Reemplaza el Formulario de Contacto Estático (Score 16/20)
+- 2026-07-30 · Marketing Inmobiliario · Frontgate Real Estate (EE.UU., vía Luxury Presence) — Funnel Completo de Ads + Nurture con IA hasta el Cierre (Score 15/20)
+- 2026-07-30 · Marketing Inmobiliario · Mirando.ai (Uruguay/Argentina) — IA Inmobiliaria de Punta a Punta, Ventana de Arbitraje Aún Abierta en Chile (Score 14/20)
+- 2026-07-30 · Marketing Inmobiliario · Lidz.IA — Actualización: Ya Procesa el 25% de las Propiedades Nuevas Vendidas en Chile (Score 13/20)
+- 2026-07-30 · Marketing Inmobiliario · Woperty — Proptech Chilena de Arriendo "Sin Corredores" 100% en WhatsApp (Score 13/20)
+- 2026-07-30 · Marketing Inmobiliario · Fotocasa (España) — Primera Integración de un Portal Hispanohablante Grande dentro de ChatGPT (Score 11/20)
 - 2026-07-29 · Oportunidades de Negocio · Design Joy — Servicio de Diseño Productizado por Suscripción, Patrón Sin Competidor Conocido en Chile (Score 17/20)
 - 2026-07-29 · Oportunidades de Negocio · Magnar AI — Legaltech Chilena de IA, Patrón de "Copiloto Legal Vertical" Adaptable a un Nicho Más Angosto (Score 16/20)
 - 2026-07-29 · Oportunidades de Negocio · SiteGPT — "Engineering as Marketing" como Canal de Adquisición, Patrón Subexplotado en Español (Score 15/20)
