@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-30 · Oportunidades de Negocio · Patrón "Calculadora de ROI de Nicho + Red de Reps" (caso Sarah Chen / Estha.ai) (Score 18/20)
+- 2026-07-30 · Oportunidades de Negocio · "AI Coworker" Dentro del Canal de Chat de Equipo — Adaptado a WhatsApp Business para Chile (casos Yasmine Works y Superpal) (Score 15/20)
+- 2026-07-30 · Oportunidades de Negocio · ClawTeams — Enjambre de Agentes de IA "Operacionales" para Vendedores de E-commerce, Patrón Adaptable a Shopify/Jumpseller Chile (Score 15/20)
+- 2026-07-30 · Oportunidades de Negocio · Receiptor AI ("Agent Mode") — Contabilidad Automatizada de Boletas con IA, Brecha Frente a Nubox/Defontana (Score 14/20)
+- 2026-07-30 · Oportunidades de Negocio · VetAgent — Software Vertical de Gestión con IA para Clínicas Veterinarias, Nicho Desatendido en Chile (Score 12/20)
 - 2026-07-30 · Marketing Inmobiliario · Realty AI "Madison" (EE.UU.) — Chatbot que Reemplaza el Formulario de Contacto Estático (Score 16/20)
 - 2026-07-30 · Marketing Inmobiliario · Frontgate Real Estate (EE.UU., vía Luxury Presence) — Funnel Completo de Ads + Nurture con IA hasta el Cierre (Score 15/20)
 - 2026-07-30 · Marketing Inmobiliario · Mirando.ai (Uruguay/Argentina) — IA Inmobiliaria de Punta a Punta, Ventana de Arbitraje Aún Abierta en Chile (Score 14/20)
