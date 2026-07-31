@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-31 · Oportunidades de Negocio · Delivery Directo — Arbitraje del Modelo Owner.com Tras el Fin de las Cláusulas MFN en Chile (Score 17/20)
+- 2026-07-31 · Oportunidades de Negocio · Marketcare — Bróker de Beneficios Corporativos de "Farmacia al Costo" (Score 17/20)
+- 2026-07-31 · Oportunidades de Negocio · TikTok Shop Chile — Actualización: Ventana de First-Mover Antes del Lanzamiento Oficial (Score 16/20)
+- 2026-07-31 · Oportunidades de Negocio · Auditoría de Cumplimiento — Reforma Previsional (Ley 21.735) y Sistema Único de Cobranza (SUCC) (Score 16/20)
+- 2026-07-31 · Oportunidades de Negocio · Lancer — Agente IA de Bidding en Upwork, Patrón Adaptable a Workana Chile (Score 14/20)
+- 2026-07-31 · Oportunidades de Negocio · Integrador de Notaría Electrónica (Ley 21.772) para Verticales Específicas (Score 14/20)
+- 2026-07-31 · Oportunidades de Negocio · Compliance de "Botón de Retiro" UE (Directiva 2023/2673) para Exportadores Digitales Chilenos (Score 13/20)
+- 2026-07-31 · Oportunidades de Negocio · Compliance HL7 FHIR para Clínicas/Consultorios Pequeños (Ley 21.668) (Score 12/20)
 - 2026-07-31 · Marketing Inmobiliario · Fin de la "Oferta de Compensación" Obligatoria en MLS — Aprobación Final del Settlement NAR (Score 15/20)
 - 2026-07-31 · Marketing Inmobiliario · Comisión Plana (Flat-Fee) Gana Tracción Post-Settlement en EE.UU. (Score 14/20)
 - 2026-07-31 · Marketing Inmobiliario · Opendoor "Key Agent" — El iBuyer Pivota a Modelo Agent-Led con 5x Conversión (Score 13/20)
