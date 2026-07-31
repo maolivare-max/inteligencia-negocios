@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-07-31 · Marketing Inmobiliario · Fin de la "Oferta de Compensación" Obligatoria en MLS — Aprobación Final del Settlement NAR (Score 15/20)
+- 2026-07-31 · Marketing Inmobiliario · Comisión Plana (Flat-Fee) Gana Tracción Post-Settlement en EE.UU. (Score 14/20)
+- 2026-07-31 · Marketing Inmobiliario · Opendoor "Key Agent" — El iBuyer Pivota a Modelo Agent-Led con 5x Conversión (Score 13/20)
+- 2026-07-31 · Marketing Inmobiliario · Compass–Redfin–Rocket: Acuerdo de Sindicación que Esquiva el MLS Abierto (Score 12/20)
+- 2026-07-31 · Marketing Inmobiliario · Aceleradora Real Estate — Benchmark de Inversión Digital Inmobiliaria Chile Q1 2026 (Score 12/20)
+- 2026-07-31 · Marketing Inmobiliario · Enlace Inmobiliario — Enriquecimiento de Leads con Intención de Crédito Verificada (Chile) (Score 11/20)
 - 2026-07-30 · Oportunidades de Negocio · Patrón "Calculadora de ROI de Nicho + Red de Reps" (caso Sarah Chen / Estha.ai) (Score 18/20)
 - 2026-07-30 · Oportunidades de Negocio · "AI Coworker" Dentro del Canal de Chat de Equipo — Adaptado a WhatsApp Business para Chile (casos Yasmine Works y Superpal) (Score 15/20)
 - 2026-07-30 · Oportunidades de Negocio · ClawTeams — Enjambre de Agentes de IA "Operacionales" para Vendedores de E-commerce, Patrón Adaptable a Shopify/Jumpseller Chile (Score 15/20)
