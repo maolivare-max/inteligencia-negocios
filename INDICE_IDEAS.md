@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-01 · Marketing Inmobiliario · Vivienda Accesible / Discapacidad Universal — Arbitraje EE.UU.→Chile (Score 17/20)
+- 2026-08-01 · Marketing Inmobiliario · Nicho LGBTQ+ — Ventana First-Mover en Chile (Score 15/20)
+- 2026-08-01 · Marketing Inmobiliario · Nicho de Divorcio (Motivated Sellers) (Score 15/20)
+- 2026-08-01 · Marketing Inmobiliario · Hogares Unipersonales y Parejas Sin Hijos (DINK) (Score 14/20)
+- 2026-08-01 · Marketing Inmobiliario · Vivienda Verde / Certificación Sustentable (Score 14/20)
+- 2026-08-01 · Marketing Inmobiliario · Arriendo Universitario / Roomie-Matching (Score 12/20)
 - 2026-07-31 · Oportunidades de Negocio · Delivery Directo — Arbitraje del Modelo Owner.com Tras el Fin de las Cláusulas MFN en Chile (Score 17/20)
 - 2026-07-31 · Oportunidades de Negocio · Marketcare — Bróker de Beneficios Corporativos de "Farmacia al Costo" (Score 17/20)
 - 2026-07-31 · Oportunidades de Negocio · TikTok Shop Chile — Actualización: Ventana de First-Mover Antes del Lanzamiento Oficial (Score 16/20)
