@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-01 · Oportunidades de Negocio · GigU (patrón) — Calculadora de Ganancia Neta para Conductores y Repartidores de Apps en Chile (Score 17/20)
+- 2026-08-01 · Oportunidades de Negocio · Empathy (patrón) — Concierge Digital de Trámites y Duelo Post-Fallecimiento (Score 15/20)
+- 2026-08-01 · Oportunidades de Negocio · Ana Care (patrón) — Formalización y Profesionalización de Cuidadores de Adultos Mayores Dependientes (Score 14/20)
+- 2026-08-01 · Oportunidades de Negocio · Común (patrón) — Capa de Onboarding Financiero y Remesas para la Comunidad Migrante en Chile (Score 14/20)
+- 2026-08-01 · Oportunidades de Negocio · Chapter (patrón) — Navegador de Beneficios de Salud y Pensión para Adultos Mayores en Chile (Score 14/20)
+- 2026-08-01 · Oportunidades de Negocio · Sage Care (patrón, YC S24) — CRM + Asistente IA para Agencias de Cuidado Domiciliario en Chile (Score 14/20)
+- 2026-08-01 · Oportunidades de Negocio · Achievable (patrón) — Plataforma de Preparación para Certificaciones Profesionales en Chile (Score 13/20)
+- 2026-08-01 · Oportunidades de Negocio · Symplifica (patrón) — Formalización del Trabajo Doméstico "Por Hora" y Cuidado Domiciliario Informal en Chile (Score 13/20)
 - 2026-08-01 · Marketing Inmobiliario · Vivienda Accesible / Discapacidad Universal — Arbitraje EE.UU.→Chile (Score 17/20)
 - 2026-08-01 · Marketing Inmobiliario · Nicho LGBTQ+ — Ventana First-Mover en Chile (Score 15/20)
 - 2026-08-01 · Marketing Inmobiliario · Nicho de Divorcio (Motivated Sellers) (Score 15/20)
