@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-02 · Oportunidades de Negocio · FletchPMM (patrón) — Sprints de Positioning y Mensajes B2B en Precio Fijo (Score 16/20)
+- 2026-08-02 · Oportunidades de Negocio · Fondo "Piensa en Grandes" — Financiamiento No Dilutivo para Silver Economy Chilena (Score 15/20)
+- 2026-08-02 · Oportunidades de Negocio · Actualización — Sage Care (patrón): el Mapa Competitivo Chileno Confirma que el CRM B2B para Agencias de Cuidado Sigue Sin Jugador (Score 14/20)
+- 2026-08-02 · Oportunidades de Negocio · Actualización — Chapter (patrón): la Ventanilla Única Social Reduce el Hueco de Descubrimiento, pero Abre uno de Ejecución Asistida (Score 13/20)
+- 2026-08-02 · Oportunidades de Negocio · Cold Email como Canal de Adquisición para Micro-SaaS B2B (Score 12/20)
 - 2026-08-02 · Marketing Inmobiliario · Ventana Regulatoria Chile: IVA 0% a la Vivienda Nueva Vota en Comisión Mixta el 4 de Agosto (y a Quién Beneficia Realmente) (Score 17/20)
 - 2026-08-02 · Marketing Inmobiliario · Subsidio de Arriendo DS52 2026 — Cierra el 7 de Agosto + Convocatoria Especial para Adultos Mayores y Discapacidad (Score 16/20)
 - 2026-08-02 · Marketing Inmobiliario · Aedas Homes "Lara" (España) — Agente de IA que Cierra Ventas de Forma Autónoma, €7,8M en Operaciones (Score 15/20)
