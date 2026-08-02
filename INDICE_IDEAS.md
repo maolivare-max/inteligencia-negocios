@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-02 · Marketing Inmobiliario · Ventana Regulatoria Chile: IVA 0% a la Vivienda Nueva Vota en Comisión Mixta el 4 de Agosto (y a Quién Beneficia Realmente) (Score 17/20)
+- 2026-08-02 · Marketing Inmobiliario · Subsidio de Arriendo DS52 2026 — Cierra el 7 de Agosto + Convocatoria Especial para Adultos Mayores y Discapacidad (Score 16/20)
+- 2026-08-02 · Marketing Inmobiliario · Aedas Homes "Lara" (España) — Agente de IA que Cierra Ventas de Forma Autónoma, €7,8M en Operaciones (Score 15/20)
+- 2026-08-02 · Marketing Inmobiliario · Redfin "Early Access" + Inventario Exclusivo de Compass — Pre-Mercado con Métricas de Adopción (Actualización) (Score 14/20)
+- 2026-08-02 · Marketing Inmobiliario · Multifamily en la RM: Arriendo Institucional Sube 27% Trimestral, 16.215 Nuevas Unidades en Camino (Score 13/20)
+- 2026-08-02 · Marketing Inmobiliario · Google Trends EE.UU. 2026: Nichos de Vivienda en Explosión (Barndominium, Loft, Vivienda Multigeneracional) (Score 11/20)
 - 2026-08-01 · Oportunidades de Negocio · GigU (patrón) — Calculadora de Ganancia Neta para Conductores y Repartidores de Apps en Chile (Score 17/20)
 - 2026-08-01 · Oportunidades de Negocio · Empathy (patrón) — Concierge Digital de Trámites y Duelo Post-Fallecimiento (Score 15/20)
 - 2026-08-01 · Oportunidades de Negocio · Ana Care (patrón) — Formalización y Profesionalización de Cuidadores de Adultos Mayores Dependientes (Score 14/20)
