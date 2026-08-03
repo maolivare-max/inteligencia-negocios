@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-03 · Marketing Inmobiliario · Lais (ex-Lastro, Brasil) — IA de WhatsApp Supera 5 Millones de Personas Atendidas y Publica el Primer Reporte de Comportamiento de Leads (Score 16/20)
+- 2026-08-03 · Marketing Inmobiliario · Assetplan (Chile) — De 9 a 229 Edificios Multifamily en una Década, con Herramienta "Price Manager" para Comparar Arriendo vs. Mercado (Score 14/20)
+- 2026-08-03 · Marketing Inmobiliario · RealtyRank AI (EE.UU.) — Caso Documentado de Leads Generados por Recomendación Directa de ChatGPT/Grok, 84x ROI (Score 13/20)
+- 2026-08-03 · Marketing Inmobiliario · KiteProp — CRM Inmobiliario que Publica a 30+ Portales en Chile y Argentina desde una Sola Plataforma (Score 12/20)
+- 2026-08-03 · Marketing Inmobiliario · Fuelads — Benchmarks de CPL/CPM Real Estate LATAM 2026, Ahora con Desglose por País (Actualización) (Score 11/20)
+- 2026-08-03 · Marketing Inmobiliario · Velocidad de Respuesta por WhatsApp en Brasil — 78% de los Leads Llegan por ese Canal, Responder en <5 Min Multiplica por 9x la Conversión (Score 10/20)
 - 2026-08-02 · Oportunidades de Negocio · FletchPMM (patrón) — Sprints de Positioning y Mensajes B2B en Precio Fijo (Score 16/20)
 - 2026-08-02 · Oportunidades de Negocio · Fondo "Piensa en Grandes" — Financiamiento No Dilutivo para Silver Economy Chilena (Score 15/20)
 - 2026-08-02 · Oportunidades de Negocio · Actualización — Sage Care (patrón): el Mapa Competitivo Chileno Confirma que el CRM B2B para Agencias de Cuidado Sigue Sin Jugador (Score 14/20)
