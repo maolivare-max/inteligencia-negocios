@@ -2,6 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-03 · Oportunidades de Negocio · Simón — Microlearning en Video con IA para Trabajadores de Primera Línea (Argentina/México) (Score 16/20)
+- 2026-08-03 · Oportunidades de Negocio · AI Toolbox — Extensión de Chrome que Organiza el Caos de Conversaciones con IA (Score 15/20)
+- 2026-08-03 · Oportunidades de Negocio · Fly Vet — Agencia de Crecimiento + Software para Clínicas Veterinarias (Brasil) (Score 15/20)
+- 2026-08-03 · Oportunidades de Negocio · Sello Impacta Sustentable (Sercotec + FEN UChile) — Ventana de Reconocimiento y Asesoría con Cierre Mañana (Score 13/20)
+- 2026-08-03 · Oportunidades de Negocio · SmartDrink — Micro-Franquicia de Cápsulas de Coctelería (Argentina → Chile) (Score 12/20)
 - 2026-08-03 · Marketing Inmobiliario · Lais (ex-Lastro, Brasil) — IA de WhatsApp Supera 5 Millones de Personas Atendidas y Publica el Primer Reporte de Comportamiento de Leads (Score 16/20)
 - 2026-08-03 · Marketing Inmobiliario · Assetplan (Chile) — De 9 a 229 Edificios Multifamily en una Década, con Herramienta "Price Manager" para Comparar Arriendo vs. Mercado (Score 14/20)
 - 2026-08-03 · Marketing Inmobiliario · RealtyRank AI (EE.UU.) — Caso Documentado de Leads Generados por Recomendación Directa de ChatGPT/Grok, 84x ROI (Score 13/20)
