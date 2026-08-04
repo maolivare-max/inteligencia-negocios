@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-04 · Oportunidades de Negocio · Consultoría de Gestión de Fondos Concursables (Corfo/Sercotec) (Score 17/20)
+- 2026-08-04 · Oportunidades de Negocio · Cobro Automático de Intereses Moratorios — Arbitraje de la Ley de Pago a 30 Días (21.131) (Score 16/20)
+- 2026-08-04 · Oportunidades de Negocio · Consultoría de Registro Regulatorio CMF — Ley Fintech (21.521 / RPSF) (Score 15/20)
+- 2026-08-04 · Oportunidades de Negocio · Patrón "Fábrica de Micro-Negocios Operada por Agentes de IA" (caso Polsia, EE.UU.) (Score 14/20)
+- 2026-08-04 · Oportunidades de Negocio · FoodDocs Adaptado — SaaS de Compliance HACCP/ISO 22000 para Exportadoras de Alimentos Chilenas (Score 14/20)
+- 2026-08-04 · Oportunidades de Negocio · Patrón "Sub Compliance Hub" Adaptado — Verificación de Cumplimiento de Subcontratistas (Ley 20.123) (Score 13/20)
 - 2026-08-04 · Marketing Inmobiliario · Subsidio a la Tasa Hipotecaria (Ley 21.748): Sobredemanda Confirmada en 191% + Ley de Expansión Avanza a Tercer Trámite (Score 17/20)
 - 2026-08-04 · Marketing Inmobiliario · Megarreforma (incluye IVA 0% a Vivienda Nueva): Despachada por el Congreso, pero Aún No es Ley — Corrige el Mensaje de Marketing (Actualización) (Score 16/20)
 - 2026-08-04 · Marketing Inmobiliario · BancoEstado Hipotecario PRO (3,10%): La Ventana de Aprobación Ya Cerró — el Mensaje Debe Pivotar a "Firma Antes del 30 de Septiembre" (Score 15/20)
