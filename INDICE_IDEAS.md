@@ -2,6 +2,12 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-04 · Marketing Inmobiliario · Subsidio a la Tasa Hipotecaria (Ley 21.748): Sobredemanda Confirmada en 191% + Ley de Expansión Avanza a Tercer Trámite (Score 17/20)
+- 2026-08-04 · Marketing Inmobiliario · Megarreforma (incluye IVA 0% a Vivienda Nueva): Despachada por el Congreso, pero Aún No es Ley — Corrige el Mensaje de Marketing (Actualización) (Score 16/20)
+- 2026-08-04 · Marketing Inmobiliario · BancoEstado Hipotecario PRO (3,10%): La Ventana de Aprobación Ya Cerró — el Mensaje Debe Pivotar a "Firma Antes del 30 de Septiembre" (Score 15/20)
+- 2026-08-04 · Marketing Inmobiliario · Subsidio de Arriendo DS52 2026: Cupo Oficial Confirmado en 8.450 Familias, Cierra el Viernes (Actualización) (Score 13/20)
+- 2026-08-04 · Marketing Inmobiliario · Feria Colpatria (Colombia): Vivienda + Financiamiento Empaquetado con Fecha Límite Crece 28% en Unidades Mientras el Sector Cae 9,9% (Score 13/20)
+- 2026-08-04 · Marketing Inmobiliario · Roam (EE.UU.): Marketplace de Hipotecas "Asumibles" con Tasas de 2-5% — 500% de Crecimiento en 12 Meses, US$11,5M Serie A (Score 12/20)
 - 2026-08-03 · Oportunidades de Negocio · Simón — Microlearning en Video con IA para Trabajadores de Primera Línea (Argentina/México) (Score 16/20)
 - 2026-08-03 · Oportunidades de Negocio · AI Toolbox — Extensión de Chrome que Organiza el Caos de Conversaciones con IA (Score 15/20)
 - 2026-08-03 · Oportunidades de Negocio · Fly Vet — Agencia de Crecimiento + Software para Clínicas Veterinarias (Brasil) (Score 15/20)
