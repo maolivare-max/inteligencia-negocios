@@ -2,6 +2,13 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-05 · Marketing Inmobiliario · Video Corto (≤30 Segundos) como Palanca de CPL — Caso Chileno de -52% Confirmado por Benchmarks Globales de TikTok y Reels (Score 17/20)
+- 2026-08-05 · Marketing Inmobiliario · Guthrie Schofield Group (EE.UU.) — Especialización Geográfica Hiperlocal Reduce el CAC a US$21 por Comprador (Score 15/20)
+- 2026-08-05 · Marketing Inmobiliario · Profesionalización del Corretaje como Diferenciador de Marketing — 81% de las Denuncias Contra Corredores en Chile No Son Acogidas (Score 13/20)
+- 2026-08-05 · Marketing Inmobiliario · Mocasasboutique (Chile) — Home Staging con Inteligencia Artificial, Más de 100 Proyectos Gestionados (Score 13/20)
+- 2026-08-05 · Marketing Inmobiliario · LIDZ.ai (Chile) — Actualización: Expansión a Argentina, Perú y México con Intermediación de Crédito Hipotecario vía IA (Score 12/20)
+- 2026-08-05 · Marketing Inmobiliario · Luxury Presence (EE.UU.) — Campaña de Meta Ads 100% Enfocada en Leads de Vendedores, US$24,50 de CPL (Score 11/20)
+- 2026-08-05 · Marketing Inmobiliario · Fuelads — Benchmarks de CPL en Meta Ads por Tipo de Propiedad, Chile (Score 10/20)
 - 2026-08-04 · Oportunidades de Negocio · Consultoría de Gestión de Fondos Concursables (Corfo/Sercotec) (Score 17/20)
 - 2026-08-04 · Oportunidades de Negocio · Cobro Automático de Intereses Moratorios — Arbitraje de la Ley de Pago a 30 Días (21.131) (Score 16/20)
 - 2026-08-04 · Oportunidades de Negocio · Consultoría de Registro Regulatorio CMF — Ley Fintech (21.521 / RPSF) (Score 15/20)
