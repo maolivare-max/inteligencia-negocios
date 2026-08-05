@@ -152,11 +152,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="stats-bar">
-<div class="stat"><div class="num">113</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">664</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">309</div><div class="lbl">Destacadas &ge;15</div></div>
+<div class="stat"><div class="num">114</div><div class="lbl">Reportes</div></div>
+<div class="stat"><div class="num">672</div><div class="lbl">Ideas totales</div></div>
+<div class="stat"><div class="num green">312</div><div class="lbl">Destacadas &ge;15</div></div>
 <div class="stat"><div class="num">14.3</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">138</div><div class="lbl">Con seguimiento</div></div>
+<div class="stat"><div class="num red">141</div><div class="lbl">Con seguimiento</div></div>
 <div class="stat"><div class="num" style="font-size:14px">2026-08-05</div><div class="lbl">&Uacute;ltimo reporte</div></div></div>
 
 <div class="controls">
@@ -171,8 +171,226 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 </div>
 
 <div class="main">
+<div class="report" data-group="oportunidades" id="rep-oportunidades-2026-08-05">
+  <button class="report-head" onclick="togRep('oportunidades-2026-08-05')" aria-expanded="true">
+    <div style="flex:1">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span class="report-date">2026-08-05</span>
+        <span class="report-cat">Oportunidades de Negocio</span>
+      </div>
+      <div class="report-resumen">dos agentes de investigación independientes (Chile y mundo) confirman la misma tesis desde dos ángulos distintos. En Chile, dos startups locales (Vambe y diio) ya están probando en el mercado real que los &quot;agentes de IA vendiendo por WhatsApp/chat&quot; funcionan — Vambe pasó de un primer cliente en diciembre de 2023 a US$6M de revenue en 2025 y una valorización cercana a US$100M, sin necesidad de importar el modelo desde afuera. En el mundo, la tesis de fondo (validada explícitamente por el Request for Startups de YC de este verano: &quot;AI-native service companies&quot;) es que el software ya no se vende como licencia sino que se entrega el servicio completo hecho por agentes de IA y se cobra por resultado — Crosby (revisión legal de contratos a precio fijo) y Pilot (contabilidad 100% autónoma) son los casos más nítidos, con Crosby recién cerrando una Serie B de US$60M. El hallazgo más replicable y barato de ejecutar hoy, sin embargo, es más modesto: el patrón de &quot;portal de empleo hiper-vertical&quot; (RemoteOK, Japan Dev) sigue funcionando en 2026 con márgenes altísimos y casi cero competencia directa en la variante &quot;empleos remotos en dólares para talento chileno&quot;. Contexto de fondo: Chile cerró 2025 con US$854M en venture capital (+160% vs. 2024), pero concentrado en solo 66 startups con ticket promedio de US$4,1M — los fondos ahora exigen tracción real (MRR/ARR, churn, LTV/CAC), lo que refuerza que los modelos bootstrapped y de bajo capital de este reporte son la apuesta más segura para alguien que empieza solo.</div>
+    </div>
+    <div class="report-badges">
+      <span class="pill">8 IDEAS</span>
+      <span class="pill">PROM 14.2</span>
+      <span class="pill">&#9733; 3 SEGUIM.</span>
+      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+    </div>
+  </button>
+  <div class="report-body" id="rep-body-oportunidades-2026-08-05">
+    <div class="fuentes">FUENTES: ~32 (forbes.cl, theclinic.cl, df.cl —snippet, 403—, ecosistemastartup.com —3 artículos—, g5noticias.cl —snippet, 403—, prensaeventos.cl —snippet, 403—, dataprop.cl, startupslatam.com —4 artículos—, fundssociety.com, marketing4ecommerce.cl, bloomberglinea.com, entnerd.com, reports.cuanticovp.com, portalinnova.cl —snippet, 403—, chileglobalventures.cl, startupschilenas.cl, mlscolab.cl, 24horas.cl —snippet, 403— — Chile; stripe.com, forbes.com, law.com, crosby.ai, tinystartups.com, jakeinsight.com, builtbyfoundry.io, medium.com, globenewswire.com, accountingtoday.com, indiehackers.com, measureu.com, baremetrics.com, procindex.com, modelence.com, ycombinator.com — mundo).</div>
+    
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="media-alta (cifras de japan dev y del caso ux writers vía agregador secundario sin filing público auditable; remoteok tiene track record público de más largo plazo).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-0')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Portales de Empleo Hiper-Verticales en Dólares — Patrón RemoteOK / Japan Dev, Adaptado a Talento Chileno</div>
+      <div class="opp-axes">Factibilidad 5 · Impacto 3 · Velocidad 4 · Escalabilidad Chile 4 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-0" hidden>
+    <p class="opp-desc">sitio de listados de empleo ultra-específico (una sola categoría, un solo idioma/moneda de cobro) que monetiza cobrando a los empleadores por publicar la vacante, no al postulante.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>Japan Dev (empleos tech en Japón para extranjeros) factura US$60.000-62.000/mes con cero empleados de tiempo completo; RemoteOK (Pieter Levels) factura ~US$35.000/mes desde 2015 con el mismo modelo. Un caso más chico y más reciente —un job board para UX writers— llegó a US$4.200/mes en listados pagados en 14 meses y se vendió por US$96.000, mostrando que el patrón funciona incluso a escala micro y en menos de un año y medio.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>no se identificó un jugador dominante en el nicho específico &quot;empleos remotos pagados en dólares para talento chileno&quot; (LinkedIn y Laborum son generalistas). El modelo se monta con Webflow/Airtable en días, sin necesidad de desarrollo a medida, y cobra en USD vía Gumroad/Stripe a empleadores extranjeros que buscan talento LATAM — arbitraje de moneda favorable para el operador. Mercado potencial: miles de profesionales chilenos de TI/soporte/diseño que hoy buscan trabajo remoto en canales genéricos sin curaduría.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta (cifras de Japan Dev y del caso UX writers vía agregador secundario sin filing público auditable; RemoteOK tiene track record público de más largo plazo).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://jakeinsight.com/side-income/2026-03-26-build-a-niche-job-board-with-revenue-from-listings/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-08-05-0-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-08-05-0-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Portales de Empleo Hiper-Verticales</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-08-05-0-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 (≥15/20)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;El SEO de cola larga para una búsqueda hiper-específica sin competencia indexada es casi gratis de ganar, y una vez que se gana, se convierte en el embudo de ventas permanente sin gasto en ads.&quot;
+5.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Lanzar con contenido agregado manualmente (no esperar a tener oferta propia) para no partir con un sitio vacío.</span></div><div class="replicate-item"><span class="r-num">2</span><span>2. Cobrar exclusivamente al empleador por listado destacado desde el día 1, nunca al postulante — elimina la fricción de adopción del lado de mayor volumen (buscadores de empleo).</span></div><div class="replicate-item"><span class="r-num">3</span><span></span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>Mes 0 → lanzamiento con listados agregados manualmente. Mes 14 → US$4.200/mes en ingresos por listados pagados, momento en que el fundador vende el sitio por US$96.000. Japan Dev y RemoteOK no reportan hitos mes a mes en las fuentes revisadas, solo el estado actual (US$60-62K/mes y ~US$35K/mes respectivamente) — no se estiman fechas no confirmadas para esos dos.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="16"
+     data-seg="1"
+     data-conf="alta para las cifras del caso (fuente corporativa de stripe + múltiples entrevistas coincidentes); media para el ángulo de arbitraje en chile (es interpretación propia sobre una brecha de localización, no un dato de mercado directo).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-1')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Chatbase — Bootstrap de Solo-Founder a US$10M ARR, Patrón Adaptado a un Chatbot en Español para Pymes</div>
+      <div class="opp-axes">Factibilidad 4 · Impacto 5 · Velocidad 4 · Escalabilidad Chile 3 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">16/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-1" hidden>
+    <p class="opp-desc">builder de chatbots/agentes de IA con RAG que se entrena con los documentos propios del cliente (PDF, sitio web, FAQ) para atención al cliente y ventas, sin necesidad de programar.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>el fundador Yasser Elsaid tuiteó una demo a 16 seguidores el 2 de febrero de 2023 y consiguió su primer cliente pagado 30 minutos después; llegó a US$1M ARR en 117 días. Hoy, con 18 personas y **cero financiamiento externo**, factura **más de US$10M ARR** con **más de 8.000 clientes pagados**.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>Chatbase ya es accesible globalmente (incluso en español), por lo que el arbitraje no es &quot;traer algo que no existe&quot; sino construir la variante localizada que Chatbase no ofrece: integración nativa con WhatsApp Business API en español, agendamiento con calendarios chilenos y cobro vía Webpay/Flow — hoy no se identificó un competidor local que empaquete esas tres integraciones específicamente para pymes chilenas en un solo producto self-serve.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta para las cifras del caso (fuente corporativa de Stripe + múltiples entrevistas coincidentes); Media para el ángulo de arbitraje en Chile (es interpretación propia sobre una brecha de localización, no un dato de mercado directo).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://stripe.com/customers/chatbase" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-08-05-1-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-08-05-1-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Chatbase</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-08-05-1-seg" hidden>
+      <p class="seg-act">Activado por: Score 16/20 (≥15/20)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Publicar el producto funcionando en video corto ante una audiencia mínima o inexistente, dejando que el propio valor demostrado (no el tamaño de la audiencia) genere el primer cliente.&quot;
+5.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>No esperar a tener audiencia para lanzar: publicar una demo de 30-60 segundos del producto resolviendo un problema real, aunque el alcance inicial sea mínimo.</span></div><div class="replicate-item"><span class="r-num">2</span><span>2. Cobrar desde el primer cliente (sin capa gratuita indefinida) para validar disposición a pagar desde el día 1, como hizo Chatbase.</span></div><div class="replicate-item"><span class="r-num">3</span><span></span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>2 feb 2023 → demo pública a 16 seguidores en Twitter/X. Mismo día, 30 minutos después → primer cliente pagado. ~117 días después del lanzamiento → US$1M ARR. Hoy (2026) → US$10M+ ARR, 18 personas, 8.000+ clientes pagados, cero funding externo.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp seguimiento"
+     data-score="15"
+     data-seg="1"
+     data-conf="alta (cifras consistentes cruzadas entre forbes chile, the clinic y el ecosistema startup, más múltiples apariciones en podcast).">
+  <div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-2')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Vambe — Agentes de IA Conversacional de Ventas por WhatsApp/Instagram (Caso Chileno)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 5 &nbsp;&#9733; seguimiento</div>
+    </div>
+    <div class="score destacada">15/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-2" hidden>
+    <p class="opp-desc">agente de IA que atiende y vende por WhatsApp/Instagram en nombre de la empresa cliente, calificando y cerrando ventas sin intervención humana en la mayoría de los casos.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>fundada en 2023 por tres chilenos menores de 27 años; primer cliente en diciembre de 2023, y a los 5 meses ya facturaba US$40K ARR. Hoy tiene **+2.000 empresas clientes** (100 nuevas por mes), **US$6M de revenue en 2025** (proyecta triplicar en 2026) y levantó **US$18,4M** en rondas lideradas por Monashees, M13 y Nazca, con valorización cercana a US$100M según Forbes Chile. Clientes reportan hasta 70% más ventas vs. agentes humanos, y algunos redujeron su call center de 50 a 10 personas.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>este no es un caso para importar desde afuera — es la prueba de que el modelo ya funciona dentro de Chile. La oportunidad para un nuevo operador no es clonar a Vambe (horizontal, ya dominante), sino especializar el mismo patrón en un vertical que Vambe no ataca de forma dedicada (ej. solo inmobiliarias, solo clínicas dentales, solo automotriz), replicando su mecánica de &quot;agente de IA que reemplaza parte del call center&quot; con foco 100% en un nicho.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (cifras consistentes cruzadas entre Forbes Chile, The Clinic y El Ecosistema Startup, más múltiples apariciones en podcast).</span><span class="tag-seg">&#9733; En seguimiento</span><a class="src-link" href="https://www.forbes.cl/negocios/2026-02-27" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  <div class="seg-block" id="seg-oportunidades-2026-08-05-2-seg">
+    <button class="seg-head" onclick="tog('seg-body-oportunidades-2026-08-05-2-seg')" aria-expanded="false">
+      <span>&#9733; SEGUIMIENTO &mdash; Vambe</span>
+      <span class="seg-chev">&#9658;</span>
+    </button>
+    <div class="seg-body" id="seg-body-oportunidades-2026-08-05-2-seg" hidden>
+      <p class="seg-act">Activado por: Score 15/20 (≥15/20)</p>
+      
+      <div class="palanca">
+        <strong>&#128273; Palanca clave</strong>
+        <p>&quot;Vender la reducción de headcount del call center como métrica central (no &#x27;más ventas&#x27; en abstracto), porque es el número que el comprador corporativo puede llevar directo a su presupuesto.&quot;
+5.</p>
+      </div><div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div><div class="replicate-item"><span class="r-num">1</span><span>Liderar el pitch de venta con una métrica de ahorro de headcount/costo operativo documentada con el primer cliente piloto, no con promesas genéricas de &quot;más ventas&quot;.</span></div><div class="replicate-item"><span class="r-num">2</span><span>2. Buscar visibilidad en medios y podcasts de ecosistema emprendedor chileno desde etapas tempranas — Vambe lo hizo consistentemente y coincide con su curva de crecimiento.</span></div><div class="replicate-item"><span class="r-num">3</span><span></span></div><div class="tl-title">&#128336; Hitos documentados</div><div class="tl-item"><span class="tl-dot"></span><span>2023 → fundación. Diciembre 2023 → primer cliente. 5 meses después (~mayo 2024) → US$40K ARR. 2025 → US$6M de revenue, +2.000 empresas clientes (100 nuevas/mes), US$18,4M levantados acumulados. 2026 (proyección) → triplicar revenue.</span></div><div class="tl-item"><span class="tl-dot"></span><span>2.</span></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="alta (cobertura cruzada en forbes, law.com y comunicación propia de la empresa).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-3')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Crosby — Servicio Legal &quot;AI-Native&quot; a Precio Fijo por Documento (Patrón Adaptable a Chile)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 4 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-3" hidden>
+    <p class="opp-desc">en vez de vender software de revisión de contratos, Crosby vende el servicio completo de revisión legal (NDA, MSA, acuerdos comerciales) combinando agentes de IA con abogados licenciados, cobrando por documento (no por hora) vía una interfaz nativa en Slack.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>13.000 contratos revisados, 400% de crecimiento de ingresos desde octubre de 2025, tiempo mediano de respuesta de 58 minutos, ~100 empresas clientes (incluidas Cursor y Runway), precio fijo de US$250-1.000 por contrato. Acaba de cerrar una Serie B de US$60M liderada por Index Ventures, Lux Capital y Sequoia.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el patrón es replicable a escala micro sin levantar capital — un abogado chileno licenciado + un agente de IA revisando contratos comerciales/NDA a precio fijo con entrega en horas, no días, que es como se cobra y demora hoy este servicio en el mercado local. Distinto de &quot;General Legal IA&quot; y Magnar AI (ya cubiertos en reportes previos, enfocados en compliance regulatorio y copiloto legal general): Crosby es específicamente el mecanismo de precio fijo por documento vía chat, con abogado humano en el loop.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (cobertura cruzada en Forbes, Law.com y comunicación propia de la empresa).</span><a class="src-link" href="https://www.forbes.com/sites/rashishrivastava/2026/03/31/why-this-ai-law-firm-is-ditching-the-billable-hour/" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="alta (ronda de inversión y clientes nombrados con cifras de crecimiento verificadas vía chartmogul, cruzadas en múltiples medios especializados).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-4')" aria-expanded="false">
+    <div>
+      <div class="opp-name">diio — Asistente de IA para Venta Consultiva B2B (Caso Chileno)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-4" hidden>
+    <p class="opp-desc">asistente de IA que apoya a equipos de venta consultiva B2B (no atención masiva por chat, sino coaching y ejecución dentro del proceso de venta compleja).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>fundada en 2024 por Paolo Colonnello (ex-inversionista de Cornershop) y Nicolás Kipreos (cofundador de Beetrack); levantó US$2,5M de ronda semilla liderada por Base10 Partners (Silicon Valley). Tiene +200 empresas clientes en LATAM (Buk, Xepelin, Fintoc, Toku, Mendel, Cobre) y crece 25% mensual — según ChartMogul, más rápido que 4 de cada 5 SaaS del mundo. Toku redujo su ciclo de ventas 50%; Webdox duplicó su conversión en reuniones.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>confirma, junto con Vambe, que Chile ya tiene dos casos propios de &quot;agentes de IA para ventas&quot; con tracción real — pero diio ataca venta consultiva B2B (ciclos largos, reuniones), mientras Vambe ataca atención/venta masiva por WhatsApp. Queda espacio para un jugador enfocado en un solo vertical de venta consultiva que diio no cubre de forma dedicada (ej. solo seguros corporativos, solo servicios inmobiliarios B2B).</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Alta (ronda de inversión y clientes nombrados con cifras de crecimiento verificadas vía ChartMogul, cruzadas en múltiples medios especializados).</span><a class="src-link" href="https://startupslatam.com" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="14"
+     data-seg="0"
+     data-conf="media (cifra de reembolsos gestionados citada en medio especializado, sin filing público auditable ni segunda fuente independiente).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-5')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Gokei — Automatización de Reembolsos de Salud (Isapre/Seguros)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 5</div>
+    </div>
+    <div class="score high">14/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-5" hidden>
+    <p class="opp-desc">plataforma que automatiza el trámite de reembolso de gastos médicos ante Isapres y seguros complementarios, un proceso hoy manual y burocrático para el paciente chileno.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>ya gestionó **más de US$2,5M** en reembolsos de salud para miles de pacientes en Chile, con ronda de inversión que incluye a fundadores del primer unicornio chileno (NotCo) entre sus inversionistas.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>el dolor es 100% local y estructural (proceso de reembolso Isapre conocido por su fricción), y Gokei ya valida que hay demanda real dispuesta a delegarlo. Queda espacio para un jugador enfocado específicamente en pymes (gestión de reembolsos como beneficio corporativo tercerizado) o en seguros complementarios que Gokei no ataque de forma prioritaria.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifra de reembolsos gestionados citada en medio especializado, sin filing público auditable ni segunda fuente independiente).</span><a class="src-link" href="https://startupslatam.com" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="13"
+     data-seg="0"
+     data-conf="media-alta (cifra de arr y ronda reportadas en medio especializado, sin cruce con una segunda fuente independiente en esta búsqueda).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-6')" aria-expanded="false">
+    <div>
+      <div class="opp-name">AgendaPro — Vertical SaaS + Pagos Embebidos que Escaló a Fintech (Caso Chileno/LATAM)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 3 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score high">13/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-6" hidden>
+    <p class="opp-desc">SaaS de agendamiento para negocios de servicios (spas, clínicas, estudios), que fue agregando pagos embebidos y ahora lanzó &quot;Julia&quot;, una recepcionista de IA.</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>+20.000 comercios activos en la región, facturación anual de US$10M, y cerró una Serie B de US$35M en agosto de 2025.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>confirma el patrón &quot;vertical SaaS + fintech embebido&quot; como modelo escalable en LATAM incluyendo Chile, pero AgendaPro cubre los verticales más obvios (spas, clínicas estéticas). Queda espacio para el mismo patrón en nichos más angostos que AgendaPro no prioriza (ej. estudios de tatuajes, escuelas de conducir, estudios jurídicos pequeños) donde hoy se agenda por WhatsApp/planilla sin ninguna capa de pago integrada.</div>
+    <div class="opp-foot"><span class="conf conf-alta">Confianza: Media-Alta (cifra de ARR y ronda reportadas en medio especializado, sin cruce con una segunda fuente independiente en esta búsqueda).</span><a class="src-link" href="https://startupslatam.com" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+<div class="opp "
+     data-score="12"
+     data-seg="0"
+     data-conf="media (cifra &quot;cercana a us$4m&quot; no verificada de primera mano, sin filing público auditable).">
+  
+  <button class="opp-head" onclick="tog('opp-oportunidades-2026-08-05-7')" aria-expanded="false">
+    <div>
+      <div class="opp-name">Vestuá — Marketplace de Consignación de Ropa de Segunda Mano (Caso Chileno, Patrón Adaptable)</div>
+      <div class="opp-axes">Factibilidad 3 · Impacto 3 · Velocidad 2 · Escalabilidad Chile 4</div>
+    </div>
+    <div class="score mid">12/20</div>
+  </button>
+  <div class="opp-body" id="opp-oportunidades-2026-08-05-7" hidden>
+    <p class="opp-desc">marketplace de ropa femenina de segunda mano bajo modelo de consignación (el vendedor no gestiona nada; Vestuá recibe, autentica, fotografía y vende la prenda).</p>
+    <div class="box why"><strong>Por qu&eacute; funciona</strong>ventas cercanas a US$4M, +100.000 prendas en consignación, expansión ya en curso a México, con inversión liderada por H&amp;M, Komax y Grupo Prisma.</div><div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>valida que el modelo de consignación + logística tercerizada funciona a escala en el mercado local, pero Vestuá se enfoca en ropa femenina. Queda espacio para el mismo patrón operativo aplicado a otras categorías sin jugador dominante (ropa infantil, ropa deportiva/outdoor, muebles pequeños) donde la fricción de venta peer-to-peer (fotografiar, negociar, despachar) sigue siendo alta para el vendedor individual.</div>
+    <div class="opp-foot"><span class="conf conf-media">Confianza: Media (cifra &quot;cercana a US$4M&quot; no verificada de primera mano, sin filing público auditable).</span><a class="src-link" href="https://www.bloomberglinea.com" target="_blank" rel="noopener">&rarr; VER FUENTE</a></div>
+    
+  </div>
+</div>
+  </div>
+</div>
 <div class="report" data-group="inmobiliario" id="rep-inmobiliario-2026-08-05">
-  <button class="report-head" onclick="togRep('inmobiliario-2026-08-05')" aria-expanded="true">
+  <button class="report-head" onclick="togRep('inmobiliario-2026-08-05')" aria-expanded="false">
     <div style="flex:1">
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
         <span class="report-date">2026-08-05</span>
@@ -184,10 +402,10 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
       <span class="pill">7 IDEAS</span>
       <span class="pill">PROM 13.0</span>
       
-      <span class="chev" style="transform:rotate(90deg)">&#9658;</span>
+      <span class="chev" >&#9658;</span>
     </div>
   </button>
-  <div class="report-body" id="rep-body-inmobiliario-2026-08-05">
+  <div class="report-body" id="rep-body-inmobiliario-2026-08-05" hidden>
     <div class="fuentes">FUENTES: ~53 búsquedas (WebSearch) en dos líneas paralelas — Chile y mundo/LATAM —, 15 fuentes distintas citadas. Ángulo del día (rotación miércoles): casos chilenos con métricas (corredores, inmobiliarias, startups locales). Cada hallazgo se recotejó contra `INDICE_IDEAS.md` antes de incluirse. Ningún WebFetch se ejecutó esta sesión (todo el hallazgo viene de snippets de WebSearch); no se confirmaron dominios 403 nuevos porque no se intentó fetch directo.</div>
     
 <div class="opp destacada"
@@ -17066,7 +17284,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;text-align
 <div class="footer">
   Generado por agentes remotos Claude &middot;
   repo: maolivare-max/inteligencia-negocios &middot;
-  113 reportes &middot; 664 ideas en archivo
+  114 reportes &middot; 672 ideas en archivo
 </div>
 
 <script>

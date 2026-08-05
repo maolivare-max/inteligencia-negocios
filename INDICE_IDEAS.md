@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-05 · Oportunidades de Negocio · Portales de Empleo Hiper-Verticales en Dólares — Patrón RemoteOK / Japan Dev, Adaptado a Talento Chileno (Score 16/20)
+- 2026-08-05 · Oportunidades de Negocio · Chatbase — Bootstrap de Solo-Founder a US$10M ARR, Patrón Adaptado a un Chatbot en Español para Pymes (Score 16/20)
+- 2026-08-05 · Oportunidades de Negocio · Vambe — Agentes de IA Conversacional de Ventas por WhatsApp/Instagram (Caso Chileno) (Score 15/20)
+- 2026-08-05 · Oportunidades de Negocio · Crosby — Servicio Legal "AI-Native" a Precio Fijo por Documento (Patrón Adaptable a Chile) (Score 14/20)
+- 2026-08-05 · Oportunidades de Negocio · diio — Asistente de IA para Venta Consultiva B2B (Caso Chileno) (Score 14/20)
+- 2026-08-05 · Oportunidades de Negocio · Gokei — Automatización de Reembolsos de Salud (Isapre/Seguros) (Score 14/20)
+- 2026-08-05 · Oportunidades de Negocio · AgendaPro — Vertical SaaS + Pagos Embebidos que Escaló a Fintech (Caso Chileno/LATAM) (Score 13/20)
+- 2026-08-05 · Oportunidades de Negocio · Vestuá — Marketplace de Consignación de Ropa de Segunda Mano (Caso Chileno, Patrón Adaptable) (Score 12/20)
 - 2026-08-05 · Marketing Inmobiliario · Video Corto (≤30 Segundos) como Palanca de CPL — Caso Chileno de -52% Confirmado por Benchmarks Globales de TikTok y Reels (Score 17/20)
 - 2026-08-05 · Marketing Inmobiliario · Guthrie Schofield Group (EE.UU.) — Especialización Geográfica Hiperlocal Reduce el CAC a US$21 por Comprador (Score 15/20)
 - 2026-08-05 · Marketing Inmobiliario · Profesionalización del Corretaje como Diferenciador de Marketing — 81% de las Denuncias Contra Corredores en Chile No Son Acogidas (Score 13/20)
