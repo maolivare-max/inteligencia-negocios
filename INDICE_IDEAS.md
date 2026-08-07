@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-07 · Oportunidades de Negocio · Marketplace de Comisión 0% para Freelancers LATAM — Arbitraje del Modelo Contra vs. la Comisión Escalonada de Workana (Score 12/20)
 - 2026-08-05 · Oportunidades de Negocio · Portales de Empleo Hiper-Verticales en Dólares — Patrón RemoteOK / Japan Dev, Adaptado a Talento Chileno (Score 16/20)
 - 2026-08-05 · Oportunidades de Negocio · Chatbase — Bootstrap de Solo-Founder a US$10M ARR, Patrón Adaptado a un Chatbot en Español para Pymes (Score 16/20)
 - 2026-08-05 · Oportunidades de Negocio · Vambe — Agentes de IA Conversacional de Ventas por WhatsApp/Instagram (Caso Chileno) (Score 15/20)
