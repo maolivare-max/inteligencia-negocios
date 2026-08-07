@@ -1,0 +1,378 @@
+dominio|id|nombre|veredicto_chile|accion|nivel|prioridad
+tendencias|brokerage-nube-revenue-share-ia-nativa|Brokerage 100% nube con agentes autónomos, revenue share y acciones pa|APLICA_CON_AJUSTES|OBSERVAR|N2|P4
+tendencias|pujas-transparentes-digitales-paises-bajos|Pujas digitales transparentes obligatorias (biedlogboek + subasta onli|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|viager-tech-liquidez-senior-francia|Viager-tech: plataformas de liquidez inmobiliaria para mayores de 60 (|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|crowdfunding-promotor-minorista-espana|Crowdfunding regulado como financiación principal de promotores median|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|flex-living-espana|Flex living: el alquiler flexible se institucionaliza como clase de ac|APLICA_CON_AJUSTES|OBSERVAR|N3|P5
+tendencias|informacion-anticipada-paquetes-digitales-reforma|Venta con 'material information' obligatoria y paquetes digitales de p|APLICA|ADOPTAR_YA|N3|P1
+tendencias|subasta-metodo-moderno-canal-agencias|El 'Modern Method of Auction' como canal de venta masivo distribuido v|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|ai-scouts-prospeccion-autonoma-captaciones|Prospección autónoma con 'AI Scouts': la IA encuentra al vendedor y le|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|guerra-portales-costar-onthemarket|Guerra de portales: CoStar gasta 3x el presupuesto de marketing de Rig|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P1
+tendencias|btr-single-family-housing-institucional|Pivote de las constructoras al Build-to-Rent unifamiliar: capital inst|APLICA_CON_AJUSTES|PILOTEAR|N2|P4
+tendencias|valoracion-ia-precio-honesto-howsold|Agencias 'honest pricing': valoración instantánea con IA sobre precios|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|multipropriedade-fraccionamiento-vacacional-brasil|Multipropriedade: propiedad vacacional fraccionada con escritura llega|NO_APLICA_AUN|OBSERVAR|N2|PNone
+tendencias|tokenizacion-inmobiliaria-retail-brasil|Tokenización inmobiliaria regulada para inversión fraccionada retail c|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|leiloes-digitales-inmuebles-brasil|Leilões 100% digitales: las subastas online de inmuebles bancarios se |APLICA|ADOPTAR_YA|N2|P3
+tendencias|estado-constructor-vivienda-bienestar-mexico|El Estado como desarrollador: Infonavit pasa de financiar a construir |APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|branded-residences-capital-mundial|Branded residences como motor global de premium pricing y preventa (Du|APLICA_CON_AJUSTES|PILOTEAR|N2|P3
+tendencias|programa-first-time-buyer-gobierno-como-canal|El gobierno como canal de ventas: First-Time Home Buyer Programme con |APLICA|ADOPTAR_YA|N4|P1
+tendencias|cityscape-riyadh-arena-transaccional|La feria inmobiliaria como arena transaccional: USD 63.2 bn en deals e|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|sakani-marketplace-estatal-offplan|Sakani/NHC: el marketplace estatal de vivienda off-plan con metaverso |APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P2
+tendencias|apertura-saudi-compradores-extranjeros-2026|Apertura saudí a compradores extranjeros (enero 2026) con propiedad fr|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|sm-reits-fraccionamiento-regulado-india|SM REITs: fraccionamiento inmobiliario regulado y listado en bolsa (In|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+tendencias|voice-ai-vernacula-inmobiliaria-india|Agentes de voz IA multilingües/vernáculos para calificación de leads (|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P1
+tendencias|agente-ia-comprador-maia-singapur|Agente IA del comprador que agrega portales y negocia visitas por What|NO_APLICA_AUN|OBSERVAR|N5|PNone
+tendencias|marketplace-o2o-desarrollador-vinhomes-vietnam|Vinhomes Market: e-commerce O2O propio del desarrollador con flash sal|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|canal-nri-ventas-digitales-transfronterizas-india|Venta transfronteriza 100% remota a la diáspora como canal de crecimie|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|china-viviendas-cuarta-generacion-area-regalada|Viviendas de 'cuarta generación': sky gardens y ratio de área útil de |APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+tendencias|beike-plataforma-ia-corretaje-integrado|Beike/KE Holdings: IA embebida en todo el funnel de corretaje, arriend|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|hongkong-playbook-comprador-continental-cies|Hong Kong: lanzamientos subvalorados por lotes + visa de inversión (CI|APLICA_CON_AJUSTES|PILOTEAR|N2|P3
+tendencias|corea-colapso-jeonse-renta-institucional|Corea: colapso del jeonse y giro a renta mensual gestionada institucio|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|japon-marketplaces-akiya-en-ingles-para-extranjeros|Japón: marketplaces y servicios concierge en inglés para vender casas |APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|guerra-portales-costar-domain-vs-modelo-vendor-paid|Guerra de portales: CoStar compra Domain y ataca el modelo 'vendor-pai|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P1
+tendencias|land-lease-communities-ipo-gemlife|Boom del modelo 'land lease community' para mayores de 50, validado en|NO_APLICA_AUN|OBSERVAR|N2|PNone
+tendencias|coposit-deposito-escalonado-off-the-plan|Depósito escalonado tipo 'layaway' para venta en verde: Coposit con av|APLICA|ADOPTAR_YA|N4|P2
+tendencias|nurturecloud-prospeccion-ia-escala-red|Prospección con IA a escala de red completa: NurtureCloud de Ray White|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|boom-buyers-agents-australia|Boom de los buyer's agents pagados por el comprador (a contracorriente|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|btr-fondos-pension-kiwisaver-simplicity|Build-to-rent financiado por fondos de pensiones KiwiSaver con contrat|APLICA_CON_AJUSTES|OBSERVAR|N4|P5
+tendencias|nz-reapertura-compradores-extranjeros-golden-visa|NZ reabre la venta de vivienda de lujo a extranjeros vía golden visa: |APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|tiktok-lead-ads-smart-plus|Lead ads nativos e IA Smart+ de TikTok para captar visitas y consultas|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|video-corto-en-portales-zillow-showcase|El short-form salta a los portales: Showcase Video de Zillow y media i|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|brokerage-media-company-agente-creador|Brokerage como media company (modelo SERHANT): estudio propio, reality|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|livestream-commerce-inmobiliario|Live commerce inmobiliario a escala industrial en China (Douyin/Kuaish|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|busqueda-social-hiperlocal|TikTok/IG como buscador inmobiliario: SEO social y contenido hiperloca|APLICA|ADOPTAR_YA|N2|P1
+tendencias|listing-reels-foto-a-video-ia|Foto-a-video con IA: reels de listings generados automáticamente desde|APLICA|ADOPTAR_YA|N3|P1
+tendencias|avatares-ia-y-video-multilingue-del-agente|Avatares IA y clones digitales del agente para video corto multilingüe|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+tendencias|agentes-ia-video-cara-a-cara|Agentes de venta de IA 'cara a cara' que atienden y muestran propiedad|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|disclosure-obligatorio-imagenes-ia|Disclosure obligatorio de imágenes alteradas con IA (California AB 723|APLICA|ADOPTAR_YA|N3|P2
+tendencias|crm-agentico-sistema-operativo-ia|Del CRM pasivo al sistema operativo agéntico: copilotos de IA nativos |APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|integracion-vertical-portal-crm-zillow-pro|Integración vertical portal+CRM: Zillow Pro con Follow Up Boss como ba|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|leasing-ia-multifamily-portal-renta|AI leasing agents en multifamily embebidos en portal y CRM de leasing |APLICA_CON_AJUSTES|OBSERVAR|N2|P4
+tendencias|whatsapp-first-crm-inmobiliario|CRM WhatsApp-first multiagente sobre la API oficial como sistema opera|APLICA|ADOPTAR_YA|N2|P1
+tendencias|sla-speed-to-lead-enrutamiento|Speed-to-lead como SLA operativo: protocolo de 5 minutos con enrutamie|APLICA_CON_AJUSTES|ADOPTAR_YA|N1|P1
+tendencias|click-to-whatsapp-ads-reemplazan-lead-forms|Click-to-WhatsApp ads desplazan a los formularios de Meta como captado|APLICA|PILOTEAR|N3|P2
+tendencias|nurturing-ventana-gratuita-72h-pricing-por-mensaje|Nurturing comprimido en la ventana gratuita de 72 horas tras el nuevo |APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P3
+tendencias|whatsapp-flows-formularios-nativos-en-chat|WhatsApp Flows: formularios y agendamiento nativos sin salir del chat|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|portales-boton-whatsapp-pipeline-crm|Portales inmobiliarios productizan el lead por WhatsApp y lo inyectan |APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|rcs-canal-emergente-prelanzamientos|RCS como canal rich-media emergente para prelanzamientos inmobiliarios|NO_APLICA_AUN|DESCARTAR|N5|PNone
+tendencias|whatsapp-first-lanzamientos-offplan-golfo|Funnel WhatsApp-first para lanzamientos off-plan en Dubai y el Golfo|APLICA_CON_AJUSTES|PILOTEAR|N3|P1
+tendencias|portales-inmobiliarios-como-apps-dentro-de-chatgpt|Portales inmobiliarios como apps nativas dentro de ChatGPT y asistente|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|aeo-para-agentes-ser-el-recomendado-por-la-ia|AEO/GEO: optimizar para ser el agente recomendado por ChatGPT, Perplex|APLICA|ADOPTAR_YA|N3|P3
+tendencias|digital-pr-reddit-y-resenas-como-motor-de-citas-ia|Digital PR + Reddit + reseñas: optimizar los sitios de terceros que la|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|trafico-referido-por-ia-medicion-y-alta-conversion|Medición del tráfico referido por IA: poco volumen, conversión radical|APLICA|ADOPTAR_YA|N4|P4
+tendencias|listings-redactados-para-llms|Redacción de listings optimizada para LLMs: 'ChatGPT no ve tus fotos, |APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P2
+tendencias|contenido-hiperlocal-como-materia-prima-de-llms|Guías hiperlocales profundas (barrios, colegios, costo de vida) diseña|APLICA|ADOPTAR_YA|N3|P2
+tendencias|busqueda-conversacional-nativa-en-portales|Búsqueda conversacional nativa en portales: de filtros a lenguaje natu|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|llms-txt-y-datos-estructurados-para-crawlers-ia|Preparación técnica del sitio para crawlers de IA: llms.txt + schema c|APLICA|PILOTEAR|N5|P4
+tendencias|equipos-marketing-ia-autonomos-nurture-email|Equipos de marketing IA autónomos que ejecutan el nurture por email de|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|nurture-conductual-reemplaza-drip-calendario|Nurture conductual: secuencias disparadas por señales de comportamient|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P1
+tendencias|crm-prediccion-intencion-30-60-90-dias|CRM con predicción de intención a 30/60/90 días que autogenera campaña|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|farming-omnicanal-postal-digital-email|Farming omnicanal automatizado: postal con QR + ads + secuencias de em|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|endurecimiento-deliverability-bulk-sender-2025|Endurecimiento de deliverability: las reglas bulk sender de Microsoft |APLICA|ADOPTAR_YA|N1|P3
+tendencias|open-house-experiencial-lifestyle|Open houses como eventos de lifestyle (chef, DJ, valet y tema curado)|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|open-house-sistema-leadgen-medible|El open house como sistema de captación medible (QR + contenido SEO + |APLICA|ADOPTAR_YA|N2|P1
+tendencias|launch-weekend-masivo-singapur|El 'launch weekend' de Singapur: preview de 2 semanas + venta-evento d|APLICA_CON_AJUSTES|PILOTEAR|N2|P4
+tendencias|ferias-preventa-data-driven-latam|Ferias inmobiliarias híbridas y data-driven como canal central de vent|APLICA_CON_AJUSTES|PILOTEAR|N2|P2
+tendencias|open-house-para-creadores-influencers|La propiedad como set de contenido: open houses y tours para creadores|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|ecosistemas-referidos-construidos-por-lenders|Lenders hipotecarios construyendo redes de referidos de agentes con tr|NO_APLICA_AUN|OBSERVAR|N3|PNone
+tendencias|zillow-preview-referido-al-listing-agent|Zillow Preview: pre-market público que paga 10% de referral fee al lis|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|redes-referidos-cerradas-comunidades-de-agentes|Redes de referidos agente-a-agente cerradas dentro de comunidades de e|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|brokerages-solo-referidos-license-parking|Brokerages de solo referidos (license parking) como modelo de ingreso |APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|programas-recomienda-y-gana-desarrolladores-latam|Programas 'recomienda y gana' formalizados por desarrolladoras de LatA|APLICA|ADOPTAR_YA|N2|P1
+tendencias|portales-postventa-cosecha-de-referidos|Portales de engagement post-cierre (client-for-life) expandiéndose a t|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|transparencia-referral-fees-presion-regulatoria|Presión por transparencia en referral fees: divulgación voluntaria tra|APLICA|ADOPTAR_YA|N4|P2
+tendencias|marketplace-hipotecas-asumibles-roam-eeuu|Hipotecas asumibles FHA/VA de 2-3% como atributo del listing y argumen|NO_APLICA_AUN|DESCARTAR|N3|PNone
+tendencias|trade-in-buy-before-you-sell-como-producto-de-conversion|Trade-in / 'Buy Before You Sell' empaquetado para agentes, lenders y b|APLICA_CON_AJUSTES|PILOTEAR|N3|P
+tendencias|subsidio-estatal-tasa-hipotecaria-chile-marketing-inmobiliar|Subsidio estatal a la tasa hipotecaria como motor comercial de la vivi|APLICA|ADOPTAR_YA|N2|P1
+tendencias|planes-pago-1-por-ciento-mensual-post-handover-dubai|Planes '1% mensual' y post-handover como mensaje publicitario central |APLICA_CON_AJUSTES|PILOTEAR|N2|P2
+tendencias|hipotecas-divisibles-credito-en-pozo-argentina|Hipotecas divisibles: crédito bancario para comprar 'en pozo' vía alia|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|lead-scoring-predictivo-reactivacion-base-datos|Lead scoring predictivo para reactivar la base de datos propia (modelo|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|modelos-prediccion-vendedores-portales|Modelos de predicción de vendedores en portales: valuation leads como |APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|personalizacion-affordability-tiempo-real-zillow|Personalización por affordability en tiempo real + búsqueda conversaci|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|segmentos-predicted-movers-ctv|Segmentos de 'predicted movers' activados en CTV y programmatic (Audie|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|inteligencia-propiedad-ai-ready-mcp-cotality|Inteligencia de propiedad 'AI-ready': plataformas de datos con precisi|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|big-data-captacion-espana-datavenues|Big data multi-portal para captación anticipada de propietarios en Esp|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P3
+tendencias|predictive-farming-smartzip-offrs|Farming predictivo de vendedores con scoring de propensión a listar (S|APLICA_CON_AJUSTES|PILOTEAR|N2|P2
+tendencias|guerra-de-vallas-portales-mls-chicago|Guerra de vallas físicas entre portales y brokerages por el control de|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|qr-valoracion-vivienda-direct-mail|QR de 'cuánto vale tu casa' (Home Value Estimate) en direct mail y señ|APLICA|ADOPTAR_YA|N3|P1
+tendencias|mega-lanzamiento-ooh-celebrity-dubai|Mega-lanzamientos con takeover OOH/DOOH liderado por celebridades (mod|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|espectaculares-led-anamorficos-inmobiliarios|Vallas espectaculares 3D anamórficas y LED escultóricas como activo de|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|naming-rights-transporte-desarrolladores|Naming rights de estaciones de metro e infraestructura urbana como bra|NO_APLICA_AUN|DESCARTAR|N4|PNone
+tendencias|pdooh-geofencing-retargeting-movil|DOOH programático con segmentación de audiencia + retargeting móvil po|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|commerce-media-portales-inmobiliarios|Commerce media inmobiliario: portales monetizan su audiencia first-par|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|busqueda-conversacional-portal-handoff-agente|Búsqueda conversacional en portales que termina en tour agendado o con|APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P2
+tendencias|tours-autoguiados-por-ia|Tours guiados por IA: el agente conversacional conduce la visita sin h|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|venta-end-to-end-whatsapp-latam|Venta inmobiliaria end-to-end por WhatsApp en LatAm (modelo Habi/La Ha|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P1
+tendencias|venta-conversacional-compliance-first-tcpa|Arquitectura de consentimiento 'compliance-first' para vender con IA d|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P2
+tendencias|analisis-llamadas-ia-coaching-automatizado|Conversation intelligence con IA para coaching de venta: grabación y s|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|roleplay-ia-entrenamiento-objeciones|Roleplay con IA por voz para entrenar manejo de objeciones inmobiliari|APLICA|ADOPTAR_YA|N2|P2
+tendencias|preparacion-cita-captacion-ia-cma-objeciones|Preparación de la cita de captación con IA: CMA generada por IA + ensa|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P3
+tendencias|tour-3d-como-filtro-de-oferta-sight-unseen|Tour 3D como pre-calificador de visitas y gatillador de ofertas 'sight|APLICA_CON_AJUSTES|ADOPTAR_YA|N1|P1
+tendencias|gemelo-digital-multicanal-cierre-preventa-off-plan|Salas de venta inmersivas con gemelo digital fotorrealista y XR (Unrea|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|video-1a1-cara-a-camara-seguimiento-cierre|Video 1:1 cara a cámara en el follow-up para comprimir los touchpoints|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P1
+tendencias|video-personalizado-avatar-ia-escala|Video personalizado con avatar IA y clonación de voz: follow-up 1:1 a |NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|tour-guiado-vivo-mas-cierre-digital-ron|Showing remoto guiado en vivo + cierre 100% digital con notarización o|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|defurnish-restaging-ia-dentro-del-tour-3d|Defurnish y re-staging con IA dentro del gemelo digital (Matterport Ma|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|ai-escrow-cierre-automatizado-propy|Cierre end-to-end operado por agentes de IA (AI escrow officer + roll-|NO_APLICA_AUN|DESCARTAR|N4|PNone
+tendencias|cyber-inmobiliario-reservas-flash-chile|Cyber inmobiliario: ventas flash con reserva online de bajo monto y de|APLICA|PILOTEAR|N3|P2
+tendencias|firma-electronica-ron-cierre-estandar|Firma electrónica + notarización remota online (RON) como infraestruct|APLICA_CON_AJUSTES|ADOPTAR_YA|N1|P1
+tendencias|dubai-digital-sale-checkout-estatal|Checkout inmobiliario estatal: compraventa 100% remota con título inst|NO_APLICA_AUN|OBSERVAR|N4|PNone
+tendencias|uk-acuerdos-reserva-digitales-conveyancing|Acuerdos de reserva digitales vinculantes + digitalización estatal del|APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P3
+tendencias|super-plataforma-end-to-end-rocket|Super-plataforma vertical de homeownership: búsqueda, hipoteca, título|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|embudo-comment-to-dm-to-contract|Embudo comment-to-DM: palabra clave en el reel, DM automatizado (ManyC|APLICA|PILOTEAR|N3|P2
+tendencias|soft-launch-canales-broadcast|Venta off-market por canales broadcast ('Soft Launch Club'): el listin|APLICA|ADOPTAR_YA|N4|P1
+tendencias|calificacion-y-cierre-whatsapp-ia|Agentes de IA sobre WhatsApp Business API: precalificación, manejo de |APLICA|ADOPTAR_YA|N3|P1
+tendencias|venta-via-creadores-partnerships-exclusivos|Venta vía creadores: partnerships exclusivos desarrollador-creador y a|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|social-selling-pipeline-principal|El social selling se institucionaliza como pipeline #1: NAR lo confirm|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P3
+tendencias|scoring-predictivo-ml-call-center|Scoring predictivo con ML sobre identity graph para priorizar el disca|NO_APLICA_AUN|OBSERVAR|N3|PNone
+tendencias|account-based-targeting-inversionistas-capital-ai|Account-based selling institucional de activos con IA propietaria (CBR|APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P2
+tendencias|ai-crm-fundraising-inversionistas-lp|AI CRM purpose-built para vender a inversionistas LP en mercados priva|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+tendencias|dispo-scoring-cash-buyers-por-deal|Disposición con scoring y ranking de cash buyers por deal (InvestorLif|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|marketplace-agentes-licenciados-inversionistas|Venta consultiva 1:1 de propiedades off-market a carteras de inversion|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|venta-consultiva-equity-likely-to-sell|Minería de la base propia con digests mensuales de equity y scores 'Li|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P1
+tendencias|rent-to-own-consolidacion-institucional|Rent-to-own 2.0: del startup VC al landlord institucional|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|comision-comprador-negociada-post-nar|Co-broking post-NAR: compensación del agente comprador negociada deal |APLICA|ADOPTAR_YA|N1|P2
+tendencias|eoi-digital-lanzamientos-offplan-dubai|Playbook de lanzamiento off-plan en Dubái: EOI digital con fila virtua|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|ofertas-transparentes-tiempo-real-countdown|Plataformas de ofertas transparentes en tiempo real con cuenta regresi|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|negociacion-ofertas-con-ia-home-checkout|Gestión y negociación de ofertas con IA ('Home Checkout' de Indigo)|APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P3
+tendencias|subasta-acelerada-sin-reserva-lujo|Subasta online acelerada y sin reserva para propiedades de lujo estanc|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|sorteos-premium-casas-omaze|Venta de casas vía sorteo premium online (modelo Omaze): gamificación |NO_APLICA_AUN|DESCARTAR|N4|PNone
+tendencias|ecommerce-directo-desarrollador-inventario-vivo|E-commerce directo del desarrollador/builder: checkout online con inve|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|preventa-escalonada-precios-programados-latam|Preventa escalonada con 'founder buyers' y alzas de precio programadas|APLICA|PILOTEAR|N3|P1
+tendencias|nps-postventa-pipeline-referidos-homebuilders|Pipeline NPS-a-referido: la encuesta postventa como primer paso del ci|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P1
+tendencias|flywheel-eventos-apreciacion-clientes|Flywheel de eventos de apreciación: calendario anual de comunidad como|APLICA|ADOPTAR_YA|N2|P2
+tendencias|upsell-multiunidad-propietarios-inversionistas-offplan|Upsell multi-unidad a propietarios existentes: prioridad de inventario|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|referidos-residentes-multifamily-sistematizados|Programas y plataformas sistematizadas de referidos de residentes en m|APLICA_CON_AJUSTES|PILOTEAR|N2|P4
+tendencias|recompra-inversionista-renta-garantizada-campanas|Campañas de recompra a inversionistas existentes con renta garantizada|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|redes-privadas-de-listados-marketing-en-fases|Redes privadas de listados y marketing en 3 fases pre-MLS (Compass Pri|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|buydowns-permanentes-de-tasa-como-motor-de-venta-nueva|Rate buydowns financiados por el builder/developer (vía hipotecarias p|APLICA_CON_AJUSTES|PILOTEAR|N1|P3
+tendencias|listados-premium-rich-media-zillow-showcase|Zillow Showcase: listing premium rich media con staging virtual IA con|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P2
+tendencias|isa-de-ia-para-conversion-y-reactivacion-de-leads|ISA de IA por texto y voz sobre el CRM (Ylopo, Structurely, Lofty): re|APLICA|ADOPTAR_YA|N3|P1
+tendencias|acuerdos-de-representacion-comprador-post-nar|Venta del valor del buyer agent por contrato: el playbook post-acuerdo|APLICA_CON_AJUSTES|PILOTEAR|N1|P3
+tendencias|publicidad-abm-ia-leasing-oficinas|Publicidad ABM con IA para leasing de oficinas Class A (modelo RealtyA|APLICA_CON_AJUSTES|DESCARTAR|N3|P4
+tendencias|spec-suites-modelo-casa-piloto|Spec suites 2.0: vender oficinas como 'casa piloto' lista para entrar|APLICA_CON_AJUSTES|OBSERVAR|N2|P5
+tendencias|subastas-digitales-venta-cre|Subastas digitales como canal mainstream de venta de activos comercial|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|flex-office-management-agreements|Landlords se vuelven operadores: management agreements y marcas flex p|APLICA_CON_AJUSTES|OBSERVAR|N2|P5
+tendencias|bts-especulativo-nearshoring-mexico|Industrial México: nave especulativa que se pre-vende como built-to-su|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+tendencias|powered-land-data-centers|'Powered land': reposicionar y vender suelo industrial por su acceso a|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|sale-leaseback-industrial-monetizacion|Sale-leaseback industrial como financiamiento corporativo alternativo|APLICA|ADOPTAR_YA|N2|P3
+tendencias|plataformas-ia-propietarias-brokerages|Plataformas y asistentes de IA propietarios de los grandes brokerages |APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P1
+tendencias|off-plan-trophy-deals-dubai|Venta off-plan de 'trophy assets': penthouses de US$100M+ vendidos en |APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|sales-galleries-inmersivas-preventa|Sales galleries inmersivas con hospitality marketing para vender brand|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P2
+tendencias|divisiones-cripto-y-tokenizacion-lujo|Divisiones cripto en brokerages de lujo y tokenización de activos de d|APLICA_CON_AJUSTES|OBSERVAR|N4|P5
+tendencias|wellness-longevity-como-ancla-de-producto|Wellness y longevidad clínica como ancla de producto y argumento de ve|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|financiamiento-retail-e-hipotecas-para-copropiedad-fracciona|Copropiedad fraccional escalada con capital retail e hipotecas específ|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|redes-de-intercambio-de-casas-como-perk-de-compra|Redes privadas de intercambio de casas como argumento de venta de la s|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+tendencias|segunda-vivienda-vendida-como-activo-de-renta|El pitch dominante: la casa vacacional como activo generador de ingres|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P2
+tendencias|venta-remota-digital-al-comprador-internacional|Venta 100% remota de segunda vivienda al comprador internacional (Espa|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|try-before-you-buy-estancias-de-prueba|Try-before-you-buy: estancias de prueba pagadas como herramienta de ci|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P1
+tendencias|land-banking-reit-lotes-por-opcion|Land banking institucional vía REIT: lotes terminados entregados 'just|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+tendencias|ia-adquisicion-suelo-y-zonificacion|Agentes de IA para sourcing de terrenos y factibilidad de zonificación|APLICA_CON_AJUSTES|ADOPTAR_YA|N3|P3
+tendencias|btr-pods-dentro-de-masterplans|Pods de build-to-rent integrados dentro del masterplan (en vez de comu|APLICA_CON_AJUSTES|PILOTEAR|N3|P4
+tendencias|venta-lifestyle-multigeneracional-mpc|Venta 'lifestyle' multigeneracional: vender el barrio (no la casa) con|APLICA|ADOPTAR_YA|N2|P2
+tendencias|cuotas-sin-banco-whatsapp-loteos-latam|Loteos vendidos 100% con financiación propia en cuotas (sin banco) y W|APLICA_CON_AJUSTES|PILOTEAR|N2|P2
+tendencias|land-flipping-sms-owner-financing|Land flipping multicanal en EE.UU.: blind offers por correo directo + |NO_APLICA_AUN|DESCARTAR|N4|PNone
+tendencias|mpc-developer-como-holding-diversificado|El desarrollador de masterplans como holding: monetizar la tierra a pr|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|automatizacion-whatsapp-ia-preventa-lotes|Funnels de preventa de lotes con WhatsApp automatizado + IA de calific|APLICA|PILOTEAR|N3|P1
+tendencias|tokenizacion-estatal-titulos-fraccionados|Tokenización estatal de títulos de propiedad con fraccionamiento y mer|APLICA_CON_AJUSTES|OBSERVAR|N4|P3
+tendencias|ibuyer-pivot-agent-led-cash-offers|iBuyer 2.0: pivote a cash offers asset-light distribuidas vía agentes |APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|zillow-ai-mode|Zillow AI Mode (búsqueda conversacional)|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|rightmove-use-ai-conversational|Rightmove 'Use AI' + respuestas de agente con Gemini|APLICA_CON_AJUSTES|PILOTEAR|N4|P2
+tendencias|realtor-realassist-ai|Realtor.com RealAssist AI (con Google Gemini)|APLICA_CON_AJUSTES|OBSERVAR|N4|P3
+tendencias|costar-homes-ai-your-lead|CoStar Homes AI + modelo 'Your Listing, Your Lead'|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+tendencias|ai-voice-agents-speed-to-lead|Agentes de voz IA + CRM agéntico (speed-to-lead)|APLICA_CON_AJUSTES|PILOTEAR|N3|P1
+tendencias|opendoor-key-connections-realscout|Opendoor Key Connections + 'Cash Now, More Later' vía RealScout|NO_APLICA_AUN|OBSERVAR|N4|P5
+tendencias|assumable-mortgage-platforms|Plataformas de hipoteca asumible (Roam, RetroRate)|NO_APLICA_AUN|DESCARTAR|N4|P5
+tendencias|short-form-vertical-video-native|Video vertical short-form nativo + video de listing con IA|APLICA|ADOPTAR_YA|N2|P1
+tendencias|ai-virtual-staging-disclosure|Home staging virtual con IA + disclosure obligatorio|APLICA_CON_AJUSTES|ADOPTAR_YA|N2|P2
+tendencias|portals-in-chatgpt-apps|Portales dentro de ChatGPT (distribución agéntica)|NO_APLICA_AUN|OBSERVAR|N5|P4
+tendencias|pairgap-co-buying-prenup|Co-compra con 'prenup inmobiliario' (Pairgap)|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|re-eu-gulf-01|Depósitos escalonados y planes post-handover en venta off-plan (Golfo)|APLICA_CON_AJUSTES|ADOPTAR_YA|N4|P1
+tendencias|re-eu-gulf-02|Branded residences como categoría de producto (Golfo + Arabia + Europa|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+tendencias|re-eu-gulf-03|Tokenización y propiedad fraccionada respaldada por el Estado (DLD Dub|NO_APLICA_AUN|OBSERVAR|N2|P5
+tendencias|re-eu-gulf-04|Funnels WhatsApp-first con IA conversacional (agentic)|APLICA|ADOPTAR_YA|N5|P1
+tendencias|re-eu-gulf-05|Flex living institucional como asset class (España)|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+tendencias|re-eu-gulf-06|Crowdfunding inmobiliario como financiamiento de promotores (Urbanitae|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|re-eu-gulf-07|Marketplace estatal + venta off-plan digital regulada (Wafi/Sakani, Ar|APLICA_CON_AJUSTES|PILOTEAR|N2|P3
+tendencias|re-eu-gulf-08|Pago de propiedad en cripto/stablecoins (Dubái)|NO_APLICA_AUN|OBSERVAR|N2|P5
+tendencias|re-eu-gulf-09|Ferias inmobiliarias transaccionales de gran escala (SIMA Madrid)|APLICA|PILOTEAR|N4|P2
+tendencias|re-eu-gulf-10|Home staging virtual con IA y video generativo de listings|APLICA|ADOPTAR_YA|N5|P1
+tendencias|re-ventas-2026-01|Agente de IA conversacional en WhatsApp que califica y agenda visitas |APLICA|ADOPTAR_YA|N5|P5
+tendencias|re-ventas-2026-02|Live selling de propiedades: transmisión simultánea TikTok + Instagram|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|re-ventas-2026-03|Sales enablement con IA: role-play de objeciones y scripts dinámicos|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|re-ventas-2026-04|Voice AI + lead scoring predictivo con respuesta en <90 segundos|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+tendencias|re-ventas-2026-05|Tour inmersivo 3D (Matterport) como herramienta de cierre|APLICA|ADOPTAR_YA|N4|P4
+tendencias|re-ventas-2026-06|Reserva digital + firma electrónica + pago de pie online end-to-end|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|re-ventas-2026-07|Rent-to-own / arriendo con opción a compra como cierre de leads no ban|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+tendencias|re-ventas-2026-08|Propiedad fraccionada / co-ownership para segunda vivienda|APLICA_CON_AJUSTES|OBSERVAR|N2|P2
+tendencias|re-ventas-2026-09|Co-broking / MLS colaborativa con comisión compartida|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|re-ventas-2026-10|Urgencia/escasez digital vía broadcast segmentado en WhatsApp|APLICA|ADOPTAR_YA|N4|P4
+tendencias|re-ventas-2026-11|Postventa como motor de referidos con CRM (programa two-sided)|APLICA|ADOPTAR_YA|N4|P5
+tendencias|re-ventas-2026-12|Social selling y venta por DM omnicanal (WhatsApp/Instagram/Facebook) |APLICA|PILOTEAR|N4|P4
+tendencias|apac-001|Coposit: depósito escalonado off-the-plan ($10.000 + cuotas semanales)|APLICA_CON_AJUSTES|PILOTEAR|N4|P5
+tendencias|apac-002|Propic 'Claire': voz IA conversacional multilingüe sobre la ficha del |APLICA_CON_AJUSTES|PILOTEAR|N4|P5
+tendencias|apac-003|SM REITs: fracciones inmobiliarias reguladas y tokenización cumpliendo|NO_APLICA_AUN|OBSERVAR|N3|P2
+tendencias|apac-004|Voz IA vernácula para inmobiliarias (Bolna, VaaniAI, CarmaOne)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+tendencias|apac-005|Land-lease communities: comunidades de tierra arrendada para 50+|NO_APLICA_AUN|OBSERVAR|N3|P2
+tendencias|apac-006|Tokenización regulada de real estate bajo MAS Project Guardian|NO_APLICA_AUN|OBSERVAR|N2|P1
+tendencias|apac-007|Prospección IA a escala de red: 'Real Estate of Origin' + NurtureCloud|APLICA|ADOPTAR_YA|N4|P5
+tendencias|apac-008|PropTrack Buyer Impact Model: dato de intención del comprador|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+tendencias|apac-009|Live commerce inmobiliario: venta de viviendas por livestream|APLICA_CON_AJUSTES|PILOTEAR|N4|P4
+tendencias|apac-010|Marketplace O2O de transacción (Beike/KE Holdings): red de cooperación|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+tendencias|apac-011|Proptech end-to-end e IA-vivienda en Japón (MW 'Living Home')|APLICA_CON_AJUSTES|OBSERVAR|N2|P2
+tendencias|apac-012|Concierge IA de administración/relación (Ray White AKG + Propic Concie|APLICA_CON_AJUSTES|PILOTEAR|N4|P3
+ideas|limpieza-airbnb-remota|Empresa de limpieza residencial/Airbnb 100% remota: el dueño capta, ag|APLICA_CON_AJUSTES|EMPEZAR_YA|N2|P2
+ideas|lavado-vidrios-presion-remoto|Lavado de vidrios y limpieza a presión operado desde el laptop|APLICA_CON_AJUSTES|OBSERVAR|N2|P5
+ideas|lavanderia-delivery-sin-local|Lavandería con retiro y entrega por suscripción, sin lavandería propia|APLICA_CON_AJUSTES|DESCARTAR|N2|P4
+ideas|retiro-fecas-mascotas-suscripcion|Retiro semanal de fecas de mascotas por suscripción (pooper scooper)|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|vending-inteligente-telemetria|Red de máquinas vending inteligentes gestionada 100% remota con teleme|APLICA|EMPEZAR_YA|N1|P1
+ideas|gestion-remota-minibodegas|Gestión remota third-party de mini-bodegas de dueños pequeños (modelo |APLICA_CON_AJUSTES|OBSERVAR|N4|P3
+ideas|detailing-movil-remoto|Detailing/lavado de autos móvil operado remoto con agenda IA|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P4
+ideas|marketplace-jardineria-cotizacion-instantanea|Marketplace de jardineros con precio instantáneo y corte recurrente (c|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|directorio-maestros-verificados-suscripcion|Directorio de maestros verificados con suscripción mensual (modelo Che|APLICA_CON_AJUSTES|OBSERVAR|N2|P4
+ideas|rank-and-rent-oficios-comuna|Rank & rent: sitios hiperlocales de leads por oficio y comuna, arrenda|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|central-retiro-cachureos-dispatch|Central online de retiro de cachureos/escombros con precio instantáneo|APLICA_CON_AJUSTES|EMPEZAR_YA|N2|P1
+ideas|red-vecinos-por-hora-adultos-mayores|Red de 'vecinos por hora' para adultos mayores: mandados, acompañamien|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|agencia-boutique-tutoria-paes|Agencia boutique de tutoría para PAES e inglés (modelo SoFlo SAT)|APLICA_CON_AJUSTES|PROTOTIPAR|N1|P2
+ideas|plataforma-tutores-espanol-para-extranjeros|Plataforma boutique de tutores de español para extranjeros (modelo Lin|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|cuidadores-universitarios-adulto-mayor|Matching de estudiantes de la salud con familias para compañía y cuida|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|agencia-derivacion-residencias-adulto-mayor|Derivación/matching de residencias de adulto mayor con fee pagado por |APLICA|EMPEZAR_YA|N2|P1
+ideas|red-ninneras-verificadas-campus|Red de niñeras universitarias verificadas para familias de la comunida|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|registro-cuidadores-domicilio-1099|Registro/derivador de cuidadores a domicilio independientes (modelo ca|APLICA|EMPEZAR_YA|N2|P2
+ideas|matching-entrenadores-domicilio-nicho|Matchmaker de entrenadores personales a domicilio para nichos específi|APLICA_CON_AJUSTES|OBSERVAR|N2|P3
+ideas|petcare-nicho-gatos-regiones|Marketplace boutique de cuidado de mascotas en nichos descubiertos: ga|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|directorio-nicho-programatico|Portafolio de directorios programáticos de nichos ignorados (SEO progr|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|directorio-nacional-featured-listings|Directorio curado de nicho monetizado con listados destacados de pago |APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|comparador-vertical-pago-por-contacto|Comparador vertical de cotizaciones con venta de leads/contactos a pro|APLICA|EMPEZAR_YA|N2|P2
+ideas|red-mejores-x-ciudad|Red de páginas 'Los mejores X de [ciudad]' con curación verificable (m|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|directorio-proveedores-eventos|Directorio de proveedores de matrimonios y eventos con listados premiu|APLICA_CON_AJUSTES|OBSERVAR|N2|P4
+ideas|agencia-recepcionista-ia-oficios|Agencia done-for-you de agentes de voz IA / recepcionistas telefónicas|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|reventa-white-label-recepcionista-ia|Reventa white-label de recepcionistas IA (voz + chat) para pymes de se|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|rescate-llamadas-perdidas-whatsapp|Rescate de llamadas perdidas por SMS/WhatsApp como servicio mensual|APLICA|EMPEZAR_YA|N2|P1
+ideas|saas-marca-propia-ghl-nicho|Revender GoHighLevel como SaaS de marca propia (CRM + IA) para un nich|APLICA_CON_AJUSTES|OBSERVAR|N1|P4
+ideas|bot-whatsapp-agenda-clinicas-salones|Agencia de bots de WhatsApp con IA que agendan citas y reducen no-show|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P2
+ideas|respuesta-resenas-google-ia|Gestión y respuesta de reseñas de Google con IA por suscripción|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|cotizador-instantaneo-ia-contratistas|Cotizador instantáneo con IA (speed-to-lead) para oficios y contratist|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|revenue-management-str-fee-mensual|Servicio de revenue management para anfitriones (pricing como servicio|APLICA|EMPEZAR_YA|N2|P1
+ideas|operacion-estacionamientos-revenue-share|Operación digital de estacionamientos de terceros con revenue share (m|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|gestion-espacios-ociosos-estilo-neighbor|Gestor profesional de espacios ociosos de terceros (bodegas caseras, p|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+ideas|gestion-rentas-medias-amobladas|Administración de arriendos amoblados de mediano plazo (1-6 meses) par|APLICA|PROTOTIPAR|N2|P1
+ideas|llamadas-ia-bienestar-adultos-mayores|Servicio de llamadas diarias con IA para adultos mayores|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|operador-remoto-limpieza-paneles-solares|Operador remoto de limpieza y mantención de paneles solares|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|reciclaje-suscripcion-conductores-gig|Recolección de reciclaje por suscripción con conductores gig (modelo R|NO_APLICA_AUN|DESCARTAR|N3|PNone
+ideas|membresia-soporte-tech-adultos-mayores|Membresía de soporte tecnológico remoto para adultos mayores|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|marketplace-carga-ev-entre-vecinos|Marketplace de carga EV entre vecinos (Airbnb de cargadores)|NO_APLICA_AUN|OBSERVAR|N5|PNone
+ideas|despacho-remoto-camiones-usa|Despacho remoto de camiones para transportistas de EE.UU.|NO_APLICA_AUN|DESCARTAR|N1|PNone
+ideas|brokerage-maquinaria-usada-nicho|Brokerage de maquinaria usada por nicho (modelo HDD Broker)|APLICA_CON_AJUSTES|EMPEZAR_YA|N2|P1
+ideas|broker-pallets-embalajes-industriales|Corretaje de pallets y embalajes industriales (modelo The Simplest Biz|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|broker-financiamiento-equipos|Broker de financiamiento de equipos para pymes|NO_APLICA_AUN|OBSERVAR|N4|PNone
+ideas|matchmaker-agencias-verificadas|Matchmaking de agencias de marketing verificadas (modelo Credo)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|agencia-sourcing-nearshoring-boutique|Agencia boutique de sourcing y nearshoring (comprador-fábrica)|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|recruiting-boutique-unipersonal-ia|Reclutadora boutique unipersonal potenciada por IA|NO_APLICA_AUN|OBSERVAR|N1|PNone
+ideas|corretaje-contenedores-maritimos|Corretaje y reventa de contenedores marítimos (modelo xChange)|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P3
+ideas|newsletter-diario-comunal-auspiciado|Newsletter hiperlocal de comuna/ciudad financiado con auspicios de com|APLICA_CON_AJUSTES|OBSERVAR|N2|P2
+ideas|red-newsletters-locales-ia-multiciudad|Red de newsletters locales generados con IA en muchas ciudades pequeña|NO_APLICA_AUN|OBSERVAR|N4|PNone
+ideas|newsletter-turistico-regional-multistream|Newsletter de zona turística con auspicio + eventos + libreta de descu|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|newsletter-vertical-b2b-cpm-alto|Newsletter vertical B2B de industria con auspiciadores (CPM USD 80-180|APLICA|EMPEZAR_YA|N2|P1
+ideas|canal-whatsapp-noticias-comuna|Canal de WhatsApp de noticias comunales con auspiciadores locales|NO_APLICA_AUN|DESCARTAR|N5|PNone
+ideas|portal-newsletter-expats-relocation|Portal + newsletter para expats y recién llegados, financiado por avis|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|newsletter-panoramas-ciudad-regional|Newsletter de panoramas y agenda del finde en ciudades regionales con |APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+ideas|asesor-viajes-fora-micro-franquicia|Micro-franquicia de viajes: asesor independiente bajo Fora Travel|APLICA_CON_AJUSTES|PROTOTIPAR|N1|P2
+ideas|comprar-micro-saas-microns-flippa|Comprar micro-SaaS ya facturando (Microns/Flippa/Acquire.com) y operar|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+ideas|comprar-newsletter-lettertrader|Comprar una newsletter con audiencia en LetterTrader (ex Duuce) y oper|APLICA_CON_AJUSTES|EMPEZAR_YA|N4|P1
+ideas|tienda-printables-etsy-playbook|Tienda de printables y plantillas digitales en Etsy (creados con IA, p|APLICA_CON_AJUSTES|PROTOTIPAR|N1|P3
+ideas|saas-mantencion-jardines-espanol|ZenMaid para jardineros: SaaS de mantención de jardines en español|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|saas-supervision-aseo-comercial|Swept en español: app de supervisión para PYMEs de aseo comercial|NO_APLICA_AUN|DESCARTAR|N3|PNone
+ideas|saas-rutas-piscineros-latam|Skimmer en español: software de rutas y reportes para piscineros|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|ordenes-trabajo-mantencion-edificios|Micro-CMMS de órdenes de trabajo para contratistas de mantención de ed|NO_APLICA_AUN|OBSERVAR|N4|PNone
+ideas|planillas-finanzas-personales-etsy|Planillas premium de finanzas personales (Google Sheets/Excel) en Etsy|APLICA|EMPEZAR_YA|N2|P1
+ideas|retratos-mascotas-ia-automatizado|Retratos personalizados de mascotas generados con IA con entrega 100% |APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|pod-apparel-micro-nichos-etsy|Tienda Etsy de apparel print-on-demand en micro-nichos (Printify, oper|APLICA_CON_AJUSTES|OBSERVAR|N1|P3
+ideas|notion-templates-nicho-espanol|Plantillas y sistemas de Notion para nichos específicos (con ángulo en|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|stickers-pod-etsy|Tienda de stickers print-on-demand en Etsy (nichos kawaii, planificado|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|libros-colorear-ia-kdp|Libros de colorear generados con IA publicados en Amazon KDP (+versión|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|prompt-packs-vaults-digitales|Packs de prompts de IA y 'vaults' de productos digitales en Gumroad/Wh|APLICA_CON_AJUSTES|OBSERVAR|N4|P3
+ideas|invitaciones-digitales-eventos-autoservicio|Invitaciones digitales interactivas de matrimonio/eventos: versión aut|APLICA|EMPEZAR_YA|N2|P2
+ideas|wedding-content-creator|Wedding content creator: contenido vertical en tiempo real para matrim|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|home-watch-segundas-viviendas|Home watch: inspección por suscripción de segundas viviendas desocupad|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P2
+ideas|liquidacion-casas-subastas-online|Liquidación de casas completas vía subasta online (estate sales)|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|estudio-fotos-ia-nicho|Estudio fotográfico IA de nicho (headshots profesionales en español)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|cohosting-airbnb-ia|Co-hosting de Airbnb operado con IA: gestión de propiedades ajenas por|APLICA|EMPEZAR_YA|N2|P1
+ideas|reventa-moda-segunda-mano-ia|Reventa de moda de segunda mano potenciada con IA (modelo Vinted UK)|NO_APLICA_AUN|DESCARTAR|N1|PNone
+ideas|portafolio-microproductos-indie|Portafolio de micro-productos digitales para desarrolladores (modelo M|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|jastip-personal-shopper-social|Jastip: personal shopper social por encargo (modelo Indonesia)|NO_APLICA_AUN|DESCARTAR|N3|PNone
+ideas|reseller-whatsapp-ia-pymes|Reseller white-label de WhatsApp + chatbot IA para pymes (modelo India|APLICA|EMPEZAR_YA|N2|P1
+ideas|matchmaking-boutique-profesionales|Matchmaking boutique de pago para profesionales (modelo India)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P4
+ideas|consultas-esotericas-pago-por-minuto|Plataforma de consultas de tarot/astrología pagadas por minuto (modelo|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|vertical-servicios-hogar-estandarizado|Vertical único de servicios del hogar estandarizado estilo Urban Compa|APLICA_CON_AJUSTES|EMPEZAR_YA|N2|P
+ideas|live-selling-como-servicio|Live selling como servicio para marcas pymes (modelo Filipinas/SEA)|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|saas-rastreo-conversiones-whatsapp|SaaS de atribución de ventas por WhatsApp para negocios que venden por|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|alquiler-lavadoras-domicilio-whatsapp|Arriendo de lavadoras a domicilio gestionado por bot de WhatsApp (mode|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|tienda-whatsapp-first-agente-ia|Tienda de nicho 'WhatsApp-first' con agente IA de ventas (modelo neni |APLICA_CON_AJUSTES|PROTOTIPAR|N1|P3
+ideas|recuperacion-carritos-pix-comision|Servicio de recuperación de carritos y pagos abandonados a pura comisi|APLICA|PROTOTIPAR|N4|P1
+ideas|franquicia-virtual-jardineria|Marca-franquicia de jardinería y servicios al hogar (playbook Jim's Mo|APLICA_CON_AJUSTES|OBSERVAR|N2|P3
+ideas|back-office-remoto-maestros|Back-office remoto para maestros y pymes de mantenimiento (modelo Offi|APLICA_CON_AJUSTES|EMPEZAR_YA|N2|P2
+ideas|cubicaciones-ia-contratistas|Servicio de cubicación y presupuestos con IA para contratistas chicos|APLICA_CON_AJUSTES|OBSERVAR|N4|P2
+ideas|luces-navidenas-pro|Instalación profesional de luces navideñas residenciales (playbook can|NO_APLICA_AUN|DESCARTAR|N1|PNone
+ideas|inspeccion-techos-dron-ia|Inspección de techumbres con dron + informe generado por IA|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|servicio-productizado-suscripcion-disenjoy|Servicio creativo ilimitado por suscripción mensual fija (modelo Desig|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|micro-saas-vertical-creadores-x|Micro-SaaS de IA para un nicho de creadores de contenido (modelo Super|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|agente-ia-captacion-freelancers|SaaS de agente IA que consigue clientes para freelancers (caso Lancer,|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+ideas|estudio-ugc-ia-para-ecommerce|Estudio unipersonal de avisos/videos UGC generados con IA para marcas |APLICA_CON_AJUSTES|EMPEZAR_YA|N3|P1
+ideas|micro-saas-nicho-con-claude-code|Micro-SaaS de nicho construido en solitario con agentes de código y AP|APLICA_CON_AJUSTES|OBSERVAR|N3|P4
+ideas|servicio-geo-pymes|Servicio GEO/AEO productizado: posicionar marcas y pymes en ChatGPT, P|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|plantillas-n8n-automatizacion|Venta de plantillas de automatización n8n como producto digital|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+ideas|operacion-clipping-ia|Operación de clipping con IA (cortar streams y podcasts por dinero)|APLICA_CON_AJUSTES|EMPEZAR_YA|N3|P2
+ideas|productos-digitales-glp1-espanol|Productos digitales para usuarios de GLP-1 (Ozempic) en español|APLICA|PROTOTIPAR|N4|P1
+ideas|marketplace-bodegas-p2p|Marketplace P2P de bodegas y estacionamientos ociosos (modelo Neighbor|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P3
+ideas|lavanderia-p2p-modelo-poplin|Marketplace P2P de lavado de ropa en casas (modelo Poplin)|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|agente-ventas-whatsapp-vertical|Agentes de ventas IA por WhatsApp para comercio pyme|APLICA_CON_AJUSTES|OBSERVAR|N4|P4
+ideas|newsletter-nicho-automatizada-ia|Newsletter de nicho generado y operado por IA (activo vendible)|APLICA|EMPEZAR_YA|N3|P2
+ideas|agencia-automatizacion-n8n-managed|Retainers mensuales de automatización con IA para pymes (workflows con|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|comunidad-membresia-nicho-skool|Comunidad de membresía de nicho en Skool (USD 19-39/mes por miembro)|NO_APLICA_AUN|OBSERVAR|N2|PNone
+ideas|web-como-servicio-mantencion-mensual|Sitios web como servicio (WaaS): web + mantención por fee mensual fijo|APLICA_CON_AJUSTES|PROTOTIPAR|N1|P4
+ideas|staging-virtual-ia-para-corredores|Servicio de staging virtual y mejora de fotos con IA para corredores e|APLICA|EMPEZAR_YA|N3|P1
+ideas|bolsa-trabajo-ultra-nicho|Job board ultra-nicho de una vertical, monetizado con avisos pagados y|APLICA_CON_AJUSTES|PROTOTIPAR|N2|P3
+ideas|IDEA-WA-01|Rescate de llamadas perdidas con IA (missed-call text-back / voice)|APLICA|EMPEZAR_YA|N4|P5
+ideas|IDEA-WA-02|Reseller white-label de chatbots/agentes IA para pymes|APLICA|EMPEZAR_YA|N4|P5
+ideas|IDEA-WA-03|Recuperación de carritos abandonados por WhatsApp a comisión|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P4
+ideas|IDEA-WA-04|Bots de agendamiento IA para clínicas, salones y servicios|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|IDEA-WA-05|Voice AI: recepcionista/agente de reservas por voz para pymes|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|IDEA-WA-06|Integrador/partner del Meta Business Agent en WhatsApp|APLICA|EMPEZAR_YA|N5|P5
+ideas|IDEA-WA-07|GEO/AEO productizado (visibilidad en respuestas de IA)|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P4
+ideas|IDEA-WA-08|Automatizaciones n8n vendidas como servicio (workflows a pyme)|APLICA|EMPEZAR_YA|N4|P4
+ideas|IDEA-WA-09|Reactivación de bases dormidas con IA (done-for-you) para inmobiliario|APLICA|EMPEZAR_YA|N5|P5
+ideas|IDEA-WA-10|AI appointment setter para corredoras (calificación + agenda de visita|APLICA|EMPEZAR_YA|N5|P5
+ideas|IA-ACT-01|Co-host Airbnb con stack de IA (mensajería + pricing + operaciones)|APLICA|EMPEZAR_YA|N4|P5
+ideas|IA-ACT-02|Gestión de arriendo amoblado mid-term (1-6 meses) para minería y salud|APLICA|EMPEZAR_YA|N4|P5
+ideas|IA-ACT-03|Revenue management / pricing-as-a-service para anfitriones|APLICA|EMPEZAR_YA|N3|P4
+ideas|IA-ACT-04|Home watch de segundas viviendas costeras|APLICA|EMPEZAR_YA|N4|P5
+ideas|IA-ACT-05|Staging virtual + decluttering con IA para listings|APLICA|EMPEZAR_YA|N3|P4
+ideas|IA-ACT-06|Gestión remota de limpieza y turnover Airbnb|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|IA-ACT-07|Brokerage B2B de maquinaria y activos ociosos|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+ideas|IA-ACT-08|Owner reporting / analytics-as-a-service para dueños|APLICA|PROTOTIPAR|N3|P3
+ideas|IA-ACT-09|Agente de voz IA para gestión de propiedades|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|IA-ACT-10|Listing Optimizer como servicio (SEO de anuncios STR)|APLICA|EMPEZAR_YA|N3|P4
+ideas|IDEA-DIG-01|Planillas/planners premium de nicho profesional en Etsy|APLICA|EMPEZAR_YA|N4|P4
+ideas|IDEA-DIG-02|Producción de video ads UGC con actores IA para pymes/ecommerce|APLICA|EMPEZAR_YA|N5|P5
+ideas|IDEA-DIG-03|Productos digitales para el boom GLP-1 (semaglutida/tirzepatida)|APLICA|EMPEZAR_YA|N5|P5
+ideas|IDEA-DIG-04|Retratos/headshots profesionales con IA (self-service)|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P3
+ideas|IDEA-DIG-05|Newsletter vertical B2B con auspicios|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P3
+ideas|IDEA-DIG-06|Invitaciones digitales animadas de nicho (video-evites)|APLICA|PROTOTIPAR|N3|P3
+ideas|IDEA-DIG-07|Directorio de nicho monetizado con programmatic SEO|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+ideas|IDEA-DIG-08|Comunidad paga de nicho en Skool|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P3
+ideas|IDEA-DIG-09|Templates de Notion de nicho en Gumroad|APLICA|EMPEZAR_YA|N3|P3
+ideas|IDEA-DIG-10|Canal faceless con video IA en nicho de alto RPM|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+ideas|IDEA-DIG-11|Libros de colorear IA 'bold & easy' en Amazon KDP|APLICA|PROTOTIPAR|N3|P2
+ideas|IDEA-DIG-12|Newsletter hiperlocal de ciudad (modelo 6AM City) con auto-serve ads|APLICA_CON_AJUSTES|OBSERVAR|N3|P2
+ideas|IDEA-CM-01|Compra de newsletters que ya facturan (roll-up de audiencias)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|IDEA-CM-02|Compra de micro-SaaS rentable (Microns.io)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P2
+ideas|IDEA-CM-03|Derivación de residencias de adulto mayor (A Place for Mom chileno)|APLICA|EMPEZAR_YA|N5|P1
+ideas|IDEA-CM-04|Matching de cuidadores a domicilio con fee por colocación|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|IDEA-CM-05|Comparador vertical con venta de leads (seguros/créditos)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|IDEA-CM-06|Red de vending inteligente con IA (gestión de activos)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|IDEA-CM-07|Central de retiro de escombros con precio por foto IA|APLICA|EMPEZAR_YA|N4|P1
+ideas|IDEA-CM-08|Recepcionista IA por voz para pymes de oficios|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|IDEA-CM-09|Lead-gen de oficios con cobro por lead (modelo Cronoshare)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|IDEA-CM-10|Brokerage/compra de pymes aburridas (ola boomer)|APLICA_CON_AJUSTES|OBSERVAR|N4|P3
+ideas|IDEA-CM-11|Back-office remoto productizado para oficios (boring digitalizable)|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
