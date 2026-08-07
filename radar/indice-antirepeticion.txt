@@ -376,3 +376,6 @@ ideas|IDEA-CM-08|Recepcionista IA por voz para pymes de oficios|APLICA_CON_AJUST
 ideas|IDEA-CM-09|Lead-gen de oficios con cobro por lead (modelo Cronoshare)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
 ideas|IDEA-CM-10|Brokerage/compra de pymes aburridas (ola boomer)|APLICA_CON_AJUSTES|OBSERVAR|N4|P3
 ideas|IDEA-CM-11|Back-office remoto productizado para oficios (boring digitalizable)|APLICA_CON_AJUSTES|PROTOTIPAR|N4|P2
+ideas|marketplace-comision-cero-freelance-latam|Marketplace/portafolio de comisión 0% + suscripción para freelancers LATAM (patrón Contra vs. comisión escalonada Workana)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
+ideas|land-flipping-loteos-chile|Land flipping estilo REtipster (remates por deuda de contribuciones + reventa) traducido a loteos/parcelas rurales chilenas — DUAL con inmobiliario|NO_APLICA_AUN|DESCARTAR|N2|PNone
+ideas|compliance-enlaces-pago-apple-appstore|Servicio de implementación de enlaces de pago externos / compliance App Store post-fallo Epic v. Apple y DMA UE|NO_APLICA_AUN|OBSERVAR|N2|PNone
