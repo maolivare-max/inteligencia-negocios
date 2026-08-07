@@ -379,3 +379,9 @@ ideas|IDEA-CM-11|Back-office remoto productizado para oficios (boring digitaliza
 ideas|marketplace-comision-cero-freelance-latam|Marketplace/portafolio de comisión 0% + suscripción para freelancers LATAM (patrón Contra vs. comisión escalonada Workana)|APLICA_CON_AJUSTES|PROTOTIPAR|N3|P3
 ideas|land-flipping-loteos-chile|Land flipping estilo REtipster (remates por deuda de contribuciones + reventa) traducido a loteos/parcelas rurales chilenas — DUAL con inmobiliario|NO_APLICA_AUN|DESCARTAR|N2|PNone
 ideas|compliance-enlaces-pago-apple-appstore|Servicio de implementación de enlaces de pago externos / compliance App Store post-fallo Epic v. Apple y DMA UE|NO_APLICA_AUN|OBSERVAR|N2|PNone
+tendencias|rentabilidad-real-renta-corta-costa-chile-airroi|Rentabilidad real de renta corta en zonas costeras chilenas (AirROI)|APLICA|ADOPTAR_YA|N1|P1
+tendencias|reity-ciclo-completo-tokenizacion-chile|Reity: primer ciclo íntegro de tokenización inmobiliaria en Chile|APLICA_CON_AJUSTES|PILOTEAR|N2|P2
+tendencias|fello-felix-live-bridge-reactivacion-leads|Reactivación de leads fríos con IA live-bridge sin soltar (Fello)|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|colliers-senior-living-chile-1t2026|Colliers Chile: senior living 96% ocupación, +120% m² en 10 años|NO_APLICA_AUN|OBSERVAR|N2|PNone
+tendencias|henry-ai-copiloto-comercial-yc|Henry AI: copiloto IA para real estate comercial (YC), $1M ARR|NO_APLICA_AUN|OBSERVAR|N2|PNone
+tendencias|houseme-ai-busqueda-lifestyle-mls|HouseMe.ai: búsqueda por estilo de vida con IA sobre MLS|NO_APLICA_AUN|OBSERVAR|N3|PNone
