@@ -1,90 +1,157 @@
 #!/usr/bin/env python3
 """
-Generador de dashboard — v3.
-Python pre-renderiza todo el HTML; JavaScript solo gestiona
-colapsos y filtros. Sin dependencias externas.
+Generador de dashboard — v4.
+Reescritura con la presentación de investigacion-tendencias-2026-07:
+tabs (Panorama / Explorar / Decisiones / Reportes / Mi radar), buscador,
+filtros por chip, tarjetas, modal de ficha completa y marcas persistentes
+en localStorage (visto/favorito/nota). Sin dependencias externas.
+
+Sigue leyendo las mismas fuentes que v3 (reportes/*.md y
+reportes-inmobiliario/*.md, parseadas con regex) y cruza cada hallazgo
+contra radar/indice-antirepeticion.txt para heredar veredicto_chile,
+accion, nivel y prioridad ya decididos por las misiones diarias.
 
 USO: python3 build_dashboard.py
 """
 
-import os, re, glob, html as _html
+import os, re, glob, json, hashlib
 from datetime import datetime
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
 SOURCES = [
-    ("oportunidades", "Oportunidades de Negocio",
-     os.path.join(BASE, "reportes")),
-    ("inmobiliario",  "Marketing Inmobiliario",
-     os.path.join(BASE, "reportes-inmobiliario")),
+    ("oportunidades", "Oportunidades de negocio", os.path.join(BASE, "reportes")),
+    ("tendencias",     "Tendencias inmobiliarias", os.path.join(BASE, "reportes-inmobiliario")),
 ]
 
-IDEAS_INDEX_PATH = os.path.join(BASE, "INDICE_IDEAS.md")
+# el dominio usado en radar/indice-antirepeticion.txt para cada fuente
+DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias"}
+
+INDICE_PATH        = os.path.join(BASE, "radar", "indice-antirepeticion.txt")
+IDEAS_INDEX_PATH    = os.path.join(BASE, "INDICE_IDEAS.md")
 
 DESTACADA = 15
 HIGH      = 13
 
-esc = _html.escape   # safe HTML escaping
-
-# ── helpers ────────────────────────────────────────────────────────────────
+# ── helpers ──────────────────────────────────────────────────────────────
 
 def _re(pattern, text, default="", flags=0):
     m = re.search(pattern, text, flags)
     return m.group(1).strip() if m else default
 
-def _first_url(text):
-    m = re.search(r"https?://[^\s\)\]\n\"'<>]+", text)
-    return m.group(0).rstrip(".,);>") if m else ""
-
 def parse_date(path):
     m = re.search(r"(\d{4}-\d{2}-\d{2})", os.path.basename(path))
     return m.group(1) if m else os.path.basename(path)
 
-# ── seguimiento block parser ────────────────────────────────────────────────
+def slug(s, n=64):
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    return s[:n]
 
-def _parse_seguimientos(text):
-    blocks = []
-    pat = re.compile(
-        r"###\s+SEGUIMIENTO DE CRECIMIENTO\s*[—–-]\s*(.+?)\n"
-        r"\*Activado por:([^\n\*]+)\*"
-        r"(.*?)(?=^###|\Z)",
-        re.MULTILINE | re.DOTALL,
-    )
-    for m in pat.finditer(text):
-        subject    = m.group(1).strip()
-        activation = m.group(2).strip()
-        body       = m.group(3)
+# ── índice anti-repetición (veredicto_chile/accion/nivel/prioridad) ───────
 
-        def _sect(label):
-            m2 = re.search(
-                rf"\*\*{label}[^:]*:\*\*\s*\n?(.*?)(?=\*\*[A-ZÁÉÍÓÚÑ]|\Z)",
-                body, re.DOTALL)
-            return m2.group(1).strip() if m2 else ""
+def load_indice():
+    """dominio -> lista de (nombre_truncado_lower, dict_campos), ya que el
+    índice trunca el nombre a ~70 caracteres. Usamos coincidencia por
+    prefijo (el nombre completo del hallazgo empieza igual)."""
+    out = {"ideas": [], "tendencias": []}
+    if not os.path.exists(INDICE_PATH):
+        return out
+    with open(INDICE_PATH, encoding="utf-8") as f:
+        next(f, None)  # cabecera
+        for line in f:
+            parts = line.rstrip("\n").split("|")
+            if len(parts) < 7:
+                continue
+            dominio, idx_id, nombre, veredicto, accion, nivel, prioridad = parts[:7]
+            if dominio not in out:
+                out[dominio] = []
+            out[dominio].append({
+                "id": idx_id,
+                "nombre_lower": nombre.strip().lower(),
+                "veredicto_chile": veredicto.strip(),
+                "accion": accion.strip(),
+                "nivel": nivel.strip().lstrip("Nn"),
+                "prioridad": prioridad.strip().lstrip("Pp"),
+            })
+    return out
 
-        palanca   = _sect("Palanca clave")
-        replicate = _sect(r"Qué replicar")
-        timeline  = _sect("Línea de tiempo")
+_STOP = set("""
+de la el los las un una unos unas y o u a en con para por sobre del al
+que se su sus como es son al mas más menos entre sin desde hasta ya no
+via vs contra su tu mi este esta estos estas ese esa esos esas
+""".split())
 
-        r_items = [re.sub(r"^\d+\.\s*", "", l).strip()
-                   for l in replicate.splitlines()
-                   if re.match(r"\s*\d+\.", l)]
-        tl_items = [l.strip().lstrip("-").strip()
-                    for l in timeline.splitlines() if l.strip()]
+def _tokens(s):
+    s = re.sub(r"[^a-záéíóúñü0-9%\s]", " ", s.lower())
+    return set(w for w in s.split() if len(w) > 2 and w not in _STOP)
 
-        blocks.append({
-            "subject":    subject,
-            "activation": activation,
-            "palanca":    palanca,
-            "r_items":    r_items,
-            "tl_items":   tl_items,
-        })
-    return blocks
+def match_indice(dominio_list, nombre, min_score=0.22):
+    """El índice antirrepetición guarda una PARÁFRASIS del nombre (no el
+    título literal del reporte), así que ni la coincidencia exacta ni el
+    prefijo sirven. Usamos solapamiento de palabras clave (Jaccard sobre
+    tokens con stopwords fuera) y nos quedamos con el mejor puntaje por
+    encima de un umbral mínimo."""
+    tn = _tokens(nombre)
+    if not tn:
+        return None
+    best, best_score = None, 0.0
+    for entry in dominio_list:
+        en = entry["nombre_lower"]
+        if not en:
+            continue
+        te = entry.get("_tokens")
+        if te is None:
+            te = _tokens(en)
+            entry["_tokens"] = te
+        if not te:
+            continue
+        inter = tn & te
+        union = tn | te
+        score = len(inter) / len(union) if union else 0
+        if score > best_score:
+            best, best_score = entry, score
+    return best if best_score >= min_score else None
 
-# ── opportunity parser ──────────────────────────────────────────────────────
+# ── parser de hallazgos dentro de un reporte diario ───────────────────────
+
+def _parse_evidencia(body):
+    """Extrae [texto](url) de la sección 'Dónde lo encontré' como lista de
+    {fuente, url}."""
+    m = re.search(r"\*\*(?:D[oó]nde lo encontr[eé])[^:]*:\*\*\s*(.+)", body)
+    if not m:
+        return []
+    linea = m.group(1)
+    out = []
+    for texto, url in re.findall(r"\[([^\]]+)\]\((https?://[^\s\)]+)\)", linea):
+        out.append({"fuente": texto.strip(), "url": url.strip().rstrip(".,);")})
+    return out
+
+def _parse_pasos(body):
+    pasos, metrica = [], ""
+    sb = re.search(
+        r"\*\*(?:Pasos|Plan de acci[oó]n|Pasos esta semana)[^:]*:\*\*\s*\n"
+        r"((?:\s*\d+\..*(?:\n(?!\s*\d+\.|###|\*\*|\n).*)*\n?)+)",
+        body, re.MULTILINE)
+    if sb:
+        cur = ""
+        for line in sb.group(1).splitlines():
+            if re.match(r"\s*\d+\.", line):
+                if cur:
+                    pasos.append(re.sub(r"^\s*\d+\.\s*", "", cur).strip())
+                cur = line.strip()
+            elif line.strip() and cur:
+                cur += " " + line.strip()
+        if cur:
+            pasos.append(re.sub(r"^\s*\d+\.\s*", "", cur).strip())
+    for p in pasos:
+        mm = re.search(r"(?:M[ée]trica[^:]*:|Medir a \d+ d[ií]as:)\s*(.+)", p, re.IGNORECASE)
+        if mm:
+            metrica = mm.group(1).strip()
+    return pasos, metrica
 
 def _parse_opps(text):
     opps = []
-    pat  = re.compile(
+    pat = re.compile(
         r"^##\s+\d+\.\s+(.+?)\s+—\s+Score\s+(\d+)/20\s*$(.*?)(?=^##\s|\Z)",
         re.MULTILINE | re.DOTALL)
     for m in pat.finditer(text):
@@ -92,75 +159,34 @@ def _parse_opps(text):
         score = int(m.group(2))
         body  = m.group(3)
 
-        axes  = _re(r"\*\(([^)]+)\)\*", body)
-        desc  = _re(r"\*\*(?:Modelo|Qué es|Descripci[oó]n)[^:]*:\*\*\s*(.+)", body)
-        why   = _re(r"\*\*(?:Por qué funciona|Por qué genera leads|Porque funciona)[^:]*:\*\*\s*(.+)", body)
-        conf  = _re(r"\*\*Confianza:\*\*\s*([^\n]+)", body).strip()
-        chile = _re(r"\*\*(?:En Chile|Oportunidad en Chile)[^:]*:\*\*\s*(.+)", body)
+        axes = _re(r"\*\(([^)]+)\)\*", body)
+        desc = _re(r"\*\*(?:Modelo|Qu[ée] es|Descripci[oó]n)[^:]*:\*\*\s*(.+)", body)
+        why  = _re(r"\*\*(?:Por qu[ée] funciona|Por qu[ée] genera leads|Por qu[ée] es relevante|Porque funciona)[^:]*:\*\*\s*(.+)", body)
+        conf = _re(r"\*\*Confianza:\*\*\s*([^\n]+)", body).strip()
+        chile = _re(r"\*\*(?:En Chile|Oportunidad en Chile|D[oó]nde funciona)[^:]*:\*\*\s*(.+)", body)
 
-        # Link — try several field headings then first URL in bullets
-        link = ""
-        for pat2 in [
-            r"\*\*(?:Dónde lo encontré|Donde lo encontré|Fuentes?|Link)[^:]*:\*\*\s*\n\s*[-\*]?\s*(https?://[^\s\)\n]+)",
-            r"\*\*(?:Dónde lo encontré|Donde lo encontré|Fuentes?|Link)[^:]*:\*\*.*?(https?://[^\s\)\n]+)",
-            r"^\s*[-\*]\s+(https?://[^\s\)\n]+)",
-            r"\]\((https?://[^\s\)\n]+)\)",
-        ]:
-            link = _re(pat2, body, flags=re.MULTILINE)
-            if link:
-                link = link.rstrip(".,);")
-                break
-        if not link:
-            link = _first_url(body)
+        evidencia = _parse_evidencia(body)
+        pasos, metrica = _parse_pasos(body)
+        has_follow = "SEGUIMIENTO" in body
 
-        # Steps
-        pasos = []
-        sb = re.search(
-            r"\*\*(?:Pasos|Plan de acci[oó]n|Pasos esta semana)[^:]*:\*\*\s*\n"
-            r"((?:\d+\..*(?:\n(?!\d+\.|###|\*\*|\n).*)*\n?)+)",
-            body, re.MULTILINE)
-        if sb:
-            cur = ""
-            for line in sb.group(1).splitlines():
-                if re.match(r"\s*\d+\.", line):
-                    if cur:
-                        pasos.append(re.sub(r"^\d+\.\s*", "", cur).strip())
-                    cur = line.strip()
-                elif line.strip() and cur:
-                    cur += " " + line.strip()
-            if cur:
-                pasos.append(re.sub(r"^\d+\.\s*", "", cur).strip())
-
-        has_follow = "SEGUIMIENTO DE CRECIMIENTO" in body
         opps.append({
             "name": name, "score": score, "axes": axes,
-            "desc": desc, "why": why, "conf": conf,
-            "chile": chile, "link": link, "pasos": pasos,
-            "follow": has_follow, "seguimiento": None,
+            "desc": desc, "why": why, "conf": conf, "chile": chile,
+            "evidencia": evidencia, "pasos": pasos, "metrica": metrica,
+            "follow": has_follow,
         })
     return opps
 
-# ── report parser ───────────────────────────────────────────────────────────
-
-def parse_report(path):
+def parse_report(path, group_key):
     with open(path, encoding="utf-8") as f:
         text = f.read()
     date    = parse_date(path)
     fuentes = _re(r"\*\*Fuentes revisadas:\*\*\s*(.+)", text)
     resumen = _re(r"\*\*Resumen[^:]*:\*\*\s*(.+)", text)
     opps    = _parse_opps(text)
-    segs    = _parse_seguimientos(text)
-    # Assign seguimientos to opps in order
-    si = 0
-    for o in opps:
-        if o["follow"] and si < len(segs):
-            o["seguimiento"] = segs[si]; si += 1
-    avg = round(sum(o["score"] for o in opps) / len(opps), 1) if opps else 0
-    return {
-        "date": date, "fuentes": fuentes, "resumen": resumen,
-        "opps": opps, "n_opps": len(opps), "avg": avg,
-        "follow_count": len(segs),
-    }
+    return {"date": date, "fuentes": fuentes, "resumen": resumen,
+            "opps": opps, "n_opps": len(opps),
+            "avg": round(sum(o["score"] for o in opps) / len(opps), 1) if opps else 0}
 
 def collect():
     result = []
@@ -168,468 +194,764 @@ def collect():
         reports = []
         for path in sorted(glob.glob(os.path.join(folder, "*.md")), reverse=True):
             try:
-                reports.append(parse_report(path))
+                reports.append(parse_report(path, key))
             except Exception as e:
                 print(f"  ! Error parseando {path}: {e}")
         result.append({"key": key, "label": label, "reports": reports})
     return result
 
-# ── HTML rendering (pure Python) ────────────────────────────────────────────
+# ── mapeo score → impacto/costo (heurístico, la mission no reporta estos
+#    dos ejes por separado con nombres consistentes entre ambas misiones) ──
 
-def score_class(s):
-    if s >= DESTACADA: return "destacada"
-    if s >= HIGH:      return "high"
-    if s >= 10:        return "mid"
-    return "low"
+def score_tier(score):
+    if score >= DESTACADA: return "destacada"
+    if score >= HIGH:      return "alta"
+    if score >= 10:        return "media"
+    return "baja"
 
-def conf_class(c):
-    c = (c or "").lower()
-    if "alta" in c:  return "conf-alta"
-    if "baja" in c:  return "conf-baja"
-    return "conf-media"
+def impacto_de(score):
+    return "alto" if score >= HIGH else ("medio" if score >= 10 else "bajo")
 
-def render_seguimiento(seg, uid):
-    if not seg:
-        return ""
-    palanca_html = ""
-    if seg["palanca"]:
-        palanca_html = f"""
-      <div class="palanca">
-        <strong>&#128273; Palanca clave</strong>
-        <p>{esc(seg['palanca'])}</p>
-      </div>"""
-    items_html = ""
-    if seg["r_items"]:
-        items_html = '<div class="replicate-title">&#9889; Qu&eacute; replicar hoy</div>'
-        for i, s in enumerate(seg["r_items"], 1):
-            items_html += f'<div class="replicate-item"><span class="r-num">{i}</span><span>{esc(s)}</span></div>'
-    tl_html = ""
-    if seg["tl_items"]:
-        tl_html = '<div class="tl-title">&#128336; Hitos documentados</div>'
-        for s in seg["tl_items"]:
-            tl_html += f'<div class="tl-item"><span class="tl-dot"></span><span>{esc(s)}</span></div>'
-    return f"""
-  <div class="seg-block" id="seg-{uid}">
-    <button class="seg-head" onclick="tog('seg-body-{uid}')" aria-expanded="false">
-      <span>&#9733; SEGUIMIENTO &mdash; {esc(seg['subject'])}</span>
-      <span class="seg-chev">&#9658;</span>
-    </button>
-    <div class="seg-body" id="seg-body-{uid}" hidden>
-      <p class="seg-act">Activado por: {esc(seg['activation'])}</p>
-      {palanca_html}{items_html}{tl_html}
-    </div>
-  </div>"""
+def costo_de(axes):
+    """Busca un eje de costo/eficiencia o velocidad en el texto de ejes y
+    usa su valor numérico (1-5) para inferir costo; si no hay pista,
+    'medio' por defecto."""
+    m = re.search(r"(?:Costo|Velocidad)[^\d]*(\d)", axes or "", re.IGNORECASE)
+    if not m:
+        return "medio"
+    v = int(m.group(1))
+    return "bajo" if v >= 4 else ("alto" if v <= 2 else "medio")
 
-def render_opp(opp, uid):
-    sc       = score_class(opp["score"])
-    has_seg  = opp["seguimiento"] is not None
-    card_cls = "seguimiento" if has_seg else ("destacada" if sc == "destacada" else "")
-    if has_seg:
-        banner = '<div class="opp-banner seg-banner">&#9733; SEGUIMIENTO DE CRECIMIENTO ACTIVO &#9733;</div>'
-    elif sc == "destacada":
-        banner = '<div class="opp-banner dest-banner">&#9733; IDEA DESTACADA &#9733;</div>'
-    else:
-        banner = ""
+# ── construir el dataset unificado (una fila por hallazgo) ────────────────
 
-    why_html = (f'<div class="box why"><strong>Por qu&eacute; funciona</strong>'
-                f'{esc(opp["why"])}</div>') if opp.get("why") else ""
-    chile_html = (f'<div class="box chile"><strong>&#127464;&#127473; Oportunidad en Chile</strong>'
-                  f'{esc(opp["chile"])}</div>') if opp.get("chile") else ""
-
-    link_html = ""
-    if opp.get("link"):
-        link_html = f'<a class="src-link" href="{esc(opp["link"])}" target="_blank" rel="noopener">&rarr; VER FUENTE</a>'
-
-    steps_html = ""
-    if opp.get("pasos"):
-        rows = "".join(
-            f'<div class="paso"><span class="paso-num">{i}</span><span>{esc(s)}</span></div>'
-            for i, s in enumerate(opp["pasos"], 1)
-        )
-        steps_html = f'<div class="pasos"><h4>&#9889; Plan de acci&oacute;n</h4>{rows}</div>'
-
-    seg_html = render_seguimiento(opp.get("seguimiento"), f"{uid}-seg")
-
-    conf_tag = (f'<span class="conf {conf_class(opp["conf"])}">Confianza: {esc(opp["conf"])}</span>'
-                if opp.get("conf") else "")
-    seg_tag  = '<span class="tag-seg">&#9733; En seguimiento</span>' if has_seg else ""
-
-    axes_extra = " &nbsp;&#9733; seguimiento" if has_seg else ""
-
-    # data attributes for filter
-    conf_val = (opp.get("conf") or "").lower()
-    return f"""
-<div class="opp {card_cls}"
-     data-score="{opp['score']}"
-     data-seg="{1 if has_seg else 0}"
-     data-conf="{esc(conf_val)}">
-  {banner}
-  <button class="opp-head" onclick="tog('opp-{uid}')" aria-expanded="false">
-    <div>
-      <div class="opp-name">{esc(opp['name'])}</div>
-      <div class="opp-axes">{esc(opp.get('axes',''))}{axes_extra}</div>
-    </div>
-    <div class="score {sc}">{opp['score']}/20</div>
-  </button>
-  <div class="opp-body" id="opp-{uid}" hidden>
-    <p class="opp-desc">{esc(opp.get('desc',''))}</p>
-    {why_html}{chile_html}
-    <div class="opp-foot">{conf_tag}{seg_tag}{link_html}</div>
-    {steps_html}{seg_html}
-  </div>
-</div>"""
-
-def render_report(report, group_key, group_label, report_idx):
-    uid_base   = f"{group_key}-{report['date']}"
-    is_first   = (report_idx == 0)   # más reciente → abierto por defecto en el HTML
-    opps_html  = "".join(
-        render_opp(o, f"{uid_base}-{i}")
-        for i, o in enumerate(report["opps"])
-    )
-    follow_pill = (f'<span class="pill">&#9733; {report["follow_count"]} SEGUIM.</span>'
-                   if report["follow_count"] > 0 else "")
-    # El primer reporte (más reciente) aparece abierto sin necesitar JavaScript
-    body_hidden  = "" if is_first else " hidden"
-    head_expanded = "true" if is_first else "false"
-    chev_style   = 'style="transform:rotate(90deg)"' if is_first else ""
-    return f"""
-<div class="report" data-group="{esc(group_key)}" id="rep-{esc(uid_base)}">
-  <button class="report-head" onclick="togRep('{esc(uid_base)}')" aria-expanded="{head_expanded}">
-    <div style="flex:1">
-      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
-        <span class="report-date">{esc(report['date'])}</span>
-        <span class="report-cat">{esc(group_label)}</span>
-      </div>
-      <div class="report-resumen">{esc(report.get('resumen',''))}</div>
-    </div>
-    <div class="report-badges">
-      <span class="pill">{report['n_opps']} IDEAS</span>
-      <span class="pill">PROM {report['avg']}</span>
-      {follow_pill}
-      <span class="chev" {chev_style}>&#9658;</span>
-    </div>
-  </button>
-  <div class="report-body" id="rep-body-{esc(uid_base)}"{body_hidden}>
-    <div class="fuentes">FUENTES: {esc(report.get('fuentes',''))}</div>
-    {opps_html or '<div class="empty">Sin oportunidades parseadas.</div>'}
-  </div>
-</div>"""
-
-# ── full page ────────────────────────────────────────────────────────────────
-
-CSS = """
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#F5F0E8;--paper:#FFFDF7;--black:#0A0A0A;
-  --red:#D4001A;--yellow:#FFE600;--green:#008A57;--blue:#0050EE;--orange:#C85000;
-  --border:3px solid #0A0A0A;--shadow:5px 5px 0 #0A0A0A;
-}
-body{background:var(--bg);color:var(--black);font-family:"Courier New",Courier,monospace;min-height:100vh}
-button{font-family:inherit;cursor:pointer;background:none;border:none;text-align:left;width:100%}
-
-/* HEADER */
-.header{background:var(--black);color:var(--yellow);padding:20px 28px;border-bottom:5px solid var(--yellow);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.header h1{font-size:clamp(16px,3.5vw,26px);font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.stamp{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
-.badge-chile{background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border:2px solid var(--yellow);letter-spacing:2px}
-.header-right{text-align:right}
-.header-date{font-size:24px;font-weight:900;color:#fff}
-.header-sub{font-size:11px;color:#aaa;letter-spacing:1px}
-
-/* STATS */
-.stats-bar{display:flex;flex-wrap:wrap;border-bottom:var(--border);background:var(--paper)}
-.stat{flex:1;min-width:80px;padding:14px 18px;border-right:var(--border)}
-.stat:last-child{border-right:none}
-.stat .num{font-size:clamp(20px,3vw,36px);font-weight:900;line-height:1}
-.stat .num.green{color:var(--green)} .stat .num.red{color:var(--red)}
-.stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-top:4px;color:#666}
-
-/* LEGEND */
-.legend{display:flex;gap:14px;flex-wrap:wrap;padding:8px 28px;background:var(--black);border-bottom:var(--border);font-size:11px;color:#aaa}
-.legend span{display:flex;align-items:center;gap:5px}
-.ldot{width:9px;height:9px;border:2px solid;flex-shrink:0}
-
-/* CONTROLS */
-.controls{display:flex;flex-wrap:wrap;gap:0;border-bottom:var(--border);background:var(--bg)}
-.ctrl-group{display:flex;flex-wrap:wrap;gap:8px;padding:10px 28px;align-items:center;border-right:var(--border)}
-.ctrl-group:last-child{border-right:none}
-.ctrl-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-right:2px}
-.tab,.filter-btn{background:var(--paper);border:var(--border);color:var(--black);padding:6px 16px;font-family:inherit;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;box-shadow:3px 3px 0 var(--black);cursor:pointer;transition:transform .1s,box-shadow .1s}
-.tab:hover,.filter-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
-.tab.active,.filter-btn.active{background:var(--yellow);transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
-
-/* MAIN */
-.main{padding:20px 28px;max-width:1200px;margin:0 auto}
-
-/* REPORT */
-.report{border:var(--border);box-shadow:var(--shadow);background:var(--paper);margin-bottom:20px}
-.report[hidden]{display:none}
-.report-head{padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:var(--border);background:var(--black);color:var(--yellow);width:100%}
-.report-head:hover{background:#111}
-.report-date{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa}
-.report-cat{font-size:11px;font-weight:900;padding:2px 8px;border:1px solid var(--yellow);color:var(--yellow);letter-spacing:1px;text-transform:uppercase}
-.report-resumen{font-size:12px;color:#ccc;margin-top:4px;max-width:680px;line-height:1.5}
-.report-badges{display:flex;gap:6px;align-items:center;flex-shrink:0;flex-wrap:wrap}
-.pill{font-size:11px;padding:3px 9px;border:2px solid var(--yellow);color:var(--yellow);font-weight:700;letter-spacing:1px;white-space:nowrap}
-.chev{font-size:16px;color:var(--yellow);transition:transform .2s;font-weight:900;display:inline-block}
-.report-head[aria-expanded="true"] .chev{transform:rotate(90deg)}
-.report-body{padding:18px}
-.report-body[hidden]{display:none}
-.fuentes{font-size:11px;color:#666;border-bottom:2px dashed #ccc;padding-bottom:10px;margin-bottom:18px;line-height:1.6}
-
-/* OPP */
-.opp{border:var(--border);background:var(--paper);margin-bottom:12px}
-.opp[hidden]{display:none}
-.opp.destacada{border-color:var(--green);border-width:4px;box-shadow:5px 5px 0 var(--green)}
-.opp.seguimiento{border-color:var(--orange);border-width:4px;box-shadow:5px 5px 0 var(--orange)}
-.opp-banner{font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;text-align:center;border-bottom:3px solid var(--black)}
-.dest-banner{background:var(--green);color:#fff}
-.seg-banner{background:var(--orange);color:#fff}
-.opp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:10px 12px 8px;border-bottom:2px solid #ddd;width:100%}
-.opp-head:hover{background:#f7f3e6}
-.opp-name{font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
-.opp-axes{font-size:11px;color:#777;margin-top:3px}
-.score{font-weight:900;font-size:16px;padding:5px 11px;border:var(--border);white-space:nowrap;min-width:62px;text-align:center;flex-shrink:0}
-.score.destacada{background:var(--green);color:#fff;border-color:var(--green);font-size:19px}
-.score.high{background:#e8f7ef;color:var(--green);border-color:var(--green)}
-.score.mid{background:#fffbe6;color:#7a6000;border-color:#b89a00}
-.score.low{background:#eee;color:#777;border-color:#bbb}
-.opp-body{padding:14px}
-.opp-body[hidden]{display:none}
-.opp-desc{font-size:13px;line-height:1.7;margin-bottom:12px;color:#222}
-.box{padding:9px 13px;font-size:12px;margin-bottom:9px;line-height:1.6;border-left:4px solid}
-.box.why{background:#FFFBE8;border-color:var(--yellow)}
-.box.chile{background:#fff0f0;border-color:var(--red)}
-.box strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;opacity:.6}
-.opp-foot{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:8px;margin-bottom:2px}
-.conf{font-size:11px;padding:3px 9px;border:2px solid;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.conf-alta{border-color:var(--green);color:var(--green)}
-.conf-media{border-color:#cc8800;color:#cc8800}
-.conf-baja{border-color:var(--red);color:var(--red)}
-.tag-seg{font-size:11px;padding:3px 9px;background:var(--orange);color:#fff;font-weight:700;letter-spacing:1px}
-.src-link{display:inline-block;font-size:11px;padding:4px 11px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;border:2px solid var(--black);letter-spacing:.5px;box-shadow:2px 2px 0 var(--black)}
-.src-link:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black)}
-
-/* PASOS */
-.pasos{background:var(--black);color:var(--yellow);padding:12px;margin-top:12px;border:2px solid var(--yellow)}
-.pasos h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:9px;border-bottom:1px solid #444;padding-bottom:5px;color:#fff}
-.paso{display:flex;gap:9px;margin-bottom:8px;font-size:12px;line-height:1.6;color:#e8e8e8}
-.paso-num{background:var(--yellow);color:var(--black);font-weight:900;min-width:21px;height:21px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
-
-/* SEGUIMIENTO */
-.seg-block{border:3px solid var(--orange);background:#fff8f0;margin-top:12px}
-.seg-head{background:var(--orange);color:#fff;padding:7px 13px;display:flex;justify-content:space-between;align-items:center;width:100%}
-.seg-head span:first-child{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.seg-chev{font-size:14px;font-weight:900;transition:transform .2s;display:inline-block}
-.seg-head[aria-expanded="true"] .seg-chev{transform:rotate(90deg)}
-.seg-body{padding:12px}
-.seg-body[hidden]{display:none}
-.seg-act{font-size:11px;color:#888;margin-bottom:10px;border-bottom:1px dashed #ccc;padding-bottom:8px}
-.palanca{background:var(--black);color:var(--yellow);padding:9px 13px;margin-bottom:11px;border-left:4px solid var(--yellow)}
-.palanca strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;color:#aaa}
-.palanca p{font-size:13px;line-height:1.6}
-.replicate-title,.tl-title{font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:900;margin-bottom:7px;color:#555}
-.tl-title{margin-top:11px}
-.replicate-item{display:flex;gap:9px;margin-bottom:7px;font-size:12px;line-height:1.6}
-.r-num{background:var(--orange);color:#fff;font-weight:900;min-width:21px;height:21px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
-.tl-item{display:flex;gap:7px;font-size:11px;margin-bottom:5px;line-height:1.5}
-.tl-dot{width:7px;height:7px;background:var(--orange);border:2px solid var(--black);flex-shrink:0;margin-top:4px}
-
-/* MISC */
-.empty{font-size:13px;color:#aaa;padding:36px;text-align:center;text-transform:uppercase;letter-spacing:2px}
-.footer{background:var(--black);color:#666;font-size:11px;padding:13px 28px;text-align:center;letter-spacing:1px;text-transform:uppercase;border-top:var(--border);margin-top:28px}
-"""
-
-JS = """
-// Toggle any element by its explicit id; button must be its previousElementSibling
-function tog(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var btn = el.previousElementSibling;
-  var isHidden = el.hasAttribute('hidden');
-  if (isHidden) {
-    el.removeAttribute('hidden');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-  } else {
-    el.setAttribute('hidden', '');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-  }
-}
-
-function togRep(uid) {
-  var body = document.getElementById('rep-body-' + uid);
-  if (!body) return;
-  var btn = document.querySelector('#rep-' + uid + ' .report-head');
-  var isHidden = body.hasAttribute('hidden');
-  if (isHidden) {
-    body.removeAttribute('hidden');
-    if (btn) btn.setAttribute('aria-expanded','true');
-  } else {
-    body.setAttribute('hidden','');
-    if (btn) btn.setAttribute('aria-expanded','false');
-  }
-}
-
-// Tabs
-var activeTab = 'all';
-function setTab(t) {
-  activeTab = t;
-  document.querySelectorAll('.tab').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.tab === t);
-  });
-  applyFilters();
-}
-
-// Filters
-var activeFilter = 'all';
-function setFilter(f) {
-  activeFilter = f;
-  document.querySelectorAll('.filter-btn').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.filter === f);
-  });
-  applyFilters();
-}
-
-function applyFilters() {
-  var DEST = parseInt(document.body.dataset.dest || '15');
-  document.querySelectorAll('.report').forEach(function(rep) {
-    var grp = rep.dataset.group;
-    if (activeTab !== 'all' && grp !== activeTab) {
-      rep.setAttribute('hidden',''); return;
-    }
-    rep.removeAttribute('hidden');
-    var visible = 0;
-    rep.querySelectorAll('.opp').forEach(function(opp) {
-      var score = parseInt(opp.dataset.score || '0');
-      var seg   = opp.dataset.seg === '1';
-      var conf  = opp.dataset.conf || '';
-      var show  = true;
-      if (activeFilter === 'destacada' && score < DEST) show = false;
-      if (activeFilter === 'seguimiento' && !seg) show = false;
-      if (activeFilter === 'alta' && !conf.includes('alta')) show = false;
-      if (show) { opp.removeAttribute('hidden'); visible++; }
-      else        opp.setAttribute('hidden','');
-    });
-  });
-}
-
-// Open most recent report on load
-document.addEventListener('DOMContentLoaded', function() {
-  var reports = document.querySelectorAll('.report');
-  if (reports.length > 0) {
-    var body = document.getElementById(reports[0].id.replace('rep-','rep-body-'));
-    var btn  = reports[0].querySelector('.report-head');
-    if (body) { body.removeAttribute('hidden'); }
-    if (btn)  { btn.setAttribute('aria-expanded','true'); }
-  }
-  applyFilters();
-});
-"""
-
-def build_page(data, updated, date_display):
-    # Aggregate stats
-    all_reports = [(r, g["key"], g["label"])
-                   for g in data for r in g["reports"]]
-    all_scores  = [o["score"] for r, _, _ in all_reports for o in r["opps"]]
-    n_rep       = len(all_reports)
-    n_opp       = sum(r["n_opps"] for r, _, _ in all_reports)
-    n_dest      = sum(1 for s in all_scores if s >= DESTACADA)
-    n_seg       = sum(r["follow_count"] for r, _, _ in all_reports)
-    avg         = round(sum(all_scores) / len(all_scores), 1) if all_scores else "–"
-    latest      = max((r["date"] for r, _, _ in all_reports), default="–")
-
-    stats_html = f"""
-<div class="stat"><div class="num">{n_rep}</div><div class="lbl">Reportes</div></div>
-<div class="stat"><div class="num">{n_opp}</div><div class="lbl">Ideas totales</div></div>
-<div class="stat"><div class="num green">{n_dest}</div><div class="lbl">Destacadas &ge;{DESTACADA}</div></div>
-<div class="stat"><div class="num">{avg}</div><div class="lbl">Score prom.</div></div>
-<div class="stat"><div class="num red">{n_seg}</div><div class="lbl">Con seguimiento</div></div>
-<div class="stat"><div class="num" style="font-size:14px">{latest}</div><div class="lbl">&Uacute;ltimo reporte</div></div>"""
-
-    tabs_html = '<span class="ctrl-label">Categor&iacute;a:</span>'
-    tabs_html += '<button class="tab active" data-tab="all" onclick="setTab(\'all\')">TODAS</button>'
+def build_dataset(data, indice):
+    rows = []
     for g in data:
-        tabs_html += (f'<button class="tab" data-tab="{esc(g["key"])}" '
-                      f'onclick="setTab(\'{esc(g["key"])}\')">'
-                      f'{esc(g["label"].upper())}</button>')
+        dominio = DOMINIO[g["key"]]
+        idx_list = indice.get(dominio, [])
+        for r in g["reports"]:
+            for i, o in enumerate(r["opps"]):
+                match = match_indice(idx_list, o["name"])
+                _id = (match["id"] if match else slug(o["name"])) + "-" + r["date"]
+                veredicto = match["veredicto_chile"] if match else ("APLICA" if o["score"] >= HIGH else "APLICA_CON_AJUSTES")
+                accion = match["accion"] if match else (
+                    "ADOPTAR_YA" if o["score"] >= DESTACADA else
+                    "PILOTEAR" if o["score"] >= HIGH else
+                    "OBSERVAR" if o["score"] >= 10 else "DESCARTAR")
+                nivel = int(match["nivel"]) if (match and match["nivel"].isdigit()) else min(5, max(1, round(o["score"] / 4)))
+                prioridad = int(match["prioridad"]) if (match and match["prioridad"].isdigit()) else None
+                rows.append({
+                    "id": _id,
+                    "nombre": o["name"],
+                    "categoria": g["key"],
+                    "categoria_label": g["label"],
+                    "fecha": r["date"],
+                    "score": o["score"],
+                    "score_tier": score_tier(o["score"]),
+                    "descripcion": o["desc"] or o["why"] or "",
+                    "razon": o["why"],
+                    "adaptacion_chile": o["chile"],
+                    "canal": o["axes"],
+                    "evidencia": o["evidencia"],
+                    "pasos": o["pasos"],
+                    "metrica_exito": o["metrica"],
+                    "confianza": o["conf"],
+                    "verificado": "alta" in (o["conf"] or "").lower(),
+                    "veredicto_chile": veredicto,
+                    "accion": accion,
+                    "nivel": nivel,
+                    "prioridad": prioridad,
+                    "impacto": impacto_de(o["score"]),
+                    "costo_implementacion": costo_de(o["axes"]),
+                    "seguimiento": o["follow"],
+                    "fuente_reporte": f"{g['key']}/{r['date']}.md",
+                })
+    rows.sort(key=lambda x: (x["fecha"], -x["score"]), reverse=True)
+    return rows
 
-    # Sort all reports newest first
-    sorted_reports = sorted(all_reports, key=lambda x: x[0]["date"], reverse=True)
-    reports_html = "".join(
-        render_report(r, gk, gl, i)
-        for i, (r, gk, gl) in enumerate(sorted_reports)
-    ) or '<div class="empty">No hay reportes todav&iacute;a.</div>'
+# ── plantilla HTML (estilo investigacion-tendencias-2026-07) ─────────────
 
-    return f"""<!DOCTYPE html>
+TEMPLATE = r"""<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inteligencia de Negocios &mdash; Chile</title>
-<style>{CSS}</style>
+<title>Radar de Inteligencia de Negocios · Chile</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Archivo:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0d1117; --panel:#151b24; --panel2:#1b2330; --panel3:#212b3a; --line:#26303f;
+  --txt:#e9e4d8; --muted:#8b95a7; --muted2:#5d6878;
+  --oro:#d8a953; --oro2:#f2cd88; --oro-dim:rgba(216,169,83,.14);
+  --verde:#46c08a; --verde-dim:rgba(70,192,138,.14);
+  --ambar:#e3a93c; --ambar-dim:rgba(227,169,60,.13);
+  --azul:#5d9bff; --azul-dim:rgba(93,155,255,.13);
+  --gris:#7c8696; --gris-dim:rgba(124,134,150,.14);
+  --rojo:#e0726a; --rojo-dim:rgba(224,114,106,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Archivo',system-ui,sans-serif;font-size:15px;line-height:1.55;
+  background-image:radial-gradient(1100px 500px at 85% -10%, rgba(216,169,83,.06), transparent 60%),radial-gradient(900px 480px at -10% 110%, rgba(93,155,255,.05), transparent 55%)}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:650;letter-spacing:.2px}
+a{color:var(--oro2)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#2b3648;border-radius:6px}
+::-webkit-scrollbar-track{background:transparent}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  padding:14px 26px;background:rgba(13,17,23,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(140deg,var(--oro),#9c742f);display:flex;align-items:center;justify-content:center;font-size:20px;color:#14110a;font-weight:700;font-family:'Fraunces',serif}
+.brand h1{font-size:19px;line-height:1.1}
+.brand .sub{font-size:11.5px;color:var(--muted);letter-spacing:.4px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{background:none;border:1px solid transparent;color:var(--muted);font:inherit;font-weight:600;font-size:13.5px;
+  padding:8px 14px;border-radius:9px;cursor:pointer;transition:.18s}
+.tab:hover{color:var(--txt);background:var(--panel2)}
+.tab.active{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.35)}
+.tab .pill{display:inline-block;min-width:20px;padding:0 6px;margin-left:5px;border-radius:99px;background:var(--panel3);font-size:11px;color:var(--muted)}
+.progresswrap{margin-left:auto;display:flex;align-items:center;gap:10px}
+.progresstxt{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.progresstxt b{color:var(--verde)}
+.progressbar{width:130px;height:7px;border-radius:99px;background:var(--panel3);overflow:hidden}
+.progressbar i{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--verde),#7ee0b2);transition:width .4s}
+main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
+.tabpane{display:none}
+.tabpane.active{display:block}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--muted);background:var(--panel2);white-space:nowrap}
+.chip.acc-ADOPTAR_YA,.chip.acc-EMPEZAR_YA{color:var(--verde);background:var(--verde-dim);border-color:rgba(70,192,138,.4)}
+.chip.acc-PILOTEAR,.chip.acc-PROTOTIPAR{color:var(--ambar);background:var(--ambar-dim);border-color:rgba(227,169,60,.4)}
+.chip.acc-OBSERVAR{color:var(--azul);background:var(--azul-dim);border-color:rgba(93,155,255,.4)}
+.chip.acc-DESCARTAR{color:var(--gris);background:var(--gris-dim);border-color:rgba(124,134,150,.4)}
+.chip.ver-APLICA{color:var(--verde);background:var(--verde-dim);border-color:rgba(70,192,138,.4)}
+.chip.ver-APLICA_CON_AJUSTES{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.4)}
+.chip.ver-NO_APLICA_AUN{color:var(--rojo);background:var(--rojo-dim);border-color:rgba(224,114,106,.4)}
+.chip.cat-oportunidades{color:var(--azul);background:var(--azul-dim);border-color:rgba(93,155,255,.4)}
+.chip.cat-tendencias{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.4)}
+.prio{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 7px;border-radius:7px;
+  font-size:11.5px;font-weight:700;letter-spacing:.5px}
+.prio.p1{background:linear-gradient(135deg,var(--oro),#b07f2e);color:#181206}
+.prio.p2{background:var(--oro-dim);color:var(--oro2);border:1px solid rgba(216,169,83,.45)}
+.prio.p3,.prio.p4,.prio.p5{background:var(--panel3);color:var(--muted);border:1px solid var(--line)}
+.prio.p0{background:transparent;color:var(--muted2);border:1px dashed var(--line)}
+.explorar-wrap{display:grid;grid-template-columns:280px 1fr;gap:22px;align-items:start}
+.filtros{position:sticky;top:86px;max-height:calc(100vh - 110px);overflow:auto;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;padding:18px}
+.filtros h3{font-size:14px;color:var(--oro2);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.filtros .reset{font-size:11.5px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:inherit}
+.buscar{width:100%;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);
+  font:inherit;font-size:13.5px;margin-bottom:14px}
+.buscar:focus{outline:none;border-color:var(--oro)}
+.fgrupo{margin-bottom:14px}
+.fgrupo .ftit{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fops{display:flex;flex-wrap:wrap;gap:5px}
+.fop{font:inherit;font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--muted);cursor:pointer;transition:.15s}
+.fop:hover{color:var(--txt);border-color:var(--muted2)}
+.fop.on{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.5)}
+.fsel{width:100%;padding:7px 10px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);font:inherit;font-size:13px}
+.toggleverif{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none}
+.toggleverif input{accent-color:var(--oro)}
+.res-header{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.res-header h2{font-size:22px}
+.res-header .n{color:var(--muted);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px 16px 13px;cursor:pointer;
+  transition:transform .16s, border-color .16s, box-shadow .16s;position:relative;display:flex;flex-direction:column;gap:9px}
+.card:hover{transform:translateY(-2px);border-color:rgba(216,169,83,.45);box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.card.vista{opacity:.5}
+.card.vista:hover{opacity:.85}
+.card .fila1{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.card .fila1 .sp{flex:1}
+.card h3{font-size:15.5px;line-height:1.32;font-family:'Archivo',sans-serif;font-weight:700}
+.card .desc{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+.mark{background:none;border:1px solid var(--line);border-radius:8px;width:30px;height:26px;cursor:pointer;font-size:13px;
+  color:var(--muted2);display:inline-flex;align-items:center;justify-content:center;transition:.15s}
+.mark:hover{border-color:var(--muted)}
+.mark.on-visto{color:var(--verde);border-color:rgba(70,192,138,.5);background:var(--verde-dim)}
+.mark.on-fav{color:var(--oro2);border-color:rgba(216,169,83,.5);background:var(--oro-dim)}
+.tag-vista{position:absolute;top:-8px;right:12px;font-size:10px;font-weight:700;letter-spacing:1px;color:var(--verde);
+  background:#11221b;border:1px solid rgba(70,192,138,.5);border-radius:99px;padding:2px 9px}
+.warn{color:var(--ambar);font-size:12px}
+.vacio{padding:50px 20px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px;margin-bottom:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px 18px}
+.stat .v{font-family:'Fraunces',serif;font-size:31px;font-weight:650;line-height:1.05}
+.stat .l{font-size:12px;color:var(--muted);margin-top:3px;letter-spacing:.3px}
+.stat.gold .v{color:var(--oro2)} .stat.green .v{color:var(--verde)} .stat.amber .v{color:var(--ambar)} .stat.blue .v{color:var(--azul)} .stat.red .v{color:var(--rojo)}
+.pan-cols{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+.panel-box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:20px}
+.panel-box>h2{font-size:19px;color:var(--oro2);margin-bottom:14px}
+.barrow{display:grid;grid-template-columns:150px 1fr 34px;align-items:center;gap:10px;margin-bottom:8px;font-size:12.5px}
+.barrow .bl{color:var(--muted);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barrow .bt{height:9px;border-radius:99px;background:var(--panel3);overflow:hidden}
+.barrow .bt i{display:block;height:100%;border-radius:99px}
+.barrow .bn{color:var(--txt);font-weight:600;font-size:12px}
+.hint{font-size:13px;color:var(--muted);border-left:3px solid var(--oro);padding:2px 0 2px 12px;margin-top:14px}
+.dec-grupo{margin-bottom:26px}
+.dec-grupo>header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.dec-grupo>header h2{font-size:19px}
+.dec-grupo>header .n{font-size:13px;color:var(--muted)}
+.dec-grupo.g-ADOPTAR_YA>header h2,.dec-grupo.g-EMPEZAR_YA>header h2{color:var(--verde)}
+.dec-grupo.g-PILOTEAR>header h2,.dec-grupo.g-PROTOTIPAR>header h2{color:var(--ambar)}
+.dec-grupo.g-OBSERVAR>header h2{color:var(--azul)}
+.dec-grupo.g-DESCARTAR>header h2{color:var(--gris)}
+.dec-row{display:grid;grid-template-columns:minmax(220px,1.1fr) 1.6fr 150px 40px;gap:14px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 16px;margin-bottom:7px;cursor:pointer;transition:.15s}
+.dec-row:hover{border-color:rgba(216,169,83,.45)}
+.dec-row.vista{opacity:.5}
+.dec-row .nom{font-weight:700;font-size:13.5px;line-height:1.3}
+.dec-row .imp{font-size:12.5px;color:var(--muted)}
+.dec-row .pz{font-size:12px;color:var(--muted)}
+.dec-row .pz b{display:block;color:var(--txt);font-size:12px;font-weight:600}
+.acordeon{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin-bottom:14px;overflow:hidden}
+.acordeon summary{cursor:pointer;list-style:none;padding:16px 22px;display:flex;align-items:center;gap:12px;
+  font-size:14px;font-weight:600;color:var(--oro2)}
+.acordeon summary::-webkit-details-marker{display:none}
+.acordeon summary .flecha{margin-left:auto;transition:.2s;color:var(--muted)}
+.acordeon[open] summary .flecha{transform:rotate(90deg)}
+.acordeon .cuerpo{padding:4px 24px 22px;border-top:1px solid var(--line)}
+.acordeon .resumen{font-size:13px;color:#cfd6e0;margin:10px 0 14px}
+.acordeon .fuentes{font-size:11.5px;color:var(--muted2);border-top:1px dashed var(--line);padding-top:10px;margin-top:6px}
+.mini-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;cursor:pointer}
+.mini-card:hover{border-color:rgba(216,169,83,.4)}
+.mini-card .t{font-weight:700;font-size:13.5px;margin-bottom:5px}
+.radar-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.lista-mini .item{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:11px;margin-bottom:7px;cursor:pointer;transition:.15s}
+.lista-mini .item:hover{border-color:rgba(216,169,83,.45)}
+.lista-mini .item .tt{font-weight:600;font-size:13.5px;line-height:1.3}
+.lista-mini .item .nt{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic}
+.botonera{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:9px 16px;border-radius:10px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--txt);cursor:pointer;transition:.15s}
+.btn:hover{border-color:var(--oro)}
+.btn.peligro:hover{border-color:var(--rojo);color:var(--rojo)}
+.overlay{position:fixed;inset:0;background:rgba(5,8,12,.72);backdrop-filter:blur(4px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:4vh 18px}
+.overlay.abierto{display:flex}
+.modal{background:var(--panel);border:1px solid #303c4e;border-radius:18px;max-width:900px;width:100%;max-height:90vh;overflow:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.modal-head{position:sticky;top:0;background:linear-gradient(180deg,var(--panel) 82%,transparent);padding:22px 26px 14px;z-index:2}
+.modal-head .fila{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.modal-head h2{font-size:22px;line-height:1.25;padding-right:40px}
+.cerrar{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--muted);font-size:16px;cursor:pointer}
+.cerrar:hover{color:var(--txt);border-color:var(--muted)}
+.modal-cuerpo{padding:6px 26px 26px}
+.msec{margin-bottom:20px}
+.msec>h4{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--oro);margin-bottom:7px;font-family:'Archivo',sans-serif;font-weight:700}
+.msec p,.msec li{font-size:14px;color:#cfd6e0}
+.msec ul{margin-left:20px}
+.msec li{margin:5px 0}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}
+.kv .k{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.kv .k b{display:block;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.kv .k span{font-size:13px}
+.notabox{width:100%;min-height:74px;background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--txt);
+  font:inherit;font-size:13.5px;padding:11px 13px;resize:vertical}
+.notabox:focus{outline:none;border-color:var(--oro)}
+.modal-nav{display:flex;justify-content:space-between;align-items:center;padding:0 26px 22px;gap:10px}
+.modal-nav .btn{flex:0 0 auto}
+.guardado{font-size:11.5px;color:var(--verde);opacity:0;transition:.3s}
+.guardado.ok{opacity:1}
+@media (max-width:980px){
+  .explorar-wrap{grid-template-columns:1fr}
+  .filtros{position:static;max-height:none}
+  .pan-cols{grid-template-columns:1fr}
+  .radar-cols{grid-template-columns:1fr}
+  .dec-row{grid-template-columns:1fr;gap:6px}
+  .progresswrap{margin-left:0;width:100%}
+  main{padding:18px 14px 70px}
+  .topbar{padding:12px 14px}
+}
+</style>
 </head>
-<body data-dest="{DESTACADA}">
+<body>
 
-<div class="header">
-  <div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <h1>&#9889; Inteligencia de Negocios</h1>
-      <span class="badge-chile">&#127464;&#127473; Chile</span>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">◬</div>
+    <div><h1>Radar de Inteligencia de Negocios</h1><span class="sub">__SUB__</span></div>
+  </div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="panorama">Panorama</button>
+    <button class="tab" data-tab="explorar">Explorar <span class="pill" id="pillExplorar"></span></button>
+    <button class="tab" data-tab="decisiones">Decisiones</button>
+    <button class="tab" data-tab="reportes">Reportes</button>
+    <button class="tab" data-tab="miradar">Mi radar <span class="pill" id="pillFav"></span></button>
+  </nav>
+  <div class="progresswrap">
+    <span class="progresstxt"><b id="vistasNum">0</b> / <span id="totalNum"></span> vistas</span>
+    <div class="progressbar"><i id="progressFill"></i></div>
+  </div>
+</header>
+
+<main>
+
+<section class="tabpane active" id="tab-panorama">
+  <div class="statgrid" id="statgrid"></div>
+  <div class="pan-cols">
+    <div>
+      <div class="panel-box">
+        <h2>Últimos resúmenes ejecutivos</h2>
+        <div id="resumenes"></div>
+        <p class="hint">Haz clic en cualquier hallazgo para ver su ficha completa. Marca con 👁 lo que ya revisaste y con ⭐ lo que te interesa: queda guardado en este navegador y puedes verlo en «Mi radar».</p>
+      </div>
     </div>
-    <div class="stamp">Actualizado: {esc(updated)} &middot; Agente Claude</div>
+    <div>
+      <div class="panel-box"><h2>Por decisión</h2><div id="chartAccion"></div></div>
+      <div class="panel-box"><h2>Por veredicto Chile</h2><div id="chartVeredicto"></div></div>
+      <div class="panel-box"><h2>Por misión</h2><div id="chartCat"></div></div>
+    </div>
   </div>
-  <div class="header-right">
-    <div class="header-date">{esc(date_display)}</div>
-    <div class="header-sub">Score /20 &middot; Pasos accionables</div>
+</section>
+
+<section class="tabpane" id="tab-explorar">
+  <div class="explorar-wrap">
+    <aside class="filtros">
+      <h3>Filtros <button class="reset" id="btnReset">limpiar</button></h3>
+      <input class="buscar" id="buscar" type="search" placeholder="Buscar… (nombre, descripción, canal)">
+      <div id="gruposFiltro"></div>
+      <div class="fgrupo">
+        <div class="ftit">Ordenar por</div>
+        <select class="fsel" id="orden">
+          <option value="fecha">Fecha (recientes primero)</option>
+          <option value="prioridad">Prioridad (P1 primero)</option>
+          <option value="score">Score (mayor primero)</option>
+          <option value="nombre">Nombre A→Z</option>
+        </select>
+      </div>
+      <label class="toggleverif"><input type="checkbox" id="soloVerif"> Solo confianza alta</label>
+    </aside>
+    <div>
+      <div class="res-header"><h2>Hallazgos</h2><span class="n" id="resN"></span></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="tabpane" id="tab-decisiones">
+  <div class="res-header"><h2>Matriz de decisión</h2><span class="n">qué hacer con cada hallazgo — haz clic para abrir la ficha</span></div>
+  <div id="decGrupos"></div>
+</section>
+
+<section class="tabpane" id="tab-reportes">
+  <div class="res-header"><h2>Reportes diarios</h2><span class="n" id="repN"></span></div>
+  <div id="listaReportes"></div>
+</section>
+
+<section class="tabpane" id="tab-miradar">
+  <div class="radar-cols">
+    <div class="panel-box">
+      <h2>⭐ Me interesan <span class="n" id="nFav"></span></h2>
+      <div class="lista-mini" id="listaFav"></div>
+    </div>
+    <div class="panel-box">
+      <h2>👁 Ya vistas <span class="n" id="nVistas"></span></h2>
+      <div class="lista-mini" id="listaVistas"></div>
+    </div>
+  </div>
+  <div class="panel-box">
+    <h2>Respaldo de tus marcas</h2>
+    <p style="color:var(--muted);font-size:13.5px">Tus marcas y notas viven en este navegador (localStorage). Exporta un respaldo si vas a cambiar de equipo o navegador.</p>
+    <div class="botonera">
+      <button class="btn" id="btnExport">⬇ Exportar marcas y notas</button>
+      <button class="btn" id="btnImport">⬆ Importar respaldo</button>
+      <input type="file" id="fileImport" accept="application/json" style="display:none">
+      <button class="btn peligro" id="btnLimpiar">Borrar todas las marcas</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head" id="modalHead"></div>
+    <div class="modal-cuerpo" id="modalCuerpo"></div>
+    <div class="modal-nav">
+      <button class="btn" id="navPrev">‹ Anterior</button>
+      <span class="guardado" id="guardado">✓ nota guardada</span>
+      <button class="btn" id="navNext">Siguiente ›</button>
+    </div>
   </div>
 </div>
 
-<div class="legend">
-  <span><span class="ldot" style="background:#008A57;border-color:#008A57"></span>Destacada &ge;{DESTACADA}</span>
-  <span><span class="ldot" style="background:#e8f7ef;border-color:#008A57"></span>Buena &ge;{HIGH}</span>
-  <span><span class="ldot" style="background:#fffbe6;border-color:#b89a00"></span>Media 10&ndash;12</span>
-  <span><span class="ldot" style="background:#eee;border-color:#bbb"></span>Explorar &lt;10</span>
-  <span style="margin-left:auto;color:#FFE600">&#9733; = Con seguimiento de crecimiento</span>
-</div>
+<script id="datos" type="application/json">__DATA__</script>
+<script id="reportesJson" type="application/json">__REPORTES__</script>
+<script>
+'use strict';
+var DATA = JSON.parse(document.getElementById('datos').textContent);
+var REPORTES = JSON.parse(document.getElementById('reportesJson').textContent);
+DATA.forEach(function(t, i){ t._i = i });
 
-<div class="stats-bar">{stats_html}</div>
+var LSKEY = 'radar-negocios-v1';
+var estado = {};
+try { estado = JSON.parse(localStorage.getItem(LSKEY) || '{}') } catch (e) { estado = {} }
+function st(id){ return estado[id] || {} }
+function setSt(id, patch){
+  estado[id] = Object.assign({}, estado[id] || {}, patch);
+  try { localStorage.setItem(LSKEY, JSON.stringify(estado)) } catch (e) {}
+  renderTodo();
+}
 
-<div class="controls">
-  <div class="ctrl-group">{tabs_html}</div>
-  <div class="ctrl-group">
-    <span class="ctrl-label">Filtro:</span>
-    <button class="filter-btn active" data-filter="all"        onclick="setFilter('all')">TODAS</button>
-    <button class="filter-btn"        data-filter="destacada"  onclick="setFilter('destacada')">DESTACADAS &ge;{DESTACADA}</button>
-    <button class="filter-btn"        data-filter="seguimiento" onclick="setFilter('seguimiento')">CON SEGUIMIENTO</button>
-    <button class="filter-btn"        data-filter="alta"       onclick="setFilter('alta')">CONFIANZA ALTA</button>
-  </div>
-</div>
+var ACCION_TXT = { ADOPTAR_YA: 'Adoptar ya', EMPEZAR_YA: 'Empezar ya', PROTOTIPAR: 'Prototipar', PILOTEAR: 'Pilotear', OBSERVAR: 'Observar', DESCARTAR: 'Descartar' };
+var VER_TXT = { APLICA: '▲ Aplica', APLICA_CON_AJUSTES: '▲ Con ajustes', NO_APLICA_AUN: '▼ No aún' };
+var CAT_TXT = {};
+DATA.forEach(function(t){ CAT_TXT[t.categoria] = t.categoria_label });
 
-<div class="main">{reports_html}</div>
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }
 
-<div class="footer">
-  Generado por agentes remotos Claude &middot;
-  repo: maolivare-max/inteligencia-negocios &middot;
-  {n_rep} reportes &middot; {n_opp} ideas en archivo
-</div>
+var GRUPOS = [
+  { k: 'categoria', titulo: 'Misión', ops: Object.keys(CAT_TXT).map(function(c){ return [c, CAT_TXT[c]] }) },
+  { k: 'veredicto', titulo: 'Veredicto Chile', ops: [['APLICA','▲ Aplica'],['APLICA_CON_AJUSTES','▲ Con ajustes'],['NO_APLICA_AUN','▼ No aún']] },
+  { k: 'accion', titulo: 'Decisión', ops: [['ADOPTAR_YA','Adoptar ya'],['EMPEZAR_YA','Empezar ya'],['PROTOTIPAR','Prototipar'],['PILOTEAR','Pilotear'],['OBSERVAR','Observar'],['DESCARTAR','Descartar']] },
+  { k: 'score_tier', titulo: 'Score', ops: [['destacada','Destacada ≥15'],['alta','Alta 13-14'],['media','Media 10-12'],['baja','Baja <10']] },
+  { k: 'impacto', titulo: 'Impacto', ops: [['alto','Alto'],['medio','Medio'],['bajo','Bajo']] },
+  { k: 'costo_implementacion', titulo: 'Costo', ops: [['bajo','Bajo'],['medio','Medio'],['alto','Alto']] },
+  { k: 'estado', titulo: 'Mi estado', ops: [['novisto','Sin ver'],['visto','👁 Vistas'],['fav','⭐ Me interesan']] }
+];
+var sel = {}; GRUPOS.forEach(function(g){ sel[g.k] = [] });
+var q = '', orden = 'fecha', soloVerif = false;
 
-<script>{JS}</script>
+function valorDe(t, k){
+  if (k === 'veredicto') return t.veredicto_chile;
+  return t[k];
+}
+function pasaEstado(t, vals){
+  var s = st(t.id);
+  return vals.some(function(v){
+    if (v === 'visto') return !!s.visto;
+    if (v === 'novisto') return !s.visto;
+    if (v === 'fav') return !!s.fav;
+    return false;
+  });
+}
+function filtrar(){
+  var ql = q.toLowerCase();
+  return DATA.filter(function(t){
+    if (soloVerif && !t.verificado) return false;
+    for (var i = 0; i < GRUPOS.length; i++) {
+      var g = GRUPOS[i], vals = sel[g.k];
+      if (!vals.length) continue;
+      if (g.k === 'estado') { if (!pasaEstado(t, vals)) return false; continue }
+      if (vals.indexOf(String(valorDe(t, g.k))) < 0) return false;
+    }
+    if (ql) {
+      var blob = (t.nombre + ' ' + t.descripcion + ' ' + t.canal + ' ' + (t.adaptacion_chile || '') + ' ' + t.categoria_label).toLowerCase();
+      if (blob.indexOf(ql) < 0) return false;
+    }
+    return true;
+  });
+}
+function ordenar(lista){
+  var l = lista.slice();
+  if (orden === 'fecha') l.sort(function(a, b){ return b.fecha.localeCompare(a.fecha) || b.score - a.score });
+  else if (orden === 'prioridad') l.sort(function(a, b){ return ((a.prioridad || 9) - (b.prioridad || 9)) || (b.score - a.score) });
+  else if (orden === 'score') l.sort(function(a, b){ return b.score - a.score });
+  else l.sort(function(a, b){ return a.nombre.localeCompare(b.nombre, 'es') });
+  return l;
+}
+
+function chipsDe(t, conMeta){
+  var h = '';
+  if (t.prioridad) h += '<span class="prio p' + t.prioridad + '">P' + t.prioridad + '</span>';
+  h += '<span class="chip cat-' + t.categoria + '">' + esc(t.categoria_label) + '</span>';
+  h += '<span class="chip ver-' + t.veredicto_chile + '">' + (VER_TXT[t.veredicto_chile] || t.veredicto_chile) + '</span>';
+  if (t.accion) h += '<span class="chip acc-' + t.accion + '">' + (ACCION_TXT[t.accion] || t.accion) + '</span>';
+  if (conMeta) {
+    h += '<span class="chip">Score ' + t.score + '/20</span>';
+    h += '<span class="chip">' + esc(t.fecha) + '</span>';
+  }
+  if (!t.verificado) h += '<span class="warn" title="Confianza no alta">⚠︎</span>';
+  return h;
+}
+function botonesMark(t){
+  var s = st(t.id);
+  return '<button class="mark ' + (s.visto ? 'on-visto' : '') + '" data-mk="visto" data-id="' + esc(t.id) + '" title="Marcar como vista">👁</button>' +
+         '<button class="mark ' + (s.fav ? 'on-fav' : '') + '" data-mk="fav" data-id="' + esc(t.id) + '" title="Me interesa">⭐</button>';
+}
+
+var listaActual = [];
+function renderGrid(){
+  var l = ordenar(filtrar());
+  listaActual = l;
+  document.getElementById('resN').textContent = l.length + ' de ' + DATA.length;
+  document.getElementById('pillExplorar').textContent = l.length;
+  var g = document.getElementById('grid');
+  if (!l.length) { g.innerHTML = '<div class="vacio">Nada calza con estos filtros. Prueba quitando alguno.</div>'; return }
+  g.innerHTML = l.map(function(t){
+    var s = st(t.id);
+    return '<article class="card ' + (s.visto ? 'vista' : '') + '" data-open="' + t._i + '">' +
+      (s.visto ? '<span class="tag-vista">VISTA</span>' : '') +
+      '<div class="fila1">' + chipsDe(t, false) + '<span class="sp"></span>' + botonesMark(t) + '</div>' +
+      '<h3>' + esc(t.nombre) + '</h3>' +
+      '<p class="desc">' + esc(t.descripcion) + '</p>' +
+      '<div class="meta"><span class="chip">Score ' + t.score + '/20</span><span class="chip">' + esc(t.fecha) + '</span></div>' +
+      '</article>';
+  }).join('');
+}
+
+function renderDecisiones(){
+  var grupos = ['ADOPTAR_YA', 'EMPEZAR_YA', 'PROTOTIPAR', 'PILOTEAR', 'OBSERVAR', 'DESCARTAR'];
+  var cont = document.getElementById('decGrupos');
+  cont.innerHTML = grupos.map(function(acc){
+    var items = ordenar(DATA.filter(function(t){ return t.accion === acc }));
+    if (!items.length) return '';
+    return '<div class="dec-grupo g-' + acc + '"><header><h2>' + (ACCION_TXT[acc] || acc) + '</h2><span class="n">' + items.length + ' hallazgos</span></header>' +
+      items.map(function(t){
+        var s = st(t.id);
+        return '<div class="dec-row ' + (s.visto ? 'vista' : '') + '" data-open="' + t._i + '">' +
+          '<div class="nom">' + (t.prioridad ? '<span class="prio p' + t.prioridad + '">P' + t.prioridad + '</span> ' : '') + esc(t.nombre) + '</div>' +
+          '<div class="imp">' + esc(t.metrica_exito || t.razon || '').slice(0, 140) + '</div>' +
+          '<div class="pz"><b>' + esc(t.fecha) + '</b>' + esc(t.categoria_label) + '</div>' +
+          '<div>' + (s.fav ? '⭐' : '') + '</div></div>';
+      }).join('') + '</div>';
+  }).join('');
+}
+
+function cuenta(fn){ var m = {}; DATA.forEach(function(t){ var k = fn(t); m[k] = (m[k] || 0) + 1 }); return m }
+function barras(elId, pares, colores){
+  var max = Math.max.apply(null, pares.map(function(p){ return p[1] })) || 1;
+  document.getElementById(elId).innerHTML = pares.map(function(p, i){
+    var c = colores ? colores[i] : 'linear-gradient(90deg,var(--oro),var(--oro2))';
+    return '<div class="barrow"><span class="bl">' + esc(p[0]) + '</span><span class="bt"><i style="width:' + Math.round(p[1] / max * 100) + '%;background:' + c + '"></i></span><span class="bn">' + p[1] + '</span></div>';
+  }).join('');
+}
+function renderPanorama(){
+  var arriba = DATA.filter(function(t){ return t.veredicto_chile !== 'NO_APLICA_AUN' }).length;
+  var acc = cuenta(function(t){ return t.accion });
+  var ver = cuenta(function(t){ return t.veredicto_chile });
+  var vistas = DATA.filter(function(t){ return st(t.id).visto }).length;
+  var favs = DATA.filter(function(t){ return st(t.id).fav }).length;
+  document.getElementById('statgrid').innerHTML =
+    '<div class="stat"><div class="v">' + DATA.length + '</div><div class="l">hallazgos totales</div></div>' +
+    '<div class="stat"><div class="v">' + REPORTES.length + '</div><div class="l">reportes diarios</div></div>' +
+    '<div class="stat gold"><div class="v">' + arriba + '</div><div class="l">▲ aplican a Chile</div></div>' +
+    '<div class="stat green"><div class="v">' + ((acc.ADOPTAR_YA || 0) + (acc.EMPEZAR_YA || 0)) + '</div><div class="l">adoptar/empezar ya</div></div>' +
+    '<div class="stat amber"><div class="v">' + (acc.PILOTEAR || 0) + '</div><div class="l">pilotear</div></div>' +
+    '<div class="stat blue"><div class="v">' + (acc.OBSERVAR || 0) + '</div><div class="l">observar</div></div>' +
+    '<div class="stat"><div class="v">' + vistas + '</div><div class="l">👁 ya vistas</div></div>' +
+    '<div class="stat gold"><div class="v">' + favs + '</div><div class="l">⭐ me interesan</div></div>';
+  barras('chartAccion', [['Adoptar/empezar ya', (acc.ADOPTAR_YA || 0) + (acc.EMPEZAR_YA || 0)], ['Pilotear', acc.PILOTEAR || 0], ['Observar', acc.OBSERVAR || 0], ['Descartar', acc.DESCARTAR || 0]],
+    ['var(--verde)', 'var(--ambar)', 'var(--azul)', 'var(--gris)']);
+  barras('chartVeredicto', [['Aplica', ver.APLICA || 0], ['Aplica con ajustes', ver.APLICA_CON_AJUSTES || 0], ['No aún', ver.NO_APLICA_AUN || 0]],
+    ['var(--verde)', 'var(--oro2)', 'var(--rojo)']);
+  var cat = cuenta(function(t){ return t.categoria_label });
+  barras('chartCat', Object.keys(cat).map(function(c){ return [c, cat[c]] }));
+
+  var recientes = REPORTES.slice(0, 4);
+  document.getElementById('resumenes').innerHTML = recientes.map(function(r){
+    return '<div style="margin-bottom:14px"><div style="font-size:12.5px;color:var(--oro2);font-weight:700;margin-bottom:4px">' +
+      esc(r.fecha) + ' · ' + esc(r.categoria_label) + '</div><p style="font-size:13.5px;color:#cfd6e0">' + esc(r.resumen || '(sin resumen)') + '</p></div>';
+  }).join('') || '<p style="color:var(--muted)">Aún no hay reportes.</p>';
+}
+
+function itemMini(t){
+  var s = st(t.id);
+  return '<div class="item" data-open="' + t._i + '"><div style="flex:1"><div class="tt">' + esc(t.nombre) + '</div>' +
+    (s.nota ? '<div class="nt">📝 ' + esc(s.nota) + '</div>' : '') + '</div>' +
+    '<span class="chip acc-' + t.accion + '">' + (ACCION_TXT[t.accion] || '') + '</span></div>';
+}
+function renderMiRadar(){
+  var favs = ordenar(DATA.filter(function(t){ return st(t.id).fav }));
+  var vistas = ordenar(DATA.filter(function(t){ return st(t.id).visto }));
+  document.getElementById('nFav').textContent = '(' + favs.length + ')';
+  document.getElementById('nVistas').textContent = '(' + vistas.length + ')';
+  document.getElementById('pillFav').textContent = favs.length;
+  document.getElementById('listaFav').innerHTML = favs.length ? favs.map(itemMini).join('') : '<div class="vacio">Marca hallazgos con ⭐ y aparecerán aquí.</div>';
+  document.getElementById('listaVistas').innerHTML = vistas.length ? vistas.map(itemMini).join('') : '<div class="vacio">Lo que marques con 👁 aparecerá aquí.</div>';
+}
+
+function renderReportes(){
+  document.getElementById('repN').textContent = REPORTES.length + ' reportes';
+  document.getElementById('listaReportes').innerHTML = REPORTES.map(function(r, i){
+    var items = DATA.filter(function(t){ return t.fecha === r.fecha && t.categoria === r.categoria });
+    return '<details class="acordeon"' + (i < 2 ? ' open' : '') + '><summary>' + esc(r.fecha) + ' · ' + esc(r.categoria_label) +
+      ' <span class="chip">' + r.n_opps + ' hallazgos</span><span class="flecha">›</span></summary>' +
+      '<div class="cuerpo">' +
+      '<p class="resumen">' + esc(r.resumen || '(sin resumen)') + '</p>' +
+      items.map(function(t){
+        return '<div class="mini-card" data-open="' + t._i + '"><div class="t">' + esc(t.nombre) + '</div>' + chipsDe(t, true) + '</div>';
+      }).join('') +
+      '<div class="fuentes">FUENTES: ' + esc(r.fuentes || '—') + '</div>' +
+      '</div></details>';
+  }).join('') || '<div class="vacio">No hay reportes todavía.</div>';
+}
+
+function renderHeader(){
+  var vistas = DATA.filter(function(t){ return st(t.id).visto }).length;
+  document.getElementById('vistasNum').textContent = vistas;
+  document.getElementById('totalNum').textContent = DATA.length;
+  document.getElementById('progressFill').style.width = (DATA.length ? Math.round(vistas / DATA.length * 100) : 0) + '%';
+}
+function renderTodo(){ renderHeader(); renderGrid(); renderDecisiones(); renderPanorama(); renderMiRadar(); renderReportes(); if (modalIdx >= 0) refrescarMarksModal() }
+
+var modalLista = [], modalIdx = -1, notaTimer = null;
+function secKV(pares){
+  var vivos = pares.filter(function(p){ return p[1] });
+  if (!vivos.length) return '';
+  return '<div class="kv">' + vivos.map(function(p){ return '<div class="k"><b>' + p[0] + '</b><span>' + esc(p[1]) + '</span></div>' }).join('') + '</div>';
+}
+function abrirModal(lista, idx){
+  modalLista = lista; modalIdx = idx;
+  var t = lista[idx];
+  var s = st(t.id);
+  document.getElementById('modalHead').innerHTML =
+    '<button class="cerrar" id="btnCerrar">✕</button>' +
+    '<div class="fila">' + chipsDe(t, true) + '</div>' +
+    '<h2>' + esc(t.nombre) + '</h2>' +
+    '<div class="fila" style="margin-top:9px" id="marksModal">' + botonesMark(t) + '<span style="font-size:12px;color:var(--muted)">' + esc(t.fuente_reporte) + '</span></div>';
+  var c = '';
+  c += '<div class="msec"><h4>Qué es</h4><p>' + esc(t.descripcion) + '</p></div>';
+  if (t.razon) c += '<div class="msec"><h4>Por qué es relevante</h4><p>' + esc(t.razon) + '</p></div>';
+  if (t.evidencia && t.evidencia.length) c += '<div class="msec"><h4>Evidencia (' + t.evidencia.length + ')</h4><ul>' + t.evidencia.map(function(e){
+    return '<li><a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.fuente) + '</a></li>';
+  }).join('') + '</ul></div>';
+  if (t.adaptacion_chile) c += '<div class="msec"><h4>🇨🇱 Dónde funciona / adaptación Chile</h4><p>' + esc(t.adaptacion_chile) + '</p></div>';
+  c += '<div class="msec"><h4>Filtro Chile</h4><p><span class="chip ver-' + t.veredicto_chile + '">' + (VER_TXT[t.veredicto_chile] || t.veredicto_chile) + '</span></p></div>';
+  c += '<div class="msec"><h4>Decisión de negocio</h4><p><span class="chip acc-' + t.accion + '">' + (ACCION_TXT[t.accion] || t.accion) + '</span></p>' +
+    secKV([['Confianza', t.confianza], ['Impacto', t.impacto], ['Costo', t.costo_implementacion], ['Métrica de éxito', t.metrica_exito]]) + '</div>';
+  if (t.pasos && t.pasos.length) c += '<div class="msec"><h4>⚡ Pasos esta semana</h4><ul>' + t.pasos.map(function(p){ return '<li>' + esc(p) + '</li>' }).join('') + '</ul></div>';
+  c += '<div class="msec"><h4>📝 Mi nota</h4><textarea class="notabox" id="notaBox" placeholder="Apunta aquí tu idea, a quién se la encargas, qué quieres probar…">' + esc(s.nota || '') + '</textarea></div>';
+  document.getElementById('modalCuerpo').innerHTML = c;
+  document.getElementById('navPrev').disabled = idx <= 0;
+  document.getElementById('navNext').disabled = idx >= lista.length - 1;
+  document.getElementById('overlay').classList.add('abierto');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('btnCerrar').onclick = cerrarModal;
+  document.getElementById('notaBox').oninput = function(){
+    var v = this.value;
+    clearTimeout(notaTimer);
+    var id = t.id;
+    notaTimer = setTimeout(function(){
+      estado[id] = Object.assign({}, estado[id] || {}, { nota: v });
+      try { localStorage.setItem(LSKEY, JSON.stringify(estado)) } catch (e) {}
+      var g = document.getElementById('guardado'); g.classList.add('ok');
+      setTimeout(function(){ g.classList.remove('ok') }, 1200);
+      renderMiRadar();
+    }, 450);
+  };
+}
+function refrescarMarksModal(){
+  if (modalIdx < 0) return;
+  var t = modalLista[modalIdx];
+  var el = document.getElementById('marksModal');
+  if (el) el.innerHTML = botonesMark(t) + '<span style="font-size:12px;color:var(--muted)">' + esc(t.fuente_reporte) + '</span>';
+}
+function cerrarModal(){ document.getElementById('overlay').classList.remove('abierto'); document.body.style.overflow = ''; modalIdx = -1 }
+document.getElementById('overlay').addEventListener('click', function(e){ if (e.target === this) cerrarModal() });
+document.getElementById('navPrev').onclick = function(){ if (modalIdx > 0) abrirModal(modalLista, modalIdx - 1) };
+document.getElementById('navNext').onclick = function(){ if (modalIdx < modalLista.length - 1) abrirModal(modalLista, modalIdx + 1) };
+document.addEventListener('keydown', function(e){
+  if (modalIdx < 0) return;
+  if (e.key === 'Escape') cerrarModal();
+  if (e.key === 'ArrowLeft' && modalIdx > 0) abrirModal(modalLista, modalIdx - 1);
+  if (e.key === 'ArrowRight' && modalIdx < modalLista.length - 1) abrirModal(modalLista, modalIdx + 1);
+});
+
+document.addEventListener('click', function(e){
+  var mk = e.target.closest('.mark');
+  if (mk) {
+    e.stopPropagation();
+    var id = mk.getAttribute('data-id'), tipo = mk.getAttribute('data-mk');
+    var cur = st(id), patch = {};
+    patch[tipo] = !cur[tipo];
+    setSt(id, patch);
+    return;
+  }
+  var op = e.target.closest('[data-open]');
+  if (op) {
+    var i = parseInt(op.getAttribute('data-open'), 10);
+    var t = DATA[i];
+    var lista = listaActual.length ? listaActual : DATA;
+    var idx = lista.indexOf(t);
+    if (idx < 0) { lista = [t]; idx = 0 }
+    abrirModal(lista, idx);
+  }
+});
+
+document.querySelectorAll('.tab').forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('active') });
+    document.querySelectorAll('.tabpane').forEach(function(x){ x.classList.remove('active') });
+    b.classList.add('active');
+    document.getElementById('tab-' + b.getAttribute('data-tab')).classList.add('active');
+    window.scrollTo({ top: 0 });
+  };
+});
+
+(function(){
+  var cont = document.getElementById('gruposFiltro');
+  cont.innerHTML = GRUPOS.map(function(g){
+    return '<div class="fgrupo"><div class="ftit">' + g.titulo + '</div><div class="fops">' +
+      g.ops.map(function(o){ return '<button class="fop" data-g="' + g.k + '" data-v="' + esc(o[0]) + '">' + o[1] + '</button>' }).join('') +
+      '</div></div>';
+  }).join('');
+  cont.addEventListener('click', function(e){
+    var b = e.target.closest('.fop');
+    if (!b) return;
+    var g = b.getAttribute('data-g'), v = b.getAttribute('data-v');
+    var arr = sel[g], ix = arr.indexOf(v);
+    if (ix < 0) arr.push(v); else arr.splice(ix, 1);
+    b.classList.toggle('on');
+    renderGrid();
+  });
+})();
+document.getElementById('buscar').oninput = function(){ q = this.value.trim(); renderGrid() };
+document.getElementById('orden').onchange = function(){ orden = this.value; renderGrid() };
+document.getElementById('soloVerif').onchange = function(){ soloVerif = this.checked; renderGrid() };
+document.getElementById('btnReset').onclick = function(){
+  GRUPOS.forEach(function(g){ sel[g.k] = [] });
+  q = ''; soloVerif = false;
+  document.getElementById('buscar').value = '';
+  document.getElementById('soloVerif').checked = false;
+  document.querySelectorAll('.fop.on').forEach(function(b){ b.classList.remove('on') });
+  renderGrid();
+};
+
+document.getElementById('btnExport').onclick = function(){
+  var blob = new Blob([JSON.stringify({ app: 'radar-negocios', exportado: new Date().toISOString(), estado: estado }, null, 2)], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'radar-marcas-respaldo.json';
+  a.click();
+};
+document.getElementById('btnImport').onclick = function(){ document.getElementById('fileImport').click() };
+document.getElementById('fileImport').onchange = function(){
+  var f = this.files[0];
+  if (!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    try {
+      var j = JSON.parse(r.result);
+      var nuevo = j.estado || j;
+      Object.keys(nuevo).forEach(function(id){ estado[id] = Object.assign({}, estado[id] || {}, nuevo[id]) });
+      localStorage.setItem(LSKEY, JSON.stringify(estado));
+      renderTodo();
+      alert('Respaldo importado: marcas combinadas con las actuales.');
+    } catch (e) { alert('No pude leer ese archivo: ' + e.message) }
+  };
+  r.readAsText(f);
+};
+document.getElementById('btnLimpiar').onclick = function(){
+  if (confirm('¿Borrar TODAS tus marcas, favoritas y notas? Esto no se puede deshacer (exporta un respaldo primero).')) {
+    estado = {};
+    localStorage.removeItem(LSKEY);
+    renderTodo();
+  }
+};
+
+renderTodo();
+</script>
 </body>
 </html>"""
 
-# ── índice de ideas ya cubiertas (evita repetición día a día) ───────────────
+# ── índice de ideas ya cubiertas (compatibilidad con la rutina diaria) ────
 
-def write_ideas_index(data):
-    """Genera INDICE_IDEAS.md: lista plana de toda idea/oportunidad ya publicada
-    en ambas misiones, ordenada por fecha descendente. Pensado para que la rutina
-    diaria lo lea en vez de grep manual de varios reportes en /reportes."""
-    entries = []
-    for g in data:
-        for r in g["reports"]:
-            for o in r["opps"]:
-                entries.append((r["date"], g["label"], o["name"], o["score"]))
-    entries.sort(key=lambda e: e[0], reverse=True)
-
+def write_ideas_index(rows):
     lines = [
         "# Índice de ideas ya cubiertas",
         "",
@@ -638,53 +960,51 @@ def write_ideas_index(data):
         "`.github/workflows/rebuild-dashboard.yml`._",
         "",
     ]
-    for date, label, name, score in entries:
-        lines.append(f"- {date} · {label} · {name} (Score {score}/20)")
+    for t in rows:
+        lines.append(f"- {t['fecha']} · {t['categoria_label']} · {t['nombre']} (Score {t['score']}/20)")
     lines.append("")
-
     with open(IDEAS_INDEX_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
-    return len(entries)
+    return len(rows)
 
-# ── main ────────────────────────────────────────────────────────────────────
-
-REDIRECT_STUB = """<!doctype html>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=index.html">
-<title>Redirigiendo…</title>
-<a href="index.html">Ir al dashboard</a>
-"""
+# ── main ────────────────────────────────────────────────────────────────
 
 def main():
     data = collect()
-    # Fecha determinística (la del reporte más reciente, no el reloj): así
-    # regenerar sin reportes nuevos no produce diff y no fuerza commits extra.
-    latest = max((r["date"] for g in data for r in g["reports"]), default=None)
-    if latest:
-        latest_dt    = datetime.strptime(latest, "%Y-%m-%d")
-        updated      = latest
-        date_display = latest_dt.strftime("%a %d %b %Y").upper()
-    else:
-        updated      = datetime.now().strftime("%Y-%m-%d")
-        date_display = datetime.now().strftime("%a %d %b %Y").upper()
-    page = build_page(data, updated, date_display)
+    indice = load_indice()
+    rows = build_dataset(data, indice)
 
-    # Solo index.html lleva el contenido; dashboard.html queda como redirect
-    # liviano para no duplicar ~1.3MB por día en el repo.
-    with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
-        f.write(page)
+    reportes_meta = []
+    for g in data:
+        for r in g["reports"]:
+            reportes_meta.append({
+                "fecha": r["date"], "categoria": g["key"], "categoria_label": g["label"],
+                "resumen": r["resumen"], "fuentes": r["fuentes"], "n_opps": r["n_opps"],
+            })
+    reportes_meta.sort(key=lambda x: x["fecha"], reverse=True)
+
+    latest = max((r["fecha"] for r in reportes_meta), default=None)
+    n_rep = len(reportes_meta)
+    n_dom = len(set(r["categoria"] for r in reportes_meta))
+    sub = f"{len(rows)} hallazgos · {n_rep} reportes · {n_dom} misiones · actualizado {latest or '—'}"
+
+    html = TEMPLATE
+    html = html.replace("__SUB__", sub)
+    data_json = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")
+    reportes_json = json.dumps(reportes_meta, ensure_ascii=False).replace("</", "<\\/")
+    html = html.replace("__DATA__", data_json)
+    html = html.replace("__REPORTES__", reportes_json)
+
     with open(os.path.join(BASE, "dashboard.html"), "w", encoding="utf-8") as f:
-        f.write(REDIRECT_STUB)
+        f.write(html)
+    with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
+        f.write(html)
 
-    n_idx  = write_ideas_index(data)
+    n_idx = write_ideas_index(rows)
 
-    n_rep  = sum(len(g["reports"]) for g in data)
-    n_opp  = sum(r["n_opps"] for g in data for r in g["reports"])
-    n_dest = sum(1 for g in data for r in g["reports"]
-                 for o in r["opps"] if o["score"] >= DESTACADA)
-    n_seg  = sum(r["follow_count"] for g in data for r in g["reports"])
-    print(f"✓ dashboard generado (v3 pre-renderizado):")
-    print(f"  {n_rep} reportes · {n_opp} ideas · {n_dest} destacadas ≥{DESTACADA} · {n_seg} con seguimiento")
+    n_dest = sum(1 for t in rows if t["score_tier"] == "destacada")
+    print("✓ dashboard generado (v4 — estilo investigacion-tendencias):")
+    print(f"  {len(rows)} hallazgos · {n_rep} reportes · {n_dest} destacados ≥{DESTACADA}")
     print(f"✓ INDICE_IDEAS.md regenerado: {n_idx} ideas indexadas")
 
 if __name__ == "__main__":
