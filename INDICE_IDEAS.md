@@ -2,8 +2,11 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-08 · Tendencias inmobiliarias · Sub30 / Generación Z Como Motor de Compra de Primera Vivienda (Score 12/20)
 - 2026-08-08 · Oportunidades de negocio · Software de Gestión de Canastas (CSA) para Pequeños Productores Orgánicos (Score 13/20)
 - 2026-08-08 · Oportunidades de negocio · Gestión de Mudanza y Downsizing Especializado para Adultos Mayores (Score 15/20)
+- 2026-08-08 · Tendencias inmobiliarias · Convenios Habitacionales con FFAA y Carabineros: el "VA Loan Chileno" Que Casi Nadie Chico Usa (Score 17/20)
+- 2026-08-08 · Tendencias inmobiliarias · Pet-Friendly Como Argumento de Venta de Loteos, Parcelas y Segunda Vivienda Costera — Actualización con Datos Nuevos (Score 17/20)
 - 2026-08-07 · Oportunidades de negocio · Marketplace de Comisión 0% para Freelancers LATAM — Arbitraje del Modelo Contra vs. la Comisión Escalonada de Workana (Score 12/20)
 - 2026-08-07 · Tendencias inmobiliarias · Reactivación de Leads Fríos con IA "Sin Soltar al Prospecto" — Actualización con Mecanismo y Cifra Concreta (Score 13/20)
 - 2026-08-07 · Tendencias inmobiliarias · Reity Completa el Primer Ciclo Íntegro de Tokenización Inmobiliaria en Chile (Score 14/20)
