@@ -385,3 +385,10 @@ tendencias|fello-felix-live-bridge-reactivacion-leads|Reactivación de leads fr�
 tendencias|colliers-senior-living-chile-1t2026|Colliers Chile: senior living 96% ocupación, +120% m² en 10 años|NO_APLICA_AUN|OBSERVAR|N2|PNone
 tendencias|henry-ai-copiloto-comercial-yc|Henry AI: copiloto IA para real estate comercial (YC), $1M ARR|NO_APLICA_AUN|OBSERVAR|N2|PNone
 tendencias|houseme-ai-busqueda-lifestyle-mls|HouseMe.ai: búsqueda por estilo de vida con IA sobre MLS|NO_APLICA_AUN|OBSERVAR|N3|PNone
+ideas|senior-move-management-downsizing-adultos-mayores-chile|Gestión de mudanza y downsizing especializado para adultos mayores (New Chapter Transitions) — DUAL con inmobiliario|APLICA|EMPEZAR_YA|N3|P2
+ideas|csa-software-canastas-productores-organicos-chile|Software de gestión de canastas/CSA para pequeños productores orgánicos (patrón Small Farm Central)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+ideas|software-boutique-pilates-fitness-nicho|Software vertical para estudios boutique de Pilates/fitness (patrón StudioGrowth)|NO_APLICA_AUN|DESCARTAR|N4|PNone
+ideas|turismo-accesible-discapacidad-chile|Turismo accesible/adaptado para personas con discapacidad|NO_APLICA_AUN|DESCARTAR|N1|PNone
+ideas|advocacy-educacional-dislexia-nee-chile|Advocacy/asesoría educacional para dislexia y NEE (modelo IEP advocate EE.UU.)|NO_APLICA_AUN|DESCARTAR|N2|PNone
+ideas|software-vertical-servicios-profesionales-saturado-chile|Software vertical para peluquerías/veterinarias/kinesiología/contabilidad/dental en Chile (ya saturado: AgendaPro, Dentalink, VetLink, Nubox)|NO_APLICA_AUN|DESCARTAR|N1|PNone
+ideas|notario-movil-signing-agent-chile|Notario móvil / signing agent (modelo EE.UU., incompatible con notariado estatal chileno)|NO_APLICA_AUN|DESCARTAR|N1|PNone
