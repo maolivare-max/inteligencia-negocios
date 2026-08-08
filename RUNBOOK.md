@@ -7,11 +7,12 @@ Guía para dejar el sistema corriendo en automático y para operarlo a mano si h
 ## Arquitectura
 
 ```
-CLAUDE.md                            ← memoria: 2 misiones (oportunidades + inmobiliario)
+CLAUDE.md                            ← memoria: 3 misiones (oportunidades + inmobiliario + biohacking)
 build_dashboard.py                   ← genera dashboard.html desde los reportes
 dashboard.html                       ← tablero visual (offline, doble clic)
 reportes/YYYY-MM-DD.md               ← MISIÓN 1: oportunidades de negocio
 reportes-inmobiliario/YYYY-MM-DD.md  ← MISIÓN 2: marketing inmobiliario
+reportes-biohacking/YYYY-MM-DD.md    ← MISIÓN 3: biohacking y longevidad
 ```
 
 Flujo diario (08:00): generar reporte → guardar .md → `python3 build_dashboard.py`
@@ -35,9 +36,9 @@ git push -u origin main
 
 ---
 
-## 2. Crear las dos Routines (entrega automática 08:00)
+## 2. Crear las tres Routines (entrega automática 08:00)
 
-En https://claude.ai/code/routines → **New routine**. Crear DOS, ambas con:
+En https://claude.ai/code/routines → **New routine**. Crear TRES, todas con:
 - Trigger: **Schedule → Daily → 08:00** (hora local)
 - Repositorio: el subido en el paso 1
 - Permisos: **Allow unrestricted branch pushes** activado (para que pueda escribir en main)
@@ -71,6 +72,23 @@ y LATAM). Busca ideas innovadoras que generen leads con métricas (CPL, conversi
 volumen) y actualiza la sección "FORMA DE VENTA — qué cambió". Aplica los TRES filtros
 y el scoring /20. Compara con el último archivo en reportes-inmobiliario/ para priorizar
 lo nuevo. Guarda en reportes-inmobiliario/YYYY-MM-DD.md, ejecuta
+`python3 build_dashboard.py`, y haz commit y push. NO envíes email: el dashboard es el
+medio de revisión.
+```
+
+### Routine 3 — Biohacking y Longevidad
+Nombre: `Reporte diario · Biohacking`
+
+```
+Ejecuta la MISIÓN 3 definida en CLAUDE.md (Analista de Oportunidades de Negocio en
+Biohacking/Longevidad). Rastrea fuentes de negocio del rubro (Longevity.Technology,
+Fitt Insider, Reddit r/Biohackers/r/QuantifiedSelf/r/longevity, Hacker News, Examine.com
+para validar evidencia científica) y señal chilena (MercadoLibre, Falabella, ISP Chile,
+laboratorios/clínicas de medicina funcional). Aplica los filtros de solo-founder <USD 10.000
+y el scoring /20, MÁS el gate regulatorio obligatorio: cualquier hallazgo que implique
+diagnóstico/tratamiento sin médico habilitado se descarta o se marca "⚠ ZONA GRIS
+REGULATORIA CHILE" con mitigación explícita. Compara con el último archivo en
+reportes-biohacking/ para no repetir. Guarda en reportes-biohacking/YYYY-MM-DD.md, ejecuta
 `python3 build_dashboard.py`, y haz commit y push. NO envíes email: el dashboard es el
 medio de revisión.
 ```

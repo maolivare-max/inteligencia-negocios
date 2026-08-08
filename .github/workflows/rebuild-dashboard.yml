@@ -12,6 +12,7 @@ on:
     paths:
       - "reportes/**.md"
       - "reportes-inmobiliario/**.md"
+      - "reportes-biohacking/**.md"
       - "build_dashboard.py"
   workflow_dispatch: {}
 

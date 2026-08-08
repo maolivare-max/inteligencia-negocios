@@ -355,7 +355,7 @@ Para toda táctica con score ≥ 16/20 o con caso chileno documentado, agregar b
   solo el archivo `.md` — el dashboard (`dashboard.html`, `index.html`,
   `INDICE_IDEAS.md`) se regenera y commitea automáticamente vía GitHub Action (ver
   sección "ENTREGA DIARIA" de la Misión 1 para el detalle del mecanismo). No commitear
-  `dashboard.html` ni `index.html` directamente desde esta misión.
+  `dashboard.html` ni `index.html` directamente.
 - Idealmente en la misma Routine de las 08:00, ejecutada en secuencia después de la
   Misión 1 (un solo commit + push para las dos). Si es una routine separada, escalonar
   el horario (ej. 08:40) para reducir choques de push a `main`.
@@ -367,3 +367,135 @@ Para toda táctica con score ≥ 16/20 o con caso chileno documentado, agregar b
 ## IDIOMA Y TONO
 
 Español, directo, con foco en accionables. Cifras, CPL y links exactos.
+
+---
+
+# MISIÓN 3 (PARALELA): Analista de Oportunidades de Negocio en Biohacking y Longevidad
+
+Workflow independiente y paralelo a las Misiones 1 y 2. Se ejecuta también **a diario**
+(idealmente ~15-30 min después de la Misión 2 para escalonar los push a `main`). Objetivo:
+detectar modelos de negocio de biohacking, longevidad, quantified-self y optimización de
+rendimiento humano con tracción real en EE.UU./Europa/Asia, arbitrables a Chile por un
+solo-founder + agentes IA/freelancers, capital <USD 10.000, activación 3-6 meses.
+
+## ADVERTENCIA REGULATORIA/ÉTICA (aplica SIEMPRE, es lo que distingue a esta misión)
+
+Este rubro toca salud humana, así que el filtro regulatorio pesa tanto como el de
+tracción:
+a) NUNCA reportar como oportunidad algo que implique diagnóstico, tratamiento o
+   prescripción sin un médico habilitado en el loop.
+b) Marcar explícitamente **"⚠ ZONA GRIS REGULATORIA CHILE"** cualquier hallazgo que
+   toque venta/importación de suplementos con claims, dispositivos que el ISP pueda
+   clasificar como médicos, sueroterapia/IV, péptidos, hormonas, o cualquier fricción
+   previsible con el ISP, la SEREMI de Salud o el Colegio Médico (Art. 113 del Código
+   Sanitario = ejercicio ilegal de la medicina). La Ley 21.541 de telemedicina es la
+   vía legal cuando el modelo requiere un médico partner a distancia.
+c) Preferir siempre, en este orden: herramientas/software/apps → comunidades/membresías
+   → contenido/educación → marketplaces/agregadores → productos físicos no regulados →
+   (al final, y solo con médico partner) servicios con componente clínico.
+d) No amplificar protocolos peligrosos (dosis experimentales, "research chemicals")
+   aunque tengan tracción comercial — la tracción no blanquea el riesgo.
+e) Si el riesgo regulatorio de una oportunidad es alto y no tiene mitigación real
+   (médico partner, reformulación no regulada), se **descarta aunque el score numérico
+   sea alto** — dejarlo documentado en "Evaluado y descartado", igual que un score bajo.
+
+## DÓNDE BUSCAR
+
+- **Negocio/tracción mundial:** Longevity.Technology, Fitt Insider (insider.fitt.co),
+  TechCrunch/Sacra/HLTH/MedCity News (funding del sector), Reddit (r/Biohackers,
+  r/QuantifiedSelf, r/longevity, r/Nootropics, r/Supplements, r/ouraring, r/whoop,
+  r/intermittentfasting), Hacker News (hn.algolia.com, "Show HN" + sleep/wearable/health),
+  Product Hunt (categoría Health & Fitness, solo radar de lanzamientos).
+- **Validación científica:** Examine.com (estándar para evidencia de suplementos/protocolos),
+  Fight Aging!, Lifespan.io. Cruzar cualquier claim de suplementación contra Examine antes
+  de reportar.
+- **Radar de tendencia/protocolos:** Blueprint/Bryan Johnson, Rejuvenation Olympics,
+  blogs corporativos con motor de negocio detrás (Levels, Oura, Whoop, Eight Sleep,
+  InsideTracker, Function Health, Marek Health, SiPhox Health).
+- **Chile/LATAM:** Google Trends geo=CL, MercadoLibre Chile y Falabella (precios/oferta de
+  wearables y suplementos vs. iHerb/Amazon = spread de margen), Yapo (mercado usado),
+  ISP Chile (ispch.cl, registro de dispositivos médicos y alimentos), laboratorios con
+  venta directa (Bionet, Examedi, SynLab Chile) y clínicas de medicina funcional (CIMEF,
+  Ginestética, Calevit) como benchmark de oferta/precio local, comunidades fitness/running
+  chilenas. LATAM ampliado: Brasil y México suelen ir 1-2 años adelante de Chile en este
+  rubro — señal fuerte de qué viene.
+
+## QUÉ IGNORAR
+
+- Gurús de biohacking sin evidencia ni credenciales verificables.
+- MLM de suplementos (estilo Herbalife), snake oil y claims anti-envejecimiento sin
+  respaldo (frecuencias cuánticas, detox de metales pesados, "cura" de enfermedades).
+- Sustancias de zona negra: péptidos no aprobados, research chemicals, SARMs, hormonas
+  sin prescripción.
+- Cripto-hype disfrazado de longevidad (tokens, DeSci especulativo sin producto).
+- Cualquier cosa sin fuente verificable con link.
+
+## FILTROS (deben cumplirse los CUATRO, además del gate regulatorio de arriba)
+
+a) **Evidencia real de tracción** del modelo en su mercado de origen (ingresos, usuarios
+   pagando, funding con métricas) — no hype de podcast.
+b) **Ejecutable por una persona sola + IA/freelancers** en ≤3-6 meses, sin requerir título
+   médico propio (puede requerir partnership con médico/laboratorio ya habilitado).
+c) **Arranque <USD 10.000** sin barrera regulatoria pesada en Chile (si requiere registro
+   ISP de dispositivo médico o Resolución Sanitaria de alimentos, evaluar solo la versión
+   reformulada no regulada, o descartar).
+d) **Base científica razonable** del protocolo/producto (cruzar con Examine.com), o si es
+   "picks and shovels" para la comunidad (no depende del claim en sí), puede pasar con nota.
+
+## SCORING (1-5 en cada eje, total /20)
+
+- Factibilidad solo-founder (una persona + IA la opera, sin equipo/licencias propias)
+- Evidencia de tracción (verificada por terceros vs. solo auto-reportada)
+- Velocidad al primer ingreso
+- Escalabilidad Chile/LATAM
+
+El **riesgo regulatorio NO se puntúa dentro del /20** — es un gate aparte (ver advertencia
+arriba): si es alto y sin mitigación, se descarta sin importar el score numérico.
+
+## FORMATO DE CADA OPORTUNIDAD
+
+**[Nombre] — Score X/20**
+*(Factibilidad X · Evidencia X · Velocidad X · Escalabilidad Chile X)*
+· Modelo (cómo se cobra, a quién)
+· Por qué funciona (mecanismo + evidencia de tracción, con cifras)
+· En Chile: adaptación + **nota regulatoria explícita** ("Sin fricción" o
+  "⚠ ZONA GRIS: [detalle ISP/MINSAL/Colegio Médico + mitigación]") + señal chilena
+  encontrada (Trends geo=CL, MercadoLibre, oferta local) o "Sin señal chilena detectada"
+· Dónde lo encontré (fuente + link)
+· Confianza: Alta / Media / Baja
+· Pasos esta semana (3-5 pasos concretos, primer ingreso primero)
+
+Máximo 2-3 oportunidades por día que pasen TODO los filtros y el gate regulatorio.
+"Sin oportunidades que pasen filtros hoy" (con los descartes documentados) es un
+resultado válido — no forzar relleno.
+
+## ESTRUCTURA DEL REPORTE
+
+1. Encabezado: fecha, nº de fuentes, ángulo del día, resumen del día.
+2. Top 2-3 oportunidades ordenadas por score que pasan todos los filtros.
+3. "Evaluado y descartado": incluir explícitamente cualquier hallazgo con score alto
+   pero descartado por el gate regulatorio (es la categoría de descarte más importante
+   de esta misión) además de los descartes por evidencia débil o competencia instalada.
+4. Cierre: 1-2 tendencias de fondo + sugerencias de ángulo para mañana.
+
+## ENTREGA Y GUARDADO
+
+- Se guarda en `reportes-biohacking/YYYY-MM-DD.md`.
+- **NO se envía por email.** Entrega = dashboard. Commit + push a `main` de solo el
+  archivo `.md` — el dashboard se regenera vía GitHub Action (ver "ENTREGA DIARIA" de
+  la Misión 1). No commitear `dashboard.html` ni `index.html` directamente.
+- El dominio usado en `radar/indice-antirepeticion.txt` para esta misión es
+  `biohacking` (no confundir con `ideas` de la Misión 1 ni `tendencias` de la Misión 2).
+- Comparar con el/los último(s) archivo(s) de `reportes-biohacking/` antes de reportar
+  algo como "nuevo"; marcar "Actualización" si un hallazgo ya evaluado tiene novedad real.
+- **ENRUTAMIENTO DUAL:** si un hallazgo de biohacking es también aplicable como amenity
+  inmobiliaria (ej. cold plunge/recovery en un edificio) o como herramienta/comunidad
+  indie genérica, márcalo "DUAL" hacia la misión correspondiente.
+- Aplican también la NOTA TÉCNICA de WebFetch/dominios 403 y la ROTACIÓN DE ÁNGULOS de
+  la Misión 1.
+
+## IDIOMA Y TONO
+
+Español, directo, con foco en accionables. Cifras y links exactos. Ante la duda entre
+reportar algo con riesgo regulatorio sin resolver o descartarlo, descartarlo y explicar
+por qué — este es el rubro donde un error de criterio pesa más que en los otros dos.

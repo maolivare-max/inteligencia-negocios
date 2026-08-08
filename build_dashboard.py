@@ -22,10 +22,11 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 SOURCES = [
     ("oportunidades", "Oportunidades de negocio", os.path.join(BASE, "reportes")),
     ("tendencias",     "Tendencias inmobiliarias", os.path.join(BASE, "reportes-inmobiliario")),
+    ("biohacking",     "Biohacking y longevidad", os.path.join(BASE, "reportes-biohacking")),
 ]
 
 # el dominio usado en radar/indice-antirepeticion.txt para cada fuente
-DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias"}
+DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias", "biohacking": "biohacking"}
 
 INDICE_PATH        = os.path.join(BASE, "radar", "indice-antirepeticion.txt")
 IDEAS_INDEX_PATH    = os.path.join(BASE, "INDICE_IDEAS.md")
@@ -53,7 +54,7 @@ def load_indice():
     """dominio -> lista de (nombre_truncado_lower, dict_campos), ya que el
     índice trunca el nombre a ~70 caracteres. Usamos coincidencia por
     prefijo (el nombre completo del hallazgo empieza igual)."""
-    out = {"ideas": [], "tendencias": []}
+    out = {"ideas": [], "tendencias": [], "biohacking": []}
     if not os.path.exists(INDICE_PATH):
         return out
     with open(INDICE_PATH, encoding="utf-8") as f:
@@ -329,6 +330,7 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 .chip.ver-NO_APLICA_AUN{color:var(--rojo);background:var(--rojo-dim);border-color:rgba(224,114,106,.4)}
 .chip.cat-oportunidades{color:var(--azul);background:var(--azul-dim);border-color:rgba(93,155,255,.4)}
 .chip.cat-tendencias{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.4)}
+.chip.cat-biohacking{color:var(--verde);background:var(--verde-dim);border-color:rgba(70,192,138,.4)}
 .prio{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 7px;border-radius:7px;
   font-size:11.5px;font-weight:700;letter-spacing:.5px}
 .prio.p1{background:linear-gradient(135deg,var(--oro),#b07f2e);color:#181206}

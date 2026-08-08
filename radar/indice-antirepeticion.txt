@@ -396,3 +396,10 @@ tendencias|pet-friendly-vivienda-latam-chile|Pet-friendly housing: ventana legal
 tendencias|convenios-habitacionales-ffaa-carabineros|Convenios Habitacionales con FFAA/Carabineros como canal de venta con descuento (caso Ramcom)|APLICA|ADOPTAR_YA|N1|P1
 tendencias|pet-friendly-loteos-parcelas-segunda-vivienda-costera|Pet-friendly como argumento de venta de loteos, parcelas y segunda vivienda costera (Actualización, Socovesa/Siena/NAR/Zillow)|APLICA|ADOPTAR_YA|N1|P1
 tendencias|sub30-genz-primera-vivienda-chile|Sub30/Generación Z como motor de compra de primera vivienda (+13% interanual, Transsa)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
+biohacking|comparador-suplementos-evidencia-chile|Comparador y newsletter de afiliados qué suplemento comprar en Chile (creatina, magnesio, omega-3)|APLICA|ADOPTAR_YA|N1|P1
+biohacking|coaching-ia-wearables-sueno-recovery-bevel|Capa de coaching con IA sobre datos de wearables de sueño/recovery (arbitraje modelo Bevel)|APLICA|ADOPTAR_YA|N1|P2
+biohacking|saas-interpretacion-clinicas-medicina-funcional|Software de interpretación/tracking longitudinal para clínicas de medicina funcional chilenas|APLICA_CON_AJUSTES|PILOTEAR|N2|P3
+biohacking|marca-propia-creatina-dtc-chile|Marca propia de creatina monohidratada DTC (descartada: Resolución Sanitaria DS 977/96)|NO_APLICA_AUN|DESCARTAR|N4|PNone
+biohacking|comunidad-ayuno-intermitente-longevidad-diy|Comunidad paga de ayuno intermitente / protocolos de longevidad DIY (riesgo Seremi Salud)|NO_APLICA_AUN|DESCARTAR|N4|PNone
+biohacking|reventa-whoop-informal-chile|Reventa/importación informal de bandas Whoop (competencia ya instalada, riesgo de marca)|NO_APLICA_AUN|DESCARTAR|N3|PNone
+biohacking|panel-biomarcadores-b2c-directo-sin-medico|Panel de biomarcadores curado B2C directo sin médico partner (zona gris Art. 113 Código Sanitario)|NO_APLICA_AUN|DESCARTAR|N3|PNone
