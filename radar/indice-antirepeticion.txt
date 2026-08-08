@@ -392,3 +392,7 @@ ideas|turismo-accesible-discapacidad-chile|Turismo accesible/adaptado para perso
 ideas|advocacy-educacional-dislexia-nee-chile|Advocacy/asesoría educacional para dislexia y NEE (modelo IEP advocate EE.UU.)|NO_APLICA_AUN|DESCARTAR|N2|PNone
 ideas|software-vertical-servicios-profesionales-saturado-chile|Software vertical para peluquerías/veterinarias/kinesiología/contabilidad/dental en Chile (ya saturado: AgendaPro, Dentalink, VetLink, Nubox)|NO_APLICA_AUN|DESCARTAR|N1|PNone
 ideas|notario-movil-signing-agent-chile|Notario móvil / signing agent (modelo EE.UU., incompatible con notariado estatal chileno)|NO_APLICA_AUN|DESCARTAR|N1|PNone
+tendencias|pet-friendly-vivienda-latam-chile|Pet-friendly housing: ventana legal y de demanda sin explotar (Ley 21.442, caso Siena)|APLICA_CON_AJUSTES|PILOTEAR|N3|P2
+tendencias|convenios-habitacionales-ffaa-carabineros|Convenios Habitacionales con FFAA/Carabineros como canal de venta con descuento (caso Ramcom)|APLICA|ADOPTAR_YA|N1|P1
+tendencias|pet-friendly-loteos-parcelas-segunda-vivienda-costera|Pet-friendly como argumento de venta de loteos, parcelas y segunda vivienda costera (Actualización, Socovesa/Siena/NAR/Zillow)|APLICA|ADOPTAR_YA|N1|P1
+tendencias|sub30-genz-primera-vivienda-chile|Sub30/Generación Z como motor de compra de primera vivienda (+13% interanual, Transsa)|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
