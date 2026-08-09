@@ -407,3 +407,6 @@ tendencias|arriendo-cae-gran-valparaiso-argumento-cruzado-compra|Caída de arrie
 tendencias|sub30-genz-transsa-cita-nombrada-comunas|Sub30/Gen Z primera vivienda: actualización con cita nombrada (Transsa) y comunas específicas (Cerrillos, Puente Alto, La Florida, Estación Central, Maipú)|APLICA_CON_AJUSTES|OBSERVAR|N2|P3
 tendencias|lofty-house-ai-precalificacion-financiera-comprador|Lofty House.ai: precalificación de "financial readiness" del comprador antes de entregar el lead al agente|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
 tendencias|fogaes-tramo-4000uf-cronograma-oct-nov-2026|FOGAES Tramo 4.000 UF: lanzamiento proyectado oct-nov 2026 (cifra de cupos sin confirmar: 2.500 vs 5.000)|APLICA|ADOPTAR_YA|N1|P1
+biohacking|app-coaching-nutricional-glp1-chile|App de coaching nutricional/muscular para adherencia y preservación de masa muscular en usuarios de GLP-1 (Ozempic/Mounjaro)|APLICA|ADOPTAR_YA|N1|P1
+biohacking|recovery-club-suite-frio-sauna-partnership-gym|Recovery club de contraste (frío/sauna) formato suite privada — capex sobre límite salvo partnership con gym existente|APLICA_CON_AJUSTES|DESCARTAR|N3|PNone
+biohacking|indice-certificacion-b2b-marcas-wellness|Índice/certificación B2B de marcas de wellness con distribución a prensa (modelo Biohacking Index) — evidencia autoreportada sin verificación de tercero|NO_APLICA_AUN|DESCARTAR|N3|PNone
