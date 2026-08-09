@@ -403,3 +403,7 @@ biohacking|marca-propia-creatina-dtc-chile|Marca propia de creatina monohidratad
 biohacking|comunidad-ayuno-intermitente-longevidad-diy|Comunidad paga de ayuno intermitente / protocolos de longevidad DIY (riesgo Seremi Salud)|NO_APLICA_AUN|DESCARTAR|N4|PNone
 biohacking|reventa-whoop-informal-chile|Reventa/importación informal de bandas Whoop (competencia ya instalada, riesgo de marca)|NO_APLICA_AUN|DESCARTAR|N3|PNone
 biohacking|panel-biomarcadores-b2c-directo-sin-medico|Panel de biomarcadores curado B2C directo sin médico partner (zona gris Art. 113 Código Sanitario)|NO_APLICA_AUN|DESCARTAR|N3|PNone
+tendencias|arriendo-cae-gran-valparaiso-argumento-cruzado-compra|Caída de arriendos 5,7% UF en Gran Valparaíso como argumento cruzado comprar vs. arrendar (TocToc)|APLICA|PILOTEAR|N2|P2
+tendencias|sub30-genz-transsa-cita-nombrada-comunas|Sub30/Gen Z primera vivienda: actualización con cita nombrada (Transsa) y comunas específicas (Cerrillos, Puente Alto, La Florida, Estación Central, Maipú)|APLICA_CON_AJUSTES|OBSERVAR|N2|P3
+tendencias|lofty-house-ai-precalificacion-financiera-comprador|Lofty House.ai: precalificación de "financial readiness" del comprador antes de entregar el lead al agente|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+tendencias|fogaes-tramo-4000uf-cronograma-oct-nov-2026|FOGAES Tramo 4.000 UF: lanzamiento proyectado oct-nov 2026 (cifra de cupos sin confirmar: 2.500 vs 5.000)|APLICA|ADOPTAR_YA|N1|P1
