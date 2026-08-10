@@ -24,7 +24,8 @@ explícitamente con Confianza Media o Baja según corresponda.
 Dominios con 403 confirmado (no gastar intentos de WebFetch ahí): df.cl, latercera.com,
 emol.com, portalinnova.cl, infocheck.cl, enlaciudad.cl, 24horas.cl, inman.com,
 fortune.com, financialcontent.com, mulleryperez.cl, g5noticias.cl, prensaeventos.cl,
-woperty.com. Si un dominio nuevo devuelve 403, agregarlo a esta lista. Incluir esta nota
+woperty.com, chatsell.net, senioradvisor.cl. Si un dominio nuevo devuelve 403, agregarlo
+a esta lista. Incluir esta nota
 (y la lista de exclusión de INDICE_IDEAS.md) en el prompt de cada agente de investigación,
 y lanzar los agentes en paralelo (Chile y mundo a la vez).
 
