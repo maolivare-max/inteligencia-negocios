@@ -420,3 +420,4 @@ ideas|tactica-distribucion-via-agencias-multiplicador|Táctica transversal: dist
 tendencias|houm-bird-whatsapp-calificacion-leads-chile|Houm + Bird: automatización WhatsApp para calificación y agendamiento de leads (+64% leads calificados, Chile)|APLICA|ADOPTAR_YA|N2|P2
 tendencias|klar-yave-precalificacion-financiera-mexico|Klar adquiere Yave (México): consolidación LATAM de precalificación hipotecaria digital como fuente de leads pre-calificados|APLICA_CON_AJUSTES|OBSERVAR|N3|P3
 tendencias|fraccional-cl-actualizacion-traccion-2026|Fraccional.cl: actualización con primeras cifras duras de tracción (break-even, +27% MoM, 10.000+ usuarios)|APLICA_CON_AJUSTES|PILOTEAR|N3|P3
+biohacking|recovery-club-suite-frio-sauna-partnership-gym|Recovery corner de contraste (frío/calor) add-on en gimnasio existente — capex confirmado bajo el límite vía proveedor local IceWalls Chile (~CLP 300-420k combo portátil), veredicto sube de DESCARTAR a ADOPTAR_YA|APLICA|ADOPTAR_YA|N1|P1
