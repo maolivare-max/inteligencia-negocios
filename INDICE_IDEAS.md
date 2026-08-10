@@ -5,6 +5,7 @@ _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se reg
 - 2026-08-10 · Tendencias inmobiliarias · La Precalificación Financiera del Comprador Madura en LATAM: Klar Adquiere Yave (México) (Score 11/20)
 - 2026-08-10 · Tendencias inmobiliarias · Fraccional.cl: Actualización con Primeras Cifras Duras de Tracción (Score 12/20)
 - 2026-08-10 · Tendencias inmobiliarias · Houm + Bird: Automatización de WhatsApp para Calificación de Leads (Score 14/20)
+- 2026-08-10 · Biohacking y longevidad · Recovery corner de contraste (frío/calor) como add-on dentro de gimnasios existentes (Score 16/20)
 - 2026-08-09 · Tendencias inmobiliarias · Señal Mundial: La Precalificación Financiera Antes del Lead (Lofty House.ai) y la Brecha de IA que Solo Persiste en Brokerages Chicas (Score 12/20)
 - 2026-08-09 · Tendencias inmobiliarias · Sub30/Generación Z Como Motor de Primera Vivienda — Actualización con Fuente Nombrada (Score 14/20)
 - 2026-08-09 · Tendencias inmobiliarias · Gran Valparaíso: Arriendos Caen 5,7% UF Interanual — Argumento Cruzado "Comprar vs. Seguir Arrendando" (Score 15/20)
