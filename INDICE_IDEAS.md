@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-11 · Oportunidades de negocio · Compliance a la Ley 21.719 (protección de datos) para pymes — ángulo de distribución vía agencias (Score 13/20)
 - 2026-08-10 · Tendencias inmobiliarias · La Precalificación Financiera del Comprador Madura en LATAM: Klar Adquiere Yave (México) (Score 11/20)
 - 2026-08-10 · Tendencias inmobiliarias · Fraccional.cl: Actualización con Primeras Cifras Duras de Tracción (Score 12/20)
 - 2026-08-10 · Tendencias inmobiliarias · Houm + Bird: Automatización de WhatsApp para Calificación de Leads (Score 14/20)
