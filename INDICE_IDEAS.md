@@ -4,6 +4,7 @@ _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se reg
 
 - 2026-08-12 · Oportunidades de negocio · Apps de nicho en marketplaces de plataformas SaaS globales ("picks-and-shovels") (Score 14/20)
 - 2026-08-12 · Oportunidades de negocio · Extensión de navegador en español para power-users de ChatGPT/Claude (Score 14/20)
+- 2026-08-12 · Tendencias inmobiliarias · Chatbot conversacional en el sitio reemplaza el formulario de contacto (Score 16/20)
 - 2026-08-11 · Tendencias inmobiliarias · Pre-aprobación Hipotecaria Exprés en Chile: Ya Es Práctica Instalada, No una Ventana de Arbitraje (Score 12/20)
 - 2026-08-11 · Oportunidades de negocio · Compliance a la Ley 21.719 (protección de datos) para pymes — ángulo de distribución vía agencias (Score 13/20)
 - 2026-08-11 · Biohacking y longevidad · [Actualización] Panel de biomarcadores DTC con revisión médica remota obligatoria (Ley 21.541) (Score 14/20)
