@@ -4,6 +4,8 @@ _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se reg
 
 - 2026-08-13 · Oportunidades de negocio · Agentes de voz IA outbound para seguimiento de trámites ante instituciones (Score 13/20)
 - 2026-08-13 · Tendencias inmobiliarias · Funnel WhatsApp + IA para preventa costera (caso LAFHER/Turquesa, Mazatlán, México) (Score 14/20)
+- 2026-08-13 · Biohacking y longevidad · Asistente IA de salud vía WhatsApp para adherencia a medicamentos y alfabetización de exámenes (Score 14/20)
+- 2026-08-13 · Biohacking y longevidad · [Actualización] Panel de biomarcadores DTC con médico partner (Ley 21.541) — se resuelve la pregunta sobre Examedi (Score 14/20)
 - 2026-08-13 · Tendencias inmobiliarias · LIDZ.ai — asistente de IA (web + WhatsApp) para inmobiliarias (Score 15/20)
 - 2026-08-12 · Biohacking y longevidad · [Actualización] Panel de biomarcadores DTC con médico partner (Ley 21.541) — competencia local confirmada (Score 13/20)
 - 2026-08-12 · Oportunidades de negocio · Apps de nicho en marketplaces de plataformas SaaS globales ("picks-and-shovels") (Score 14/20)
