@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-14 · Oportunidades de negocio · Lancer.app — automatización de propuestas de trabajo con IA para freelancers (Score 14/20)
 - 2026-08-13 · Oportunidades de negocio · Agentes de voz IA outbound para seguimiento de trámites ante instituciones (Score 13/20)
 - 2026-08-13 · Tendencias inmobiliarias · Funnel WhatsApp + IA para preventa costera (caso LAFHER/Turquesa, Mazatlán, México) (Score 14/20)
 - 2026-08-13 · Biohacking y longevidad · Asistente IA de salud vía WhatsApp para adherencia a medicamentos y alfabetización de exámenes (Score 14/20)
