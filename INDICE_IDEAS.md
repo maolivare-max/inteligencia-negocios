@@ -4,6 +4,8 @@ _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se reg
 
 - 2026-08-15 · Oportunidades de negocio · Interpretación remota bajo demanda para personas ciegas/baja visión (Accessibility-as-a-Service, estilo Aira) (Score 12/20)
 - 2026-08-15 · Oportunidades de negocio · Agencia de colocación remota en QA/testing y etiquetado de datos para talento neurodivergente (TEA) (Score 12/20)
+- 2026-08-15 · Tendencias inmobiliarias · Compradores de reubicación / larga distancia: venta remota vía video de barrio (Redfin, EE.UU.) (Score 15/20)
+- 2026-08-15 · Tendencias inmobiliarias · Reposicionamiento narrativo de studios: "No es un estudio, es tu depto con suite" (Patriani, Brasil) (Score 17/20)
 - 2026-08-14 · Oportunidades de negocio · Lancer.app — automatización de propuestas de trabajo con IA para freelancers (Score 14/20)
 - 2026-08-14 · Tendencias inmobiliarias · Rightmove/Zoopla: Tasación Online Instantánea como Imán de Leads Pre-Visita (Score 16/20)
 - 2026-08-14 · Tendencias inmobiliarias · Ley que Amplía Subsidio a Tasa Hipotecaria y Garantías FOGAES (Tope Sube a 6.000 UF) (Score 17/20)
