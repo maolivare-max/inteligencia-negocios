@@ -210,9 +210,10 @@ def validar_dossier(path):
 
     # el resumen financiero es el corazón del dossier: exigimos costos etiquetados
     fin = next((s["md"] for s in p["secciones"] if s["nombre"] == "Resumen financiero"), "")
-    if not re.search(r"\[(?:verificado|estimado|desconocido)\]", fin):
+    if not re.search(r"\[(?:verificado(?:\s+sin\s+link)?|estimado|desconocido)\b", fin):
         err(rel, "el Resumen financiero no tiene ni un costo etiquetado "
-                 "[verificado]/[estimado]/[desconocido] — es obligatorio (MISIÓN 4)")
+                 "[verificado]/[verificado sin link]/[estimado]/[desconocido] — "
+                 "es obligatorio (MISIÓN 4)")
     if "CLP" not in fin:
         avisar(rel, "el Resumen financiero no menciona CLP; los costos deben ir en pesos")
 

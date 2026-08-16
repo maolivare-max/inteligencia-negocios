@@ -518,15 +518,19 @@ de distribución + una estructura de costos + una fecha. La mesa existe para pro
 **POR QUÉ EXISTE (diagnóstico que la originó, agosto 2026):** la auditoría del corpus
 (68 reportes de negocio, 66 inmobiliarios, 9 de biohacking) encontró tres fallas que
 ningún scout puede corregir desde adentro:
-1. **Repetición invisible al dedup por título.** La Ley 21.719 se lanzó como oportunidad
-   "nueva" 5 veces con nombres distintos; la recepcionista IA por WhatsApp, 5 veces; el
-   bróker de fondos estatales, 6 veces. El índice anti-repetición compara títulos, no
-   negocios subyacentes.
+1. **Repetición que el anti-repetición no atrapó.** La Ley 21.719 se lanzó como
+   oportunidad "nueva" 5 veces con nombres distintos; la recepcionista IA (2 veces por
+   WhatsApp, 3 por voz), 5 veces; el bróker de fondos estatales, 6 veces. El mecanismo de
+   `radar/indice-antirepeticion.txt` es por concepto/slug y está bien diseñado — el
+   problema es que **no se alimentó**: el bróker de fondos nunca fue agregado bajo
+   `ideas|`, así que cada scout lo redescubría legítimamente. Mantener el índice al día
+   es parte del trabajo, no un extra.
 2. **Ningún hallazgo trae costo propio.** El filtro dice "arranque < USD 10.000" pero casi
    ninguna ficha calcula cuánto cuesta *esa* idea. El lector no sabe si son USD 500 o 9.000.
-3. **Nadie cruza las misiones.** El motor de agentes WhatsApp es el activo más repetido de
-   la Misión 1 (≥26 ideas) y simultáneamente el cluster más grande de la Misión 2 — y
-   ningún reporte lo dijo nunca, porque cada scout solo ve su propia carpeta.
+3. **Nadie cruza las misiones.** El motor de agentes de WhatsApp es el activo más
+   repetido de la Misión 1 —18 hallazgos lo nombran en el título, y bastantes más si se
+   cuentan recepcionistas de voz, setters y agendas— y a la vez el cluster más grande de
+   la Misión 2. Ningún reporte lo dijo nunca, porque cada scout solo ve su carpeta.
 
 ---
 
@@ -579,12 +583,19 @@ Obligatorio, todo en **CLP** (indicando el tipo de cambio usado y su fecha):
 - Precio sugerido y margen por cliente.
 - **Punto de equilibrio: cuántos clientes para cubrir el costo mensual.**
 - Tiempo hasta el primer peso, y horas/semana que exige del fundador.
-- Escenario pesimista y base. **No se pide optimista** — el corpus ya tiene sesgo de
-  supervivencia (504 hallazgos inmobiliarios, ni un solo caso de fracaso documentado).
+- Escenario pesimista y base. **No se pide optimista** — el corpus tiene sesgo de
+  supervivencia: 346 hallazgos inmobiliarios indexados y ni un solo caso documentado de
+  alguien que probó una táctica y le fue mal.
 
-Regla dura: cada costo lleva etiqueta de origen — **[verificado]** (precio público con
-link), **[estimado]** (extrapolado, se explica de qué), o **[desconocido]** (no se pudo
-obtener; se dice, no se inventa). Un dossier con costos inventados es peor que sin costos.
+Regla dura: cada costo lleva etiqueta de origen — **[verificado]** (precio público, y el
+link va en el dossier), **[verificado sin link]** (se consultó una página de precios pero
+no se registró la URL: sirve para decidir, no para comprometer gasto sin reconfirmar),
+**[estimado]** (extrapolado, se explica de qué) o **[desconocido]** (no se pudo obtener; se
+dice, no se inventa). Un dossier con costos inventados es peor que sin costos.
+
+Y una regla que nació de la primera auditoría: **si una cifra sale de una búsqueda web y no
+del corpus, se dice explícitamente.** La tentación de presentar como evidencia local algo
+que se leyó de otro mercado es exactamente el error que la mesa existe para no cometer.
 
 ---
 
@@ -596,6 +607,11 @@ Cada proyecto cierra con uno de estos cuatro, y el criterio es explícito:
   identificado y accesible hoy, arranque < CLP 2.000.000, primer ingreso ≤ 60 días.
 - **PILOTEAR** — la tesis es buena pero una variable clave no está verificada. Se define
   el experimento más barato que la resuelve y su costo.
+- **Precedencia:** PILOTEAR gana sobre CONSTRUIR YA. Si un proyecto cumple los cuatro
+  requisitos de CONSTRUIR YA pero tiene una variable clave sin verificar, el veredicto es
+  PILOTEAR. Y "evidencia Alta" significa Alta en la pieza de la que depende la tesis, no
+  Alta en promedio: un hallazgo con Confianza Alta en lo global y Media en la parte chilena
+  cuenta como Media, porque lo chileno es lo que decide.
 - **ESPERAR SEÑAL** — depende de un evento externo con fecha (ley, cupo, lanzamiento).
   Se anota qué señal y dónde se vigila.
 - **DESCARTAR** — se documenta igual, con el motivo. Un descarte razonado evita que el
@@ -615,7 +631,7 @@ la hace `python3 validar_formato.py`, que falla ruidosamente si algo no calza.
 > **Estado:** Propuesto | En pilotaje | Activo | Archivado
 > **Veredicto:** CONSTRUIR YA | PILOTEAR | ESPERAR SEÑAL | DESCARTAR
 > **Fusión de:** [pieza A — Misión, fecha, score] + [pieza B — Misión, fecha, score]
-> **Arranque:** CLP X · **Break-even:** N clientes · **Primer ingreso:** N días
+> **Arranque:** CLP X · **Break-even:** N clientes · **Primer ingreso:** semana N (o mes N)
 > **Tesis:** una sola frase.
 
 ## 1. Tesis y evidencia
@@ -639,9 +655,21 @@ Reglas del contrato:
 
 ---
 
+## REGLA DE CARTERA
+
+La red inmobiliaria propia es el canal de primeros clientes de casi todo lo que la mesa
+produce, y es un activo agotable: son 15–20 contactos, no un mercado. **Cada dossier nuevo
+debe declarar si compite por esa misma red y, si compite, cuál de los proyectos vivos va
+primero.** Tres pilotos simultáneos sobre los mismos contactos no triplican las chances:
+queman el activo. Que el canal "nunca falle" en el corpus no es evidencia de que aguante
+todo — es que el corpus no registra fracasos.
+
 ## ENTREGA
 
 - Dossier en `proyectos/NN-slug.md`. Commit + push a `main` de **solo el `.md`**.
+- Agregar cada proyecto a `radar/indice-antirepeticion.txt` con dominio `proyectos`. Sin
+  eso, el índice queda desactualizado y el scout redescubre lo que la mesa ya decidió —
+  que es exactamente la falla #1 que originó esta misión.
 - El dashboard regenera solo vía GitHub Action (pestaña "Proyectos"). **No commitear
   `dashboard.html` ni `index.html`.**
 - Antes de commitear, correr `python3 validar_formato.py` y que pase.

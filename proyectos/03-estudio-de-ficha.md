@@ -8,12 +8,12 @@
 
 ## 1. Tesis y evidencia
 
-**La evidencia del efecto es la más sólida del corpus entero.** El staging virtual es la única táctica donde las fuentes casi no se contradicen entre sí a lo largo de 66 reportes:
+**La evidencia del efecto es la más consistente del corpus, con una advertencia.** El staging virtual es la táctica donde las cifras menos se contradicen a lo largo de 66 reportes — pero parte de esa consistencia es que varios reportes reciclan las mismas fuentes de proveedores de staging, no que haya estudios independientes convergiendo:
 - +90% de CTR, +44% de consultas calificadas, +72% de tráfico, y venta 73% más rápida — 29–31 días contra 52 (`reportes-inmobiliario/2026-06-23.md`, 18/20, repetido y confirmado en `2026-06-30.md` y `2026-07-23.md`).
 - Video generado con IA desde fotos: +403% de consultas contra la foto estática; 73% de los propietarios prefieren agentes que usan video (`reportes-inmobiliario/2026-06-24.md`, 18/20).
 - Caso chileno con cifra dura: el video corto bajó el CPL de CLP 12.000 a CLP 5.800, un 52% (`reportes-inmobiliario/2026-08-05.md`).
 
-**Y la brecha de adopción es igual de clara:** menos del 10% de adopción de video en cualquier formato en Chile, menos del 2% en video cinematográfico (`reportes-inmobiliario/2026-06-24.md`); staging con IA usado solo por entre 5% y 40% de las inmobiliarias **grandes** (`reportes-inmobiliario/2026-06-23.md`).
+**Y la brecha de adopción es igual de clara, con los segmentos bien separados:** menos del 10% de adopción de video en cualquier formato en Chile y menos del 2% en video cinematográfico (`reportes-inmobiliario/2026-06-24.md`). En staging, `reportes-inmobiliario/2026-06-23.md` distingue **~40–60% en inmobiliarias medianas y grandes** contra **menos del 5% en corredores independientes** — una versión anterior de este dossier fusionó ambos segmentos en un "5% a 40%" que no existe en la fuente. La distinción importa: la brecha real, y por tanto el mercado de este proyecto, está en el corredor independiente, no en las grandes.
 
 **Pero hay que decir con todas sus letras lo que la evidencia NO dice.** Todas esas cifras miden el *efecto* del staging y del video sobre la venta de la propiedad. **Ninguna mide la disposición de un corredor chico a pagarle a un tercero por tercerizarlo.** Ningún hallazgo del corpus documenta a corredores chilenos comprando este servicio. Ese es el supuesto central del proyecto y está sin validar.
 
@@ -21,7 +21,7 @@ La analogía que lo sostiene —y es analogía, no evidencia— es que el mercad
 
 ## 2. Plan de entrada
 
-**Primero, corregir la oferta.** El paquete originalmente incluía un plano, y eso no se puede cumplir: no existe ninguna herramienta verificada que genere un plano medido a partir de fotos crudas. CubiCasa (USD 15–65 por plano) y MagicPlan (USD 25–40 por proyecto) exigen escaneo AR *in situ* con la app, recorriendo la propiedad. Lo único posible de forma remota es un plano esquemático dibujado a mano en Canva a partir de las fotos y las medidas que dé el corredor: ilustrativo, impreciso, y 30–45 minutos de trabajo humano por paquete.
+**Primero, corregir la oferta.** El paquete originalmente incluía un plano, y eso no se puede cumplir: no existe ninguna herramienta verificada que genere un plano medido a partir de fotos crudas. CubiCasa (USD 15–65 por plano) y MagicPlan (USD 25–40 por proyecto) exigen escaneo AR *in situ* con la app, recorriendo la propiedad — esos precios son [estimado], de búsqueda del evaluador; el corpus menciona CubiCasa sin tarifa (`reportes-inmobiliario/2026-07-11.md`) y no menciona MagicPlan. Lo único posible de forma remota es un plano esquemático dibujado a mano en Canva a partir de las fotos y las medidas que dé el corredor: ilustrativo, impreciso, y 30–45 minutos de trabajo humano por paquete.
 
 **Decisión:** se saca el plano medido de la promesa. El paquete es **staging + video vertical de 30s + descripción**, entregado en 24–48 horas sin pisar la propiedad. Prometer un plano medido y entregar un dibujo rompe la confianza en la primera entrega.
 
@@ -33,20 +33,22 @@ La analogía que lo sostiene —y es analogía, no evidencia— es que el mercad
 
 ## 3. Resumen financiero
 
-Tipo de cambio: **USD/CLP 914** (15-ago-2026) [verificado, confianza Media — cifra de snippet de búsqueda, no consulta directa a Banco Central].
+**Sobre las etiquetas.** El contrato pide [verificado] con link. Los precios de herramientas de abajo se consultaron en páginas públicas en agosto de 2026 **sin registrar el link**, así que van como *[verificado sin link]* y deben reconfirmarse antes de gastar.
+
+Tipo de cambio: **1 USD = CLP 913,6** (Dólar Observado, Banco Central, 15-ago-2026), unificado con los otros dos dossiers de la mesa.
 
 **Costo de arranque**
 
 | Concepto | CLP | Origen |
 |---|---|---|
-| REimagineHome Pro, primer mes (USD 29, 150 créditos) | 26.506 | [verificado] |
-| Crédito prepago de video Seedance (USD 0,056/seg) | ~20.000 | [verificado] la tarifa · [estimado] el monto a cargar |
-| Suscripción LLM para descripciones | 18.280 | [verificado] |
-| CapCut, tier gratis | 0 | [verificado] |
+| REimagineHome Pro, primer mes (USD 29, 150 créditos) | 26.494 | [verificado sin link] |
+| Crédito prepago de video Seedance (USD 0,056/seg) | ~20.000 | [verificado sin link] la tarifa · [estimado] el monto a cargar |
+| Suscripción LLM para descripciones | 18.272 | [verificado sin link] |
+| CapCut, tier gratis | 0 | [verificado sin link] |
 | 3 fichas piloto gratis para portafolio | 12.900 | [estimado] 3× el costo unitario base |
 | Landing simple + WhatsApp Business | 0–15.000 | [estimado] |
 | Dominio .cl anual | 15.000 | [estimado] |
-| Boleta de honorarios, persona natural | 0 | [verificado] no requiere sociedad |
+| Boleta de honorarios, persona natural | 0 | [verificado sin link] no requiere sociedad |
 | Colchón operativo del mes 2 | 46.500 | [estimado] |
 | Laptop | 0 | [estimado] se asume que ya la tiene; si no, +500.000–600.000 |
 | **Total** | **≈ 140.000–150.000** | ≈ USD 155–165 |
@@ -57,27 +59,31 @@ El filtro de "arranque bajo USD 10.000" no es el limitante acá: el arranque rea
 
 | Componente | BASE | PESIMISTA |
 |---|---|---|
-| Staging 5 ambientes | 1.413 (REimagineHome, 176,6 CLP/crédito) | 3.212 (Collov, USD 0,32/foto [verificado]) |
-| Video 30s | 2.765 (Seedance, 51,2 CLP/seg) | 9.006 (Runway Gen-4.5, 12 créditos/seg [verificado]) |
+| Staging 5 ambientes | 1.413 (REimagineHome, 176,6 CLP/crédito) | 3.212 (Collov, USD 0,32/foto [estimado] — el corpus documenta USD 0,23 en `2026-06-23.md` y `2026-06-30.md`; no se pudo confirmar cuál rige hoy) |
+| Video 30s | 2.765 (Seedance, 51,2 CLP/seg [verificado sin link]) | 9.006 (Runway Gen-4.5, 12 créditos/seg [estimado] — nunca se declaró el precio del crédito, así que el monto en CLP no es reconstruible) |
 | Descripción con LLM | ~150 | ~150 |
 | **Herramientas** | **4.328** | **12.368** |
-| Tiempo del fundador | 2,2 h → 26.400 | 2,75 h → 33.000 |
-| **Costo total por paquete** | **≈ 30.700** | **≈ 45.400** |
+| Tiempo del fundador (a CLP 18.000/h) | 2,2 h → 39.600 | 2,75 h → 49.500 |
+| **Costo total por paquete** | **≈ 43.900** | **≈ 61.900** |
 
 Tiempo humano desglosado (base): 10 min de selección de fotos, 25 de curar el staging, 40 de armar y editar el video, 10 de pulir la descripción, 15 de control de calidad y entrega. El video es el componente más caro y el de mayor varianza entre herramientas: ahí está casi toda la diferencia entre el escenario base y el pesimista.
 
-**Precio y margen.** Benchmark chileno [verificado]: la fotografía inmobiliaria tradicional cobra CLP 70.000–300.000 por sesión, con packs básicos desde CLP 25.000. Y el competidor que más importa: **Amueblia, staging virtual con IA en Chile, a CLP 644 por foto, sin suscripción** — es el "hazlo tú mismo" barato que compite de frente.
+**Precio y margen.** Benchmark chileno [estimado — de búsqueda del evaluador, sin respaldo en el corpus ni link registrado]: la fotografía inmobiliaria tradicional cobra CLP 70.000–300.000 por sesión, con packs básicos desde CLP 25.000. Y el competidor que más importa: **Amueblia, staging virtual con IA en Chile**. Su existencia está en el corpus con Confianza Alta (`reportes/2026-08-09.md`), pero **ahí no figura ningún precio**: el CLP 644 por foto salió de la búsqueda del evaluador y va como [estimado]. Conviene confirmarlo antes de usarlo como ancla, porque es la cifra contra la que se compara todo este negocio.
 
 Precio propuesto: **CLP 49.000** por paquete (rango 39.000–65.000 según tamaño), o **CLP 320.000 por 8 propiedades** al mes.
 
+**Corrección de la valoración del tiempo.** Una versión anterior de este dossier valoraba la hora del fundador a CLP 12.000, por debajo de la tarifa freelance de CLP 15.000–30.000 que usan los otros dos dossiers de la mesa, e inflaba así el margen neto. Acá se unifica a **CLP 18.000/h**, y el resultado es bastante menos halagüeño:
+
 | | BASE (precio 49.000) | PESIMISTA (precio 45.000) |
 |---|---|---|
-| Margen bruto sobre herramientas | 44.700 (91%) | 32.632 (73%) |
-| **Margen neto, valorando el tiempo del fundador** | **18.300 (37%)** | **≈ –368 (pérdida)** |
+| Margen bruto sobre herramientas | 44.672 (91%) | 32.632 (73%) |
+| **Margen neto, valorando la hora a CLP 18.000** | **5.072 (10%)** | **≈ –16.868 (pérdida)** |
 
-**El escenario pesimista no deja margen.** Si la tasa de reintento real se acerca a 2,2×, el proyecto trabaja gratis.
+**Los dos márgenes responden preguntas distintas y conviene no confundirlos.** El neto contesta "¿esto rinde más que vender esas mismas 2,2 horas como freelance?" — y a CLP 18.000/h la respuesta base es apenas sí, un 10%, mientras que en el pesimista es un no rotundo. El bruto es el que manda para el sueldo, porque ahí el tiempo del fundador **es** lo que se está pagando, no un costo aparte.
 
-Para un sueldo de CLP 1.500.000 netos: **35 paquetes/mes en el caso base** (77 h de producción, ~18 h/semana, deja tiempo para vender) o **47 en el pesimista** (129 h, ~30 h/semana, casi no deja tiempo para vender).
+Para un sueldo de CLP 1.500.000 netos, sobre margen bruto: **35 paquetes/mes en el caso base** (77 h de producción, ~18 h/semana, deja tiempo para vender) o **47 en el pesimista** (129 h, ~30 h/semana, casi no deja tiempo para vender).
+
+**Lo que esto significa de verdad:** el proyecto no es un buen negocio *por paquete*; es un negocio de volumen con un margen unitario neto delgado. Si la tasa de reintento real resulta cercana a 2,2×, no hay negocio en absoluto — se trabaja a pérdida. Esa es una razón más para que la medición de la semana 3 sea la que decide.
 
 ## 4. Timeline
 
@@ -110,13 +116,15 @@ Para un sueldo de CLP 1.500.000 netos: **35 paquetes/mes en el caso base** (77 h
 
 **Riesgo 3 — el plano no se puede cumplir como se prometía.** Ya corregido en la sección 2: se saca de la oferta. Queda anotado para que nadie lo reintroduzca.
 
+**Riesgo 5 — los tres proyectos de la mesa se pelean la misma red.** Este dossier, el 01 y el 02 declaran los mismos 15–20 contactos como canal principal. La sección 5 celebra esa repetición como "confirmación del activo transversal", y también es lo contrario: concentración de cartera. Pedirle a un corredor que pruebe tres cosas distintas el mismo mes quema el activo. La mesa debe lanzar uno primero, y este es el mejor candidato porque su validación es la más barata y rápida.
+
 **Riesgo 4 — el cuello de botella llega antes de lo que parece.** Entre 40 y 55 paquetes al mes el fundador satura. Delegar cuesta CLP 15.000–20.000 por paquete a freelance, o CLP 700.000–870.000 al mes por alguien part-time que cubre hasta ~40 paquetes. Tras delegar, el margen base baja a ~CLP 27.200 por paquete (55%), que sigue siendo sano. Conviene delegar apenas se superan los 25–30 paquetes mensuales sostenidos, sin esperar a tocar el techo.
 
 ## 7. Trazabilidad
 
 - `reportes-inmobiliario/2026-06-23.md` — AI Virtual Staging (18/20). Las métricas más consistentes del corpus.
 - `reportes-inmobiliario/2026-06-24.md` — AI Video Generator (18/20). +403% de consultas; adopción chilena <10% y <2%.
-- `reportes-inmobiliario/2026-06-30.md` y `2026-07-23.md` — confirmaciones independientes de las cifras de staging.
+- `reportes-inmobiliario/2026-06-30.md` y `2026-07-23.md` — repiten las cifras de staging, pero **no son confirmaciones independientes**: reciclan las mismas fuentes de proveedores (HousingWire, InstantInteriorAI) que el reporte original.
 - `reportes-inmobiliario/2026-08-05.md` — video corto en Chile: CPL de CLP 12.000 a 5.800.
 - `reportes/2026-07-28.md` — HeadshotPro (18/20). El patrón de productizar IA generativa en un vertical.
 - `reportes/2026-07-26.md` — Senja (17/20), que nombra explícitamente a los corredores como comprador.

@@ -11,12 +11,13 @@
 El mecanismo está probado de forma independiente en tres mercados, lo que lo separa de una moda:
 
 - **El primero que contesta se lleva el cliente.** 78% de los compradores termina trabajando con el primer agente que responde (NAR, vía `reportes-inmobiliario/2026-06-01.md`). En Brasil, responder en <5 min multiplica por 9 la conversión (`reportes-inmobiliario/2026-08-03.md`).
-- **Funciona en Chile, con cifras de terceros.** LIDZ.ai reporta 92% de contactabilidad contra 20% de la industria y 3 segundos contra 60 horas de respuesta; la tasa contacto→visita sube de 1-3% a 15-25% (`reportes-inmobiliario/2026-06-30.md`). Houm + Bird: +64% leads calificados y respuesta de 2 días a casi inmediata (`reportes-inmobiliario/2026-08-10.md`, marcado DUAL en su origen).
-- **El segmento está desatendido y es identificable.** Los brokerages independientes chicos son el único segmento chileno que no cruzó el umbral de adopción de IA (`reportes-inmobiliario/2026-08-09.md`). LIDZ.ai cubre ~25% de las propiedades nuevas vendidas en Chile pero **su precio no es público** — dato buscado y no encontrado en 9 reportes distintos del corpus y verificado de nuevo por el Equipo C en esta ronda. Un producto sin precio público no se vende solo al corredor de 3 propiedades.
+- **Hay operación real en Chile, aunque las cifras son del propio proveedor.** LIDZ.ai reporta 92% de contactabilidad contra 20% de la industria, 3 segundos contra 60 horas, y la tasa contacto→visita subiendo de 1-3% a 15-25% (`reportes-inmobiliario/2026-06-30.md`) — pero el propio reporte las marca como **"dato de plataforma"**, es decir autorreportadas y sin auditoría independiente. Según la jerarquía de evidencia del radar (`radar/aprendizajes-clave.md`), eso es nivel 2, no nivel 1. Houm + Bird: +64% leads calificados y respuesta de 2 días a casi inmediata (`reportes-inmobiliario/2026-08-10.md`, marcado DUAL en su origen).
+- **El segmento parece desatendido, con una salvedad importante.** Que los brokerages independientes chicos sean el único segmento que no cruzó el umbral de adopción de IA viene de `reportes-inmobiliario/2026-08-09.md`, pero ahí está catalogado como **"Señal Mundial"**: es una encuesta de Delta Media Group en EE.UU., de un solo proveedor de software y por tanto no independiente, con Confianza Media. **No existe dato chileno de adopción de IA por segmento de corredor.** Se asume que la brecha se replica en Chile, y ese supuesto no está verificado.
+- **Lo que sí es específicamente chileno:** LIDZ.ai cubre ~25% de las propiedades nuevas vendidas en Chile pero **su precio no es público** — aparece en 28 archivos del corpus y en ninguno hay tarifa; dos reportes lo dicen con todas sus letras (`reportes-inmobiliario/2026-08-13.md`: "hoy no hay dato público de costo mensual"; `2026-08-14.md`: "tampoco hay dato público de precio/plan de entrada"), y el Equipo C tampoco lo consiguió en esta ronda. Un producto sin precio público no se vende solo al corredor de 3 propiedades.
 
-**El hecho que cambia la tesis, y que ningún reporte conectó hasta ahora.** El 3 de junio de 2026 Meta liberó globalmente el *Meta Business Agent*: un agente de IA dentro de WhatsApp Business que responde preguntas, recomienda, **califica leads y agenda citas**, hoy gratis, con tiers pagos anunciados sin fecha. El rollout incluye Chile. Está documentado en `reportes/2026-08-10.md` con Confianza Alta (TechCrunch + blog oficial de Meta).
+**El hecho que cambia la tesis, y que ningún reporte conectó hasta ahora.** El 3 de junio de 2026 Meta liberó globalmente el *Meta Business Agent*: un agente de IA dentro de WhatsApp Business que responde preguntas, recomienda, **califica leads y agenda citas**, hoy gratis, con tiers pagos anunciados sin fecha. Está documentado en `reportes/2026-08-10.md`, **y hay que leer su confianza con cuidado porque no es uniforme: Alta para el lanzamiento global gratuito** (TechCrunch más el blog oficial de Meta, dos fuentes independientes de primer nivel) **pero solo Media para la inclusión de Chile**, que se apoya en un snippet de prensa secundaria y no en fuente primaria. La pieza de la que depende esta tesis es justamente la de confianza Media.
 
-Ese hallazgo estaba invisible para el sistema de decisión: su encabezado es `## Actualización de alta prioridad — ...`, no `## N. Nombre — Score X/20`, así que el parser nunca lo indexó. No aparece en Explorar, ni en Decisiones, ni en `INDICE_IDEAS.md`. Sin la mesa, este dossier se habría escrito seis días después de que Meta regalara el motor, sin enterarse.
+Ese hallazgo es invisible **en el dashboard**: su encabezado es `## Actualización de alta prioridad — ...` y no `## N. Nombre — Score X/20`, así que el parser nunca lo indexó y no aparece en Explorar, ni en Decisiones, ni en `INDICE_IDEAS.md`. Sí está, en cambio, en `radar/indice-antirepeticion.txt` (como `meta-business-agent-whatsapp-setup-gestion`, marcado EMPEZAR_YA) — o sea que el sistema lo registró por un lado y lo perdió por el otro, que es peor que perderlo del todo, porque da la impresión de estar cubierto. Sin la mesa, este dossier se habría escrito seis días después de que Meta regalara el motor, sin enterarse.
 
 **Consecuencia directa:** vender "te construyo un bot de IA para WhatsApp" es un negocio en extinción — el propio corpus ya marcó esa categoría como saturada en Chile el 9 de agosto. Lo que no se extingue es que **la pyme y el corredor no saben que la función existe, ni la configuran bien**. El negocio se mueve de *vender tecnología* a *auditar, configurar, entrenar y operar*, con la calificación específicamente inmobiliaria (UF de presupuesto, pre-aprobación, comuna, plazo) como la capa que Meta no trae de fábrica.
 
@@ -57,20 +58,22 @@ Variantes a testear: *"El comprador se queda con el primer corredor que le conte
 
 ## 3. Resumen financiero
 
-Tipo de cambio: **1 USD = CLP 913,6** (Dólar Observado, Banco Central de Chile, 15-ago-2026). Stack del caso base: WhatsApp Cloud API directa de Meta (sin markup de BSP) + n8n self-hosted + Claude Haiku como motor + Cal.com free. Es la única combinación compatible con el techo de arranque de la mesa.
+**Sobre las etiquetas de esta sección.** El contrato de la Misión 4 define [verificado] como precio público *con link*. Los precios de herramientas de abajo fueron consultados por el equipo evaluador en páginas de precios públicas en agosto de 2026, pero **los links no quedaron registrados en esta ronda**, así que van como *[verificado sin link]*: hay que reconfirmarlos antes de comprometer gasto. Es una deuda de este dossier, no un detalle.
+
+Tipo de cambio: **1 USD = CLP 913,6** (Dólar Observado, Banco Central de Chile, 15-ago-2026) — el mismo tipo de cambio se usa en los tres dossiers de la mesa. Stack del caso base: WhatsApp Cloud API directa de Meta (sin markup de BSP) + n8n self-hosted + Claude Haiku como motor + Cal.com free. Es la única combinación compatible con el techo de arranque de la mesa.
 
 **Costo de arranque**
 
 | Concepto | CLP | Origen |
 |---|---|---|
-| Meta Business + WhatsApp Cloud API (habilitación) | 0 | [verificado] Meta no cobra por habilitar, solo por mensajes |
-| Verificación de Meta Business Manager | 0 | [verificado] solo exige documentos |
+| Meta Business + WhatsApp Cloud API (habilitación) | 0 | [verificado sin link] Meta no cobra por habilitar, solo por mensajes |
+| Verificación de Meta Business Manager | 0 | [verificado sin link] solo exige documentos |
 | Número dedicado (SIM o VoIP) | 10.000–20.000 | [estimado] precio típico de línea prepago/VoIP en Chile |
-| VPS para n8n self-hosted (primer mes) | ~11.000 | [verificado] DigitalOcean 2GB, USD 12, convertido |
+| VPS para n8n self-hosted (primer mes) | ~11.000 | [verificado sin link] DigitalOcean 2GB, USD 12, convertido |
 | Dominio + SSL | 0–15.000 | [estimado] Let's Encrypt gratis |
-| Cal.com plan Free | 0 | [verificado] cubre 1 agenda por corredor |
+| Cal.com plan Free | 0 | [verificado sin link] cubre 1 agenda por corredor |
 | Freelancer: flujo n8n + prompt + integración (25–35 h) | 500.000–700.000 | [estimado] tarifa CLP 15.000–30.000/h en Chile; **CLP 0 si lo arma el fundador** |
-| Constitución de SpA | 0–150.000 | [verificado] **opcional en semana 1**: se parte con boleta de honorarios |
+| Constitución de SpA | 0–150.000 | [verificado sin link] **opcional en semana 1**: se parte con boleta de honorarios |
 | Créditos de prueba para templates (~100 msj) | 5.000–10.000 | [estimado] |
 | Precio de LIDZ.ai (referencia competitiva) | — | **[desconocido]** buscado y no encontrado por décima vez |
 
@@ -84,12 +87,12 @@ Tipo de cambio: **1 USD = CLP 913,6** (Dólar Observado, Banco Central de Chile,
 | Mensajería Meta *marketing* (~20 msj) | 550–650 | [estimado] mismo problema de fuente, rango LatAm USD 0,03–0,06/msj |
 | Claude Haiku, motor del agente (~60 conversaciones) | 550–600 | [estimado] ~4.500 tokens/conversación |
 | **Variable por cliente** | **~1.300–1.500** | |
-| VPS n8n (escala a decenas de clientes) | 11.000–22.000 | [verificado] fijo del negocio |
+| VPS n8n (escala a decenas de clientes) | 11.000–22.000 | [verificado sin link] fijo del negocio |
 | Dominio + correo | ~5.500 | [estimado] fijo |
 | Contabilidad PyME (solo con SpA constituida) | 30.000–80.000 | [estimado] fijo |
-| Alternativa managed: Wati / Respond.io / ManyChat | 54.000–182.000 | [verificado] Wati Growth USD 59 · Respond.io Starter USD 99 · ManyChat Pro USD 29 |
+| Alternativa managed: Wati / Respond.io / ManyChat | 26.500–90.400 | [verificado sin link] ManyChat Pro USD 29 = 26.500 · Wati Growth USD 59 = 53.900 · Respond.io Starter USD 99 = 90.400 |
 
-**Precio, margen y equilibrio.** Ancla: la comisión de corretaje en Chile es 2% + IVA por parte [verificado]. Sobre un departamento de UF 3.500 (≈ CLP 143.000.000) eso es ~CLP 2.860.000 de comisión bruta. Un fee de CLP 120.000/mes es 3–5% de **una sola** comisión.
+**Precio, margen y equilibrio.** Ancla: la comisión de corretaje en Chile es 2% + IVA por parte [estimado — práctica de mercado ampliamente citada, pero sin fuente en el corpus ni link registrado]. Sobre un departamento de UF 3.500 (≈ CLP 143.000.000) eso es ~CLP 2.860.000 de comisión bruta. Un fee de CLP 120.000/mes es 3–5% de **una sola** comisión.
 
 | | BASE | PESIMISTA |
 |---|---|---|
@@ -99,9 +102,9 @@ Tipo de cambio: **1 USD = CLP 913,6** (Dólar Observado, Banco Central de Chile,
 | **Margen bruto/cliente** | **CLP 118.500 (98,7%)** | **CLP 66.000 (94%)** |
 | Costo fijo del negocio | CLP 80.000 | CLP 400.000–500.000 |
 | **Break-even operativo** | **1 cliente** | **7–8 clientes** |
-| **Clientes para un sueldo de ~CLP 950.000** | **8–9** | **15** |
+| **Clientes para un sueldo de ~CLP 950.000** | **8–9** | **21** |
 
-El break-even de 1 cliente es cierto pero engañoso: cubre el gasto, no paga un sueldo. La cifra que importa es **8–9 clientes en el caso base y 15 en el pesimista**, y conseguir 15 corredores pagando en el único segmento que nunca cruzó el umbral de adopción de IA no es trivial. El cuello de botella de este negocio no es el costo — es la venta.
+El break-even de 1 cliente es cierto pero engañoso: cubre el gasto, no paga un sueldo. La cifra que importa es **8–9 clientes en el caso base y 21 en el pesimista** —(950.000 + 450.000 de costo fijo) ÷ 66.000 de margen— y conseguir 21 corredores pagando en un segmento que, hasta donde sabemos, no ha adoptado IA, no es trivial. El cuello de botella de este negocio no es el costo: es la venta.
 
 ## 4. Timeline
 
@@ -144,6 +147,8 @@ Los canales 1 y 2 son el motor real de los primeros 10 clientes; el pagado es un
 
 **Riesgo 4 — la promesa y el costo están en tensión.** El modelo mantiene el costo variable bajo porque asume que el lead escribe primero. Pero replicar el 92% de contactabilidad de LIDZ exige reenganche activo a leads fríos, que son mensajes *marketing*, los más caros. Bajar el costo y cumplir la promesa no son compatibles por defecto: si no reengancha, el producto deja de ser una máquina de contactabilidad y pasa a ser "un chatbot que responde rápido", bastante más difícil de vender a CLP 120.000/mes.
 
+**Riesgo 5 — los tres proyectos de la mesa compiten por la misma red.** Este dossier, el 02 y el 03 declaran los mismos 15–20 contactos como canal principal de primeros clientes. Pedirle a un corredor que pruebe tres cosas distintas el mismo mes quema el activo más valioso que hay. La mesa debe elegir **uno** para lanzar primero; este dossier propone que sea el 03, porque su validación es la más barata y rápida y sirve de excusa para reabrir la conversación con toda la red.
+
 **Limitación de esta evaluación.** No se pudo confirmar la tarifa de mensajería de Meta específica para Chile: `developers.facebook.com` y otros devolvieron `EGRESS_BLOCKED` en este entorno. Todo lo que toca esa tarifa está etiquetado [estimado] a partir de proxies de México, Argentina y Colombia. Antes de fijar precio fino, conviene que un humano revise la tabla de Meta seleccionando Chile.
 
 ## 7. Trazabilidad
@@ -151,7 +156,7 @@ Los canales 1 y 2 son el motor real de los primeros 10 clientes; el pagado es un
 - `reportes/2026-07-15.md` — Recepcionista/Dispatcher IA por WhatsApp para oficios de terreno (17/20). Aporta el mecanismo y el ángulo de dolor.
 - `reportes/2026-07-07.md` — Agencia de Agentes de Voz IA, stack Callin.io + n8n + Cal.com (17/20). Aporta la arquitectura white-label sin tecnología propia.
 - `reportes/2026-06-09.md` — AI Setter de Leads vía WhatsApp (17/20). Agendamiento automático.
-- `reportes/2026-08-05.md` — Vambe, agentes de IA de ventas por WhatsApp (15/20). Serie A US$14M, +2.000 clientes: el mercado existe y está capitalizado.
+- `reportes/2026-08-05.md` — Vambe, agentes de IA de ventas por WhatsApp (15/20); ahí la cifra es US$18,4M levantados en total. La Serie A de US$14M está en `reportes/2026-07-19.md` (16/20) y `2026-07-13.md`. El mercado existe y está capitalizado.
 - `reportes/2026-08-09.md` — reventa white-label de chatbots marcada como saturada en Chile.
 - **`reportes/2026-08-10.md` — Meta Business Agent vivo y gratis, incluido Chile (Confianza Alta).** El hallazgo que reencuadra todo el proyecto y que estaba fuera del índice.
 - `reportes-inmobiliario/2026-06-01.md` — Chatbot de respuesta <60 seg (18/20). NAR: 78%.
