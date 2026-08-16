@@ -36,9 +36,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Validar formato de reportes y dossiers
-        run: python3 validar_formato.py
-
       - name: Regenerar dashboard.html, index.html e INDICE_IDEAS.md
         run: python3 build_dashboard.py
 
@@ -70,3 +67,10 @@ jobs:
             echo "No se pudo pushear el dashboard regenerado tras varios intentos" >&2
             exit 1
           fi
+
+      # La validación va DESPUÉS de publicar, a propósito. El dashboard es el único
+      # medio de entrega del usuario: un error de formato en un reporte no puede
+      # dejarlo sin regenerar. Acá el build ya se publicó, así que este paso solo
+      # sirve para marcar la corrida en rojo y que el problema se vea y se arregle.
+      - name: Validar contrato de formato (no bloquea la publicación)
+        run: python3 validar_formato.py

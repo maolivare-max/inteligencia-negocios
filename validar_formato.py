@@ -17,16 +17,29 @@ agosto 2026 encontró tres casos reales ya en producción:
   3. `**Ángulo del día:**` en vez de `**Resumen:**` → 4 de 9 reportes de
      biohacking salen con "(sin resumen)" en el dashboard.
 
+DÓNDE CORRE
+-----------
+En CI este script se ejecuta DESPUÉS de generar y publicar el dashboard, no antes.
+El dashboard es el único medio de entrega del usuario, así que un error de formato
+en un reporte no puede dejarlo sin regenerar: para cuando esto corre, el HTML ya se
+publicó. Un fallo acá pinta la corrida en rojo para que el problema se vea y se
+arregle, sin haber bloqueado la entrega.
+
 POLÍTICA DE SEVERIDAD
 ---------------------
-ERROR (rompe el build):
-  - un dossier de proyectos/ que viola el contrato de la Misión 4;
-  - un reporte del que no se extrae NINGÚN hallazgo (desaparece del dashboard
-    entero sin dejar rastro visible para quien solo mira el tablero).
-AVISO (no rompe el build):
-  - drift de formato en reportes ya publicados. Son 140+ archivos históricos
-    con desviaciones conocidas; romper CI por ellos dejaría el dashboard sin
-    poder regenerarse. Se listan para que se arreglen, no para bloquear.
+ERROR (sale 1, corrida en rojo):
+  - un dossier de proyectos/ que viola el contrato de la Misión 4, incluida una
+    fila de tabla sin separador (que además colgaba el navegador; ver
+    _validar_tablas) y un '## ' de más que trunca una sección en silencio;
+  - un reporte con encabezados CASI válidos —guion en vez de raya, o score no
+    entero—, porque ahí sí hubo intención de publicar hallazgos y se perdieron.
+AVISO (sale 0):
+  - drift de formato en reportes ya publicados. Son 140+ archivos históricos con
+    desviaciones conocidas; se listan para arreglarlos, no para alarmar;
+  - un reporte con 0 hallazgos indexables sin encabezados casi-válidos: es un día
+    legítimo de solo-actualizaciones. Ojo con el diagnóstico — el reporte SÍ
+    aparece en la pestaña Reportes con su resumen; lo que no ocurre es que su
+    contenido entre a Explorar, Decisiones ni INDICE_IDEAS.md.
 
 Con --estricto los avisos también rompen el build (útil al limpiar el histórico).
 
@@ -71,7 +84,7 @@ RE_LINK_MD = re.compile(r"\[([^\]]+)\]\((https?://[^\s\)]+)\)")
 
 def validar_reporte(path, categoria):
     rel = os.path.relpath(path, bd.BASE)
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         txt = f.read()
 
     hallazgos = RE_HALLAZGO.findall(txt)
@@ -124,6 +137,34 @@ def validar_reporte(path, categoria):
 
 VEREDICTOS = {"CONSTRUIR YA", "PILOTEAR", "ESPERAR SEÑAL", "DESCARTAR"}
 ESTADOS = {"Propuesto", "En pilotaje", "Activo", "Archivado"}
+PROYECTO_SECCIONES_ESPERADAS = bd.PROYECTO_SECCIONES
+
+
+def _es_fila_tabla(l):
+    return re.match(r"^\s*\|.*\|\s*$", l) is not None
+
+
+def _validar_tablas(rel, txt):
+    """Detecta filas de tabla huérfanas — una línea que empieza y termina en '|'
+    pero sin la fila separadora |---|---| debajo.
+
+    Esto NO es cosmético: el conversor markdown→HTML del dashboard corre en el
+    navegador y una fila huérfana lo dejaba en loop infinito, congelando la página
+    entera (todas las pestañas, no solo Proyectos). El loop ya está arreglado en
+    build_dashboard.py, pero la tabla igual saldría renderizada como texto suelto,
+    así que conviene detectarla acá, en CI, y no en el navegador del usuario."""
+    lineas = txt.split("\n")
+    i = 0
+    while i < len(lineas):
+        if _es_fila_tabla(lineas[i]):
+            if i + 1 < len(lineas) and re.match(r"^\s*\|[\s:|-]+\|\s*$", lineas[i + 1]):
+                i += 2
+                while i < len(lineas) and _es_fila_tabla(lineas[i]):
+                    i += 1
+                continue
+            err(rel, f"línea {i+1}: fila de tabla sin fila separadora '|---|---|' "
+                     f"debajo → no se renderiza como tabla: {lineas[i].strip()[:60]}")
+        i += 1
 
 
 def validar_dossier(path):
@@ -139,8 +180,9 @@ def validar_dossier(path):
     if p["estado"] not in ESTADOS:
         err(rel, f"Estado '{p['estado']}' no es uno de {sorted(ESTADOS)}")
 
-    with open(path, encoding="utf-8") as f:
-        txt = f.read()
+    # misma codificación que parse_proyecto(): utf-8-sig para tolerar BOM
+    with open(path, encoding="utf-8-sig") as f:
+        txt = f.read().replace("\r\n", "\n")
 
     # un dossier no es un hallazgo: no debe disparar el parser de las otras misiones
     if RE_HALLAZGO.search(txt):
@@ -149,6 +191,18 @@ def validar_dossier(path):
 
     if len(re.findall(r"^#\s+\S", txt, re.MULTILINE)) != 1:
         err(rel, "debe haber exactamente una línea de título con un solo '#'")
+
+    # Un '## ' extra dentro del cuerpo corta la sección y el resto del contenido
+    # se pierde sin aviso (el lookahead del parser termina en el próximo '##').
+    # Para subtítulos hay que usar '###'.
+    h2 = re.findall(r"^##\s+(.+?)\s*$", txt, re.MULTILINE)
+    if len(h2) != len(PROYECTO_SECCIONES_ESPERADAS):
+        extra = [h for h in h2 if not re.match(r"^\d+\.\s", h)]
+        err(rel, f"tiene {len(h2)} encabezados '## ' y deben ser exactamente "
+                 f"{len(PROYECTO_SECCIONES_ESPERADAS)}. Para subtítulos usar '###'. "
+                 + (f"Sobran: {extra}" if extra else ""))
+
+    _validar_tablas(rel, txt)
 
     for sec in p["secciones"]:
         if not sec["md"].strip():

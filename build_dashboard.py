@@ -199,7 +199,7 @@ def _parse_opps(text):
     return opps
 
 def parse_report(path, group_key):
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         text = f.read()
     date    = parse_date(path)
     fuentes = _re(r"\*\*Fuentes revisadas:\*\*\s*(.+)", text)
@@ -231,8 +231,11 @@ def parse_proyecto(path):
     A diferencia del parser de hallazgos, este NO degrada a vacío en silencio:
     un dossier mal formado es un error ruidoso. El corpus ya arrastra tres
     fallas silenciosas por esa razón (Confianza, evidencia, resumen)."""
-    with open(path, encoding="utf-8") as f:
-        txt = f.read()
+    # utf-8-sig: un BOM invisible haría que la línea 1 sea "﻿# Título" y el
+    # dossier se excluiría del dashboard por un carácter que nadie ve.
+    # Normalizar CRLF evita \r residuales dentro del markdown de cada sección.
+    with open(path, encoding="utf-8-sig") as f:
+        txt = f.read().replace("\r\n", "\n")
 
     m = re.search(r"^#\s+(.+?)\s*$", txt, re.MULTILINE)
     if not m:
@@ -945,7 +948,10 @@ function mdToHtml(md){
     if (h){ out.push('<h3>' + mdInline(h[1]) + '</h3>'); i++; continue }
     if (/^\s*[-*]\s+/.test(l) || /^\s*\d+\.\s+/.test(l)){
       var orden = /^\s*\d+\.\s+/.test(l), items = [];
-      while (i < lineas.length && (/^\s*[-*]\s+/.test(lineas[i]) || /^\s*\d+\.\s+/.test(lineas[i]))){
+      // Solo se consumen ítems del MISMO tipo: si la lista cambia de numerada a
+      // viñeta (o al revés), empieza una lista nueva en vez de colapsar las dos.
+      while (i < lineas.length && (orden ? /^\s*\d+\.\s+/.test(lineas[i])
+                                        : /^\s*[-*]\s+/.test(lineas[i]))){
         items.push(lineas[i].replace(/^\s*(?:[-*]|\d+\.)\s+/, ''));
         i++;
       }
@@ -967,6 +973,11 @@ function mdToHtml(md){
       parr.push(lineas[i]); i++;
     }
     if (parr.length) out.push('<p>' + mdInline(parr.join(' ')) + '</p>');
+    // Fallback obligatorio: una línea que parece fila de tabla pero no lo es
+    // (sin fila separadora |---|) no la consume ninguna rama de arriba. Sin este
+    // else, 'i' no avanza y el while queda en loop infinito, congelando el hilo
+    // principal y con él TODO el dashboard, no solo esta pestaña.
+    else { out.push('<p>' + mdInline(l) + '</p>'); i++; }
   }
   return out.join('');
 }
