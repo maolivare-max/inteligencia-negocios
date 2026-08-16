@@ -13,6 +13,7 @@ on:
       - "reportes/**.md"
       - "reportes-inmobiliario/**.md"
       - "reportes-biohacking/**.md"
+      - "proyectos/**.md"
       - "build_dashboard.py"
   workflow_dispatch: {}
 
@@ -34,6 +35,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      - name: Validar formato de reportes y dossiers
+        run: python3 validar_formato.py
 
       - name: Regenerar dashboard.html, index.html e INDICE_IDEAS.md
         run: python3 build_dashboard.py

@@ -500,3 +500,156 @@ resultado válido — no forzar relleno.
 Español, directo, con foco en accionables. Cifras y links exactos. Ante la duda entre
 reportar algo con riesgo regulatorio sin resolver o descartarlo, descartarlo y explicar
 por qué — este es el rubro donde un error de criterio pesa más que en los otros dos.
+
+---
+---
+
+# MISIÓN 4: ORQUESTADOR — "LA MESA DE PROYECTOS"
+
+Las Misiones 1, 2 y 3 son **scouts**: barren el mundo a diario y traen hallazgos sueltos.
+Esta misión es distinta: **no busca nada nuevo afuera**. Su materia prima es lo que los
+scouts ya trajeron. Su trabajo es **fusionar, decidir y aterrizar**: convertir hallazgos
+dispersos en proyectos ejecutables con plan de entrada, costos en CLP, plan de marketing
+y timeline.
+
+**PRINCIPIO CENTRAL:** un hallazgo no es un negocio. Un negocio es una tesis + un canal
+de distribución + una estructura de costos + una fecha. La mesa existe para producir eso.
+
+**POR QUÉ EXISTE (diagnóstico que la originó, agosto 2026):** la auditoría del corpus
+(68 reportes de negocio, 66 inmobiliarios, 9 de biohacking) encontró tres fallas que
+ningún scout puede corregir desde adentro:
+1. **Repetición invisible al dedup por título.** La Ley 21.719 se lanzó como oportunidad
+   "nueva" 5 veces con nombres distintos; la recepcionista IA por WhatsApp, 5 veces; el
+   bróker de fondos estatales, 6 veces. El índice anti-repetición compara títulos, no
+   negocios subyacentes.
+2. **Ningún hallazgo trae costo propio.** El filtro dice "arranque < USD 10.000" pero casi
+   ninguna ficha calcula cuánto cuesta *esa* idea. El lector no sabe si son USD 500 o 9.000.
+3. **Nadie cruza las misiones.** El motor de agentes WhatsApp es el activo más repetido de
+   la Misión 1 (≥26 ideas) y simultáneamente el cluster más grande de la Misión 2 — y
+   ningún reporte lo dijo nunca, porque cada scout solo ve su propia carpeta.
+
+---
+
+## CADENCIA
+
+- **Corre los domingos**, después de los tres scouts (sugerido 09:30, escalonado).
+- Cadencia semanal, no diaria: un proyecto aterrizado por semana vale más que siete
+  esbozos. Si en una semana no hay ninguna fusión que supere el umbral, **el resultado
+  válido es "esta semana no hay proyecto nuevo"** más el registro de qué se evaluó.
+- Fuera de cadencia, se puede convocar a mano: "convoca la mesa de proyectos".
+
+---
+
+## LOS TRES EQUIPOS
+
+El orquestador no analiza: **convoca**. Lanza tres equipos en paralelo y sintetiza.
+
+### EQUIPO A — FUSIÓN (detecta qué combinar)
+Lee `INDICE_IDEAS.md` y los corpus de las tres misiones. No busca en internet.
+Entrega candidatas a fusión, cada una con: qué aporta cada pieza, por qué juntas valen
+más que separadas, y qué activo reutilizable comparten.
+
+**Reglas de fusión:**
+- Una fusión es válida solo si las piezas comparten **al menos dos de estos tres**:
+  mismo comprador, mismo canal de distribución, mismo activo técnico.
+  Si solo comparten "suenan parecido", no es fusión — es un tema.
+- **Prioridad máxima a las fusiones cruzadas entre misiones** (Misión 1 × Misión 2 sobre
+  todo): un hallazgo de negocio genérico + una táctica inmobiliaria con CPL documentado
+  es la combinación de mayor valor, porque la red inmobiliaria del usuario es la ventaja
+  injusta y el canal de primeros clientes (ver `radar/aprendizajes-clave.md`).
+- **Detección de series repetidas:** si el mismo negocio subyacente aparece ≥3 veces con
+  títulos distintos, eso NO es ruido — es señal de convicción acumulada. Consolidar la
+  serie completa en un solo proyecto y citar todas las fechas.
+
+### EQUIPO B — CREATIVO (marketing y entrada al mercado)
+Diseña cómo se consiguen los **primeros 10 clientes pagando**, no una campaña de marca.
+Entrega: propuesta de valor, canal de entrada priorizado con CPL esperado (anclado en
+métricas reales del corpus, citadas), la oferta de entrada concreta, el guion del primer
+contacto, y la campaña de lanzamiento con presupuesto.
+
+Regla dura: **todo CPL o tasa de conversión debe venir citado del corpus o de fuente con
+link**. Si es una extrapolación, se marca "estimado, sin caso chileno medido" — el corpus
+ya arrastra el vicio de fijar metas a 30 días sin baseline.
+
+### EQUIPO C — EVALUADOR (costos y tiempos)
+Entrega el **resumen financiero sencillo** y el timeline. Nada de modelos de 5 pestañas.
+Obligatorio, todo en **CLP** (indicando el tipo de cambio usado y su fecha):
+- Costo de arranque desglosado (herramientas, setup, freelancers, legal).
+- Costo mensual de operación.
+- Precio sugerido y margen por cliente.
+- **Punto de equilibrio: cuántos clientes para cubrir el costo mensual.**
+- Tiempo hasta el primer peso, y horas/semana que exige del fundador.
+- Escenario pesimista y base. **No se pide optimista** — el corpus ya tiene sesgo de
+  supervivencia (504 hallazgos inmobiliarios, ni un solo caso de fracaso documentado).
+
+Regla dura: cada costo lleva etiqueta de origen — **[verificado]** (precio público con
+link), **[estimado]** (extrapolado, se explica de qué), o **[desconocido]** (no se pudo
+obtener; se dice, no se inventa). Un dossier con costos inventados es peor que sin costos.
+
+---
+
+## VEREDICTO DE LA MESA
+
+Cada proyecto cierra con uno de estos cuatro, y el criterio es explícito:
+
+- **CONSTRUIR YA** — evidencia Alta en ambas piezas, canal de primeros clientes
+  identificado y accesible hoy, arranque < CLP 2.000.000, primer ingreso ≤ 60 días.
+- **PILOTEAR** — la tesis es buena pero una variable clave no está verificada. Se define
+  el experimento más barato que la resuelve y su costo.
+- **ESPERAR SEÑAL** — depende de un evento externo con fecha (ley, cupo, lanzamiento).
+  Se anota qué señal y dónde se vigila.
+- **DESCARTAR** — se documenta igual, con el motivo. Un descarte razonado evita que el
+  scout lo redescubra en tres semanas.
+
+---
+
+## CONTRATO DE FORMATO DEL DOSSIER
+
+Se guarda en `proyectos/NN-slug.md` (NN correlativo: `01-`, `02-`...). El parser del
+dashboard depende de esta estructura exacta — **no improvisar encabezados**. La validación
+la hace `python3 validar_formato.py`, que falla ruidosamente si algo no calza.
+
+```
+# [Nombre del proyecto]
+
+> **Estado:** Propuesto | En pilotaje | Activo | Archivado
+> **Veredicto:** CONSTRUIR YA | PILOTEAR | ESPERAR SEÑAL | DESCARTAR
+> **Fusión de:** [pieza A — Misión, fecha, score] + [pieza B — Misión, fecha, score]
+> **Arranque:** CLP X · **Break-even:** N clientes · **Primer ingreso:** N días
+> **Tesis:** una sola frase.
+
+## 1. Tesis y evidencia
+## 2. Plan de entrada
+## 3. Resumen financiero
+## 4. Timeline
+## 5. Plan de marketing
+## 6. Riesgos y señales de aborto
+## 7. Trazabilidad
+```
+
+Reglas del contrato:
+- El título es la **única** línea que empieza con `# ` (un solo `#`).
+- Las 5 líneas del bloque `>` son obligatorias y van en ese orden.
+- Las 7 secciones `##` van numeradas, con esos nombres exactos, en ese orden.
+- **No usar el patrón `— Score X/20` en encabezados `##`** dentro de `proyectos/`: es el
+  regex que dispara el parser de hallazgos de las otras misiones. Un dossier no es un
+  hallazgo.
+- La sección 7 (Trazabilidad) lista cada reporte de origen con ruta y fecha, para poder
+  volver a la evidencia.
+
+---
+
+## ENTREGA
+
+- Dossier en `proyectos/NN-slug.md`. Commit + push a `main` de **solo el `.md`**.
+- El dashboard regenera solo vía GitHub Action (pestaña "Proyectos"). **No commitear
+  `dashboard.html` ni `index.html`.**
+- Antes de commitear, correr `python3 validar_formato.py` y que pase.
+- Dominio en `radar/indice-antirepeticion.txt`: `proyectos`.
+- Aplica la NOTA TÉCNICA de WebFetch/403 de la Misión 1.
+
+## IDIOMA Y TONO
+
+Español, directo. Este es el documento que se usa para decidir si se gasta plata y tiempo:
+sin adjetivos de venta, con cifras etiquetadas por origen y con los riesgos arriba, no
+escondidos al final.

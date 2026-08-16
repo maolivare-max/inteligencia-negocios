@@ -31,6 +31,26 @@ DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias", "biohacking": "
 INDICE_PATH        = os.path.join(BASE, "radar", "indice-antirepeticion.txt")
 IDEAS_INDEX_PATH    = os.path.join(BASE, "INDICE_IDEAS.md")
 
+# ── MISIÓN 4 (Mesa de Proyectos) ────────────────────────────────────────────
+# Pipeline PARALELO y deliberadamente separado del de hallazgos: un dossier de
+# proyecto no es un hallazgo (no tiene score /20 ni veredicto Chile) y forzarlo
+# al esquema de SOURCES/_parse_opps perdería contenido. Nada de lo de abajo
+# toca SOURCES, DOMINIO, build_dataset() ni match_indice().
+PROYECTOS_DIR = os.path.join(BASE, "proyectos")
+
+# Las 7 secciones del contrato, en orden. Definido acá y reusado por
+# validar_formato.py para que el contrato tenga una sola fuente de verdad.
+PROYECTO_SECCIONES = [
+    "Tesis y evidencia",
+    "Plan de entrada",
+    "Resumen financiero",
+    "Timeline",
+    "Plan de marketing",
+    "Riesgos y señales de aborto",
+    "Trazabilidad",
+]
+PROYECTO_META_CAMPOS = ["Estado", "Veredicto", "Fusión de", "Arranque", "Tesis"]
+
 DESTACADA = 15
 HIGH      = 13
 
@@ -200,6 +220,77 @@ def collect():
                 print(f"  ! Error parseando {path}: {e}")
         result.append({"key": key, "label": label, "reports": reports})
     return result
+
+
+# ── MISIÓN 4: parser de dossiers de proyecto ────────────────────────────────
+
+def parse_proyecto(path):
+    """Parsea un dossier de proyectos/. Devuelve dict, o lanza ValueError si el
+    archivo no cumple el contrato (ver MISIÓN 4 en CLAUDE.md).
+
+    A diferencia del parser de hallazgos, este NO degrada a vacío en silencio:
+    un dossier mal formado es un error ruidoso. El corpus ya arrastra tres
+    fallas silenciosas por esa razón (Confianza, evidencia, resumen)."""
+    with open(path, encoding="utf-8") as f:
+        txt = f.read()
+
+    m = re.search(r"^#\s+(.+?)\s*$", txt, re.MULTILINE)
+    if not m:
+        raise ValueError("falta el título '# Nombre del proyecto'")
+    titulo = m.group(1).strip()
+
+    meta = {}
+    for campo in PROYECTO_META_CAMPOS:
+        mm = re.search(r"^>\s*\*\*" + re.escape(campo) + r":\*\*\s*(.+?)\s*$",
+                       txt, re.MULTILINE)
+        if not mm:
+            raise ValueError(f"falta la línea de metadatos '> **{campo}:** ...'")
+        meta[campo] = mm.group(1).strip()
+
+    # Cada sección va desde su encabezado hasta el próximo '## ' o el fin.
+    secciones, faltantes = {}, []
+    for i, nombre in enumerate(PROYECTO_SECCIONES, start=1):
+        pat = (r"^##\s+" + str(i) + r"\.\s+" + re.escape(nombre) +
+               r"\s*$(.*?)(?=^##\s|\Z)")
+        sm = re.search(pat, txt, re.MULTILINE | re.DOTALL)
+        if not sm:
+            faltantes.append(f"## {i}. {nombre}")
+            continue
+        secciones[nombre] = sm.group(1).strip()
+    if faltantes:
+        raise ValueError("faltan secciones: " + ", ".join(faltantes))
+
+    # El nº correlativo sale del nombre de archivo (01-slug.md).
+    base = os.path.basename(path)
+    orden = int(base.split("-", 1)[0]) if base.split("-", 1)[0].isdigit() else 999
+
+    return {
+        "id": "proy-" + slug(base.rsplit(".", 1)[0]),
+        "orden": orden,
+        "archivo": base,
+        "titulo": titulo,
+        "estado": meta["Estado"],
+        "veredicto": meta["Veredicto"],
+        "fusion": meta["Fusión de"],
+        "arranque": meta["Arranque"],
+        "tesis": meta["Tesis"],
+        "secciones": [{"nombre": n, "md": secciones[n]} for n in PROYECTO_SECCIONES],
+    }
+
+
+def collect_proyectos():
+    if not os.path.isdir(PROYECTOS_DIR):
+        return []
+    out = []
+    for path in sorted(glob.glob(os.path.join(PROYECTOS_DIR, "*.md"))):
+        if os.path.basename(path).startswith("_"):
+            continue  # convención: _plantilla.md y afines no se publican
+        try:
+            out.append(parse_proyecto(path))
+        except Exception as e:
+            print(f"  ! Dossier inválido, excluido: {path}: {e}")
+    out.sort(key=lambda p: p["orden"])
+    return out
 
 # ── mapeo score → impacto/costo (heurístico, la mission no reporta estos
 #    dos ejes por separado con nombres consistentes entre ambas misiones) ──
@@ -417,6 +508,29 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 .acordeon .cuerpo{padding:4px 24px 22px;border-top:1px solid var(--line)}
 .acordeon .resumen{font-size:13px;color:#cfd6e0;margin:10px 0 14px}
 .acordeon .fuentes{font-size:11.5px;color:var(--muted2);border-top:1px dashed var(--line);padding-top:10px;margin-top:6px}
+.proy-intro{font-size:13px;color:var(--muted);max-width:760px;margin:-6px 0 18px;line-height:1.5}
+.proy-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.proy-tesis{font-size:14px;color:#e6ecf3;line-height:1.55;border-left:3px solid var(--oro2);
+  padding:2px 0 2px 14px;margin:4px 0 18px}
+.proy-fusion{font-size:12px;color:var(--muted2);margin:0 0 16px;line-height:1.5}
+.proy-sec{border-top:1px solid var(--line);padding-top:14px;margin-top:16px}
+.proy-sec > h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro2);margin:0 0 10px}
+.proy-md{font-size:13.5px;line-height:1.6;color:#cfd6e0}
+.proy-md p{margin:0 0 10px}
+.proy-md ul,.proy-md ol{margin:0 0 10px;padding-left:20px}
+.proy-md li{margin-bottom:5px}
+.proy-md h3{font-size:13.5px;color:#e6ecf3;margin:16px 0 8px}
+.proy-md strong{color:#fff}
+.proy-md code{background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:12.5px}
+.proy-md a{color:var(--oro2)}
+.proy-md .tablawrap{overflow-x:auto;margin:0 0 12px}
+.proy-md table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:420px}
+.proy-md th,.proy-md td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.proy-md th{background:var(--panel2);color:var(--oro2);font-weight:600;white-space:nowrap}
+.ver-construir{background:rgba(74,163,110,.16);border-color:rgba(74,163,110,.5);color:#7fd6a3}
+.ver-pilotear{background:rgba(216,169,83,.16);border-color:rgba(216,169,83,.5);color:#e5c07b}
+.ver-esperar{background:rgba(90,150,220,.16);border-color:rgba(90,150,220,.5);color:#8fbcf0}
+.ver-descartar{background:rgba(200,90,90,.16);border-color:rgba(200,90,90,.5);color:#e08b8b}
 .mini-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;cursor:pointer}
 .mini-card:hover{border-color:rgba(216,169,83,.4)}
 .mini-card .t{font-weight:700;font-size:13.5px;margin-bottom:5px}
@@ -481,6 +595,7 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
     <button class="tab active" data-tab="panorama">Panorama</button>
     <button class="tab" data-tab="explorar">Explorar <span class="pill" id="pillExplorar"></span></button>
     <button class="tab" data-tab="decisiones">Decisiones</button>
+    <button class="tab" data-tab="proyectos">Proyectos <span class="pill" id="pillProy"></span></button>
     <button class="tab" data-tab="reportes">Reportes</button>
     <button class="tab" data-tab="miradar">Mi radar <span class="pill" id="pillFav"></span></button>
   </nav>
@@ -539,6 +654,13 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
   <div id="decGrupos"></div>
 </section>
 
+<section class="tabpane" id="tab-proyectos">
+  <div class="res-header"><h2>Mesa de Proyectos</h2><span class="n" id="proyN"></span></div>
+  <p class="proy-intro">Fusiones de hallazgos de las tres misiones, aterrizadas a plan de entrada,
+  costos en CLP, punto de equilibrio y timeline. Un hallazgo no es un negocio: acá están los que sí lo son.</p>
+  <div id="listaProyectos"></div>
+</section>
+
 <section class="tabpane" id="tab-reportes">
   <div class="res-header"><h2>Reportes diarios</h2><span class="n" id="repN"></span></div>
   <div id="listaReportes"></div>
@@ -583,10 +705,12 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 
 <script id="datos" type="application/json">__DATA__</script>
 <script id="reportesJson" type="application/json">__REPORTES__</script>
+<script id="proyectosJson" type="application/json">__PROYECTOS__</script>
 <script>
 'use strict';
 var DATA = JSON.parse(document.getElementById('datos').textContent);
 var REPORTES = JSON.parse(document.getElementById('reportesJson').textContent);
+var PROYECTOS = JSON.parse(document.getElementById('proyectosJson').textContent);
 DATA.forEach(function(t, i){ t._i = i });
 
 var LSKEY = 'radar-negocios-v1';
@@ -783,13 +907,112 @@ function renderReportes(){
   }).join('') || '<div class="vacio">No hay reportes todavía.</div>';
 }
 
+// Mini conversor markdown→HTML. El script no admite dependencias externas, y los
+// dossiers usan un subconjunto acotado y documentado en el contrato: encabezados
+// ###, listas, tablas, negrita, código, links. Todo se escapa antes de convertir.
+function mdInline(s){
+  s = esc(s);
+  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');   // cursiva: va DESPUÉS de la negrita
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  return s;
+}
+function mdToHtml(md){
+  var lineas = (md || '').split('\n'), out = [], i = 0;
+  function esFilaTabla(l){ return /^\s*\|.*\|\s*$/.test(l) }
+  function celdas(l){
+    return l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function(c){ return c.trim() });
+  }
+  while (i < lineas.length){
+    var l = lineas[i];
+    if (!l.trim()){ i++; continue }
+    // tabla: fila de encabezado + separador |---|---|
+    if (esFilaTabla(l) && i + 1 < lineas.length && /^\s*\|[\s:|-]+\|\s*$/.test(lineas[i+1])){
+      var head = celdas(l), filas = [];
+      i += 2;
+      while (i < lineas.length && esFilaTabla(lineas[i])){ filas.push(celdas(lineas[i])); i++ }
+      out.push('<div class="tablawrap"><table><thead><tr>' +
+        head.map(function(c){ return '<th>' + mdInline(c) + '</th>' }).join('') +
+        '</tr></thead><tbody>' +
+        filas.map(function(f){
+          return '<tr>' + f.map(function(c){ return '<td>' + mdInline(c) + '</td>' }).join('') + '</tr>';
+        }).join('') + '</tbody></table></div>');
+      continue;
+    }
+    var h = l.match(/^#{3,6}\s+(.+)$/);
+    if (h){ out.push('<h3>' + mdInline(h[1]) + '</h3>'); i++; continue }
+    if (/^\s*[-*]\s+/.test(l) || /^\s*\d+\.\s+/.test(l)){
+      var orden = /^\s*\d+\.\s+/.test(l), items = [];
+      while (i < lineas.length && (/^\s*[-*]\s+/.test(lineas[i]) || /^\s*\d+\.\s+/.test(lineas[i]))){
+        items.push(lineas[i].replace(/^\s*(?:[-*]|\d+\.)\s+/, ''));
+        i++;
+      }
+      out.push('<' + (orden ? 'ol' : 'ul') + '>' +
+        items.map(function(t){ return '<li>' + mdInline(t) + '</li>' }).join('') +
+        '</' + (orden ? 'ol' : 'ul') + '>');
+      continue;
+    }
+    if (/^\s*>/.test(l)){
+      var cita = [];
+      while (i < lineas.length && /^\s*>/.test(lineas[i])){ cita.push(lineas[i].replace(/^\s*>\s?/, '')); i++ }
+      out.push('<p>' + mdInline(cita.join(' ')) + '</p>');
+      continue;
+    }
+    var parr = [];
+    while (i < lineas.length && lineas[i].trim() && !esFilaTabla(lineas[i]) &&
+           !/^#{3,6}\s/.test(lineas[i]) && !/^\s*[-*]\s+/.test(lineas[i]) &&
+           !/^\s*\d+\.\s+/.test(lineas[i]) && !/^\s*>/.test(lineas[i])){
+      parr.push(lineas[i]); i++;
+    }
+    if (parr.length) out.push('<p>' + mdInline(parr.join(' ')) + '</p>');
+  }
+  return out.join('');
+}
+
+function claseVeredicto(v){
+  var t = (v || '').toUpperCase();
+  if (t.indexOf('CONSTRUIR') >= 0) return 'ver-construir';
+  if (t.indexOf('PILOTEAR')  >= 0) return 'ver-pilotear';
+  if (t.indexOf('ESPERAR')   >= 0) return 'ver-esperar';
+  return 'ver-descartar';
+}
+
+function renderProyectos(){
+  document.getElementById('pillProy').textContent = PROYECTOS.length || '';
+  document.getElementById('proyN').textContent =
+    PROYECTOS.length + (PROYECTOS.length === 1 ? ' proyecto' : ' proyectos');
+  document.getElementById('listaProyectos').innerHTML = PROYECTOS.map(function(p, i){
+    return '<details class="acordeon"' + (i === 0 ? ' open' : '') + '><summary>' +
+      esc(p.titulo) + ' <span class="chip ' + claseVeredicto(p.veredicto) + '">' +
+      esc(p.veredicto) + '</span><span class="flecha">›</span></summary>' +
+      '<div class="cuerpo">' +
+      '<div class="proy-meta">' +
+        '<span class="chip">' + esc(p.estado) + '</span>' +
+        // la línea de Arranque trae 2-3 datos separados por '·': un chip por dato,
+        // pasados por mdInline para que la negrita del contrato no salga cruda
+        p.arranque.split('·').map(function(x){
+          return x.trim() ? '<span class="chip">' + mdInline(x.trim()) + '</span>' : '';
+        }).join('') +
+      '</div>' +
+      '<p class="proy-tesis">' + mdInline(p.tesis) + '</p>' +
+      '<p class="proy-fusion"><b>Fusión de:</b> ' + mdInline(p.fusion) + '</p>' +
+      p.secciones.map(function(s){
+        return '<div class="proy-sec"><h4>' + esc(s.nombre) + '</h4>' +
+               '<div class="proy-md">' + mdToHtml(s.md) + '</div></div>';
+      }).join('') +
+      '</div></details>';
+  }).join('') || '<div class="vacio">Todavía no hay proyectos en la mesa.</div>';
+}
+
 function renderHeader(){
   var vistas = DATA.filter(function(t){ return st(t.id).visto }).length;
   document.getElementById('vistasNum').textContent = vistas;
   document.getElementById('totalNum').textContent = DATA.length;
   document.getElementById('progressFill').style.width = (DATA.length ? Math.round(vistas / DATA.length * 100) : 0) + '%';
 }
-function renderTodo(){ renderHeader(); renderGrid(); renderDecisiones(); renderPanorama(); renderMiRadar(); renderReportes(); if (modalIdx >= 0) refrescarMarksModal() }
+function renderTodo(){ renderHeader(); renderGrid(); renderDecisiones(); renderPanorama(); renderMiRadar(); renderReportes(); renderProyectos(); if (modalIdx >= 0) refrescarMarksModal() }
 
 var modalLista = [], modalIdx = -1, notaTimer = null;
 function secKV(pares){
@@ -985,17 +1208,24 @@ def main():
             })
     reportes_meta.sort(key=lambda x: x["fecha"], reverse=True)
 
+    proyectos = collect_proyectos()
+
     latest = max((r["fecha"] for r in reportes_meta), default=None)
     n_rep = len(reportes_meta)
     n_dom = len(set(r["categoria"] for r in reportes_meta))
-    sub = f"{len(rows)} hallazgos · {n_rep} reportes · {n_dom} misiones · actualizado {latest or '—'}"
+    sub = f"{len(rows)} hallazgos · {n_rep} reportes · {n_dom} misiones"
+    if proyectos:
+        sub += f" · {len(proyectos)} proyectos"
+    sub += f" · actualizado {latest or '—'}"
 
     html = TEMPLATE
     html = html.replace("__SUB__", sub)
     data_json = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")
     reportes_json = json.dumps(reportes_meta, ensure_ascii=False).replace("</", "<\\/")
+    proyectos_json = json.dumps(proyectos, ensure_ascii=False).replace("</", "<\\/")
     html = html.replace("__DATA__", data_json)
     html = html.replace("__REPORTES__", reportes_json)
+    html = html.replace("__PROYECTOS__", proyectos_json)
 
     with open(os.path.join(BASE, "dashboard.html"), "w", encoding="utf-8") as f:
         f.write(html)
