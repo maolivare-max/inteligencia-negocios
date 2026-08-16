@@ -2,6 +2,8 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-16 · Tendencias inmobiliarias · Fotografía y tour 360° por unidad individual en preventa (no solo showroom genérico) (Score 13/20)
+- 2026-08-16 · Tendencias inmobiliarias · Datos de clima, exposición solar y riesgo climático como diferenciador de ficha (Redfin, EE.UU.) (Score 15/20)
 - 2026-08-15 · Oportunidades de negocio · Interpretación remota bajo demanda para personas ciegas/baja visión (Accessibility-as-a-Service, estilo Aira) (Score 12/20)
 - 2026-08-15 · Oportunidades de negocio · Agencia de colocación remota en QA/testing y etiquetado de datos para talento neurodivergente (TEA) (Score 12/20)
 - 2026-08-15 · Tendencias inmobiliarias · Compradores de reubicación / larga distancia: venta remota vía video de barrio (Redfin, EE.UU.) (Score 15/20)
