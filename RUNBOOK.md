@@ -13,7 +13,13 @@ dashboard.html                       ← tablero visual (offline, doble clic)
 reportes/YYYY-MM-DD.md               ← MISIÓN 1: oportunidades de negocio
 reportes-inmobiliario/YYYY-MM-DD.md  ← MISIÓN 2: marketing inmobiliario
 reportes-biohacking/YYYY-MM-DD.md    ← MISIÓN 3: biohacking y longevidad
+proyectos/NN-slug.md                 ← MISIÓN 4: dossiers de la Mesa de Proyectos
+validar_formato.py                   ← valida el contrato antes de generar
 ```
+
+Las misiones 1-3 son scouts diarios (traen hallazgos sueltos). La misión 4 corre
+semanal y no busca nada nuevo: fusiona lo que los scouts ya trajeron y lo aterriza
+a plan de entrada, costos en CLP y timeline.
 
 Flujo diario (08:00): generar reporte → guardar .md → `python3 build_dashboard.py`
 → commit + push. La revisión se hace en el dashboard (sin email).
@@ -95,14 +101,47 @@ medio de revisión.
 
 ---
 
+### Routine 4 — Mesa de Proyectos (semanal, domingos)
+Nombre: `Mesa de Proyectos · semanal`
+Trigger: **Schedule → Weekly → domingo 09:30** (después de los tres scouts).
+
+```
+Ejecuta la MISIÓN 4 definida en CLAUDE.md (Orquestador — Mesa de Proyectos). NO
+busques nada nuevo en internet: tu materia prima es lo que las misiones 1, 2 y 3 ya
+trajeron. Lee INDICE_IDEAS.md y los corpus de las tres carpetas de reportes. Convoca
+los tres equipos: FUSIÓN (detecta qué combinar, con prioridad a las fusiones cruzadas
+Misión 1 × Misión 2), CREATIVO (cómo se consiguen los primeros 10 clientes pagando) y
+EVALUADOR (costos en CLP etiquetados [verificado]/[estimado]/[desconocido], punto de
+equilibrio y timeline). Aplica las reglas de fusión y el veredicto de la mesa. Guarda
+el dossier en proyectos/NN-slug.md siguiendo el contrato de formato exacto, corre
+`python3 validar_formato.py` y que pase, y haz commit y push a main de SOLO el .md.
+Si en la semana no hay ninguna fusión que supere el umbral, el resultado válido es
+"esta semana no hay proyecto nuevo" con el registro de qué se evaluó. NO envíes email
+ni commitees dashboard.html/index.html.
+```
+
+---
+
 ## 3. Ver el dashboard
 
-Abre `dashboard.html` en el navegador (doble clic). Se regenera solo tras cada reporte.
-Para regenerarlo a mano:
+En línea: https://maolivare-max.github.io/inteligencia-negocios/ (sirve desde `main`).
+También se puede abrir `dashboard.html` local con doble clic. Se regenera solo vía la
+GitHub Action tras cada push a `main` que toque `reportes*/` o `proyectos/`.
+
+Pestañas: Panorama · Explorar · Decisiones · **Proyectos** · Reportes · Mi radar.
+La pestaña Proyectos muestra los dossiers de la Misión 4 (plan de entrada, resumen
+financiero, timeline), que es contenido distinto de los hallazgos diarios.
+
+Para regenerar y validar a mano:
 
 ```bash
-python3 build_dashboard.py
+python3 validar_formato.py    # contrato de formato; falla si un dossier está mal
+python3 build_dashboard.py    # regenera dashboard.html, index.html e INDICE_IDEAS.md
 ```
+
+`validar_formato.py` distingue dos severidades: los **errores** (dossier que viola el
+contrato) rompen el build; los **avisos** (drift de formato en reportes históricos) no,
+pero se listan para arreglarlos. Con `--estricto` los avisos también rompen.
 
 ---
 
