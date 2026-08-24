@@ -2,6 +2,8 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-24 · Oportunidades de negocio · Agente IA vertical para backoffice financiero (inspirado en Plaude, Argentina) (Score 12/20)
+- 2026-08-24 · Oportunidades de negocio · Gestión de obra 100% por WhatsApp con IA para constructoras y contratistas chicos (recorte delgado, inspirado en Lebane — Argentina/México) (Score 14/20)
 - 2026-08-19 · Oportunidades de negocio · Kapso (Score 14/20)
 - 2026-08-16 · Tendencias inmobiliarias · Fotografía y tour 360° por unidad individual en preventa (no solo showroom genérico) (Score 13/20)
 - 2026-08-16 · Tendencias inmobiliarias · Datos de clima, exposición solar y riesgo climático como diferenciador de ficha (Redfin, EE.UU.) (Score 15/20)
