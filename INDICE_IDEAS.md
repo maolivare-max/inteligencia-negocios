@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-25 · Biohacking y longevidad · Interpretación de exámenes de laboratorio con IA, directo al consumidor (Score 14/20)
 - 2026-08-24 · Oportunidades de negocio · Agente IA vertical para backoffice financiero (inspirado en Plaude, Argentina) (Score 12/20)
 - 2026-08-24 · Oportunidades de negocio · Gestión de obra 100% por WhatsApp con IA para constructoras y contratistas chicos (recorte delgado, inspirado en Lebane — Argentina/México) (Score 14/20)
 - 2026-08-24 · Biohacking y longevidad · Curaduría por IA de stack de suplementos ya registrados (suscripción, sin formulación propia) (Score 14/20)
