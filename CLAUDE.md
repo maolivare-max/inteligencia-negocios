@@ -26,7 +26,8 @@ emol.com, portalinnova.cl, infocheck.cl, enlaciudad.cl, 24horas.cl, inman.com,
 fortune.com, financialcontent.com, mulleryperez.cl, g5noticias.cl, prensaeventos.cl,
 woperty.com, chatsell.net, senioradvisor.cl, examedi.cl, nar.realtor, shorttermrentalz.com,
 fraccional.cl, es-us.noticias.yahoo.com, eldiarioinmobiliario.cl, fontaineycia.cl,
-siniva.cl, hacienda.cl, bcentral.cl, housingwire.com, nationalmortgagenews.com.
+siniva.cl, hacienda.cl, bcentral.cl, housingwire.com, nationalmortgagenews.com,
+soloestetica.cl.
 Si un dominio nuevo devuelve 403, agregarlo
 a esta lista. Incluir esta nota
 (y la lista de exclusión de INDICE_IDEAS.md) en el prompt de cada agente de investigación,
