@@ -2,6 +2,8 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-27 · Oportunidades de negocio · Dispositivo DTC de alivio de dolor mandibular con marketing de contenido viral (caso yourTMJ Pen) (Score 11/20)
+- 2026-08-27 · Oportunidades de negocio · Plataforma de "drops" para venta de comida casera/informal (clon del modelo Hotplate) (Score 14/20)
 - 2026-08-25 · Biohacking y longevidad · Interpretación de exámenes de laboratorio con IA, directo al consumidor (Score 14/20)
 - 2026-08-24 · Oportunidades de negocio · Agente IA vertical para backoffice financiero (inspirado en Plaude, Argentina) (Score 12/20)
 - 2026-08-24 · Oportunidades de negocio · Gestión de obra 100% por WhatsApp con IA para constructoras y contratistas chicos (recorte delgado, inspirado en Lebane — Argentina/México) (Score 14/20)
