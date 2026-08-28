@@ -2,6 +2,9 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-28 · Biohacking y longevidad · Oportunidades
+
+### Coach de wellness cardiometabólico sobre wearables mainstream (Score 14/20)
 - 2026-08-27 · Oportunidades de negocio · Dispositivo DTC de alivio de dolor mandibular con marketing de contenido viral (caso yourTMJ Pen) (Score 11/20)
 - 2026-08-27 · Oportunidades de negocio · Plataforma de "drops" para venta de comida casera/informal (clon del modelo Hotplate) (Score 14/20)
 - 2026-08-27 · Biohacking y longevidad · Oportunidades que pasan los cuatro filtros hoy
