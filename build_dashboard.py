@@ -173,7 +173,7 @@ def _parse_pasos(body):
 def _parse_opps(text):
     opps = []
     pat = re.compile(
-        r"^##\s+\d+\.\s+(.+?)\s+—\s+Score\s+(\d+)/20\s*$(.*?)(?=^##\s|\Z)",
+        r"^##\s+(?:\d+\.\s+)?(.+?)\s+—\s+Score\s+(\d+)/20\s*$(.*?)(?=^##\s|\Z)",
         re.MULTILINE | re.DOTALL)
     for m in pat.finditer(text):
         name  = m.group(1).strip()
