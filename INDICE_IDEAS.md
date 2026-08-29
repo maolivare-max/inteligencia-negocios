@@ -2,6 +2,9 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-29 · Biohacking y longevidad · Oportunidades
+
+### Wellness ocupacional para fatiga visual/digital vía mutualidades (Score 14/20)
 - 2026-08-29 · Oportunidades de negocio · Evaluación y adaptación de hogar para "aging in place" (Score 15/20)
 - 2026-08-29 · Tendencias inmobiliarias · Meta Ads con targeting por interés de estilo de vida (golf/marina/club) para propiedades amenitizadas (Score 15/20)
 - 2026-08-28 · Biohacking y longevidad · Oportunidades
