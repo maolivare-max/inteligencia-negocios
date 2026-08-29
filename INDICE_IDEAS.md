@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-08-29 · Oportunidades de negocio · Evaluación y adaptación de hogar para "aging in place" (Score 15/20)
 - 2026-08-28 · Biohacking y longevidad · Oportunidades
 
 ### Coach de wellness cardiometabólico sobre wearables mainstream (Score 14/20)
