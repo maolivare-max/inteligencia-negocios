@@ -2,6 +2,9 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-02 · Biohacking y longevidad · Oportunidades
+
+### Directorio/marketplace de medicina funcional y longevidad en Chile (Score 15/20)
 - 2026-08-29 · Biohacking y longevidad · Oportunidades
 
 ### Wellness ocupacional para fatiga visual/digital vía mutualidades (Score 14/20)
