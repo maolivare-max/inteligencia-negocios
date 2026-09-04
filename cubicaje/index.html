@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cubicador de madera HILAM</title>
+<style>
+:root{
+  --bg:#f6f5f3; --card:#ffffff; --ink:#1c1b19; --muted:#6b675f; --line:#e2ded8;
+  --accent:#e2700d; --accent-soft:#fdf1e5; --ok:#1f7a4d; --ok-soft:#e8f5ee;
+  --warn:#9a5b00; --warn-soft:#fdf3e0; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16150f; --card:#211f1a; --ink:#f0ece4; --muted:#a29b8e; --line:#35322a;
+    --accent:#f3903a; --accent-soft:#33230f; --ok:#5fc894; --ok-soft:#13291d;
+    --warn:#e5a94e; --warn-soft:#2e2210; --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 18px 70px}
+header{border-bottom:3px solid var(--accent);padding-bottom:14px;margin-bottom:22px}
+h1{font-size:25px;margin:0 0 4px;letter-spacing:-.02em}
+h1 span{color:var(--accent)}
+.sub{color:var(--muted);font-size:13.5px;margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:15px;margin:0 0 14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.card h3{font-size:14px;margin:18px 0 8px}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+label{display:block;font-size:12px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+input[type=number],input[type=text],select{width:100%;padding:9px 10px;font-size:15px;
+  font-family:inherit;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line);border-radius:8px}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.hint{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.45}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tab{padding:8px 14px;border:1px solid var(--line);background:var(--card);
+  border-radius:20px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);font-family:inherit}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.radios{display:grid;gap:8px}
+.radio{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);
+  border-radius:9px;cursor:pointer;background:var(--bg)}
+.radio.on{border-color:var(--accent);background:var(--accent-soft)}
+.radio input{margin:3px 0 0}
+.radio b{display:block;font-size:14px}
+.radio small{color:var(--muted);font-size:12.5px;display:block;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:right;padding:9px 8px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+tr.hi td{background:var(--accent-soft);font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
+.kpi{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 14px}
+.kpi .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+.kpi .v{font-size:23px;font-weight:700;letter-spacing:-.02em;margin-top:3px;font-variant-numeric:tabular-nums}
+.kpi .u{font-size:12.5px;color:var(--muted);margin-top:1px}
+.kpi.acc{background:var(--accent-soft);border-color:var(--accent)}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);
+  padding:10px 13px;border-radius:0 8px 8px 0;font-size:13px;margin-top:14px}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note b{display:block;margin-bottom:2px}
+button.act{background:var(--accent);color:#fff;border:none;padding:9px 16px;border-radius:8px;
+  font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+button.gh{background:transparent;color:var(--muted);border:1px solid var(--line);
+  padding:8px 13px;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600}
+button.gh:hover{border-color:var(--accent);color:var(--accent)}
+.rowline{display:grid;gap:8px;align-items:end;margin-bottom:9px;
+  grid-template-columns:1.5fr repeat(4,1fr) auto}
+@media(max-width:720px){.rowline{grid-template-columns:1fr 1fr}}
+.del{background:transparent;border:1px solid var(--line);color:var(--muted);
+  border-radius:8px;cursor:pointer;font-size:16px;line-height:1;padding:9px 11px}
+.del:hover{border-color:#c0392b;color:#c0392b}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.05em;vertical-align:middle;margin-left:6px}
+.tag.mail{background:var(--ok-soft);color:var(--ok)}
+.tag.est{background:var(--warn-soft);color:var(--warn)}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{padding:7px 0 7px 26px;position:relative;border-bottom:1px solid var(--line);font-size:14px}
+ul.check li:before{content:"□";position:absolute;left:4px;color:var(--accent);font-size:16px}
+ul.check li:last-child{border-bottom:none}
+textarea{width:100%;min-height:230px;padding:12px;border:1px solid var(--line);border-radius:8px;
+  background:var(--bg);color:var(--ink);font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;resize:vertical}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px;margin-top:26px}
+footer a{color:var(--accent)}
+.timeline{list-style:none;padding:0;margin:0}
+.timeline li{position:relative;padding:0 0 16px 22px;border-left:2px solid var(--line);margin-left:5px}
+.timeline li:last-child{border-left-color:transparent;padding-bottom:0}
+.timeline li:before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;
+  border-radius:50%;background:var(--accent)}
+.timeline .t{font-weight:700;font-size:14px}
+.timeline .d{color:var(--muted);font-size:12.5px}
+.timeline .m{font-variant-numeric:tabular-nums;font-weight:700;font-size:14px;color:var(--accent)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Cubicador de madera <span>HILAM</span></h1>
+  <p class="sub">Estimación de volumen y costo de estructura en madera masiva (MLE / CLT) según los
+  parámetros entregados por Lukas Villalobos — Subgerencia Construcción en Madera, ARAUCO ·
+  correo del 3-sep-2026. Detalle de cada dato en <a href="PARAMETROS.md" style="color:var(--accent)">PARAMETROS.md</a>.</p>
+</header>
+
+<!-- ══════════ CONFIGURACIÓN GLOBAL ══════════ -->
+<div class="card">
+  <h2>Precios y supuestos globales</h2>
+  <div class="grid g4">
+    <div>
+      <label>Valor UF (CLP)</label>
+      <input type="number" id="uf" value="40879" step="1" min="1">
+      <div class="hint">$40.879,04 al 4-sep-2026. Actualízalo al día de la cotización.</div>
+    </div>
+    <div>
+      <label>Madera (UF/m³)</label>
+      <input type="number" id="pMadera" value="26.5" step="0.1">
+      <div class="hint"><span class="tag mail">del mail</span></div>
+    </div>
+    <div>
+      <label>Impregnación (UF/m³)</label>
+      <input type="number" id="pImpreg" value="4.3" step="0.1">
+      <div class="hint"><span class="tag mail">del mail</span> Pon 0 si no aplica.</div>
+    </div>
+    <div>
+      <label>Mecanizado CNC (UF/m³)</label>
+      <select id="pCnc">
+        <option value="2.0">2,0 — mínimo</option>
+        <option value="2.7" selected>2,7 — referencia</option>
+        <option value="3.3">3,3 — máximo</option>
+      </select>
+      <div class="hint">El mail da el rango 2,0–3,3. El 2,7 es el que reproduce su ejemplo de 837,5 UF.</div>
+    </div>
+  </div>
+  <div class="note"><b>Precio unitario resultante: <span id="ufm3">33,5</span> UF/m³
+    (<span id="clpm3">—</span> por m³)</b>
+    No incluye transporte, fundaciones, terminaciones, montaje ni conectores.</div>
+</div>
+
+<!-- ══════════ TABS ══════════ -->
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" aria-selected="true"  data-p="rapido">1 · Cubicaje rápido (m³/m²)</button>
+  <button class="tab" role="tab" aria-selected="false" data-p="detalle">2 · Detallado por elemento</button>
+  <button class="tab" role="tab" aria-selected="false" data-p="losa">3 · Prediseño de losa CLT</button>
+  <button class="tab" role="tab" aria-selected="false" data-p="envio">4 · Qué enviar a Arauco</button>
+</div>
+
+<!-- ══════════ PANEL 1: RÁPIDO ══════════ -->
+<section id="p-rapido">
+  <div class="card">
+    <h2>Datos de la construcción</h2>
+    <div class="grid g3" style="margin-bottom:16px">
+      <div>
+        <label>N.º de unidades</label>
+        <input type="number" id="nCasas" value="20" min="1" step="1">
+        <div class="hint">Casas, departamentos o módulos iguales.</div>
+      </div>
+      <div>
+        <label>Superficie por unidad (m²)</label>
+        <input type="number" id="m2Casa" value="100" min="1" step="1">
+        <div class="hint">Superficie construida, todos los pisos.</div>
+      </div>
+      <div>
+        <label>Superficie total del proyecto</label>
+        <input type="number" id="m2Total" value="2000" readonly style="background:var(--accent-soft);font-weight:700">
+        <div class="hint">Se calcula solo. m²</div>
+      </div>
+    </div>
+
+    <h3>Sistema estructural <span class="tag mail">ratios del mail</span></h3>
+    <div class="radios" id="sistemas"></div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div>
+        <label>Escenario de material</label>
+        <select id="escenario">
+          <option value="min">Eficiente — extremo bajo del rango</option>
+          <option value="mid" selected>Central — punto medio del rango</option>
+          <option value="max">Intensivo — extremo alto del rango</option>
+        </select>
+        <div class="hint">El correo entrega un rango, no un número único. El escenario define cuál usar
+          como cifra principal; abajo siempre se muestran los tres.</div>
+      </div>
+      <div>
+        <label>Holgura adicional (%)</label>
+        <input type="number" id="holgura" value="0" min="0" max="50" step="1">
+        <div class="hint"><span class="tag est">supuesto propio</span> Colchón sobre el ratio. Déjalo en 0
+          para quedarte estrictamente en los parámetros de Arauco.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Resultado — volumen y costo</h2>
+    <div class="kpis" id="kpisRapido"></div>
+    <h3>Los tres escenarios del rango</h3>
+    <table>
+      <thead><tr><th>Escenario</th><th>m³/m²</th><th>m³ por unidad</th><th>m³ totales</th><th>UF total</th><th>CLP total</th></tr></thead>
+      <tbody id="tblRango"></tbody>
+    </table>
+    <h3>Desglose del costo (escenario seleccionado)</h3>
+    <table>
+      <thead><tr><th>Partida</th><th>UF/m³</th><th>UF total</th><th>CLP total</th><th>% </th></tr></thead>
+      <tbody id="tblDesglose"></tbody>
+    </table>
+    <div id="avisoCotizador"></div>
+  </div>
+
+  <div class="card">
+    <h2>Calendario de pagos y plazos <span class="tag mail">del mail</span></h2>
+    <ul class="timeline" id="pagos"></ul>
+    <div class="note"><b>Plazo total estimado: 60 a 90 días</b> desde el anticipo hasta el despacho
+      desde fábrica (15–30 días de modelación + 45–60 días de fabricación). No incluye transporte a obra
+      ni montaje. Existen alternativas de financiamiento (líneas de crédito) que Arauco evalúa caso a caso.</div>
+  </div>
+</section>
+
+<!-- ══════════ PANEL 2: DETALLE ══════════ -->
+<section id="p-detalle" hidden>
+  <div class="card">
+    <h2>Cubicaje por elemento</h2>
+    <p class="hint" style="margin:-6px 0 16px">Cuando ya tienes planos o el prediseño del calculista, este modo
+      calcula el volumen real por geometría en vez de por ratio. Los espesores CLT y las secciones MLE son
+      los del catálogo Hilam. Al final se compara el resultado contra los ratios del correo, como control de cordura.</p>
+
+    <div id="partidas"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button class="gh" data-add="clt_muro">+ Muro CLT</button>
+      <button class="gh" data-add="clt_losa">+ Losa / entrepiso CLT</button>
+      <button class="gh" data-add="clt_techo">+ Techumbre CLT</button>
+      <button class="gh" data-add="mle_viga">+ Vigas MLE</button>
+      <button class="gh" data-add="mle_pilar">+ Pilares MLE</button>
+    </div>
+
+    <div class="grid g3" style="margin-top:20px">
+      <div>
+        <label>Merma / despunte (%)</label>
+        <input type="number" id="merma" value="10" min="0" max="40" step="1">
+        <div class="hint"><span class="tag est">supuesto propio</span> No viene del correo ni de las fichas.
+          Cubre optimización de corte y despuntes.</div>
+      </div>
+      <div>
+        <label>Superficie de referencia (m²)</label>
+        <input type="number" id="m2Ref" value="100" min="1" step="1">
+        <div class="hint">Superficie que cubren las partidas de arriba. Sirve para comparar tu cubicaje
+          contra el ratio m³/m² de Arauco. Si cargaste una sola casa, pon los m² de esa casa.</div>
+      </div>
+      <div>
+        <label>Sistema con el que comparar</label>
+        <select id="sistemaRef">
+          <option value="mle">MLE (0,10–0,20)</option>
+          <option value="mixto" selected>MLE + CLT (0,20–0,30)</option>
+          <option value="clt">CLT (0,30–0,40)</option>
+        </select>
+        <div class="hint">Define contra qué rango se valida.</div>
+      </div>
+    </div>
+    <div class="note warn" style="margin-top:14px"><b>Los vanos no se descuentan por defecto</b>
+      En CLT las ventanas y puertas se mecanizan desde el panel: el panel se paga completo. Ingresa
+      superficies brutas de muro salvo que tu proyecto justifique lo contrario.</div>
+  </div>
+
+  <div class="card">
+    <h2>Resultado del cubicaje detallado</h2>
+    <div class="kpis" id="kpisDetalle"></div>
+    <table style="margin-top:16px">
+      <thead><tr><th>Partida</th><th>Producto</th><th>Cantidad</th><th>m³ netos</th><th>m³ con merma</th><th>UF</th></tr></thead>
+      <tbody id="tblDetalle"></tbody>
+    </table>
+    <div id="controlCordura"></div>
+  </div>
+</section>
+
+<!-- ══════════ PANEL 3: LOSA ══════════ -->
+<section id="p-losa" hidden>
+  <div class="card">
+    <h2>Prediseño de espesor de losa CLT</h2>
+    <p class="hint" style="margin:-6px 0 16px">Transcrito de la ficha <i>Tablas de dimensionamiento de losas
+      de CLT Hilam</i> (2025). Sirve para estimar el espesor y con eso cubicar; <b>no reemplaza el cálculo
+      estructural</b>.</p>
+    <div class="grid g4">
+      <div>
+        <label>Luz a salvar (m)</label>
+        <input type="number" id="luz" value="4" min="0.5" max="10" step="0.25">
+      </div>
+      <div>
+        <label>Condición de apoyo</label>
+        <select id="apoyo">
+          <option value="sa" selected>Simplemente apoyado (1 tramo)</option>
+          <option value="cont">Continuo (2 tramos)</option>
+          <option value="vol">Voladizo (1 tramo)</option>
+        </select>
+      </div>
+      <div>
+        <label>Peso propio adicional</label>
+        <select id="pp">
+          <option value="50">50 kgf/m²</option>
+          <option value="150" selected>150 kgf/m²</option>
+        </select>
+        <div class="hint">Sobrelosa, cielos, tabiques.</div>
+      </div>
+      <div>
+        <label>Sobrecarga de uso</label>
+        <select id="cu">
+          <option value="100">100 kgf/m²</option>
+          <option value="200" selected>200 kgf/m² — residencial</option>
+          <option value="300">300 kgf/m²</option>
+          <option value="500">500 kgf/m²</option>
+        </select>
+      </div>
+    </div>
+    <div id="resLosa" style="margin-top:16px"></div>
+    <div class="note warn"><b>Prediseño referencial</b>
+      Las dos tablas (luz máxima y resistencia al fuego) se leyeron de la capa de texto del PDF de Arauco, y
+      el sistema reproduce los tres casos de ejemplo que la propia ficha publica. Aun así, esto es prediseño:
+      el espesor definitivo lo fija tu calculista. Contrasta con la
+      <a href="https://arauco.com/hilam/wp-content/uploads/sites/29/2025/07/CLT-Dimensionamiento-de-losas-2025.pdf" target="_blank" rel="noopener">ficha original</a>.
+      <br><br>Una nota: en el tercer caso de ejemplo (voladizo, 150 kgf/m², 200 kgf/m², 2 m) el texto de la
+      ficha concluye 120 mm, pero su propia tabla da 1,75 m para ese panel y recién 130 mm alcanza los 2,00 m.
+      Este sistema sigue la tabla, que es el dato duro y además el más conservador.</div>
+  </div>
+</section>
+
+<!-- ══════════ PANEL 4: ENVÍO ══════════ -->
+<section id="p-envio" hidden>
+  <div class="card">
+    <h2>Antecedentes que pide Arauco para cotizar <span class="tag mail">del mail</span></h2>
+    <ul class="check">
+      <li>Planos en formato <b>.dwg</b> y Especificaciones Técnicas (EE.TT.) de arquitectura</li>
+      <li>Planos de ingeniería y memoria de cálculo</li>
+      <li>Modelo BIM en formato <b>IFC</b> (deseable, no obligatorio)</li>
+      <li>Estado o etapa de la obra: en estudio / en diseño / en licitación / en ejecución</li>
+      <li>Material: CLT / MLE / ambos</li>
+      <li>Superficie aproximada en m²</li>
+      <li>Fecha estimada de entrega de la madera en obra</li>
+      <li>Fecha máxima de entrega de la cotización</li>
+    </ul>
+    <div class="note"><b>Contacto</b>
+      Lukas Villalobos Gallardo — Ingeniero Desarrollo, Subgerencia Construcción en Madera, ARAUCO ·
+      lukas.villalobos@arauco.com · +56 9 6703 4915. En copia: sebastian.parada@arauco.com.<br>
+      Para 5 a 30 m³ Arauco recomienda su
+      <a href="https://arauco.com/hilam/cotizador/" target="_blank" rel="noopener">cotizador web</a>;
+      sobre ese volumen, cotización directa con el equipo.</div>
+  </div>
+  <div class="card">
+    <h2>Resumen para pegar en el correo</h2>
+    <textarea id="resumen" readonly></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+      <button class="act" id="copiar">Copiar resumen</button>
+      <span class="hint" id="copiado" style="margin:0"></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Fuentes.</b> Ratios m³/m², precios UF/m³, condiciones de pago y checklist:
+  correo de Lukas Villalobos (ARAUCO) del 3-sep-2026. Espesores CLT, secciones MLE y tabla de losas:
+  <a href="https://arauco.com/hilam/documentos-descargables/" target="_blank" rel="noopener">fichas técnicas Hilam</a>.
+  Valor UF: Banco Central, 4-sep-2026. Todo lo etiquetado <span class="tag est">supuesto propio</span>
+  es del sistema, no de Arauco.</p>
+  <p id="autotest"></p>
+</footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* ══════════════════════════════════════════════════════════════════
+   PARÁMETROS — origen documentado en PARAMETROS.md
+   ══════════════════════════════════════════════════════════════════ */
+
+// Ratios m³ de madera por m² de proyecto. Textual del correo de Lukas.
+const SISTEMAS = {
+  mle:   {n:"Estructura MLE",       d:"Solo vigas y pilares de madera laminada. Usa menos material, pero faltan muros y losas (SIP, entramado ligero o Metalcon).", min:0.10, max:0.20},
+  mixto: {n:"Estructura MLE + CLT", d:"Vigas laminadas + paneles CLT. Más eficiente en material que CLT puro, pero puede requerir más mano de obra.", min:0.20, max:0.30},
+  clt:   {n:"Estructura CLT",       d:"Solo paneles contralaminados. La opción más intensiva en material, pero el proyecto llega con mayor grado de avance (falta revestimiento exterior y sobrelosa).", min:0.30, max:0.40}
+};
+
+// Espesores de panel CLT disponibles (mm) y n.º de capas. Ficha técnica CLT 2025.
+const CLT_ESPESORES = [56,80,90,100,110,120,130,150,160,170,180,200,210,240,250,280];
+const CLT_CAPAS = e => e<=120 ? 3 : (e<=200 ? 5 : 7);
+
+// Secciones MLE estándar (mm). Ficha técnica MLE 2025.
+const MLE_ANCHOS = [42,65,90,120,130,138,150,185,200,250,280,300];
+const MLE_ALTOS  = [60,90,120,150,180,210,240,270,300,330,360,390];
+
+// Calendario de pagos. Textual del correo.
+const PAGOS = [
+  {pct:5,  t:"Anticipo — desarrollo del modelo", d:"Modelación en software especializado de construcción en madera. 15 a 30 días, según volumen total y cantidad de elementos."},
+  {pct:45, t:"Previo al inicio de fabricación",  d:"Fabricación de 45 a 60 días una vez aprobado e ingresado el modelo final."},
+  {pct:50, t:"Saldo previo al despacho",         d:"Antes del despacho desde fábrica hacia obra."}
+];
+
+/* Tablas de la ficha "Tablas de dimensionamiento de losas de CLT Hilam" (2025),
+   extraídas de la capa de texto del PDF (no por OCR) y validadas contra los tres
+   casos de ejemplo que la propia ficha publica.
+   Columnas por condición de apoyo: pp50 → [100,200,300,500] kgf/m² de carga de
+   uso, luego pp150 → [200,300,500]. La ficha no publica pp150 con carga 100. */
+const LOSA_ESP = [60,80,90,100,110,120,130,150,160,170,180,200,210];
+
+// Luz máxima [m] que salva cada panel.
+const LOSA = {
+  sa: [
+    [2.75,2.50,2.25,1.75, 2.25,2.00,1.75],
+    [3.75,3.00,3.00,2.50, 3.00,2.75,2.50],
+    [4.25,3.25,3.25,2.75, 3.25,3.00,2.75],
+    [4.50,3.50,3.50,3.00, 3.25,3.25,3.00],
+    [5.00,4.00,4.00,3.50, 3.75,3.75,3.50],
+    [5.50,4.00,4.00,3.50, 4.00,4.00,3.50],
+    [5.75,4.25,4.25,4.00, 4.25,4.25,3.75],
+    [6.25,4.75,4.75,4.25, 4.75,4.75,4.25],
+    [6.50,4.75,4.75,4.25, 4.75,4.75,4.25],
+    [7.00,5.25,5.25,4.50, 5.25,5.25,4.50],
+    [7.00,5.50,5.50,5.00, 5.50,5.50,4.75],
+    [7.50,5.75,5.75,5.50, 5.50,5.75,5.00],
+    [7.50,5.75,5.75,5.50, 5.75,5.75,5.00]
+  ],
+  cont: [
+    [3.75,3.00,3.00,2.50, 3.00,2.75,2.25],
+    [5.00,3.50,3.50,3.25, 3.50,3.50,3.25],
+    [5.50,4.00,4.00,3.75, 4.00,4.00,3.50],
+    [6.00,4.25,4.25,4.25, 4.25,4.25,3.75],
+    [6.50,4.50,4.50,4.25, 4.50,4.50,4.25],
+    [7.00,4.75,4.75,4.50, 4.75,4.75,4.50],
+    [7.25,5.00,5.00,4.75, 5.00,5.00,4.75],
+    [7.75,5.50,5.50,5.50, 5.50,5.50,5.25],
+    [8.00,5.75,5.75,5.50, 5.75,5.75,5.50],
+    [8.50,6.25,6.00,6.00, 6.25,6.00,5.75],
+    [8.50,6.50,6.50,6.25, 6.50,6.50,6.00],
+    [9.50,6.75,6.50,6.75, 6.75,6.50,6.50],
+    [9.50,6.75,6.75,6.75, 6.75,6.75,6.50]
+  ],
+  vol: [
+    [1.25,1.00,1.00,0.75, 1.00,0.75,0.75],
+    [1.75,1.50,1.25,1.00, 1.25,1.25,1.00],
+    [2.00,1.50,1.50,1.25, 1.50,1.25,1.25],
+    [2.00,1.75,1.50,1.25, 1.50,1.50,1.25],
+    [2.25,2.00,1.75,1.50, 1.50,1.50,1.25],
+    [2.50,2.25,2.00,1.75, 1.75,1.75,1.50],
+    [2.75,2.25,2.00,1.75, 2.00,1.75,1.50],
+    [3.00,2.50,2.25,2.00, 2.00,2.00,1.75],
+    [3.00,2.75,2.50,2.00, 2.25,2.00,1.75],
+    [3.25,3.00,2.50,2.25, 2.50,2.25,2.00],
+    [3.50,3.00,2.75,2.50, 2.50,2.50,2.00],
+    [3.75,3.25,3.00,2.50, 2.75,2.50,2.25],
+    [3.75,3.50,3.00,2.75, 3.00,2.75,2.50]
+  ]
+};
+
+/* Resistencia al fuego [minutos] de la misma solución, con el CLT a la vista por
+   debajo (sin revestimiento). Segunda tabla de la misma ficha. */
+const LOSA_RF = {
+  sa: [
+    [30,30,30,30, 30,30,15],   [60,60,30,30, 30,30,30],   [60,60,30,30, 30,30,30],
+    [60,60,30,30, 30,30,30],   [90,90,60,60, 60,60,60],   [90,90,60,60, 60,60,60],
+    [90,90,60,60, 60,60,60],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
+    [90,90,90,90, 90,90,90],   [120,120,120,120, 120,120,90],
+    [120,120,120,120, 120,120,120], [120,120,120,120, 120,120,120]
+  ],
+  cont: [
+    [30,15,15,15, 15,15,15],   [30,30,30,30, 30,30,30],   [30,30,30,30, 30,30,30],
+    [30,30,30,30, 30,30,30],   [60,60,30,30, 30,30,30],   [60,60,60,30, 60,60,30],
+    [60,60,60,60, 60,60,60],   [60,90,90,90, 60,60,90],   [60,90,90,90, 60,60,90],
+    [90,90,90,90, 90,90,90],   [120,120,120,90, 120,120,90],
+    [120,120,120,90, 120,120,90], [120,120,120,90, 120,120,90]
+  ],
+  vol: [
+    [30,30,30,30, 30,30,30],   [60,60,60,60, 60,60,60],   [60,60,60,60, 60,60,60],
+    [90,60,60,60, 60,60,60],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
+    [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
+    [90,90,90,90, 90,90,90],   [120,120,120,120, 120,120,120],
+    [120,120,120,120, 120,120,120], [120,120,120,120, 120,120,120]
+  ]
+};
+
+const COL_LOSA = {"50":{100:0,200:1,300:2,500:3},"150":{200:4,300:5,500:6}};
+
+/* ══════════════════════════════════════════════════════════════════
+   UTILIDADES
+   ══════════════════════════════════════════════════════════════════ */
+const $  = id => document.getElementById(id);
+const nf = (v,d=2) => (isFinite(v)?v:0).toLocaleString("es-CL",{minimumFractionDigits:d,maximumFractionDigits:d});
+const clp= v => "$" + Math.round(isFinite(v)?v:0).toLocaleString("es-CL");
+const num= id => { const v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+
+let sistema = "mixto";
+
+function precioUFm3(){ return num("pMadera") + num("pImpreg") + parseFloat($("pCnc").value); }
+
+/* ══════════════════════════════════════════════════════════════════
+   PANEL 1 — CUBICAJE RÁPIDO
+   ══════════════════════════════════════════════════════════════════ */
+function pintarSistemas(){
+  $("sistemas").innerHTML = Object.entries(SISTEMAS).map(([k,s]) => `
+    <label class="radio ${k===sistema?"on":""}" data-k="${k}">
+      <input type="radio" name="sis" value="${k}" ${k===sistema?"checked":""}>
+      <span><b>${s.n} — ${nf(s.min,2)} a ${nf(s.max,2)} m³/m²</b><small>${s.d}</small></span>
+    </label>`).join("");
+  $("sistemas").querySelectorAll("input").forEach(r =>
+    r.addEventListener("change", () => { sistema = r.value; pintarSistemas(); calcular(); }));
+}
+
+function ratios(){
+  const s = SISTEMAS[sistema], h = 1 + num("holgura")/100;
+  return { min:s.min*h, mid:(s.min+s.max)/2*h, max:s.max*h };
+}
+
+function calcularRapido(){
+  const sup = num("nCasas") * num("m2Casa");
+  $("m2Total").value = sup;
+
+  const r = ratios(), p = precioUFm3(), uf = num("uf"), esc = $("escenario").value;
+
+  $("tblRango").innerHTML = [["min","Eficiente"],["mid","Central"],["max","Intensivo"]].map(([k,n]) => {
+    const m3 = sup * r[k];
+    return `<tr class="${k===esc?"hi":""}"><td>${n}</td>
+      <td class="num">${nf(r[k],3)}</td>
+      <td class="num">${nf(sup?m3/num("nCasas"):0,2)}</td>
+      <td class="num">${nf(m3,1)}</td>
+      <td class="num">${nf(m3*p,1)}</td>
+      <td class="num">${clp(m3*p*uf)}</td></tr>`;
+  }).join("");
+
+  const m3 = sup * r[esc], ufTot = m3 * p, clpTot = ufTot * uf;
+
+  $("kpisRapido").innerHTML = `
+    <div class="kpi acc"><div class="k">Madera a cubicar</div><div class="v">${nf(m3,1)}</div><div class="u">m³ totales</div></div>
+    <div class="kpi"><div class="k">Por unidad</div><div class="v">${nf(num("nCasas")?m3/num("nCasas"):0,2)}</div><div class="u">m³ por casa</div></div>
+    <div class="kpi"><div class="k">Costo estructura</div><div class="v">${nf(ufTot,0)}</div><div class="u">UF</div></div>
+    <div class="kpi acc"><div class="k">Costo en pesos</div><div class="v" style="font-size:19px">${clp(clpTot)}</div><div class="u">CLP</div></div>
+    <div class="kpi"><div class="k">Costo por m²</div><div class="v">${nf(sup?ufTot/sup:0,2)}</div><div class="u">UF/m² · ${clp(sup?clpTot/sup:0)}/m²</div></div>`;
+
+  const partidas = [
+    ["Madera", num("pMadera")],
+    ["Impregnación", num("pImpreg")],
+    ["Mecanizado CNC", parseFloat($("pCnc").value)]
+  ];
+  $("tblDesglose").innerHTML = partidas.map(([n,v]) => `
+    <tr><td>${n}</td><td class="num">${nf(v,2)}</td>
+    <td class="num">${nf(m3*v,1)}</td><td class="num">${clp(m3*v*uf)}</td>
+    <td class="num">${nf(p?v/p*100:0,1)}%</td></tr>`).join("") +
+    `<tr class="hi"><td>Total</td><td class="num">${nf(p,2)}</td>
+     <td class="num">${nf(ufTot,1)}</td><td class="num">${clp(clpTot)}</td><td class="num">100%</td></tr>`;
+
+  $("avisoCotizador").innerHTML = (m3 >= 5 && m3 <= 30)
+    ? `<div class="note ok"><b>Volumen entre 5 y 30 m³</b> Arauco recomienda usar directamente su
+       <a href="https://arauco.com/hilam/cotizador/" target="_blank" rel="noopener">cotizador web</a> para este rango.</div>`
+    : `<div class="note"><b>Volumen fuera del rango del cotizador web (5–30 m³)</b>
+       Corresponde cotización directa con el equipo de Construcción en Madera.</div>`;
+
+  $("pagos").innerHTML = PAGOS.map(x => `
+    <li><div class="t">${x.pct}% — ${x.t}</div>
+        <div class="m">${nf(ufTot*x.pct/100,1)} UF · ${clp(clpTot*x.pct/100)}</div>
+        <div class="d">${x.d}</div></li>`).join("");
+
+  return {sup, m3, ufTot, clpTot, p, r, esc};
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PANEL 2 — DETALLADO POR ELEMENTO
+   ══════════════════════════════════════════════════════════════════ */
+const TIPOS = {
+  clt_muro : {n:"Muro CLT",           prod:"CLT", sup:true},
+  clt_losa : {n:"Losa/entrepiso CLT", prod:"CLT", sup:true},
+  clt_techo: {n:"Techumbre CLT",      prod:"CLT", sup:true},
+  mle_viga : {n:"Vigas MLE",          prod:"MLE", sup:false},
+  mle_pilar: {n:"Pilares MLE",        prod:"MLE", sup:false}
+};
+let partidas = [], seqP = 0;
+
+function addPartida(tipo, d){
+  d = d || {};
+  partidas.push({
+    id: ++seqP, tipo,
+    desc: d.desc ?? "",
+    m2:   d.m2   ?? 100,
+    esp:  d.esp  ?? 120,
+    cant: d.cant ?? 10,
+    largo:d.largo?? 4,
+    ancho:d.ancho?? 120,
+    alto: d.alto ?? 240
+  });
+  pintarPartidas(); calcular();
+}
+
+function pintarPartidas(){
+  const cont = $("partidas");
+  if (!partidas.length){
+    cont.innerHTML = `<p class="hint" style="margin:0">Sin partidas todavía. Agrega elementos con los botones de abajo.</p>`;
+    return;
+  }
+  cont.innerHTML = partidas.map(p => {
+    const t = TIPOS[p.tipo];
+    const campos = t.sup
+      ? `<div><label>Superficie (m²)</label><input type="number" data-f="m2" data-id="${p.id}" value="${p.m2}" min="0" step="1"></div>
+         <div><label>Espesor (mm)</label><select data-f="esp" data-id="${p.id}">
+           ${CLT_ESPESORES.map(e=>`<option value="${e}" ${e===+p.esp?"selected":""}>${e} mm · ${CLT_CAPAS(e)} capas</option>`).join("")}
+         </select></div>
+         <div></div><div></div>`
+      : `<div><label>Cantidad</label><input type="number" data-f="cant" data-id="${p.id}" value="${p.cant}" min="0" step="1"></div>
+         <div><label>Largo (m)</label><input type="number" data-f="largo" data-id="${p.id}" value="${p.largo}" min="0" step="0.1"></div>
+         <div><label>Ancho (mm)</label><select data-f="ancho" data-id="${p.id}">
+           ${MLE_ANCHOS.map(a=>`<option value="${a}" ${a===+p.ancho?"selected":""}>${a}</option>`).join("")}
+         </select></div>
+         <div><label>Alto (mm)</label><select data-f="alto" data-id="${p.id}">
+           ${MLE_ALTOS.map(a=>`<option value="${a}" ${a===+p.alto?"selected":""}>${a}</option>`).join("")}
+         </select></div>`;
+    return `<div class="rowline">
+      <div><label>${t.n}</label><input type="text" data-f="desc" data-id="${p.id}" value="${p.desc}" placeholder="Descripción (ej. muros perimetrales)"></div>
+      ${campos}
+      <button class="del" data-del="${p.id}" title="Eliminar">✕</button>
+    </div>`;
+  }).join("");
+
+  cont.querySelectorAll("[data-f]").forEach(el => el.addEventListener("input", e => {
+    const p = partidas.find(x => x.id === +e.target.dataset.id);
+    if (p) { p[e.target.dataset.f] = e.target.type === "text" ? e.target.value : parseFloat(e.target.value); calcular(); }
+  }));
+  cont.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", e => {
+    partidas = partidas.filter(x => x.id !== +e.target.dataset.del);
+    pintarPartidas(); calcular();
+  }));
+}
+
+function calcularDetalle(){
+  const merma = 1 + num("merma")/100, p = precioUFm3(), uf = num("uf");
+  let vCLT = 0, vMLE = 0, filas = "";
+
+  partidas.forEach(x => {
+    const t = TIPOS[x.tipo];
+    let vol, cant;
+    if (t.sup){
+      vol  = (x.m2||0) * (x.esp||0)/1000;
+      cant = `${nf(x.m2,1)} m² × ${x.esp} mm`;
+      vCLT += vol;
+    } else {
+      vol  = (x.cant||0) * (x.largo||0) * (x.ancho||0)/1000 * (x.alto||0)/1000;
+      cant = `${x.cant} u × ${nf(x.largo,2)} m × ${x.ancho}×${x.alto} mm`;
+      vMLE += vol;
+    }
+    filas += `<tr><td>${t.n}${x.desc?` — <span style="color:var(--muted)">${x.desc}</span>`:""}</td>
+      <td>${t.prod}</td><td class="num">${cant}</td>
+      <td class="num">${nf(vol,2)}</td><td class="num">${nf(vol*merma,2)}</td>
+      <td class="num">${nf(vol*merma*p,1)}</td></tr>`;
+  });
+
+  const totNeto = vCLT + vMLE, tot = totNeto * merma, ufTot = tot * p;
+
+  $("tblDetalle").innerHTML = filas + `<tr class="hi"><td>Total</td><td>—</td><td class="num">—</td>
+    <td class="num">${nf(totNeto,2)}</td><td class="num">${nf(tot,2)}</td><td class="num">${nf(ufTot,1)}</td></tr>`;
+
+  $("kpisDetalle").innerHTML = `
+    <div class="kpi"><div class="k">Volumen CLT</div><div class="v">${nf(vCLT*merma,2)}</div><div class="u">m³ con merma</div></div>
+    <div class="kpi"><div class="k">Volumen MLE</div><div class="v">${nf(vMLE*merma,2)}</div><div class="u">m³ con merma</div></div>
+    <div class="kpi acc"><div class="k">Total a cubicar</div><div class="v">${nf(tot,2)}</div><div class="u">m³ (neto ${nf(totNeto,2)} + ${num("merma")}%)</div></div>
+    <div class="kpi"><div class="k">Costo</div><div class="v">${nf(ufTot,0)}</div><div class="u">UF · ${clp(ufTot*uf)}</div></div>`;
+
+  const ref = num("m2Ref"), s = SISTEMAS[$("sistemaRef").value], ratio = ref ? tot/ref : 0;
+  let cls = "ok", msg;
+  if (!partidas.length){ cls = ""; msg = "Agrega partidas para comparar contra el ratio de Arauco."; }
+  else if (ratio < s.min){ cls = "warn";
+    msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, por debajo del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Puede que falten partidas por ingresar, o que la solución sea más liviana de lo típico.`; }
+  else if (ratio > s.max){ cls = "warn";
+    msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, por encima del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Revisa espesores y merma: hay margen de optimización.`; }
+  else msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, dentro del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Consistente con el indicador de Arauco.`;
+
+  $("controlCordura").innerHTML = `<div class="note ${cls}"><b>Control de cordura contra el ratio del correo</b>${msg}</div>`;
+  return {tot, ufTot};
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PANEL 3 — PREDISEÑO DE LOSA
+   ══════════════════════════════════════════════════════════════════ */
+function calcularLosa(){
+  const ap = $("apoyo").value, t = LOSA[ap], luz = num("luz"),
+        col = COL_LOSA[$("pp").value][+$("cu").value];
+  let i = -1;
+  for (let k = 0; k < LOSA_ESP.length; k++) if (t[k][col] >= luz){ i = k; break; }
+
+  if (i < 0){
+    $("resLosa").innerHTML = `<div class="note warn"><b>Ningún panel de la tabla cubre ${nf(luz,2)} m en esa condición</b>
+      El panel más grueso tabulado (210 mm) llega a ${nf(t[t.length-1][col],2)} m. Hay que reducir la luz con un apoyo
+      intermedio (una viga MLE, por ejemplo) o pasar a una solución mixta CLT + MLE. Consúltalo con el calculista.</div>`;
+    return;
+  }
+  const esp = LOSA_ESP[i], lmax = t[i][col], rf = LOSA_RF[ap][i][col], kg = esp/1000*500;
+  $("resLosa").innerHTML = `
+    <div class="kpis">
+      <div class="kpi acc"><div class="k">Espesor mínimo</div><div class="v">${esp} mm</div><div class="u">CLT de ${CLT_CAPAS(esp)} capas</div></div>
+      <div class="kpi"><div class="k">Luz máxima del panel</div><div class="v">${nf(lmax,2)}</div><div class="u">m (pides ${nf(luz,2)} m)</div></div>
+      <div class="kpi"><div class="k">Volumen de losa</div><div class="v">${nf(esp/1000,3)}</div><div class="u">m³ por m² de losa</div></div>
+      <div class="kpi"><div class="k">Peso propio del panel</div><div class="v">${nf(kg,0)}</div><div class="u">kg/m² aprox. (500 kg/m³)</div></div>
+      <div class="kpi"><div class="k">Resistencia al fuego</div><div class="v">F-${rf}</div><div class="u">CLT a la vista, sin revestimiento</div></div>
+    </div>
+    <div class="note ${rf >= 60 ? "ok" : "warn"}" style="margin-top:14px">
+      <b>${rf >= 60 ? `F-${rf} cumple el mínimo residencial` : `F-${rf}: ojo con la exigencia de fuego`}</b>
+      Según OGUC se exige F-60 en losas de edificaciones residenciales de hasta 4 pisos, y F-30 en viviendas
+      de hasta 2 pisos.${rf < 60 ? " Para subir a F-60: aumentar el espesor del panel o proteger con yeso cartón por debajo (pero entonces el CLT no queda a la vista como cielo)." : ""}</div>
+    <div class="note" style="margin-top:10px"><b>Cómo usar este resultado</b>
+      Lleva ${nf(esp/1000,3)} m³/m² a la pestaña 2 como partida "Losa CLT" con espesor ${esp} mm, o multiplica
+      directamente la superficie de losa por ese factor.</div>`;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESUMEN PARA CORREO
+   ══════════════════════════════════════════════════════════════════ */
+function pintarResumen(r, det){
+  const s = SISTEMAS[sistema], esc = {min:"eficiente",mid:"central",max:"intensivo"}[r.esc];
+  const L = [];
+  L.push("CUBICAJE PRELIMINAR — ESTRUCTURA EN MADERA MASIVA HILAM");
+  L.push("Método: indicador m³/m² entregado por Arauco (correo del 3-sep-2026).");
+  L.push("");
+  L.push("PROYECTO");
+  L.push(`  Unidades:            ${num("nCasas")}`);
+  L.push(`  Superficie x unidad: ${nf(num("m2Casa"),0)} m²`);
+  L.push(`  Superficie total:    ${nf(r.sup,0)} m²`);
+  L.push(`  Sistema:             ${s.n} (${nf(s.min,2)}–${nf(s.max,2)} m³/m²)`);
+  L.push(`  Escenario aplicado:  ${esc} → ${nf(r.r[r.esc],3)} m³/m²`);
+  L.push("");
+  L.push("VOLUMEN ESTIMADO");
+  L.push(`  Rango del sistema:   ${nf(r.sup*r.r.min,1)} a ${nf(r.sup*r.r.max,1)} m³`);
+  L.push(`  Estimación central:  ${nf(r.m3,1)} m³   (${nf(num("nCasas")?r.m3/num("nCasas"):0,2)} m³ por unidad)`);
+  if (det && det.tot > 0)
+    L.push(`  Cubicaje detallado:  ${nf(det.tot,2)} m³ sobre ${nf(num("m2Ref"),0)} m² ` +
+           `(pestaña 2: por elemento, con ${num("merma")}% de merma)`);
+  L.push("");
+  L.push(`COSTO REFERENCIAL DE MATERIAL (${nf(r.p,2)} UF/m³ = madera ${nf(num("pMadera"),1)} + impregnación ${nf(num("pImpreg"),1)} + CNC ${nf(parseFloat($("pCnc").value),1)})`);
+  L.push(`  Total:               ${nf(r.ufTot,1)} UF   ≈ ${clp(r.clpTot)}   (UF = ${clp(num("uf"))})`);
+  L.push(`  Por m²:              ${nf(r.sup?r.ufTot/r.sup:0,2)} UF/m²`);
+  L.push("  No incluye transporte, fundaciones, terminaciones, montaje ni conectores.");
+  L.push("");
+  L.push("CALENDARIO DE PAGOS (condiciones estándar Arauco)");
+  PAGOS.forEach(x => L.push(`  ${String(x.pct).padStart(3)}%  ${nf(r.ufTot*x.pct/100,1).padStart(9)} UF   ${x.t}`));
+  L.push("  Plazo estimado hasta despacho: 60 a 90 días.");
+  L.push("");
+  L.push("ANTECEDENTES A ENVIAR PARA COTIZAR");
+  ["Planos .dwg + EE.TT. de arquitectura","Planos de ingeniería y memoria de cálculo",
+   "Modelo BIM en IFC (deseable)","Estado de la obra (estudio/diseño/licitación/ejecución)",
+   "Material: CLT / MLE / ambos","Superficie aproximada en m²",
+   "Fecha estimada de entrega de la madera en obra","Fecha máxima de entrega de la cotización"
+  ].forEach(x => L.push("  [ ] " + x));
+  $("resumen").value = L.join("\n");
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ORQUESTACIÓN
+   ══════════════════════════════════════════════════════════════════ */
+function calcular(){
+  const p = precioUFm3();
+  $("ufm3").textContent = nf(p,2);
+  $("clpm3").textContent = clp(p * num("uf"));
+  const r = calcularRapido();
+  const det = calcularDetalle();
+  calcularLosa();
+  pintarResumen(r, det);
+}
+
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === t));
+  ["rapido","detalle","losa","envio"].forEach(k => $("p-"+k).hidden = (k !== t.dataset.p));
+}));
+
+document.querySelectorAll("[data-add]").forEach(b =>
+  b.addEventListener("click", () => addPartida(b.dataset.add)));
+
+["uf","pMadera","pImpreg","pCnc","nCasas","m2Casa","escenario","holgura",
+ "merma","m2Ref","sistemaRef","luz","apoyo","pp","cu"].forEach(id => {
+  $(id).addEventListener("input", calcular);
+  $(id).addEventListener("change", calcular);
+});
+
+$("copiar").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText($("resumen").value);
+    $("copiado").textContent = "Copiado.";
+  } catch {
+    $("resumen").select();
+    $("copiado").textContent = "Selecciona y copia con Ctrl/Cmd+C.";
+  }
+  setTimeout(() => $("copiado").textContent = "", 3000);
+});
+
+/* Autotest: el ejemplo del correo — 100 m², MLE+CLT, ratio central 0,25 m³/m²,
+   33,5 UF/m³ → 837,5 UF. Si esto deja de cuadrar, los parámetros se rompieron. */
+(function autotest(){
+  const m3 = 100 * (SISTEMAS.mixto.min + SISTEMAS.mixto.max) / 2;
+  const uf = m3 * (26.5 + 4.3 + 2.7);
+  const ok = Math.abs(uf - 837.5) < 0.01;
+  $("autotest").innerHTML = ok
+    ? `<b style="color:var(--ok)">✓ Autotest OK.</b> El ejemplo del correo (100 m² en MLE+CLT → 837,5 UF)
+       se reproduce exactamente: ${nf(m3,0)} m³ × 33,5 UF/m³ = ${nf(uf,1)} UF.`
+    : `<b style="color:#c0392b">✗ Autotest falló.</b> El ejemplo del correo debería dar 837,5 UF y da ${nf(uf,1)} UF.
+       Revisa los parámetros antes de usar este resultado.`;
+})();
+
+// Estado inicial: el proyecto real del usuario — 20 casas de 100 m² en la
+// pestaña 1, y en la pestaña 2 un ejemplo editable de UNA casa de 100 m².
+pintarSistemas();
+addPartida("clt_muro",  {desc:"1 casa · muros perimetrales y divisorios", m2:180, esp:100});
+addPartida("clt_losa",  {desc:"1 casa · entrepiso segundo nivel",         m2:50,  esp:120});
+addPartida("mle_viga",  {desc:"1 casa · vigas de techumbre",              cant:12, largo:5, ancho:120, alto:300});
+addPartida("mle_pilar", {desc:"1 casa · pilares",                          cant:14, largo:2.6, ancho:120, alto:120});
+calcular();
+</script>
+</body>
+</html>
