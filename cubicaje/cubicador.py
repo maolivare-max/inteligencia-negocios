@@ -207,8 +207,7 @@ class Detallado:
         if espesor_mm not in CLT_ESPESORES:
             raise ValueError(
                 f"{espesor_mm} mm no es un espesor de catálogo. Arauco fabrica: "
-                f"{', '.join(str(e) for e in CLT_ESPESORES)} mm. "
-                "(Ojo: la tabla de losas tabula 60 mm, pero el catálogo comercial parte en 56 mm.)")
+                f"{', '.join(str(e) for e in CLT_ESPESORES)} mm.")
         self.partidas.append(("CLT", desc, volumen_clt(superficie_m2, espesor_mm),
                               f"{superficie_m2:g} m² × {espesor_mm} mm"))
         return self
@@ -250,12 +249,19 @@ class Detallado:
 # publica la combinación pp 150 con carga 100.
 # PREDISEÑO REFERENCIAL: el espesor definitivo lo fija el calculista.
 
-LOSA_ESPESORES = [60, 80, 90, 100, 110, 120, 130, 150, 160, 170, 180, 200, 210]
+#
+# El panel más delgado es el de 56 mm del Catálogo CLT (06-2026), que reemplaza
+# al de 60 mm que tabulaba la ficha de losas de 2025 — 60 mm ya no se fabrica.
+# Del de 56 mm, Arauco publica SOLO la condición simplemente apoyado: no hay
+# datos de continuo, voladizo ni resistencia al fuego, y aquí no se inventan
+# (None = sin dato publicado, hay que pedírselo a Arauco). De 80 mm en adelante,
+# el catálogo 2026 y la ficha 2025 coinciden celda por celda.
+LOSA_ESPESORES = [56, 80, 90, 100, 110, 120, 130, 150, 160, 170, 180, 200, 210]
 
 # Luz máxima [m] que salva cada panel.
 _LOSA = {
     "sa": [
-        [2.75, 2.50, 2.25, 1.75, 2.25, 2.00, 1.75],
+        [2.75, 2.00, 1.75, 1.50, 1.75, 1.75, 1.50],   # 56 mm — Catálogo CLT 06-2026
         [3.75, 3.00, 3.00, 2.50, 3.00, 2.75, 2.50],
         [4.25, 3.25, 3.25, 2.75, 3.25, 3.00, 2.75],
         [4.50, 3.50, 3.50, 3.00, 3.25, 3.25, 3.00],
@@ -270,7 +276,7 @@ _LOSA = {
         [7.50, 5.75, 5.75, 5.50, 5.75, 5.75, 5.00],
     ],
     "cont": [
-        [3.75, 3.00, 3.00, 2.50, 3.00, 2.75, 2.25],
+        None,                                          # 56 mm — sin dato publicado
         [5.00, 3.50, 3.50, 3.25, 3.50, 3.50, 3.25],
         [5.50, 4.00, 4.00, 3.75, 4.00, 4.00, 3.50],
         [6.00, 4.25, 4.25, 4.25, 4.25, 4.25, 3.75],
@@ -285,7 +291,7 @@ _LOSA = {
         [9.50, 6.75, 6.75, 6.75, 6.75, 6.75, 6.50],
     ],
     "vol": [
-        [1.25, 1.00, 1.00, 0.75, 1.00, 0.75, 0.75],
+        None,                                          # 56 mm — sin dato publicado
         [1.75, 1.50, 1.25, 1.00, 1.25, 1.25, 1.00],
         [2.00, 1.50, 1.50, 1.25, 1.50, 1.25, 1.25],
         [2.00, 1.75, 1.50, 1.25, 1.50, 1.50, 1.25],
@@ -306,7 +312,7 @@ _LOSA = {
 # OGUC: se exige F-60 para losas residenciales de hasta 4 pisos; F-30 hasta 2 pisos.
 _RF = {
     "sa": [
-        [30, 30, 30, 30, 30, 30, 15],
+        None,                                          # 56 mm — sin dato publicado
         [60, 60, 30, 30, 30, 30, 30],
         [60, 60, 30, 30, 30, 30, 30],
         [60, 60, 30, 30, 30, 30, 30],
@@ -321,7 +327,7 @@ _RF = {
         [120, 120, 120, 120, 120, 120, 120],
     ],
     "cont": [
-        [30, 15, 15, 15, 15, 15, 15],
+        None,                                          # 56 mm — sin dato publicado
         [30, 30, 30, 30, 30, 30, 30],
         [30, 30, 30, 30, 30, 30, 30],
         [30, 30, 30, 30, 30, 30, 30],
@@ -336,7 +342,7 @@ _RF = {
         [120, 120, 120, 90, 120, 120, 90],
     ],
     "vol": [
-        [30, 30, 30, 30, 30, 30, 30],
+        None,                                          # 56 mm — sin dato publicado
         [60, 60, 60, 60, 60, 60, 60],
         [60, 60, 60, 60, 60, 60, 60],
         [90, 60, 60, 60, 60, 60, 60],
@@ -356,11 +362,12 @@ _COL = {50: {100: 0, 200: 1, 300: 2, 500: 3}, 150: {200: 4, 300: 5, 500: 6}}
 
 
 def espesor_losa(luz_m: float, apoyo: str = "sa", peso_propio: int = 150,
-                 carga_uso: int = 200) -> tuple[int, float, int] | None:
+                 carga_uso: int = 200) -> tuple[int, float, int | None] | None:
     """Prediseño de losa CLT: (espesor mm, luz máxima del panel m, resistencia al fuego min).
 
     apoyo -- 'sa' (simplemente apoyado), 'cont' (continuo 2 tramos), 'vol' (voladizo)
-    Devuelve None si ningún panel tabulado cubre esa luz.
+    Devuelve None si ningún panel tabulado cubre esa luz. La resistencia al fuego
+    viene en None cuando Arauco no la publica para ese panel (el de 56 mm).
     PREDISEÑO REFERENCIAL — validar con el calculista y con la ficha original.
     """
     if apoyo not in _LOSA:
@@ -369,8 +376,12 @@ def espesor_losa(luz_m: float, apoyo: str = "sa", peso_propio: int = 150,
         raise ValueError("combinación de peso propio / carga de uso no tabulada por Arauco")
     col = _COL[peso_propio][carga_uso]
     for i, esp in enumerate(LOSA_ESPESORES):
-        if _LOSA[apoyo][i][col] >= luz_m:
-            return esp, _LOSA[apoyo][i][col], _RF[apoyo][i][col]
+        fila = _LOSA[apoyo][i]
+        if fila is None:        # panel sin datos publicados para esta condición
+            continue
+        if fila[col] >= luz_m:
+            rf = _RF[apoyo][i]
+            return esp, fila[col], (rf[col] if rf else None)
     return None
 
 
@@ -416,8 +427,8 @@ def informe(c: Cubicaje) -> str:
         L.append(f"  {nombre:<20} {_n(uf_m3):>6} UF/m³   {_n(uf, 1):>10} UF   {_clp(uf * c.uf_clp):>16}")
     L += [f"  {'TOTAL':<20} {_n(c.precio_uf_m3):>6} UF/m³   {_n(c.total_uf, 1):>10} UF   {_clp(c.total_clp):>16}",
           f"  Por m²: {_n(c.uf_por_m2)} UF/m²   ·   UF = {_clp(c.uf_clp)}",
-          '  El correo excluye "transporte, fundaciones, terminaciones ni otros costos',
-          "  asociados al proyecto\". Montaje y conectores: confirmar con Arauco.", "",
+          "  No incluye transporte, fundaciones ni terminaciones (textual del correo), ni la",
+          "  instalación/montaje (confirmado por Lukas). Conectores y fijaciones: por confirmar.", "",
           "CALENDARIO DE PAGOS (condiciones estándar Arauco)"]
     for pct, tit, uf, clp_, det in c.pagos():
         L.append(f"  {pct:>3}%  {_n(uf, 1):>10} UF  {_clp(clp_):>16}   {tit}")
@@ -532,24 +543,30 @@ def _tests() -> int:
     # Coherencia interna: más espesor nunca salva menos luz ni resiste menos fuego.
     mono = all(t[k][i][c_] <= t[k][i + 1][c_]
                for t in (_LOSA, _RF) for k in t
-               for i in range(len(t[k]) - 1) for c_ in range(7))
+               for i in range(len(t[k]) - 1) for c_ in range(7)
+               if t[k][i] is not None and t[k][i + 1] is not None)
     check("Tablas de losa monótonas respecto del espesor", mono)
     check("Tablas de losa completas (13 espesores × 7 columnas)",
-          all(len(t[k]) == len(LOSA_ESPESORES) and all(len(f) == 7 for f in t[k])
+          all(len(t[k]) == len(LOSA_ESPESORES) and all(f is None or len(f) == 7 for f in t[k])
               for t in (_LOSA, _RF) for k in t))
+    check("El panel de 56 mm solo trae datos de simplemente apoyado",
+          _LOSA["sa"][0] is not None and _LOSA["cont"][0] is None
+          and _LOSA["vol"][0] is None and _RF["sa"][0] is None)
+    check("56 mm en continuo cae al primer panel con datos (80 mm)",
+          espesor_losa(3.0, "cont", 150, 200)[0] == 80)
 
     # Suma de cada fila, tomada del PDF de Arauco. Un solo dígito cambiado en
     # cualquiera de las 546 celdas rompe su checksum. La monotonía no basta:
     # una celda equivocada puede respetarla (así se coló un F-60 donde la ficha
     # dice F-30, en continuo 110 mm).
-    CHECKSUM_LUZ = {  # (sa, cont, vol) por espesor
-        60: (15.25, 20.25, 6.50), 80: (20.50, 25.50, 9.00), 90: (22.50, 28.75, 10.25),
+    CHECKSUM_LUZ = {  # (sa, cont, vol) por espesor · None = sin dato publicado
+        56: (13.00, None, None), 80: (20.50, 25.50, 9.00), 90: (22.50, 28.75, 10.25),
         100: (24.00, 31.00, 10.75), 110: (27.50, 33.00, 11.75), 120: (28.50, 35.00, 13.50),
         130: (30.50, 36.75, 14.00), 150: (33.75, 40.50, 15.50), 160: (34.00, 42.00, 16.25),
         170: (37.00, 44.75, 17.75), 180: (38.75, 46.75, 18.75), 200: (40.75, 49.25, 20.00),
         210: (41.00, 49.75, 21.25)}
     CHECKSUM_RF = {
-        60: (195, 120, 210), 80: (270, 210, 420), 90: (270, 210, 420),
+        56: (None, None, None), 80: (270, 210, 420), 90: (270, 210, 420),
         100: (270, 210, 450), 110: (480, 240, 630), 120: (480, 360, 630),
         130: (480, 420, 630), 150: (630, 540, 630), 160: (630, 540, 630),
         170: (630, 630, 630), 180: (810, 780, 840), 200: (840, 780, 840),
@@ -558,9 +575,13 @@ def _tests() -> int:
     for i, esp in enumerate(LOSA_ESPESORES):
         for tabla, esperado, nombre in ((_LOSA, CHECKSUM_LUZ, "luz"), (_RF, CHECKSUM_RF, "fuego")):
             for j, cond in enumerate(("sa", "cont", "vol")):
-                if abs(sum(tabla[cond][i]) - esperado[esp][j]) > 1e-9:
+                fila, ref = tabla[cond][i], esperado[esp][j]
+                if (fila is None) != (ref is None):
+                    malas.append(f"{nombre}/{cond}/{esp}mm (dato presente/ausente)")
+                elif fila is not None and abs(sum(fila) - ref) > 1e-9:
                     malas.append(f"{nombre}/{cond}/{esp}mm")
-    check("Checksums de las 546 celdas contra el PDF de Arauco", not malas, f"difieren: {malas}")
+    check("Checksums de las tablas de losa contra los documentos de Arauco",
+          not malas, f"difieren: {malas}")
 
     # Geometría del modo detallado.
     check("CLT: 100 m² × 120 mm = 12 m³", abs(volumen_clt(100, 120) - 12) < 1e-9)
@@ -641,14 +662,16 @@ def main() -> int:
             esp, lmax, rf = r
             print(f"Losa CLT: espesor mínimo {esp} mm ({clt_capas(esp)} capas) — "
                   f"salva hasta {_n(lmax)} m (pides {_n(luz)} m).")
-            if esp == 60:
-                print("      OJO: el catálogo comercial no ofrece 60 mm; el panel equivalente es de")
-                print("      56 mm y salva MENOS luz. Usa 80 mm o confirma el 56 mm con Arauco.")
             print(f"Volumen: {esp/1000:.3f} m³ por m² de losa · peso propio ≈ {_n(esp/1000*500, 0)} kg/m².")
-            print(f"Resistencia al fuego: F-{rf} con el CLT a la vista por debajo (sin revestimiento).")
-            if rf < 60:
-                print("      OGUC exige F-60 en losas residenciales de hasta 4 pisos (F-30 hasta 2 pisos):")
-                print("      sube el espesor o protege con yeso cartón si necesitas más.")
+            if rf is None:
+                print("Resistencia al fuego: Arauco NO la publica para el panel de 56 mm. Pídesela")
+                print("      antes de comprometerlo como losa: la OGUC exige F-60 en residencial de")
+                print("      hasta 4 pisos y F-30 hasta 2 pisos.")
+            else:
+                print(f"Resistencia al fuego: F-{rf} con el CLT a la vista por debajo (sin revestimiento).")
+                if rf < 60:
+                    print("      OGUC exige F-60 en losas residenciales de hasta 4 pisos (F-30 hasta 2 pisos):")
+                    print("      sube el espesor o protege con yeso cartón si necesitas más.")
             print("PREDISEÑO REFERENCIAL — validar con el calculista y con la ficha de Arauco.")
         return 0
 
