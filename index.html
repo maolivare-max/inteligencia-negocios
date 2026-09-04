@@ -37,6 +37,11 @@ a{color:var(--oro2)}
 .tab:hover{color:var(--txt);background:var(--panel2)}
 .tab.active{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.35)}
 .tab .pill{display:inline-block;min-width:20px;padding:0 6px;margin-left:5px;border-radius:99px;background:var(--panel3);font-size:11px;color:var(--muted)}
+/* Enlace a una herramienta externa: mismo look que .tab pero fuera del switcher
+   de pestañas (el JS captura .tab, así que esta clase NO puede llamarse .tab). */
+.tabx{border:1px solid transparent;color:var(--muted);font:inherit;font-weight:600;font-size:13.5px;
+  padding:8px 14px;border-radius:9px;cursor:pointer;transition:.18s;text-decoration:none}
+.tabx:hover{color:var(--txt);background:var(--panel2)}
 .progresswrap{margin-left:auto;display:flex;align-items:center;gap:10px}
 .progresstxt{font-size:12.5px;color:var(--muted);white-space:nowrap}
 .progresstxt b{color:var(--verde)}
@@ -233,6 +238,7 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
     <button class="tab" data-tab="proyectos">Proyectos <span class="pill" id="pillProy"></span></button>
     <button class="tab" data-tab="reportes">Reportes</button>
     <button class="tab" data-tab="miradar">Mi radar <span class="pill" id="pillFav"></span></button>
+    <a class="tabx" href="cubicaje/" title="Cubicador de madera masiva HILAM (parámetros Arauco)">Cubicador madera ↗</a>
   </nav>
   <div class="progresswrap">
     <span class="progresstxt"><b id="vistasNum">0</b> / <span id="totalNum"></span> vistas</span>
