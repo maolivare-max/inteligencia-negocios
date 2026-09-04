@@ -41,13 +41,20 @@ print(c.m3, c.total_uf, c.total_clp)
 
 ## Verificación
 
-`python3 cubicador.py --test` corre 21 autotests. Los que importan:
+`python3 cubicador.py --test` corre 34 autotests. Los que importan:
 
 - El ejemplo que da el propio correo (100 m² en MLE+CLT → **837,5 UF**) se
-  reproduce exactamente. La calculadora web corre ese mismo autotest al cargar y
-  muestra el resultado en el pie de la página.
+  reproduce exactamente. La calculadora web corre ese mismo autotest al cargar,
+  a través de sus propios controles, y muestra el resultado en el pie de la página.
 - Los rangos declarados (0,10–0,20 / 0,20–0,30 / 0,30–0,40 m³/m² y 32,8–34,1 UF/m³).
 - Los tres casos de ejemplo de la ficha de losas CLT de Hilam.
+- **Checksums de las 546 celdas** de las tablas de losas contra el PDF de Arauco:
+  un solo dígito cambiado rompe la prueba.
+- Las entradas inválidas (superficie negativa, cero unidades, UF en cero) se
+  rechazan con un mensaje, en vez de producir un costo negativo.
+
+El sistema fue auditado el 4-sep-2026 en datos y en código; lo corregido está en
+la sección 12 de `PARAMETROS.md`.
 
 ## Archivos
 
