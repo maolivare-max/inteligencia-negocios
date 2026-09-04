@@ -120,7 +120,7 @@ footer a{color:var(--accent)}
   <div class="grid g4">
     <div>
       <label>Valor UF (CLP)</label>
-      <input type="number" id="uf" value="40879" step="1" min="1">
+      <input type="number" id="uf" value="40879.04" step="0.01" min="1">
       <div class="hint">$40.879,04 al 4-sep-2026. Actualízalo al día de la cotización.</div>
     </div>
     <div>
@@ -305,19 +305,20 @@ footer a{color:var(--accent)}
       <div>
         <label>Peso propio adicional</label>
         <select id="pp">
-          <option value="50">50 kgf/m²</option>
-          <option value="150" selected>150 kgf/m²</option>
+          <option value="50">50 — CLT más pavimento</option>
+          <option value="150" selected>150 — CLT más losa de hormigón y pavimento</option>
         </select>
-        <div class="hint">Sobrelosa, cielos, tabiques.</div>
+        <div class="hint">kgf/m². Definiciones del catálogo CLT de Hilam.</div>
       </div>
       <div>
-        <label>Sobrecarga de uso</label>
+        <label>Carga de uso</label>
         <select id="cu">
-          <option value="100">100 kgf/m²</option>
-          <option value="200" selected>200 kgf/m² — residencial</option>
-          <option value="300">300 kgf/m²</option>
-          <option value="500">500 kgf/m²</option>
+          <option value="100">100 — techo</option>
+          <option value="200" selected>200 — piso residencial</option>
+          <option value="300">300 — piso en oficinas</option>
+          <option value="500">500 — piso en lugares públicos de uso masivo</option>
         </select>
+        <div class="hint">kgf/m². Muebles y personas, según el catálogo de Hilam.</div>
       </div>
     </div>
     <div id="resLosa" style="margin-top:16px"></div>
@@ -471,7 +472,7 @@ const LOSA_RF = {
   ],
   cont: [
     [30,15,15,15, 15,15,15],   [30,30,30,30, 30,30,30],   [30,30,30,30, 30,30,30],
-    [30,30,30,30, 30,30,30],   [60,60,30,30, 30,30,30],   [60,60,60,30, 60,60,30],
+    [30,30,30,30, 30,30,30],   [60,30,30,30, 30,30,30],   [60,60,60,30, 60,60,30],
     [60,60,60,60, 60,60,60],   [60,90,90,90, 60,60,90],   [60,90,90,90, 60,60,90],
     [90,90,90,90, 90,90,90],   [120,120,120,90, 120,120,90],
     [120,120,120,90, 120,120,90], [120,120,120,90, 120,120,90]
@@ -493,7 +494,13 @@ const COL_LOSA = {"50":{100:0,200:1,300:2,500:3},"150":{200:4,300:5,500:6}};
 const $  = id => document.getElementById(id);
 const nf = (v,d=2) => (isFinite(v)?v:0).toLocaleString("es-CL",{minimumFractionDigits:d,maximumFractionDigits:d});
 const clp= v => "$" + Math.round(isFinite(v)?v:0).toLocaleString("es-CL");
-const num= id => { const v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+// Campo vacío o basura → 0. Nada negativo: una cantidad negativa produciría
+// volúmenes y costos negativos que se ven como cifras válidas.
+const num= id => { const v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; };
+// La descripción de una partida es texto libre del usuario y se interpola en
+// HTML: sin escapar, unas comillas la truncan y una etiqueta se renderiza.
+const esc= s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 
 let sistema = "mixto";
 
@@ -584,6 +591,7 @@ function addPartida(tipo, d){
   d = d || {};
   partidas.push({
     id: ++seqP, tipo,
+    demo: d.demo === true,     // las partidas de ejemplo no entran al resumen
     desc: d.desc ?? "",
     m2:   d.m2   ?? 100,
     esp:  d.esp  ?? 120,
@@ -618,7 +626,7 @@ function pintarPartidas(){
            ${MLE_ALTOS.map(a=>`<option value="${a}" ${a===+p.alto?"selected":""}>${a}</option>`).join("")}
          </select></div>`;
     return `<div class="rowline">
-      <div><label>${t.n}</label><input type="text" data-f="desc" data-id="${p.id}" value="${p.desc}" placeholder="Descripción (ej. muros perimetrales)"></div>
+      <div><label>${t.n}</label><input type="text" data-f="desc" data-id="${p.id}" value="${esc(p.desc)}" placeholder="Descripción (ej. muros perimetrales)"></div>
       ${campos}
       <button class="del" data-del="${p.id}" title="Eliminar">✕</button>
     </div>`;
@@ -626,7 +634,12 @@ function pintarPartidas(){
 
   cont.querySelectorAll("[data-f]").forEach(el => el.addEventListener("input", e => {
     const p = partidas.find(x => x.id === +e.target.dataset.id);
-    if (p) { p[e.target.dataset.f] = e.target.type === "text" ? e.target.value : parseFloat(e.target.value); calcular(); }
+    if (!p) return;
+    const f = e.target.dataset.f;
+    if (f === "desc") p.desc = e.target.value;
+    else { const v = parseFloat(e.target.value); p[f] = isFinite(v) && v > 0 ? v : 0; }
+    p.demo = false;              // editada por el usuario: ya no es del ejemplo
+    calcular();
   }));
   cont.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", e => {
     partidas = partidas.filter(x => x.id !== +e.target.dataset.del);
@@ -647,16 +660,17 @@ function calcularDetalle(){
       vCLT += vol;
     } else {
       vol  = (x.cant||0) * (x.largo||0) * (x.ancho||0)/1000 * (x.alto||0)/1000;
-      cant = `${x.cant} u × ${nf(x.largo,2)} m × ${x.ancho}×${x.alto} mm`;
+      cant = `${nf(x.cant,0)} u × ${nf(x.largo,2)} m × ${x.ancho}×${x.alto} mm`;
       vMLE += vol;
     }
-    filas += `<tr><td>${t.n}${x.desc?` — <span style="color:var(--muted)">${x.desc}</span>`:""}</td>
+    filas += `<tr><td>${t.n}${x.desc?` — <span style="color:var(--muted)">${esc(x.desc)}</span>`:""}</td>
       <td>${t.prod}</td><td class="num">${cant}</td>
       <td class="num">${nf(vol,2)}</td><td class="num">${nf(vol*merma,2)}</td>
       <td class="num">${nf(vol*merma*p,1)}</td></tr>`;
   });
 
   const totNeto = vCLT + vMLE, tot = totNeto * merma, ufTot = tot * p;
+  const soloDemo = partidas.length > 0 && partidas.every(x => x.demo);
 
   $("tblDetalle").innerHTML = filas + `<tr class="hi"><td>Total</td><td>—</td><td class="num">—</td>
     <td class="num">${nf(totNeto,2)}</td><td class="num">${nf(tot,2)}</td><td class="num">${nf(ufTot,1)}</td></tr>`;
@@ -670,14 +684,19 @@ function calcularDetalle(){
   const ref = num("m2Ref"), s = SISTEMAS[$("sistemaRef").value], ratio = ref ? tot/ref : 0;
   let cls = "ok", msg;
   if (!partidas.length){ cls = ""; msg = "Agrega partidas para comparar contra el ratio de Arauco."; }
+  else if (!ref){ cls = ""; msg = "Sin superficie de referencia: no se puede comparar."; }
   else if (ratio < s.min){ cls = "warn";
     msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, por debajo del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Puede que falten partidas por ingresar, o que la solución sea más liviana de lo típico.`; }
   else if (ratio > s.max){ cls = "warn";
     msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, por encima del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Revisa espesores y merma: hay margen de optimización.`; }
   else msg = `Tu cubicaje da <b>${nf(ratio,3)} m³/m²</b>, dentro del rango ${nf(s.min,2)}–${nf(s.max,2)} de ${s.n}. Consistente con el indicador de Arauco.`;
 
-  $("controlCordura").innerHTML = `<div class="note ${cls}"><b>Control de cordura contra el ratio del correo</b>${msg}</div>`;
-  return {tot, ufTot};
+  $("controlCordura").innerHTML =
+    (soloDemo ? `<div class="note warn"><b>Estas partidas son un ejemplo, no tu proyecto</b>
+       Vienen precargadas para mostrar cómo se usa la pestaña. Edítalas o bórralas: mientras no las
+       toques, este cubicaje no se incluye en el resumen de la pestaña 4.</div>` : "") +
+    `<div class="note ${cls}"><b>Control de cordura contra el ratio del correo</b>${msg}</div>`;
+  return {tot, ufTot, soloDemo};
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -685,7 +704,12 @@ function calcularDetalle(){
    ══════════════════════════════════════════════════════════════════ */
 function calcularLosa(){
   const ap = $("apoyo").value, t = LOSA[ap], luz = num("luz"),
-        col = COL_LOSA[$("pp").value][+$("cu").value];
+        col = (COL_LOSA[$("pp").value] || {})[+$("cu").value];
+  if (col === undefined){
+    $("resLosa").innerHTML = `<div class="note warn"><b>Combinación no tabulada por Arauco</b>
+      La ficha publica peso propio 50 con cargas 100/200/300/500, y peso propio 150 con 200/300/500.</div>`;
+    return;
+  }
   let i = -1;
   for (let k = 0; k < LOSA_ESP.length; k++) if (t[k][col] >= luz){ i = k; break; }
 
@@ -708,16 +732,21 @@ function calcularLosa(){
       <b>${rf >= 60 ? `F-${rf} cumple el mínimo residencial` : `F-${rf}: ojo con la exigencia de fuego`}</b>
       Según OGUC se exige F-60 en losas de edificaciones residenciales de hasta 4 pisos, y F-30 en viviendas
       de hasta 2 pisos.${rf < 60 ? " Para subir a F-60: aumentar el espesor del panel o proteger con yeso cartón por debajo (pero entonces el CLT no queda a la vista como cielo)." : ""}</div>
+    ${esp === 60 ? `<div class="note warn" style="margin-top:10px"><b>El catálogo comercial no ofrece 60 mm</b>
+      La tabla de losas tabula 60 mm, pero el catálogo CLT vigente parte en 56 mm, y ese panel salva
+      <i>menos</i> luz (2,00 m donde el de 60 mm da 2,50 m, en simplemente apoyado con pp 150 y carga 200).
+      Usa 80 mm, o confirma con Arauco que te pueden fabricar el de 60 mm.</div>` : ""}
     <div class="note" style="margin-top:10px"><b>Cómo usar este resultado</b>
       Lleva ${nf(esp/1000,3)} m³/m² a la pestaña 2 como partida "Losa CLT" con espesor ${esp} mm, o multiplica
-      directamente la superficie de losa por ese factor.</div>`;
+      directamente la superficie de losa por ese factor.${esp === 60 ? " (El desplegable de la pestaña 2 solo trae espesores de catálogo, así que ahí el mínimo es 56 mm.)" : ""}</div>`;
 }
 
 /* ══════════════════════════════════════════════════════════════════
    RESUMEN PARA CORREO
    ══════════════════════════════════════════════════════════════════ */
 function pintarResumen(r, det){
-  const s = SISTEMAS[sistema], esc = {min:"eficiente",mid:"central",max:"intensivo"}[r.esc];
+  const s = SISTEMAS[sistema], hol = num("holgura");
+  const nombreEsc = {min:"eficiente",mid:"central",max:"intensivo"}[r.esc];
   const L = [];
   L.push("CUBICAJE PRELIMINAR — ESTRUCTURA EN MADERA MASIVA HILAM");
   L.push("Método: indicador m³/m² entregado por Arauco (correo del 3-sep-2026).");
@@ -727,23 +756,28 @@ function pintarResumen(r, det){
   L.push(`  Superficie x unidad: ${nf(num("m2Casa"),0)} m²`);
   L.push(`  Superficie total:    ${nf(r.sup,0)} m²`);
   L.push(`  Sistema:             ${s.n} (${nf(s.min,2)}–${nf(s.max,2)} m³/m²)`);
-  L.push(`  Escenario aplicado:  ${esc} → ${nf(r.r[r.esc],3)} m³/m²`);
+  L.push(`  Escenario aplicado:  ${nombreEsc} → ${nf(r.r[r.esc],3)} m³/m²`);
+  if (hol > 0){
+    L.push(`  Holgura aplicada:    +${nf(hol,0)} % sobre el ratio de Arauco`);
+    L.push(`                       (supuesto propio, NO de Arauco: ${nf(r.r[r.esc]/(1+hol/100),3)} → ${nf(r.r[r.esc],3)} m³/m²)`);
+  }
   L.push("");
   L.push("VOLUMEN ESTIMADO");
   L.push(`  Rango del sistema:   ${nf(r.sup*r.r.min,1)} a ${nf(r.sup*r.r.max,1)} m³`);
-  L.push(`  Estimación central:  ${nf(r.m3,1)} m³   (${nf(num("nCasas")?r.m3/num("nCasas"):0,2)} m³ por unidad)`);
-  if (det && det.tot > 0)
+  L.push(`  Estimación ${nombreEsc.padEnd(10)}${nf(r.m3,1)} m³   (${nf(num("nCasas")?r.m3/num("nCasas"):0,2)} m³ por unidad)`);
+  if (det && det.tot > 0 && !det.soloDemo)
     L.push(`  Cubicaje detallado:  ${nf(det.tot,2)} m³ sobre ${nf(num("m2Ref"),0)} m² ` +
            `(pestaña 2: por elemento, con ${num("merma")}% de merma)`);
   L.push("");
   L.push(`COSTO REFERENCIAL DE MATERIAL (${nf(r.p,2)} UF/m³ = madera ${nf(num("pMadera"),1)} + impregnación ${nf(num("pImpreg"),1)} + CNC ${nf(parseFloat($("pCnc").value),1)})`);
   L.push(`  Total:               ${nf(r.ufTot,1)} UF   ≈ ${clp(r.clpTot)}   (UF = ${clp(num("uf"))})`);
   L.push(`  Por m²:              ${nf(r.sup?r.ufTot/r.sup:0,2)} UF/m²`);
-  L.push("  No incluye transporte, fundaciones, terminaciones, montaje ni conectores.");
+  L.push('  El correo excluye "transporte, fundaciones, terminaciones ni otros costos asociados');
+  L.push('  al proyecto". Montaje y conectores: confirmar con Arauco.');
   L.push("");
   L.push("CALENDARIO DE PAGOS (condiciones estándar Arauco)");
   PAGOS.forEach(x => L.push(`  ${String(x.pct).padStart(3)}%  ${nf(r.ufTot*x.pct/100,1).padStart(9)} UF   ${x.t}`));
-  L.push("  Plazo estimado hasta despacho: 60 a 90 días.");
+  L.push("  Piso estimado hasta el despacho: 60 a 90 días (suma de los dos plazos del correo).");
   L.push("");
   L.push("ANTECEDENTES A ENVIAR PARA COTIZAR");
   ["Planos .dwg + EE.TT. de arquitectura","Planos de ingeniería y memoria de cálculo",
@@ -792,27 +826,39 @@ $("copiar").addEventListener("click", async () => {
   setTimeout(() => $("copiado").textContent = "", 3000);
 });
 
-/* Autotest: el ejemplo del correo — 100 m², MLE+CLT, ratio central 0,25 m³/m²,
-   33,5 UF/m³ → 837,5 UF. Si esto deja de cuadrar, los parámetros se rompieron. */
-(function autotest(){
-  const m3 = 100 * (SISTEMAS.mixto.min + SISTEMAS.mixto.max) / 2;
-  const uf = m3 * (26.5 + 4.3 + 2.7);
-  const ok = Math.abs(uf - 837.5) < 0.01;
+/* Autotest: reproduce el ejemplo del correo (100 m² en MLE+CLT → 837,5 UF)
+   usando los MISMOS controles que ve el usuario, no constantes cableadas: si
+   alguien altera un precio por defecto o un ratio, el autotest se cae. */
+function autotest(){
+  const guardado = {casas:$("nCasas").value, m2:$("m2Casa").value, esc:$("escenario").value,
+                    hol:$("holgura").value, sis:sistema};
+  $("nCasas").value = 1; $("m2Casa").value = 100;
+  $("escenario").value = "mid"; $("holgura").value = 0; sistema = "mixto";
+  const r = calcularRapido();
+  const ok = Math.abs(r.ufTot - 837.5) < 0.01;
+  const detalle = `${nf(r.m3,0)} m³ × ${nf(r.p,2)} UF/m³ = ${nf(r.ufTot,1)} UF`;
+
+  $("nCasas").value = guardado.casas; $("m2Casa").value = guardado.m2;
+  $("escenario").value = guardado.esc; $("holgura").value = guardado.hol; sistema = guardado.sis;
+  pintarSistemas(); calcular();
+
   $("autotest").innerHTML = ok
-    ? `<b style="color:var(--ok)">✓ Autotest OK.</b> El ejemplo del correo (100 m² en MLE+CLT → 837,5 UF)
-       se reproduce exactamente: ${nf(m3,0)} m³ × 33,5 UF/m³ = ${nf(uf,1)} UF.`
-    : `<b style="color:#c0392b">✗ Autotest falló.</b> El ejemplo del correo debería dar 837,5 UF y da ${nf(uf,1)} UF.
-       Revisa los parámetros antes de usar este resultado.`;
-})();
+    ? `<b style="color:var(--ok)">✓ Autotest OK.</b> Con los valores por defecto, el ejemplo del correo
+       (100 m² en MLE+CLT → 837,5 UF) se reproduce exactamente: ${detalle}.`
+    : `<b style="color:#c0392b">✗ Autotest falló.</b> El ejemplo del correo debería dar 837,5 UF
+       y da ${detalle}. Si cambiaste un precio arriba es normal; si no, revisa los parámetros
+       antes de usar este resultado.`;
+}
 
 // Estado inicial: el proyecto real del usuario — 20 casas de 100 m² en la
 // pestaña 1, y en la pestaña 2 un ejemplo editable de UNA casa de 100 m².
 pintarSistemas();
-addPartida("clt_muro",  {desc:"1 casa · muros perimetrales y divisorios", m2:180, esp:100});
-addPartida("clt_losa",  {desc:"1 casa · entrepiso segundo nivel",         m2:50,  esp:120});
-addPartida("mle_viga",  {desc:"1 casa · vigas de techumbre",              cant:12, largo:5, ancho:120, alto:300});
-addPartida("mle_pilar", {desc:"1 casa · pilares",                          cant:14, largo:2.6, ancho:120, alto:120});
+addPartida("clt_muro",  {demo:true, desc:"Ejemplo · muros perimetrales y divisorios", m2:180, esp:100});
+addPartida("clt_losa",  {demo:true, desc:"Ejemplo · entrepiso segundo nivel",         m2:50,  esp:120});
+addPartida("mle_viga",  {demo:true, desc:"Ejemplo · vigas de techumbre",              cant:12, largo:5, ancho:120, alto:300});
+addPartida("mle_pilar", {demo:true, desc:"Ejemplo · pilares",                          cant:14, largo:2.6, ancho:120, alto:120});
 calcular();
+autotest();
 </script>
 </body>
 </html>

@@ -21,6 +21,7 @@ El escenario 'mid' (por defecto) usa el punto medio del rango que entrega Arauco
 from __future__ import annotations
 
 import argparse
+import sys
 from dataclasses import dataclass, field
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -80,9 +81,19 @@ class Cubicaje:
     m3_min: float
     m3_mid: float
     m3_max: float
-    precio_uf_m3: float
+    # Los tres componentes del precio se guardan por separado: si se guardara
+    # solo el total, el desglose tendría que deducir el CNC restando las
+    # constantes del módulo y saldría negativo cuando no hay impregnación.
+    precio_madera: float
+    precio_impreg: float
+    precio_cnc: float
+    holgura_pct: float = 0.0
     uf_clp: float = UF_CLP
     escenario: str = "mid"
+
+    @property
+    def precio_uf_m3(self) -> float:
+        return self.precio_madera + self.precio_impreg + self.precio_cnc
 
     @property
     def m3(self) -> float:
@@ -104,13 +115,22 @@ class Cubicaje:
     def uf_por_m2(self) -> float:
         return self.total_uf / self.superficie_m2 if self.superficie_m2 else 0.0
 
+    @property
+    def ratio(self) -> float:
+        """m³/m² efectivamente aplicado (incluye la holgura propia, si la hay)."""
+        return self.m3 / self.superficie_m2 if self.superficie_m2 else 0.0
+
+    @property
+    def ratio_base(self) -> float:
+        """m³/m² del correo de Arauco, sin la holgura propia."""
+        return self.ratio / (1 + self.holgura_pct / 100)
+
     def desglose(self) -> list[tuple[str, float, float]]:
         """[(partida, UF/m³, UF total)] — suma exactamente total_uf."""
-        cnc = self.precio_uf_m3 - PRECIO_MADERA - PRECIO_IMPREG
         return [
-            ("Madera", PRECIO_MADERA, self.m3 * PRECIO_MADERA),
-            ("Impregnación", PRECIO_IMPREG, self.m3 * PRECIO_IMPREG),
-            ("Mecanizado CNC", cnc, self.m3 * cnc),
+            ("Madera", self.precio_madera, self.m3 * self.precio_madera),
+            ("Impregnación", self.precio_impreg, self.m3 * self.precio_impreg),
+            ("Mecanizado CNC", self.precio_cnc, self.m3 * self.precio_cnc),
         ]
 
     def pagos(self) -> list[tuple[int, str, float, float, str]]:
@@ -135,19 +155,29 @@ def cubicar(superficie_m2: float, sistema: str = "mixto", *, unidades: int = 1,
         raise ValueError("escenario debe ser 'min', 'mid' o 'max'")
     if cnc not in PRECIO_CNC:
         raise ValueError(f"cnc debe ser uno de {list(PRECIO_CNC)}")
+    if unidades < 1:
+        raise ValueError("tiene que haber al menos una unidad")
+    if superficie_m2 < 0:
+        raise ValueError("la superficie no puede ser negativa")
+    if holgura_pct < 0:
+        raise ValueError("la holgura no puede ser negativa (0 = estricto Arauco)")
+    if uf_clp <= 0:
+        raise ValueError("el valor de la UF tiene que ser mayor que cero")
 
     s = SISTEMAS[sistema]
     h = 1 + holgura_pct / 100
-    precio = PRECIO_MADERA + (PRECIO_IMPREG if impregnacion else 0.0) + PRECIO_CNC[cnc]
 
     return Cubicaje(
         superficie_m2=superficie_m2,
         sistema=sistema,
-        unidades=max(unidades, 1),
+        unidades=unidades,
         m3_min=superficie_m2 * s["min"] * h,
         m3_mid=superficie_m2 * (s["min"] + s["max"]) / 2 * h,
         m3_max=superficie_m2 * s["max"] * h,
-        precio_uf_m3=precio,
+        precio_madera=PRECIO_MADERA,
+        precio_impreg=PRECIO_IMPREG if impregnacion else 0.0,
+        precio_cnc=PRECIO_CNC[cnc],
+        holgura_pct=holgura_pct,
         uf_clp=uf_clp,
         escenario=escenario,
     )
@@ -174,6 +204,11 @@ class Detallado:
     partidas: list = field(default_factory=list)
 
     def clt(self, desc: str, superficie_m2: float, espesor_mm: int) -> "Detallado":
+        if espesor_mm not in CLT_ESPESORES:
+            raise ValueError(
+                f"{espesor_mm} mm no es un espesor de catálogo. Arauco fabrica: "
+                f"{', '.join(str(e) for e in CLT_ESPESORES)} mm. "
+                "(Ojo: la tabla de losas tabula 60 mm, pero el catálogo comercial parte en 56 mm.)")
         self.partidas.append(("CLT", desc, volumen_clt(superficie_m2, espesor_mm),
                               f"{superficie_m2:g} m² × {espesor_mm} mm"))
         return self
@@ -290,7 +325,7 @@ _RF = {
         [30, 30, 30, 30, 30, 30, 30],
         [30, 30, 30, 30, 30, 30, 30],
         [30, 30, 30, 30, 30, 30, 30],
-        [60, 60, 30, 30, 30, 30, 30],
+        [60, 30, 30, 30, 30, 30, 30],
         [60, 60, 60, 30, 60, 60, 30],
         [60, 60, 60, 60, 60, 60, 60],
         [60, 90, 90, 90, 60, 60, 90],
@@ -352,6 +387,11 @@ def _clp(v: float) -> str:
     return "$" + _n(v, 0)
 
 
+ESCENARIOS = {"min": "eficiente (extremo bajo del rango)",
+              "mid": "central (punto medio del rango)",
+              "max": "intensivo (extremo alto del rango)"}
+
+
 def informe(c: Cubicaje) -> str:
     s = SISTEMAS[c.sistema]
     L = ["=" * 68,
@@ -362,28 +402,35 @@ def informe(c: Cubicaje) -> str:
          f"  Unidades              {c.unidades}",
          f"  Superficie total      {_n(c.superficie_m2, 0)} m²",
          f"  Sistema               {s['nombre']}  ({_n(s['min'])}–{_n(s['max'])} m³/m²)",
-         f"  Escenario             {c.escenario}", "",
-         "VOLUMEN DE MADERA",
-         f"  Rango del sistema     {_n(c.m3_min, 1)} a {_n(c.m3_max, 1)} m³",
-         f"  Estimación aplicada   {_n(c.m3, 1)} m³   ({_n(c.m3_por_unidad)} m³ por unidad)", "",
-         f"COSTO REFERENCIAL DE MATERIAL  ({_n(c.precio_uf_m3)} UF/m³)"]
+         f"  Escenario             {ESCENARIOS[c.escenario]}"]
+    if c.holgura_pct:
+        L.append(f"  Holgura aplicada      +{_n(c.holgura_pct, 0)} % sobre el ratio "
+                 f"— supuesto propio, NO de Arauco")
+        L.append(f"                        ratio {_n(c.ratio_base, 3)} → {_n(c.ratio, 3)} m³/m²")
+    L += ["",
+          "VOLUMEN DE MADERA",
+          f"  Rango del sistema     {_n(c.m3_min, 1)} a {_n(c.m3_max, 1)} m³",
+          f"  Estimación aplicada   {_n(c.m3, 1)} m³   ({_n(c.m3_por_unidad)} m³ por unidad)", "",
+          f"COSTO REFERENCIAL DE MATERIAL  ({_n(c.precio_uf_m3)} UF/m³)"]
     for nombre, uf_m3, uf in c.desglose():
         L.append(f"  {nombre:<20} {_n(uf_m3):>6} UF/m³   {_n(uf, 1):>10} UF   {_clp(uf * c.uf_clp):>16}")
     L += [f"  {'TOTAL':<20} {_n(c.precio_uf_m3):>6} UF/m³   {_n(c.total_uf, 1):>10} UF   {_clp(c.total_clp):>16}",
           f"  Por m²: {_n(c.uf_por_m2)} UF/m²   ·   UF = {_clp(c.uf_clp)}",
-          "  No incluye transporte, fundaciones, terminaciones, montaje ni conectores.", "",
+          '  El correo excluye "transporte, fundaciones, terminaciones ni otros costos',
+          "  asociados al proyecto\". Montaje y conectores: confirmar con Arauco.", "",
           "CALENDARIO DE PAGOS (condiciones estándar Arauco)"]
     for pct, tit, uf, clp_, det in c.pagos():
         L.append(f"  {pct:>3}%  {_n(uf, 1):>10} UF  {_clp(clp_):>16}   {tit}")
         L.append(f"        {det}")
-    L += ["  Plazo estimado hasta despacho desde fábrica: 60 a 90 días.", ""]
+    L += ["  Piso estimado hasta el despacho desde fábrica: 60 a 90 días (suma de los dos",
+          "  plazos del correo; no incluye el tiempo de aprobación del modelo).", ""]
 
     if COTIZADOR_WEB_MIN <= c.m3 <= COTIZADOR_WEB_MAX:
         L.append(f"NOTA: {_n(c.m3, 1)} m³ está en el rango 5–30 m³ → Arauco recomienda su cotizador web:")
         L.append("      https://arauco.com/hilam/cotizador/")
     else:
-        L.append(f"NOTA: {_n(c.m3, 1)} m³ está fuera del rango del cotizador web (5–30 m³):")
-        L.append("      corresponde cotización directa con Construcción en Madera.")
+        L.append(f"NOTA: {_n(c.m3, 1)} m³ está fuera del rango 5–30 m³ del cotizador web;")
+        L.append("      consultar la vía de cotización con Construcción en Madera.")
     L += ["", "ANTECEDENTES QUE PIDE ARAUCO PARA COTIZAR",
           "  [ ] Planos .dwg + EE.TT. de arquitectura",
           "  [ ] Planos de ingeniería y memoria de cálculo",
@@ -423,18 +470,43 @@ def _tests() -> int:
     check("MLE 0,10–0,20 m³/m²", (cubicar(100, "mle").m3_min, cubicar(100, "mle").m3_max) == (10, 20))
     check("CLT 0,30–0,40 m³/m²", (cubicar(100, "clt").m3_min, cubicar(100, "clt").m3_max) == (30, 40))
 
-    # El desglose suma el total.
-    check("Desglose suma el total", abs(sum(uf for _, _, uf in c.desglose()) - c.total_uf) < 1e-9)
+    check("MLE+CLT 0,20–0,30 m³/m²", (cubicar(100, "mixto").m3_min, cubicar(100, "mixto").m3_max) == (20, 30))
+
+    # El desglose cobra cada partida a su propio precio (no deducido por resta).
+    d0 = c.desglose()
+    check("Desglose usa los precios del correo",
+          [round(v, 2) for _, v, _ in d0] == [26.5, 4.3, 2.7])
+    check("Desglose suma el total", abs(sum(uf for _, _, uf in d0) - c.total_uf) < 1e-9)
     # Los pagos suman el 100 %.
     check("Pagos suman 100%", abs(sum(uf for _, _, uf, _, _ in c.pagos()) - c.total_uf) < 1e-9)
 
-    # Sin impregnación baja exactamente 4,3 UF/m³.
-    check("Sin impregnación: -4,3 UF/m³",
-          abs(cubicar(100, "mixto", impregnacion=False).precio_uf_m3 - 29.2) < 1e-9)
+    # Sin impregnación baja exactamente 4,3 UF/m³ — y el desglose lo refleja:
+    # la impregnación queda en 0 y el CNC NO se vuelve negativo.
+    sin_imp = cubicar(100, "mixto", impregnacion=False, cnc="max")
+    check("Sin impregnación: -4,3 UF/m³", abs(sin_imp.precio_uf_m3 - 29.8) < 1e-9)
+    check("Sin impregnación: desglose 26,5 / 0 / 3,3 (CNC nunca negativo)",
+          [round(v, 2) for _, v, _ in sin_imp.desglose()] == [26.5, 0.0, 3.3],
+          f"da {[round(v, 2) for _, v, _ in sin_imp.desglose()]}")
 
-    # Holgura del 10 % sube el volumen un 10 %.
-    check("Holgura 10% sube 10% el volumen",
-          abs(cubicar(100, "mixto", holgura_pct=10).m3 - 27.5) < 1e-9)
+    # Holgura del 10 % sube el volumen un 10 % y queda registrada para el informe.
+    hol = cubicar(100, "mixto", holgura_pct=10)
+    check("Holgura 10% sube 10% el volumen", abs(hol.m3 - 27.5) < 1e-9)
+    check("Holgura queda visible en el informe",
+          abs(hol.ratio - 0.275) < 1e-9 and abs(hol.ratio_base - 0.25) < 1e-9
+          and "Holgura" in informe(hol) and "NO de Arauco" in informe(hol))
+
+    # Entradas inválidas: error explicado, no un resultado negativo.
+    for etiqueta, kwargs in [("superficie negativa", {"superficie_m2": -100}),
+                             ("0 unidades", {"unidades": 0}),
+                             ("holgura negativa", {"holgura_pct": -50}),
+                             ("UF en 0", {"uf_clp": 0})]:
+        base = {"superficie_m2": 100, "sistema": "mixto"}
+        base.update(kwargs)
+        try:
+            cubicar(base.pop("superficie_m2"), base.pop("sistema"), **base)
+            check(f"Rechaza {etiqueta}", False, "no lanzó ValueError")
+        except ValueError:
+            check(f"Rechaza {etiqueta}", True)
 
     # Los tres casos de ejemplo que publica la propia ficha Hilam validan que la
     # tabla esté bien transcrita y bien alineada por columnas.
@@ -466,12 +538,56 @@ def _tests() -> int:
           all(len(t[k]) == len(LOSA_ESPESORES) and all(len(f) == 7 for f in t[k])
               for t in (_LOSA, _RF) for k in t))
 
+    # Suma de cada fila, tomada del PDF de Arauco. Un solo dígito cambiado en
+    # cualquiera de las 546 celdas rompe su checksum. La monotonía no basta:
+    # una celda equivocada puede respetarla (así se coló un F-60 donde la ficha
+    # dice F-30, en continuo 110 mm).
+    CHECKSUM_LUZ = {  # (sa, cont, vol) por espesor
+        60: (15.25, 20.25, 6.50), 80: (20.50, 25.50, 9.00), 90: (22.50, 28.75, 10.25),
+        100: (24.00, 31.00, 10.75), 110: (27.50, 33.00, 11.75), 120: (28.50, 35.00, 13.50),
+        130: (30.50, 36.75, 14.00), 150: (33.75, 40.50, 15.50), 160: (34.00, 42.00, 16.25),
+        170: (37.00, 44.75, 17.75), 180: (38.75, 46.75, 18.75), 200: (40.75, 49.25, 20.00),
+        210: (41.00, 49.75, 21.25)}
+    CHECKSUM_RF = {
+        60: (195, 120, 210), 80: (270, 210, 420), 90: (270, 210, 420),
+        100: (270, 210, 450), 110: (480, 240, 630), 120: (480, 360, 630),
+        130: (480, 420, 630), 150: (630, 540, 630), 160: (630, 540, 630),
+        170: (630, 630, 630), 180: (810, 780, 840), 200: (840, 780, 840),
+        210: (840, 780, 840)}
+    malas = []
+    for i, esp in enumerate(LOSA_ESPESORES):
+        for tabla, esperado, nombre in ((_LOSA, CHECKSUM_LUZ, "luz"), (_RF, CHECKSUM_RF, "fuego")):
+            for j, cond in enumerate(("sa", "cont", "vol")):
+                if abs(sum(tabla[cond][i]) - esperado[esp][j]) > 1e-9:
+                    malas.append(f"{nombre}/{cond}/{esp}mm")
+    check("Checksums de las 546 celdas contra el PDF de Arauco", not malas, f"difieren: {malas}")
+
     # Geometría del modo detallado.
     check("CLT: 100 m² × 120 mm = 12 m³", abs(volumen_clt(100, 120) - 12) < 1e-9)
     check("MLE: 10 u × 5 m × 120×300 mm = 1,8 m³", abs(volumen_mle(10, 5, 120, 300) - 1.8) < 1e-9)
     d = Detallado(merma_pct=10).clt("muros", 100, 100).mle("vigas", 10, 5, 120, 300)
     check("Detallado aplica merma", abs(d.total() - (10 + 1.8) * 1.1) < 1e-9)
     check("Detallado separa por producto", abs(d.total("CLT") - 11.0) < 1e-9)
+    try:
+        Detallado().clt("losa", 100, 60)
+        check("Rechaza un espesor CLT fuera de catálogo (60 mm)", False, "no lanzó ValueError")
+    except ValueError:
+        check("Rechaza un espesor CLT fuera de catálogo (60 mm)", True)
+
+    # Las tres ramas del control de cordura contra el ratio del correo.
+    check("Control: dentro del rango", "dentro del rango" in
+          Detallado(merma_pct=0).clt("m", 100, 250).control(100, "mixto"))
+    check("Control: bajo el rango", "BAJO el rango" in
+          Detallado(merma_pct=0).clt("m", 100, 100).control(100, "clt"))
+    check("Control: sobre el rango", "SOBRE el rango" in
+          Detallado(merma_pct=0).clt("m", 100, 250).control(100, "mle"))
+    check("Control: sin superficie de referencia", "no se puede comparar" in
+          Detallado().clt("m", 100, 100).control(0))
+
+    # El informe se arma sin reventar y trae las cifras clave.
+    inf = informe(c)
+    check("informe() incluye total, pagos y checklist",
+          "837,5 UF" in inf and "5%" in inf and "IFC" in inf and "33,50 UF/m³" in inf)
 
     print(f"\n{'TODO OK' if not fallos else f'{len(fallos)} FALLO(S): ' + ', '.join(fallos)}")
     return 0 if not fallos else 1
@@ -487,7 +603,9 @@ def main() -> int:
         formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--casas", type=int, default=20, help="n.º de unidades iguales (default 20)")
     p.add_argument("--m2", type=float, default=100, help="m² construidos por unidad (default 100)")
-    p.add_argument("--m2-total", type=float, help="superficie total; ignora --casas/--m2 para el volumen")
+    p.add_argument("--m2-total", type=float,
+                   help="superficie total del proyecto; reemplaza a --casas × --m2 para el volumen "
+                        "(las unidades se deducen de --casas si lo pasas, o de --m2-total / --m2)")
     p.add_argument("--sistema", choices=list(SISTEMAS), default="mixto")
     p.add_argument("--escenario", choices=["min", "mid", "max"], default="mid")
     p.add_argument("--cnc", choices=list(PRECIO_CNC), default="ref", help="mecanizado CNC (default ref = 2,7)")
@@ -503,8 +621,19 @@ def main() -> int:
         return _tests()
 
     if a.losa:
-        luz, apoyo, pp, cu = float(a.losa[0]), a.losa[1], int(a.losa[2]), int(a.losa[3])
-        r = espesor_losa(luz, apoyo, pp, cu)
+        # Errores de tipeo salen como mensaje de argparse, no como traceback.
+        try:
+            luz, apoyo = float(a.losa[0]), a.losa[1]
+            pp, cu = int(float(a.losa[2])), int(float(a.losa[3]))
+        except ValueError:
+            p.error("--losa espera LUZ y cargas numéricas, por ejemplo: --losa 4 sa 150 200")
+        if not (luz > 0):
+            p.error("la luz tiene que ser mayor que cero, por ejemplo: --losa 4 sa 150 200")
+        try:
+            r = espesor_losa(luz, apoyo, pp, cu)
+        except ValueError as e:
+            p.error(f"{e}. Combinaciones válidas: APOYO sa|cont|vol · "
+                    "PP 50 con CARGA 100|200|300|500 · PP 150 con CARGA 200|300|500")
         if r is None:
             print(f"Ningún panel tabulado cubre {_n(luz)} m en esa condición. "
                   "Reduce la luz con un apoyo intermedio o pasa a solución mixta CLT+MLE.")
@@ -512,6 +641,9 @@ def main() -> int:
             esp, lmax, rf = r
             print(f"Losa CLT: espesor mínimo {esp} mm ({clt_capas(esp)} capas) — "
                   f"salva hasta {_n(lmax)} m (pides {_n(luz)} m).")
+            if esp == 60:
+                print("      OJO: el catálogo comercial no ofrece 60 mm; el panel equivalente es de")
+                print("      56 mm y salva MENOS luz. Usa 80 mm o confirma el 56 mm con Arauco.")
             print(f"Volumen: {esp/1000:.3f} m³ por m² de losa · peso propio ≈ {_n(esp/1000*500, 0)} kg/m².")
             print(f"Resistencia al fuego: F-{rf} con el CLT a la vista por debajo (sin revestimiento).")
             if rf < 60:
@@ -520,10 +652,19 @@ def main() -> int:
             print("PREDISEÑO REFERENCIAL — validar con el calculista y con la ficha de Arauco.")
         return 0
 
-    sup = a.m2_total if a.m2_total else a.casas * a.m2
-    unidades = a.casas if not a.m2_total else max(round(sup / a.m2) if a.m2 else 1, 1)
-    c = cubicar(sup, a.sistema, unidades=unidades, escenario=a.escenario, cnc=a.cnc,
-                impregnacion=not a.sin_impregnacion, holgura_pct=a.holgura, uf_clp=a.uf)
+    # --casas explícito manda siempre sobre la deducción a partir de --m2-total.
+    casas_explicito = any(x.startswith("--casas") for x in sys.argv[1:])
+    if a.m2_total is not None:
+        sup = a.m2_total
+        unidades = a.casas if casas_explicito else max(round(sup / a.m2) if a.m2 else 1, 1)
+    else:
+        sup, unidades = a.casas * a.m2, a.casas
+
+    try:
+        c = cubicar(sup, a.sistema, unidades=unidades, escenario=a.escenario, cnc=a.cnc,
+                    impregnacion=not a.sin_impregnacion, holgura_pct=a.holgura, uf_clp=a.uf)
+    except ValueError as e:
+        p.error(str(e))
     print(informe(c))
     return 0
 
