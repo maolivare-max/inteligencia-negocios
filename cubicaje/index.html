@@ -145,7 +145,8 @@ footer a{color:var(--accent)}
   </div>
   <div class="note"><b>Precio unitario resultante: <span id="ufm3">33,5</span> UF/m³
     (<span id="clpm3">—</span> por m³)</b>
-    No incluye transporte, fundaciones, terminaciones, montaje ni conectores.</div>
+    No incluye transporte, fundaciones ni terminaciones (el correo lo dice textual) y tampoco
+    <b>instalación</b> (confirmado por Lukas). Los conectores y fijaciones siguen sin confirmar.</div>
 </div>
 
 <!-- ══════════ TABS ══════════ -->
@@ -408,13 +409,19 @@ const PAGOS = [
    extraídas de la capa de texto del PDF (no por OCR) y validadas contra los tres
    casos de ejemplo que la propia ficha publica.
    Columnas por condición de apoyo: pp50 → [100,200,300,500] kgf/m² de carga de
-   uso, luego pp150 → [200,300,500]. La ficha no publica pp150 con carga 100. */
-const LOSA_ESP = [60,80,90,100,110,120,130,150,160,170,180,200,210];
+   uso, luego pp150 → [200,300,500]. La ficha no publica pp150 con carga 100.
+
+   El panel más delgado es el de 56 mm del Catálogo CLT (06-2026), que reemplaza al
+   de 60 mm de la ficha de losas 2025 — 60 mm ya no se fabrica. De ese panel Arauco
+   publica SOLO simplemente apoyado: sin datos de continuo, voladizo ni resistencia
+   al fuego (null = sin dato publicado; hay que pedírselos a Arauco). De 80 mm en
+   adelante, catálogo y ficha coinciden celda por celda. */
+const LOSA_ESP = [56,80,90,100,110,120,130,150,160,170,180,200,210];
 
 // Luz máxima [m] que salva cada panel.
 const LOSA = {
   sa: [
-    [2.75,2.50,2.25,1.75, 2.25,2.00,1.75],
+    [2.75,2.00,1.75,1.50, 1.75,1.75,1.50],   // 56 mm — Catálogo CLT 06-2026
     [3.75,3.00,3.00,2.50, 3.00,2.75,2.50],
     [4.25,3.25,3.25,2.75, 3.25,3.00,2.75],
     [4.50,3.50,3.50,3.00, 3.25,3.25,3.00],
@@ -429,7 +436,7 @@ const LOSA = {
     [7.50,5.75,5.75,5.50, 5.75,5.75,5.00]
   ],
   cont: [
-    [3.75,3.00,3.00,2.50, 3.00,2.75,2.25],
+    null,                                    // 56 mm — sin dato publicado
     [5.00,3.50,3.50,3.25, 3.50,3.50,3.25],
     [5.50,4.00,4.00,3.75, 4.00,4.00,3.50],
     [6.00,4.25,4.25,4.25, 4.25,4.25,3.75],
@@ -444,7 +451,7 @@ const LOSA = {
     [9.50,6.75,6.75,6.75, 6.75,6.75,6.50]
   ],
   vol: [
-    [1.25,1.00,1.00,0.75, 1.00,0.75,0.75],
+    null,                                    // 56 mm — sin dato publicado
     [1.75,1.50,1.25,1.00, 1.25,1.25,1.00],
     [2.00,1.50,1.50,1.25, 1.50,1.25,1.25],
     [2.00,1.75,1.50,1.25, 1.50,1.50,1.25],
@@ -464,21 +471,21 @@ const LOSA = {
    debajo (sin revestimiento). Segunda tabla de la misma ficha. */
 const LOSA_RF = {
   sa: [
-    [30,30,30,30, 30,30,15],   [60,60,30,30, 30,30,30],   [60,60,30,30, 30,30,30],
+    null,                      [60,60,30,30, 30,30,30],   [60,60,30,30, 30,30,30],
     [60,60,30,30, 30,30,30],   [90,90,60,60, 60,60,60],   [90,90,60,60, 60,60,60],
     [90,90,60,60, 60,60,60],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
     [90,90,90,90, 90,90,90],   [120,120,120,120, 120,120,90],
     [120,120,120,120, 120,120,120], [120,120,120,120, 120,120,120]
   ],
   cont: [
-    [30,15,15,15, 15,15,15],   [30,30,30,30, 30,30,30],   [30,30,30,30, 30,30,30],
+    null,                      [30,30,30,30, 30,30,30],   [30,30,30,30, 30,30,30],
     [30,30,30,30, 30,30,30],   [60,30,30,30, 30,30,30],   [60,60,60,30, 60,60,30],
     [60,60,60,60, 60,60,60],   [60,90,90,90, 60,60,90],   [60,90,90,90, 60,60,90],
     [90,90,90,90, 90,90,90],   [120,120,120,90, 120,120,90],
     [120,120,120,90, 120,120,90], [120,120,120,90, 120,120,90]
   ],
   vol: [
-    [30,30,30,30, 30,30,30],   [60,60,60,60, 60,60,60],   [60,60,60,60, 60,60,60],
+    null,                      [60,60,60,60, 60,60,60],   [60,60,60,60, 60,60,60],
     [90,60,60,60, 60,60,60],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
     [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],   [90,90,90,90, 90,90,90],
     [90,90,90,90, 90,90,90],   [120,120,120,120, 120,120,120],
@@ -710,8 +717,8 @@ function calcularLosa(){
       La ficha publica peso propio 50 con cargas 100/200/300/500, y peso propio 150 con 200/300/500.</div>`;
     return;
   }
-  let i = -1;
-  for (let k = 0; k < LOSA_ESP.length; k++) if (t[k][col] >= luz){ i = k; break; }
+  let i = -1;   // se saltan los paneles sin datos publicados para esta condición
+  for (let k = 0; k < LOSA_ESP.length; k++) if (t[k] && t[k][col] >= luz){ i = k; break; }
 
   if (i < 0){
     $("resLosa").innerHTML = `<div class="note warn"><b>Ningún panel de la tabla cubre ${nf(luz,2)} m en esa condición</b>
@@ -719,26 +726,30 @@ function calcularLosa(){
       intermedio (una viga MLE, por ejemplo) o pasar a una solución mixta CLT + MLE. Consúltalo con el calculista.</div>`;
     return;
   }
-  const esp = LOSA_ESP[i], lmax = t[i][col], rf = LOSA_RF[ap][i][col], kg = esp/1000*500;
+  const esp = LOSA_ESP[i], lmax = t[i][col], kg = esp/1000*500;
+  const rf = LOSA_RF[ap][i] ? LOSA_RF[ap][i][col] : null;   // null = Arauco no lo publica
   $("resLosa").innerHTML = `
     <div class="kpis">
       <div class="kpi acc"><div class="k">Espesor mínimo</div><div class="v">${esp} mm</div><div class="u">CLT de ${CLT_CAPAS(esp)} capas</div></div>
       <div class="kpi"><div class="k">Luz máxima del panel</div><div class="v">${nf(lmax,2)}</div><div class="u">m (pides ${nf(luz,2)} m)</div></div>
       <div class="kpi"><div class="k">Volumen de losa</div><div class="v">${nf(esp/1000,3)}</div><div class="u">m³ por m² de losa</div></div>
       <div class="kpi"><div class="k">Peso propio del panel</div><div class="v">${nf(kg,0)}</div><div class="u">kg/m² aprox. (500 kg/m³)</div></div>
-      <div class="kpi"><div class="k">Resistencia al fuego</div><div class="v">F-${rf}</div><div class="u">CLT a la vista, sin revestimiento</div></div>
+      <div class="kpi"><div class="k">Resistencia al fuego</div><div class="v">${rf === null ? "—" : "F-" + rf}</div><div class="u">${rf === null ? "Arauco no la publica" : "CLT a la vista, sin revestimiento"}</div></div>
     </div>
-    <div class="note ${rf >= 60 ? "ok" : "warn"}" style="margin-top:14px">
-      <b>${rf >= 60 ? `F-${rf} cumple el mínimo residencial` : `F-${rf}: ojo con la exigencia de fuego`}</b>
-      Según OGUC se exige F-60 en losas de edificaciones residenciales de hasta 4 pisos, y F-30 en viviendas
-      de hasta 2 pisos.${rf < 60 ? " Para subir a F-60: aumentar el espesor del panel o proteger con yeso cartón por debajo (pero entonces el CLT no queda a la vista como cielo)." : ""}</div>
-    ${esp === 60 ? `<div class="note warn" style="margin-top:10px"><b>El catálogo comercial no ofrece 60 mm</b>
-      La tabla de losas tabula 60 mm, pero el catálogo CLT vigente parte en 56 mm, y ese panel salva
-      <i>menos</i> luz (2,00 m donde el de 60 mm da 2,50 m, en simplemente apoyado con pp 150 y carga 200).
-      Usa 80 mm, o confirma con Arauco que te pueden fabricar el de 60 mm.</div>` : ""}
+    ${rf === null
+      ? `<div class="note warn" style="margin-top:14px"><b>Sin resistencia al fuego publicada para el panel de 56 mm</b>
+         La tabla de fuego de Arauco parte en 80 mm. Pídele el dato a Lukas antes de comprometer este panel
+         como losa: la OGUC exige F-60 en losas residenciales de hasta 4 pisos y F-30 en viviendas de hasta 2.</div>`
+      : `<div class="note ${rf >= 60 ? "ok" : "warn"}" style="margin-top:14px">
+         <b>${rf >= 60 ? `F-${rf} cumple el mínimo residencial` : `F-${rf}: ojo con la exigencia de fuego`}</b>
+         Según OGUC se exige F-60 en losas de edificaciones residenciales de hasta 4 pisos, y F-30 en viviendas
+         de hasta 2 pisos.${rf < 60 ? " Para subir a F-60: aumentar el espesor del panel o proteger con yeso cartón por debajo (pero entonces el CLT no queda a la vista como cielo)." : ""}</div>`}
+    ${esp === 56 ? `<div class="note warn" style="margin-top:10px"><b>Del panel de 56 mm solo hay datos de simplemente apoyado</b>
+      Arauco no publica su comportamiento continuo ni en voladizo, así que en esas condiciones el sistema
+      arranca en 80 mm. El de 56 mm es, sobre todo, un panel de muro.</div>` : ""}
     <div class="note" style="margin-top:10px"><b>Cómo usar este resultado</b>
       Lleva ${nf(esp/1000,3)} m³/m² a la pestaña 2 como partida "Losa CLT" con espesor ${esp} mm, o multiplica
-      directamente la superficie de losa por ese factor.${esp === 60 ? " (El desplegable de la pestaña 2 solo trae espesores de catálogo, así que ahí el mínimo es 56 mm.)" : ""}</div>`;
+      directamente la superficie de losa por ese factor.</div>`;
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -772,8 +783,8 @@ function pintarResumen(r, det){
   L.push(`COSTO REFERENCIAL DE MATERIAL (${nf(r.p,2)} UF/m³ = madera ${nf(num("pMadera"),1)} + impregnación ${nf(num("pImpreg"),1)} + CNC ${nf(parseFloat($("pCnc").value),1)})`);
   L.push(`  Total:               ${nf(r.ufTot,1)} UF   ≈ ${clp(r.clpTot)}   (UF = ${clp(num("uf"))})`);
   L.push(`  Por m²:              ${nf(r.sup?r.ufTot/r.sup:0,2)} UF/m²`);
-  L.push('  El correo excluye "transporte, fundaciones, terminaciones ni otros costos asociados');
-  L.push('  al proyecto". Montaje y conectores: confirmar con Arauco.');
+  L.push('  No incluye transporte, fundaciones ni terminaciones (textual del correo), ni la');
+  L.push('  instalación/montaje (confirmado por Lukas). Conectores y fijaciones: por confirmar.');
   L.push("");
   L.push("CALENDARIO DE PAGOS (condiciones estándar Arauco)");
   PAGOS.forEach(x => L.push(`  ${String(x.pct).padStart(3)}%  ${nf(r.ufTot*x.pct/100,1).padStart(9)} UF   ${x.t}`));
