@@ -169,8 +169,8 @@ footer a{color:var(--accent)}
       </div>
       <div>
         <label>Superficie por unidad (m²)</label>
-        <input type="number" id="m2Casa" value="100" min="1" step="1">
-        <div class="hint">Superficie construida, todos los pisos.</div>
+        <input type="number" id="m2Casa" value="133" min="1" step="1">
+        <div class="hint">Superficie construida, todos los pisos. Tu casa: 10,30 × 6,45 × 2 = 132,9 m².</div>
       </div>
       <div>
         <label>Superficie total del proyecto</label>
@@ -253,7 +253,7 @@ footer a{color:var(--accent)}
       </div>
       <div>
         <label>Superficie de referencia (m²)</label>
-        <input type="number" id="m2Ref" value="100" min="1" step="1">
+        <input type="number" id="m2Ref" value="132.87" min="1" step="0.01">
         <div class="hint">Superficie que cubren las partidas de arriba. Sirve para comparar tu cubicaje
           contra el ratio m³/m² de Arauco. Si cargaste una sola casa, pon los m² de esa casa.</div>
       </div>
@@ -261,8 +261,8 @@ footer a{color:var(--accent)}
         <label>Sistema con el que comparar</label>
         <select id="sistemaRef">
           <option value="mle">MLE (0,10–0,20)</option>
-          <option value="mixto" selected>MLE + CLT (0,20–0,30)</option>
-          <option value="clt">CLT (0,30–0,40)</option>
+          <option value="mixto">MLE + CLT (0,20–0,30)</option>
+          <option value="clt" selected>CLT (0,30–0,40)</option>
         </select>
         <div class="hint">Define contra qué rango se valida.</div>
       </div>
@@ -293,7 +293,7 @@ footer a{color:var(--accent)}
     <div class="grid g4">
       <div>
         <label>Luz a salvar (m)</label>
-        <input type="number" id="luz" value="4" min="0.5" max="10" step="0.25">
+        <input type="number" id="luz" value="6" min="0.5" max="10" step="0.25">
       </div>
       <div>
         <label>Condición de apoyo</label>
@@ -861,13 +861,16 @@ function autotest(){
        antes de usar este resultado.`;
 }
 
-// Estado inicial: el proyecto real del usuario — 20 casas de 100 m² en la
-// pestaña 1, y en la pestaña 2 un ejemplo editable de UNA casa de 100 m².
+/* Estado inicial: el proyecto real — 20 casas de 10,30 × 6,45 m, dos pisos de
+   2,60 m libres, dos losas de 20 cm y faldón de 30 cm arriba. El muro mide
+   2,60 + 0,20 + 2,60 + 0,20 + 0,30 = 5,90 m de alto; cada losa, 66,44 m².
+   La pestaña 2 arranca con esa casa tal como está definida hoy (muros de 56 mm,
+   losas de 200 mm); los avisos de la pestaña 3 marcan lo que hay que resolver. */
+sistema = "clt";
 pintarSistemas();
-addPartida("clt_muro",  {demo:true, desc:"Ejemplo · muros perimetrales y divisorios", m2:180, esp:100});
-addPartida("clt_losa",  {demo:true, desc:"Ejemplo · entrepiso segundo nivel",         m2:50,  esp:120});
-addPartida("mle_viga",  {demo:true, desc:"Ejemplo · vigas de techumbre",              cant:12, largo:5, ancho:120, alto:300});
-addPartida("mle_pilar", {demo:true, desc:"Ejemplo · pilares",                          cant:14, largo:2.6, ancho:120, alto:120});
+addPartida("clt_muro", {desc:"Muros largos (2 × 10,30 × 5,90 m)",  m2:121.54, esp:56});
+addPartida("clt_muro", {desc:"Testeros (2 × 6,45 × 5,90 m)",       m2:76.11,  esp:56});
+addPartida("clt_losa", {desc:"Losas entrepiso y techo (2 × 66,44 m²)", m2:132.87, esp:200});
 calcular();
 autotest();
 </script>
