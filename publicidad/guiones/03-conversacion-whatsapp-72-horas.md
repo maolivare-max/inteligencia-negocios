@@ -84,11 +84,11 @@ Lo que sigue reemplaza al cuerpo del anuncio como pieza central. Los tiempos est
 ### Localización
 
 - Ámbito: **comuna**, o radio sobre pin de **1 a 70 km** [verificado sin link] para servicio local. Este formato rinde especialmente en negocios donde de todas formas hay que hablar antes de vender: taller, jardín infantil, servicio a domicilio, corretaje, salud.
-- **Desactivar la expansión de ubicación** si el radio importa: viene activada por defecto [verificado].
+- **Desactivar la expansión de ubicación** si el radio importa: viene activada por defecto [verificado sin link].
 
 ### Género y edad
 
-- **Todos los géneros**, edad según el servicio. En Advantage+ el género es sugerencia, no control [verificado].
+- **Todos los géneros**, edad según el servicio. En Advantage+ el género es sugerencia, no control [verificado sin link].
 
 ### Intereses y comportamientos
 
@@ -97,7 +97,7 @@ Lo que sigue reemplaza al cuerpo del anuncio como pieza central. Los tiempos est
 ### Ubicaciones y objetivo de campaña
 
 - Objetivo: **Mensajes**, destino WhatsApp. No "Clientes potenciales": el punto entero del guion es no pasar por formulario.
-- Ubicaciones: **Advantage+ placements**, con la advertencia de que desde el 25-ago-2026 ninguna ubicación se puede excluir del todo (el tope es reducir la puja 90%) [verificado]. Como referencia de eficiencia relativa, Reels aparece como el emplazamiento más barato para conversaciones iniciadas [verificado sin link] (proveedor de WhatsApp Business — sesgo declarado).
+- Ubicaciones: **Advantage+ placements**, con la advertencia de que desde el 25-ago-2026 ninguna ubicación se puede excluir del todo (el tope es reducir la puja 90%) [verificado sin link]. Como referencia de eficiencia relativa, Reels aparece como el emplazamiento más barato para conversaciones iniciadas [verificado sin link] (proveedor de WhatsApp Business — sesgo declarado).
 
 ### Advertencia de categoría especial
 
@@ -108,9 +108,9 @@ Un beneficio lateral que sí conviene registrar: en rubros de salud, **calificar
 ### Benchmark de referencia para este targeting
 
 - **Costo por conversación respondida en Chile: [desconocido].** Es la métrica que decide este guion entero y **no existe públicamente**. El primer piloto tiene que instrumentarla, no buscarla.
-- Referencia chilena disponible, para dimensionar: **CLP 2.800 por mensaje** en una clínica dental de Providencia sobre CLP 350.000 mensuales [verificado sin link] (autorreporte de agencia sobre cliente anónimo). Benchmarks del mismo origen: salud CLP 1.500-4.000 por mensaje, estética y fitness CLP 700-2.000 [verificado sin link] (misma advertencia).
+- Referencia chilena disponible, para dimensionar: **CLP 2.800 por mensaje** en una clínica dental de Providencia sobre CLP 350.000 mensuales [verificado sin link] (autorreporte de agencia sobre cliente anónimo). Benchmarks del mismo origen: salud CLP 1.500-4.000 por mensaje, fitness y bienestar CLP 700-2.000 [verificado sin link] (misma advertencia).
 - **Costo de mensajería que hay que sumar al presupuesto y casi nadie suma:** mensaje de marketing ≈ USD 0,095 (~CLP 91), utilidad ≈ USD 0,028, autenticación ≈ USD 0,019 [verificado sin link]; **Chile está entre las tarifas más caras de LATAM**. La ventana de servicio de 24 horas **deja de ser gratuita el 1-oct-2026**. El proveedor de API suma entre 10% y 50% de recargo o USD 15-50 mensuales [verificado sin link]. Aritmética de entrada: 5.000 mensajes ≈ CLP 455.000 más CLP 30.000-50.000 mensuales de proveedor [estimado].
-- CPM de planificación: **≈ CLP 3.400** [estimado] (cálculo propio sobre gasto e impresiones verificados de la Biblioteca de Anuncios política chilena).
+- CPM de planificación: **≈ CLP 3.000-4.500** [estimado] (cálculo propio sobre gasto e impresiones verificados de la Biblioteca de Anuncios política chilena; inventario político en semana de campaña, probablemente cota superior).
 
 ## 5. Producción
 
@@ -153,14 +153,14 @@ Un beneficio lateral que sí conviene registrar: en rubros de salud, **calificar
 | Tasa de primera respuesta en menos de 10 minutos, horario hábil | ≥ 80 % | 7 días | [estimado] | el problema no es el anuncio: arreglar la atención antes de gastar más |
 | Tasa de conversación a cita agendada | ≥ 25 % | 30 días | [verificado sin link] — el caso chileno de referencia reporta 3 a 4 de cada 10, autorreportado por la agencia: se usa el piso del rango, no el techo | revisar las dos preguntas de calificación antes que el creativo |
 | Costo por conversación respondida | ≤ CLP 9.300 | 30 días | [estimado] (derivado) del caso chileno de referencia; **no es una meta de mercado, es la única cifra comparable que existe** | comparar contra el propio mes anterior, no contra este número |
-| Proporción del seguimiento hecho dentro de las 72 h gratuitas | ≥ 90 % de los mensajes enviados | continuo | [verificado] — política de Meta | la secuencia está mal calendarizada y se está pagando tarifa evitable |
+| Proporción del seguimiento hecho dentro de las 72 h gratuitas | ≥ 90 % de los mensajes enviados | continuo | [estimado] (umbral propio); la ventana de 72 h sí es [verificado] | la secuencia está mal calendarizada y se está pagando tarifa evitable |
 
 **Advertencia heredada del informe:** con CLP 200.000-300.000 mensuales una cuenta chilena genera del orden de 1 a 3 leads diarios y **no alcanza las ~50 conversiones en 7 días** que exige salir de la fase de aprendizaje [verificado sin link] (guía de Meta). Eso significa que el conjunto de anuncios va a operar en aprendizaje permanente y que **ninguna diferencia entre variantes va a ser legible**. Se corre igual, pero sabiendo qué se puede leer: volumen y velocidad de respuesta sí; comparaciones finas de costo entre variantes, no.
 
 ### Señal de aborto
 
-- **CLP 200.000 de gasto con menos de 5 conversaciones respondidas**, teniendo la respuesta automática activa y las tres variantes de hook probadas.
-- O bien: tasa de primera respuesta bajo 50% durante dos semanas. En ese caso el canal está mal elegido: WhatsApp exige una persona disponible, y si no la hay conviene volver al formulario nativo aunque convierta peor.
+- **CLP 200.000 de gasto con menos de 5 conversaciones respondidas** [estimado] (umbral propio, sin baseline), teniendo la respuesta automática activa y las tres variantes de hook probadas.
+- O bien: tasa de primera respuesta bajo 50% [estimado] (umbral propio) durante dos semanas. En ese caso el canal está mal elegido: WhatsApp exige una persona disponible, y si no la hay conviene volver al formulario nativo aunque convierta peor.
 
 ### Qué se registra al cerrar el test
 
@@ -168,10 +168,11 @@ Gasto, mensajes recibidos, conversaciones respondidas, citas agendadas, citas re
 
 ## 7. Trazabilidad
 
-- `reportes-publicidad/2026-09-06.md` — hallazgo 8 ("Click-to-WhatsApp: medir costo por conversación respondida, no el CPL") [verificado], sección de publicidad inmobiliaria.
+- `reportes-publicidad/2026-09-06.md` — hallazgo 8 ("Actualización — Click-to-WhatsApp: medir el costo por conversación respondida"), sección de publicidad inmobiliaria.
 - [Documentación de precios de WhatsApp Business (Meta)](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing) — respalda el cobro por mensaje entregado desde el 1-jul-2025 y el fin de la ventana de servicio gratuita el 1-oct-2026. Consultado 2026-09-06.
 - [Impulsados — costos de publicidad en Chile](https://impulsados.cl/costo-publicidad-instagram-facebook-chile/) — origen del caso de la clínica dental de Providencia y de los CLP 2.800 por mensaje [verificado sin link] de la **Métrica de referencia**. Autorreporte de agencia, cliente anónimo.
 - [Willowood Ventures — evento de ventas en Facebook](https://willowoodventures.com/facebook-sales-event/) — respalda las 167 citas y los tiempos de respuesta del caso estadounidense [verificado] (autorreportado).
 - [AsisteClick — conversión de click-to-WhatsApp 2026](https://asisteclick.com/en/blog/click-to-whatsapp-ads-ctwa-conversion-2026/) y [Kanal — benchmarks de click-to-WhatsApp](https://getkanal.com/blog/click-to-whatsapp-ads-benchmarks-2026) — respaldan la ventana de 72 horas y los rangos regionales de costo por conversación [estimado]; ambos son proveedores de WhatsApp, sesgo declarado.
 - [Agencia Walkers — guía de la Ley 21.719 para publicidad y marketing](https://walkers.cl/blog/digital/guia-nueva-ley-proteccion-de-datos-personales-21719-publicidad-y-marketing/) — respalda la fecha de vigencia y la exigencia de consentimiento por finalidad de la sección 4.
+- **Cobertura previa (este guion es una actualización, no un descubrimiento):** el mecanismo de click-to-WhatsApp y la ventana de 72 horas ya están indexados en `tendencias|click-to-whatsapp-ads-reemplazan-lead-forms` y `tendencias|nurturing-ventana-gratuita-72h-pricing-por-mensaje`. Lo que este guion agrega: el cambio de métrica a **costo por conversación respondida**, el caso chileno de Providencia, y los dos costos que ninguna entrada previa registra (tarifa chilena entre las más caras de LATAM y fin de la ventana de servicio gratuita el 1-oct-2026).
 - **Cifra deliberadamente ausente:** ningún CPL chileno se usa como meta en este guion [desconocido]. La métrica objetivo es el costo por conversación respondida, que no existe públicamente para Chile y por eso hay que medirlo.

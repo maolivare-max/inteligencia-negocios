@@ -74,11 +74,11 @@ Las tres van con **la misma oferta, el mismo formulario y la misma CTA**. Solo c
 ### Localización
 
 - Ámbito: **comuna**, o radio sobre un pin entre **1 y 70 km** fuera de EE.UU. [verificado sin link] si el negocio es de servicio con local físico. Para un negocio de barrio, dos o tres comunas contiguas: una sola deja la audiencia bajo el piso de entrega de ~500 mil personas.
-- **Desactivar la expansión de ubicación** si el radio es parte de la tesis: viene activada por defecto y un radio de una milla puede servirse hasta a ocho [verificado].
+- **Desactivar la expansión de ubicación** si el radio es parte de la tesis: viene activada por defecto y un radio de una milla puede servirse hasta a ocho [verificado sin link].
 
 ### Género y edad
 
-- **Todos los géneros**, y el rango etario que corresponda al servicio. En Advantage+ el género es una **sugerencia** que el sistema puede ignorar [verificado] (dos fuentes independientes): fijarlo da una sensación de control que no existe. Si se necesita fijarlo de verdad hay que salir a Original audiences y pagar el costo de renunciar a la optimización.
+- **Todos los géneros**, y el rango etario que corresponda al servicio. En Advantage+ el género es una **sugerencia** que el sistema puede ignorar [verificado sin link] (dos fuentes secundarias independientes coincidentes): fijarlo da una sensación de control que no existe. Si se necesita fijarlo de verdad hay que salir a Original audiences y pagar el costo de renunciar a la optimización.
 
 ### Intereses y comportamientos
 
@@ -88,7 +88,7 @@ Las tres van con **la misma oferta, el mismo formulario y la misma CTA**. Solo c
 ### Ubicaciones y objetivo de campaña
 
 - Objetivo: **Clientes potenciales** con formulario nativo, o **Mensajes** si el negocio ya opera por WhatsApp (ver guion 03).
-- Ubicaciones: **Advantage+ placements.** Desde el 25-ago-2026 los controles de ubicación empezaron a desaparecer del Administrador y el reemplazo tope la reducción de puja en 90%: ninguna ubicación se puede apagar del todo [verificado]. El creativo tiene que verse bien en Reels y en Feed.
+- Ubicaciones: **Advantage+ placements.** Desde el 25-ago-2026 los controles de ubicación empezaron a desaparecer del Administrador y el reemplazo tope la reducción de puja en 90%: ninguna ubicación se puede apagar del todo [verificado sin link]. El creativo tiene que verse bien en Reels y en Feed.
 
 ### Advertencia de categoría especial
 
@@ -98,14 +98,14 @@ Este guion **no gatilla categoría especial** mientras la oferta sea un servicio
 
 - CPL esperado en Chile: **[desconocido].** No existe un CPL chileno de Meta auditado por un tercero.
 - Referencias extranjeras de CPL, útiles como estructura y no como meta: **dental USD 76,71, legal USD 18,17, hogar USD 41,26, educación USD 28,22** [verificado] (LocaliQ/WordStream, 1.180 campañas de EE.UU., abr-2024 a jun-2025). Es **CPL de EE.UU., sin caso chileno medido**, y su ventana cierra en junio de 2025, antes de la reestructuración de Advantage+ de 2026.
-- Única referencia chilena en el rubro salud, para dimensionar: **CLP 5.400 a 12.000 por lead dental en región** [verificado sin link — autorreporte de la agencia que vende el servicio, cliente anónimo, Valdivia]. Nótese que el "12.000" de esa cifra es el mismo número redondo que aparece como punto de partida en casos de otros rubros y otras ciudades: no es un baseline, es el "antes" que usan las agencias chilenas al publicar un caso de éxito. Ver la contra-evidencia del informe de origen.
+- Única referencia chilena en el rubro salud, para dimensionar: **CLP 5.400 a 12.000 por lead dental en región** [verificado sin link] (autorreporte de la agencia que vende el servicio, cliente anónimo, Valdivia). Nótese que el "12.000" de esa cifra es el mismo número redondo que aparece como punto de partida en casos de otros rubros y otras ciudades: no es un baseline, es el "antes" que usan las agencias chilenas al publicar un caso de éxito. Ver la contra-evidencia del informe de origen.
 - CPM de planificación: **≈ CLP 3.400** [estimado] (cálculo propio sobre gasto e impresiones verificados de la Biblioteca de Anuncios política chilena), probablemente cota superior.
 
 ## 5. Producción
 
 ### Piezas
 
-- Formato principal: **imagen estática** 1:1 y 4:5, más 9:16. La ruta de autodiagnóstico funciona como **texto sobre fondo plano**, que es uno de los formatos con mejor tasa de acierto en la muestra más grande disponible, precisamente porque se produce en minutos [verificado].
+- Formato principal: **imagen estática** 1:1 y 4:5, más 9:16. La ruta de autodiagnóstico funciona como **texto sobre fondo plano**, que es uno de los formatos con mejor tasa de acierto en la muestra más grande disponible, precisamente porque se produce en minutos [verificado sin link] (Motion, Creative Benchmarks 2026).
 - Variantes mínimas para test: **3 hooks sobre 1 oferta**. Nunca 3 ofertas.
 - Subtítulos quemados: sí, si se produce la versión video.
 
@@ -139,13 +139,13 @@ El KPI principal de este guion **no es el CPL**: es el costo por primera visita 
 |---|---|---|---|---|
 | Primeras visitas realizadas antes de escalar presupuesto | mínimo 10 | 30 días | [estimado] (sin caso chileno medido) — bajo ese volumen ninguna comparación entre variantes distingue nada | seguir corriendo sin cambiar nada; el problema no se resuelve moviendo la pauta |
 | Tasa de lead a visita realizada | ≥ 30 % | 30 días | [estimado] — la referencia extranjera para odontología es 8-15% con seguimiento bajo 5 minutos [verificado sin link], y una oferta con precio de entrada debería superarla | el problema está entre el formulario y la agenda, no en el anuncio: revisar tiempo de respuesta antes de tocar el creativo |
-| Formularios acumulados antes de concluir sobre el CPL | mínimo 20 | 30 días | [verificado] — con 15-45 leads por brazo el intervalo del CPL es de ±30-40% | no comparar variantes por CPL: comparar por composición de la demanda |
+| Formularios acumulados antes de concluir sobre el CPL | mínimo 20 | 30 días | [estimado] (cálculo propio de intervalos de confianza: con 15-45 leads por brazo el intervalo del CPL es de ±30-40%) | no comparar variantes por CPL: comparar por composición de la demanda |
 | Hook rate por variante, si se produce video | ≥ 25 % | primeras 48 h | [estimado] — Motion, la muestra más grande del mercado, ni siquiera define hook rate; es filtro de descarte, no predictor de venta | matar esa variante de hook y dejar el resto intacto |
 | Costo por resultado contra el propio histórico | no superar el doble | mensual | [verificado sin link] — definición de fatiga creativa de Meta | reponer creativo, no subir presupuesto |
 
 ### Señal de aborto
 
-- **CLP 200.000 de gasto acumulado con menos de 3 visitas realizadas**, habiendo probado las tres variantes de hook y con tiempo de respuesta bajo 10 minutos verificado. Eso indica que el precio de entrada no es suficientemente atractivo o que la oferta no es creíble en ese rubro, y ninguna de las dos cosas se arregla con más pauta.
+- **CLP 200.000 de gasto acumulado con menos de 3 visitas realizadas** [estimado] (umbral propio, sin baseline), habiendo probado las tres variantes de hook y con tiempo de respuesta bajo 10 minutos comprobado. Eso indica que el precio de entrada no es suficientemente atractivo o que la oferta no es creíble en ese rubro, y ninguna de las dos cosas se arregla con más pauta.
 
 ### Qué se registra al cerrar el test
 
