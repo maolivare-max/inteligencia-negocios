@@ -177,8 +177,13 @@ en Leads, haga lo que haga el resto.
   puestos en una ficha que decía literalmente "no es un descuento" — revisa el texto de
   la propia ficha antes de fijar cada valor, no lo que "suena parecido". Si un hallazgo
   es la actualización o el origen de otro (lo dice el propio texto, ej. "es el origen del
-  guion 1" o "actualiza el hallazgo N"), sus tácticas compartidas deben reflejarlo: al
-  menos un valor en común si el mecanismo es el mismo.
+  guion 1" o "actualiza el hallazgo N"), debe compartir al menos un valor **en algún
+  eje** — táctica, formato, conciencia u oferta.
+  **Y ese valor tiene que salir del texto de las dos fichas, no ponerse para que calcen.**
+  En la vuelta 2 de auditoría se detectó justo eso: `hook_contraste` agregado al hallazgo
+  3 para emparejarlo con el 6, cuando ese anuncio no yuxtapone cifras y lo que realmente
+  comparten es `oferta_gratis` + `conciencia_1`. Si no comparten nada, considera que el
+  eje común sea otro, o que no fueran el mismo mecanismo — no inventes la coincidencia.
 - Cuando `**Por qué funciona:**` de un hallazgo se apoya en tiempo activo en la Ad
   Library en vez de una métrica medida, agrega la línea `Señal Ad Library: {días
   activos} (consultado {fecha}) · {n} variantes · tier {tier_x}` (ver CLAUDE.md → MISIÓN

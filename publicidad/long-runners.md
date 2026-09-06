@@ -27,7 +27,7 @@ alcanzó el tier mínimo para publicarse como hallazgo, se registra igual — es
 | Rose Rock Orthodontics | "Ask about our $99 New Patient Special!" — ancla de precio | no declarado | 8,3 años ≈ 3.030 días [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
 | Guru Dental Group | Ancla de precio, misma familia de Rose Rock | no declarado | 5,4 años ≈ 1.971 días [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
 | The Smilist | Ancla de precio, misma familia de Rose Rock | no declarado | 4,7 años ≈ 1.716 días [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
-| Global International | Ruta de autodiagnóstico ("$59 A/C Tuneup") | no declarado | 1.500+ [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
+| Global International | Ruta cifra, con ancla de precio ("$59 A/C Tuneup") | no declarado | 1.500+ [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
 | (sin nombre de anunciante — climatización/techos) | "Leaky Roof?" — autodiagnóstico en dos palabras | no declarado | 900+ [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
 | Cobex Construction | "SACRAMENTO HOMEOWNERS" — llamado demográfico/geográfico | no declarado | 770+ [verificado] | 1 | `tier_90_mas` | 2026-09-06 | No en el informe (solo en guion 02, sección 1) |
 | DiPietro Law Group | Pregunta sobre la vida del lector, no credencial | no declarado | 6,4 años ≈ 2.336 días [verificado] | 1 | `tier_90_mas` | 2026-09-06 | Sí — hallazgo 2 / guion 02 |
@@ -41,6 +41,6 @@ alcanzó el tier mínimo para publicarse como hallazgo, se registra igual — es
 `publicidad/guiones/{01-tasacion-cifra-de-referencia,02-puerta-de-entrada-barata}.md` (sección 1,
 "Anatomía del original"). Todas las cifras de días activos llevan `[verificado]` en la fuente
 original (runtime público de la Biblioteca de Anuncios o de los censos de terceros citados en esos
-hallazgos); ninguna es `[estimado]` ni `[desconocido]`. Sembrado 2026-09-07 en la vuelta 1 de
+hallazgos); ninguna es `[estimado]` ni `[desconocido]`. Sembrado 2026-09-06 en la vuelta 1 de
 auditoría de la taxonomía (MENOR-2 del acta), para que `pub-anuncios` no vuelva a levantar estos
 anunciantes como "nuevo hallazgo" sin revisar primero esta tabla.

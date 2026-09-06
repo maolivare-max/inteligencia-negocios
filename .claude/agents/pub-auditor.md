@@ -79,12 +79,22 @@ cada guion de la entrega:
   tipo LeadSync o 9 Clouds que citan texto, no la pieza), el valor correcto es
   `sin_dato`, no un formato inventado por asociación. Un `formato_*` sin descripción
   visual que lo sostenga = MAYOR.
-- **Mismo mecanismo, mismo núcleo de tácticas.** Si el propio texto dice que un hallazgo
-  es "el origen de" un guion, una "actualización de" otro hallazgo, o describe el mismo
-  anuncio/mecánica que otra ficha ya auditada, sus tácticas deben compartir al menos un
-  valor. Cero tácticas en común entre fichas que el texto declara como el mismo mecanismo
-  = MAYOR (es la falla que la taxonomía existe para prevenir — ver `taxonomia.md` línea
-  10).
+- **Mismo mecanismo, mismo núcleo — sostenido por el texto.** Si el propio texto dice que
+  un hallazgo es "el origen de" un guion, una "actualización de" otro hallazgo, o describe
+  el mismo anuncio/mecánica que otra ficha ya auditada, deben compartir al menos un valor
+  **en algún eje** — táctica, formato, conciencia u oferta, el que corresponda. Cero
+  valores en común entre fichas que el texto declara como el mismo mecanismo = MAYOR (es
+  la falla que la taxonomía existe para prevenir — ver `taxonomia.md` línea 10).
+
+  **Pero el valor común tiene que estar sostenido por el texto de AMBAS fichas.** Esta
+  regla, escrita antes como "sus tácticas deben compartir al menos un valor", produjo en
+  la vuelta 1 exactamente el vicio que pretendía evitar: se le puso `hook_contraste` al
+  hallazgo 3 para que calzara con el hallazgo 6, cuando ese anuncio no yuxtapone cifras
+  —su mecanismo es "no te vendo nada"— y lo que de verdad comparten es `oferta_gratis` +
+  `conciencia_1`. Una etiqueta puesta para satisfacer al auditor es peor que la
+  discrepancia que oculta: la discrepancia se ve, la etiqueta forzada no. Si dos fichas
+  son el mismo mecanismo y no comparten nada, la respuesta correcta puede ser que el eje
+  compartido es otro, o que no eran el mismo mecanismo.
 - **Misma evidencia, misma etapa de conciencia.** Si un guion deriva de un hallazgo y
   describe a los mismos anunciantes/anuncios, su `conciencia` debe coincidir con la del
   hallazgo de origen (o la ficha explica por qué difiere). Valores distintos sin

@@ -31,7 +31,8 @@ Esto **no es una copia literal** del repo de Motion. Se hicieron los siguientes 
   taxonomía completa). El esquema de 8 ejes con "oferta" que cita el informe de mejoras viene de una
   **reseña de tercero** sobre el producto pago de Motion (adlibrary.com), no del repo MIT, y esa
   reseña no publica el vocabulario. Para no inventar una lista y presentarla como si fuera de Motion,
-  se agregó acá una lista corta y explícitamente propia (6 valores) — es la única sección de este
+  se agregó acá una lista corta y explícitamente propia (7 valores) — junto con
+  `formato_estatico_texto` (eje 2), las únicas dos entradas de este
   archivo que no tiene respaldo en el repo fuente.
 - **No se adoptó** el eje "psychological triggers" (los "triggers" que Motion separa de las
   tácticas — Pattern Interrupt, Curiosity Gap, Social Proof/Credibility, etc. — ver
@@ -109,7 +110,7 @@ no adoptado como eje — ver nota de adaptación).
 
 ---
 
-## Eje 2 — Formato visual (46 valores)
+## Eje 2 — Formato visual (46 de Motion + 1 propio)
 
 Qué aspecto tiene y cómo está producido el anuncio. Es el vehículo, no el mensaje.
 
@@ -161,7 +162,7 @@ Qué aspecto tiene y cómo está producido el anuncio. Es el vehículo, no el me
 | `formato_nosotros_vs_ellos` | Us vs. Them | Video o estático | Comparación lado a lado o secuencial contra un competidor o alternativa. |
 | `formato_vsl` | VSL (Video Sales Letter) | Solo video | Video largo (60+ segundos) que introduce y agita un problema, construye deseo, presenta el producto como solución y cierra con CTA. |
 | `formato_hablando_camara` | Yapper | Solo video | Video de una sola toma, hablando directo a cámara, un solo hablante, un solo ambiente, sin cortes de material nuevo. |
-| `formato_estatico_texto` | **— (valor propio, NO viene de Motion)** | Solo estático | Imagen estática simple con copy superpuesto sobre fondo plano o un documento (avalúo, captura, cifra), sin foto de persona ni de producto y sin más detalle de producción disponible. Agregado el 2026-09-07 tras la auditoría de la vuelta 1 (ver Registro de cambios): la lista de Motion está hecha para creativos DTC con foto/video de producto, y no tiene un valor neutro para la pieza más común del corpus de servicios locales — texto plano sobre fondo, sin actor ni producto en pantalla. Usar solo cuando la ficha describe explícitamente este tipo de pieza (ej. la sección "Producción" de un guion); si la ficha no describe el visual en absoluto, usar `sin_dato`, no este valor. |
+| `formato_estatico_texto` | **— (valor propio, NO viene de Motion)** | Solo estático | Imagen estática simple con copy superpuesto sobre fondo plano o un documento (avalúo, captura, cifra), sin foto de persona ni de producto y sin más detalle de producción disponible. Agregado el 2026-09-06 tras la auditoría de la vuelta 1 (ver Registro de cambios): la lista de Motion está hecha para creativos DTC con foto/video de producto, y no tiene un valor neutro para la pieza más común del corpus de servicios locales — texto plano sobre fondo, sin actor ni producto en pantalla. Usar solo cuando la ficha describe explícitamente este tipo de pieza (ej. la sección "Producción" de un guion); si la ficha no describe el visual en absoluto, usar `sin_dato`, no este valor. |
 
 ---
 
@@ -181,7 +182,7 @@ Schwartz (no es una taxonomía original de Motion).
 
 ---
 
-## Eje 4 — Tipo de oferta (6 valores, eje propio — NO viene de Motion)
+## Eje 4 — Tipo de oferta (7 valores, eje propio — NO viene de Motion)
 
 Ver la nota de adaptación arriba: esta lista no tiene respaldo en el repo MIT de Motion. Se agrega
 para completar la línea de etiquetas, con un vocabulario chico y explícito en vez de texto libre.
@@ -190,7 +191,7 @@ para completar la línea de etiquetas, con un vocabulario chico y explícito en 
 |---|---|
 | `oferta_gratis` | Se entrega algo gratis (informe, muestra, contenido) sin condición de compra. |
 | `oferta_descuento` | Rebaja de precio directa sobre el servicio principal, con o sin plazo. |
-| `oferta_entrada` | Producto o servicio de entrada a precio bajo (a veces con el precio normal visible al lado, a modo de ancla), que **no es una rebaja del servicio principal** — la consulta/evaluación se cobra poco o nada y el margen ocurre después, en el servicio que sí se vende caro. Agregado el 2026-09-07 tras la auditoría de la vuelta 1 (ver Registro de cambios): `oferta_descuento` no cubre este mecanismo, y varias fichas del corpus dicen explícitamente "no es un descuento". |
+| `oferta_entrada` | Producto o servicio de entrada a precio bajo (a veces con el precio normal visible al lado, a modo de ancla), que **no es una rebaja del servicio principal** — la consulta/evaluación se cobra poco o nada y el margen ocurre después, en el servicio que sí se vende caro. Agregado el 2026-09-06 tras la auditoría de la vuelta 1 (ver Registro de cambios): `oferta_descuento` no cubre este mecanismo, y varias fichas del corpus dicen explícitamente "no es un descuento". |
 | `oferta_prueba` | Período o unidad de prueba antes de comprometerse al pago completo. |
 | `oferta_garantia` | Garantía de devolución o resultado que reduce el riesgo percibido de comprar. |
 | `oferta_paquete` | Combo o bundle de productos/servicios a un precio conjunto. |
@@ -202,7 +203,7 @@ para completar la línea de etiquetas, con un vocabulario chico y explícito en 
 
 - **2026-09-06 — creación.** 33 tácticas de hook, 46 formatos visuales, 5 etapas de conciencia
   (todos de Motion) y 6 valores de tipo de oferta (propios).
-- **2026-09-07 — vuelta 1 de auditoría (`pub-auditor`, acta en `scratchpad/mision5/acta-taxonomia.md`
+- **2026-09-06 — vuelta 1 de auditoría (`pub-auditor`, acta en `scratchpad/mision5/acta-taxonomia.md`
   de esa sesión).** El acta encontró que el retrofit inicial etiquetaba el mismo mecanismo de
   tasación (hallazgo 3, hallazgo 6 y guion 01 de `reportes-publicidad/2026-09-06.md`) con cero
   tácticas en común, usaba `oferta_descuento` en fichas que dicen textualmente "no es un descuento",
