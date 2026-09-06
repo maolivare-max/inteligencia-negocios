@@ -423,6 +423,18 @@ def load_metricas_config():
 # ── mapeo score → impacto/costo (heurístico, la mission no reporta estos
 #    dos ejes por separado con nombres consistentes entre ambas misiones) ──
 
+def conf_es_alta(conf):
+    """True solo si la confianza declarada ES Alta, no si la palabra 'alta'
+    aparece en alguna parte del texto.
+
+    El campo se escribe como 'Alta (múltiples fuentes coinciden)' o
+    'Media-Alta (cifras de un vendedor)': la confianza es la primera palabra y
+    lo que sigue es la justificación. Un `"alta" in conf` marcaba las 86 fichas
+    de 'Media-Alta' como verificadas y les quitaba el ⚠ del dashboard."""
+    primera = re.split(r"[^a-záéíóúñ-]+", (conf or "").strip().lower(), maxsplit=1)
+    return bool(primera) and primera[0] == "alta"
+
+
 def score_tier(score):
     if score >= DESTACADA: return "destacada"
     if score >= HIGH:      return "alta"
@@ -476,7 +488,12 @@ def build_dataset(data, indice):
                     "pasos": o["pasos"],
                     "metrica_exito": o["metrica"],
                     "confianza": o["conf"],
-                    "verificado": "alta" in (o["conf"] or "").lower(),
+                    # OJO: no basta con buscar "alta" dentro del texto. 86 hallazgos
+                    # dicen "Media-Alta (...)" y quedaban marcados como verificados,
+                    # sin el ⚠ de "Confianza no alta" — el dashboard inflaba la
+                    # confianza aparente justo donde el analista declaró una reserva.
+                    # La confianza es la PRIMERA palabra; el resto es la justificación.
+                    "verificado": conf_es_alta(o["conf"]),
                     "veredicto_chile": veredicto,
                     "accion": accion,
                     "nivel": nivel,
