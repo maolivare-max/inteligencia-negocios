@@ -7,7 +7,7 @@ description: >-
   reales de Meta (categorías especiales de anuncios de vivienda, empleo y crédito, que
   limitan edad, género y radio) y la brecha de adopción vs. el mundo. Es quien aterriza
   cada candidato a guion a una segmentación posible en Chile.
-model: opus
+model: sonnet
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---
 

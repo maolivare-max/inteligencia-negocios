@@ -7,7 +7,7 @@ description: >-
   (puede pisar a los equipos, dejando registro) y escribe el informe semanal en reportes-
   publicidad/ y los guiones en publicidad/guiones/. Se convoca los domingos después de la
   Mesa de Proyectos, o a mano con "convoca la mesa de publicidad".
-model: opus
+model: sonnet
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 

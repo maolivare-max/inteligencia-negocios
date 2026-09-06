@@ -8,11 +8,11 @@ cuerpo es su prompt. Claude Code los carga solo al abrir una sesión en este rep
 
 | Agente | Modelo | Rol | Entrega (en la carpeta de trabajo) |
 |---|---|---|---|
-| `pub-ceo` | opus | Orquestador. No investiga: cruza las entregas, exige segunda pasada cuando la evidencia no cierra, pisa a los equipos con registro, escribe el informe y los guiones. | `ronda2.md`, `reportes-publicidad/YYYY-MM-DD.md`, `publicidad/guiones/NN-slug.md`, `entrega.md` |
-| `pub-anuncios` | opus | Mejores campañas del mercado, cualquier lugar y rubro, diseccionadas (hook, ángulo, oferta, prueba social, CTA, formato, mecanismo). | `anuncios.md` (fichas A-N) |
-| `pub-busqueda` | opus | Rastrea métricas publicadas: Ad Library, casos, agencias, benchmarks, prensa. Tabla de evidencia con link, fecha, etiqueta y modo de verificación. | `busqueda.md` (filas B-N) |
-| `pub-chile` | opus | Cómo se segmenta hoy en Chile (localización · género · intereses), benchmarks en CLP, restricciones de Meta (categorías especiales) y brecha de adopción. | `chile.md` (bloques C-N) |
-| `pub-inmobiliario` | opus | Anuncios inmobiliarios concretos, Chile y mundo, con métrica y con el puente a lo que necesitamos. | `inmobiliario.md` (casos I-N) |
+| `pub-ceo` | sonnet | Orquestador. No investiga: cruza las entregas, exige segunda pasada cuando la evidencia no cierra, pisa a los equipos con registro, escribe el informe y los guiones. | `ronda2.md`, `reportes-publicidad/YYYY-MM-DD.md`, `publicidad/guiones/NN-slug.md`, `entrega.md` |
+| `pub-anuncios` | sonnet | Mejores campañas del mercado, cualquier lugar y rubro, diseccionadas (hook, ángulo, oferta, prueba social, CTA, formato, mecanismo). | `anuncios.md` (fichas A-N) |
+| `pub-busqueda` | sonnet | Rastrea métricas publicadas: Ad Library, casos, agencias, benchmarks, prensa. Tabla de evidencia con link, fecha, etiqueta y modo de verificación. | `busqueda.md` (filas B-N) |
+| `pub-chile` | sonnet | Cómo se segmenta hoy en Chile (localización · género · intereses), benchmarks en CLP, restricciones de Meta (categorías especiales) y brecha de adopción. | `chile.md` (bloques C-N) |
+| `pub-inmobiliario` | sonnet | Anuncios inmobiliarios concretos, Chile y mundo, con métrica y con el puente a lo que necesitamos. | `inmobiliario.md` (casos I-N) |
 | `pub-auditor` | fable | Audita informe y guiones antes del commit: contrato, etiquetas, links, repetición, vicios del corpus, módulo de métricas apagado. Corre `validar_formato.py`. No edita. | Acta de auditoría (mensaje final) |
 
 ## Cómo cambiar el modelo de un agente
@@ -24,16 +24,24 @@ frontmatter:
 ---
 name: pub-anuncios
 description: ...
-model: opus        # ← valores válidos: opus · sonnet · haiku · fable
+model: sonnet      # ← valores válidos: opus · sonnet · haiku · fable
 tools: ...
 ---
 ```
 
-Recomendación vigente (ESPEC-MISION5): los cuatro equipos de investigación y el CEO en
-`opus`; el auditor en `fable`. Para bajar costo en una semana de prueba, `sonnet` en
-los equipos de investigación es el primer candidato; el CEO y el auditor conviene
-dejarlos como están (el CEO decide y el auditor es la última barrera). Cambiar el
-modelo no requiere tocar nada más: ni CLAUDE.md, ni RUNBOOK, ni la Routine.
+Configuración vigente (decisión del usuario, 2026-09-06): los cuatro equipos de
+investigación y el CEO en `sonnet`; el auditor en `fable`. La separación importa más
+que el modelo concreto: quien escribe y quien audita no pueden ser el mismo criterio, y
+por eso el auditor se deja distinto aunque cambie el resto. Si en alguna semana el
+cruce del CEO se ve pobre —contradicciones que no detecta, cifras que deja pasar— el
+primer candidato a subir de vuelta a `opus` es `pub-ceo`, que es el que decide.
+
+**OJO, esto cambió:** antes este README decía que cambiar el modelo no obliga a tocar
+nada más. Es falso. La Routine de la Misión 5 tiene su PROPIO campo de modelo, que
+gobierna la sesión que orquesta las rondas —no a los agentes, que sí obedecen su
+frontmatter—. Si cambias el equipo acá y no cambias la Routine, la sesión del domingo
+sigue corriendo con el modelo viejo. Se ajusta con `update_trigger` sobre
+`trig_0157myVkPuxCAAGADmh3g4Ft`, o desde `claude.ai/code/routines`.
 
 ## Cómo se convoca la mesa
 
