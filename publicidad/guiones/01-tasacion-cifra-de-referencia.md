@@ -5,6 +5,7 @@
 > **Origen:** Denny Menholt University Honda — EE.UU. (Montana) — caso publicado por 9 Clouds, con la mecánica confirmada en Amanda Howard Sotheby's, Teresa Robertson (Keller Williams), Jordan Myers (eXp) y Coldwell Banker OnTrack vía Biblioteca de Anuncios — 2026-09-06
 > **Métrica de referencia:** CPL USD 18,54 con 89 formularios en 2,5 meses [verificado]; corridas continuas de 575, 440, 150 y 75 días en los cuatro anunciantes inmobiliarios [verificado]; CPL de esos cuatro [desconocido]
 > **Tesis:** El prospecto ya tiene en la cabeza una cifra sobre lo suyo, y sospecha que está mal; ofrecerle corregirla no se lee como venta, se lee como servicio, y por eso el anuncio no caduca.
+> **Etiquetas:** táctica={hook_contraste, hook_promesa_extrema, hook_reversion_riesgo} · formato={formato_estadistica, formato_texto_nativo} · conciencia={conciencia_1_no_consciente} · oferta={oferta_gratis}
 
 ## 1. Anatomía del original
 

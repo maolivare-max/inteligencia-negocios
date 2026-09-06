@@ -5,6 +5,7 @@
 > **Origen:** Rose Rock Orthodontics, Guru Dental Group y The Smilist (odontología, EE.UU.), Global International y Lee's Air (climatización), Central Arkansas Roofing y Cobex Construction (techos), DiPietro Law Group y Bengal Law (legal) — Biblioteca de Anuncios de Meta vía LeadSync — 2026-09-06
 > **Métrica de referencia:** corridas continuas de 8,3 años (Rose Rock), 6,4 años (DiPietro), 1.500+ días (Global International) y 900+ días (*"Leaky Roof?"*) [verificado]; CPL dental EE.UU. USD 76,71 y legal USD 18,17 [verificado]; CPL de estos anunciantes en particular [desconocido]
 > **Tesis:** El anuncio que sobrevive años no vende el servicio caro: vende una primera visita barata con el precio normal puesto al lado, y deja que el margen ocurra después.
+> **Etiquetas:** táctica={hook_ancla_precio, hook_pregunta, hook_llamado_demografico} · formato={formato_estadistica, formato_texto_nativo} · conciencia={conciencia_2_consciente_problema} · oferta={oferta_descuento}
 
 ## 1. Anatomía del original
 

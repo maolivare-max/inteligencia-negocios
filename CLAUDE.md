@@ -907,6 +907,8 @@ Reutiliza **exactamente** el contrato de hallazgos que valida `validar_formato.p
   pueden usar tal cual
 · **Dónde lo encontré:** [texto](url) — links en la MISMA línea
 · **Confianza:** Alta / Media / Baja (dos puntos FUERA de las negritas)
+· **Etiquetas:** táctica={valor(es) de publicidad/taxonomia.md} · formato={ídem} ·
+  conciencia={ídem} · oferta={ídem}
 · **Pasos esta semana:**
   1. Acción concreta
   2. Acción concreta
@@ -915,6 +917,14 @@ Reutiliza **exactamente** el contrato de hallazgos que valida `validar_formato.p
 
 Raya EM (`—`) y score entero: guion, en-dash o "~14" hacen que el hallazgo se pierda
 en silencio.
+
+**Etiquetas:** los cuatro ejes (táctica de hook, formato visual, etapa de conciencia, tipo de
+oferta) y su vocabulario cerrado viven en `publicidad/taxonomia.md` — no inventar valores nuevos
+sobre la marcha. Un eje puede llevar más de un valor separado por coma si el creativo combina
+mecanismos (ej. `táctica={hook_contraste, hook_ancla_precio}`); si un eje no aplica o no se pudo
+determinar, se escribe `sin_dato` en vez de omitir el eje. `validar_formato.py` avisa (no rompe el
+build) cuando falta la línea o cuando trae un valor fuera del vocabulario — es migración progresiva,
+no retroactiva a la fuerza.
 
 ---
 
@@ -957,6 +967,7 @@ informe rompe el parser o crea un hallazgo fantasma):
 > **Origen:** [marca/anunciante — país — dónde se vio + fecha]
 > **Métrica de referencia:** [cifra + [verificado]/[verificado sin link]/[estimado]/[desconocido]]
 > **Tesis:** una sola frase de por qué funciona.
+> **Etiquetas:** táctica={valor(es) de publicidad/taxonomia.md} · formato={ídem} · conciencia={ídem} · oferta={ídem}
 
 ## 1. Anatomía del original
 ## 2. Guion adaptable
@@ -969,7 +980,11 @@ informe rompe el parser o crea un hallazgo fantasma):
 
 Reglas duras del contrato (idénticas en espíritu a la Misión 4):
 - El título es la ÚNICA línea que empieza con un solo `# `.
-- Las 5 líneas `>` son obligatorias, en ese orden y con esos nombres exactos.
+- Las 5 líneas `>` de metadatos originales (Estado, Tipo, Origen, Métrica de referencia, Tesis)
+  son obligatorias, en ese orden y con esos nombres exactos, y son las que exige el parser
+  (`build_dashboard.py`) para considerar el guion válido. La 6ª línea, `> **Etiquetas:**`, es
+  metadata adicional: `validar_formato.py` la chequea con severidad AVISO (no rompe el build si
+  falta o si un guion viejo aún no la trae) — ver "Etiquetas" más abajo.
 - Las 7 secciones `##` van numeradas, con esos nombres exactos, en ese orden.
   Subtítulos internos = `###`.
 - PROHIBIDO el patrón `— Score X/20` en encabezados `##` dentro de `publicidad/`.
@@ -980,6 +995,9 @@ Reglas duras del contrato (idénticas en espíritu a la Misión 4):
 - Sección 7 (Trazabilidad) debe citar al menos un `reportes-publicidad/AAAA-MM-DD.md`.
 - Toda cifra de CPL/CTR/ROAS lleva etiqueta de origen [verificado] / [verificado sin
   link] / [estimado] / [desconocido]. Cifra sin etiqueta = error de contrato.
+- **Etiquetas:** mismo vocabulario y misma regla que en el hallazgo (ver FORMATO DE CADA
+  HALLAZGO arriba) — valores de `publicidad/taxonomia.md`, `sin_dato` si un eje no aplica,
+  varios valores por eje separados por coma si el guion combina mecanismos.
 
 Reglas de operación sobre el contrato:
 - NN correlativo (`01-`, `02-`...); se parte de `publicidad/guiones/_plantilla.md` y
@@ -991,6 +1009,30 @@ Reglas de operación sobre el contrato:
   medida — lo que hoy no ocurre porque el módulo de métricas está apagado.
 - Sección 6: el KPI trae baseline declarado o la marca "sin baseline, estimado". Metas a
   30 días sin baseline es el vicio documentado del corpus.
+
+---
+
+## TIER DE LONGEVIDAD (AD LIBRARY)
+
+La Ad Library de Meta no publica métricas de anuncios comerciales, pero sí cuánto tiempo lleva
+corriendo un anuncio — y un anuncio que sigue pagado más de dos meses es la única señal de
+desempeño que un tercero puede observar sin acceso a la cuenta. Método adaptado de un post de
+adlibrary.com sobre cómo armar un swipe file de competencia (se toma el método, no sus cifras —
+ver la nota de sesgo de fuente al inicio del informe de mejoras que originó esta sección).
+
+- **Tiers:** `tier_0_29` (0-29 días activo) · `tier_30_59` (30-59 días) · `tier_60_89` (60-89 días)
+  · `tier_90_mas` (90 días o más).
+- Cuando `**Por qué funciona:**` de un hallazgo se apoya en tiempo activo en vez de una métrica
+  medida, agregar la línea: `Señal Ad Library: {días activos} (consultado {fecha}) · {n} variantes
+  · tier {tier_x}`.
+- **Regla de publicación:** un patrón sin métrica propia solo se publica como hallazgo si el tier
+  es `tier_60_89` o `tier_90_mas` **y** (≥5 anuncios observados del mismo mecanismo, **o** ≥2
+  anunciantes sin relación entre sí corriendo la misma mecánica). Por debajo de ese umbral es una
+  curiosidad, no un hallazgo (mismo criterio que el filtro (b) de esta misión).
+- Cada patrón evaluado como long-runner se registra en `publicidad/long-runners.md`
+  (anunciante, copy/mecánica, fecha de inicio observada, nº de variantes, fecha de consulta) —
+  es el archivo donde vive el barrido de longevidad que pide el ángulo de la semana cuando toca
+  revisar corridas largas; no se mezcla con el informe semanal ni con los guiones.
 
 ---
 

@@ -5,6 +5,7 @@
 > **Origen:** Clínica dental de Providencia (Chile, caso de agencia sobre cliente anónimo) y Willowood Ventures con un concesionario Nissan de Illinois (EE.UU.) — casos publicados, más la política de mensajería de Meta — 2026-09-06
 > **Métrica de referencia:** CLP 2.800 por mensaje sobre CLP 350.000 mensuales, con 3 a 4 de cada 10 mensajes convertidos en consulta agendada [verificado sin link] (autorreporte de agencia) ⇒ CLP 7.000–9.300 por consulta agendada [estimado] (derivado); ventana de 72 horas de mensajería de marketing sin costo tras el clic [verificado] (política de Meta)
 > **Tesis:** El anuncio no compra un lead, compra una conversación abierta — y las 72 horas siguientes, donde ocurre la conversión, salen gratis.
+> **Etiquetas:** táctica={sin_dato} · formato={sin_dato} · conciencia={conciencia_2_consciente_problema} · oferta={sin_dato} (el guion es la capa post-clic: el hook y el formato los define el creativo que lo alimenta — guion 01 o 02, o el original — ver sección 1: "Formato: indiferente")
 
 ## 1. Anatomía del original
 
