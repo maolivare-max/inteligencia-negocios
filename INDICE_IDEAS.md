@@ -2,6 +2,14 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-06 · Publicidad Meta · Chilepropiedades: el único inventario chileno con tarifa pública, y el test que nadie ha corrido (Score 13/20)
+- 2026-09-06 · Publicidad Meta · Actualización — Click-to-WhatsApp: medir costo por conversación respondida, no CPL (Score 14/20)
+- 2026-09-06 · Publicidad Meta · Reencuadre de categoría: el creativo que no caduca porque su enemigo no caduca (Score 15/20)
+- 2026-09-06 · Publicidad Meta · La puerta de entrada barata: una cifra o una pregunta en la primera línea (Score 15/20)
+- 2026-09-06 · Publicidad Meta · La ventana Servel: el primer CPM chileno que no publica un vendedor (Score 15/20)
+- 2026-09-06 · Publicidad Meta · Lo que se puede medir con CLP 10.000 al día, y lo que no (Score 15/20)
+- 2026-09-06 · Publicidad Meta · Actualización — El evergreen de tasación y la pregunta única de calificación (Score 15/20)
+- 2026-09-06 · Publicidad Meta · El anuncio que compra en vez de vender (Score 16/20)
 - 2026-09-02 · Biohacking y longevidad · Coach de recuperación/rendimiento vía WhatsApp para atletas de resistencia (Score 14/20)
 - 2026-09-02 · Biohacking y longevidad · Directorio/marketplace de medicina funcional y longevidad en Chile (Score 15/20)
 - 2026-08-29 · Biohacking y longevidad · Wellness ocupacional para fatiga visual/digital vía mutualidades (Score 14/20)
