@@ -815,6 +815,28 @@ ejecuta la sesión principal:
   Ñuñoa"), páginas oficiales de Meta (facebook.com/business/help) para categorías
   especiales y su alcance geográfico, DataReportal Digital Chile, Kantar Ibope,
   Comscore, SERNAC/Ley 19.496, Ley 21.719 de datos personales, CONAR.
+- **Chile — fuentes NO vendedoras (empezar por acá).** Casi toda la métrica publicitaria
+  chilena la publica quien vende el servicio. Estas cuatro no, y por eso valen más que
+  diez benchmarks de agencia. Verificadas el 2026-09-06:
+  - **AAM, informe mensual "Inversión Digital Real Socios"** — es el único lugar donde
+    existe el share de Social dentro del digital chileno: 36,5% de la compra directa en
+    dic-2025 y 37% en may-2026, sobre CLP 324.403 MM de digital 2025. Serie mensual
+    desde 2016, en PDF. Es el dato que la corrida del 2026-09-06 dio por inexistente.
+  - **DIPRES, cuadro 16 + Ley 19.896 art. 3** — gasto estatal en servicios de publicidad
+    por trimestre, con detalle de proveedor y monto por ministerio. Ojo: el proveedor es
+    la agencia, no Meta.
+  - **Servel, cuentas de campaña** — la única contabilidad chilena donde "Meta Platforms
+    Ireland" aparece como proveedor con monto exacto. Limitación conocida: Servel oculta
+    proveedores en una parte grande del gasto declarado.
+  - **Similarweb × Admetricks, informe trimestral Chile** — ranking de marcas con monto
+    estimado. No ve el inventario de Meta, sirve de orden de magnitud.
+  - Nota técnica: esos PDFs se leen con `pypdf` (`pip install cffi` primero; `pdfminer`
+    falla en este entorno por una dependencia rota).
+  - **Probado y sin resultado, no repetir:** repositorios de tesis chilenos (uchile
+    bloquea con Anubis, UC y USM dan 403, UMayor 503, UFT excede el límite de tamaño),
+    SciELO y Cuadernos.info (solo contenido electoral), Contraloría, CMF, fichas de
+    Mercado Público, registro de tarifas del Servel (404), IAB Chile y las comunidades
+    chilenas de marketing (todo remite a blogs de agencias).
 - **Inmobiliario:** Ad Library de inmobiliarias, portales y PropTech chilenas; CChC,
   ACOP; LATAM (Inmuebles24, Habi, La Haus, QuintoAndar, Loft, Zonaprop); EE.UU./Europa
   (The Close, Inman y NAR vía snippets, Zillow/Redfin research, Idealista, Rightmove);
