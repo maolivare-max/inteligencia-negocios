@@ -23,10 +23,12 @@ SOURCES = [
     ("oportunidades", "Oportunidades de negocio", os.path.join(BASE, "reportes")),
     ("tendencias",     "Tendencias inmobiliarias", os.path.join(BASE, "reportes-inmobiliario")),
     ("biohacking",     "Biohacking y longevidad", os.path.join(BASE, "reportes-biohacking")),
+    ("publicidad",     "Publicidad Meta",         os.path.join(BASE, "reportes-publicidad")),
 ]
 
 # el dominio usado en radar/indice-antirepeticion.txt para cada fuente
-DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias", "biohacking": "biohacking"}
+DOMINIO = {"oportunidades": "ideas", "tendencias": "tendencias", "biohacking": "biohacking",
+           "publicidad": "publicidad"}
 
 INDICE_PATH        = os.path.join(BASE, "radar", "indice-antirepeticion.txt")
 IDEAS_INDEX_PATH    = os.path.join(BASE, "INDICE_IDEAS.md")
@@ -51,6 +53,35 @@ PROYECTO_SECCIONES = [
 ]
 PROYECTO_META_CAMPOS = ["Estado", "Veredicto", "Fusión de", "Arranque", "Tesis"]
 
+# ── MISIÓN 5 (Publicidad Meta): biblioteca de guiones ────────────────────────
+# Pipeline PARALELO al de la Mesa de Proyectos y separado de él a propósito: un
+# guion tampoco es un hallazgo (no lleva score /20 ni veredicto Chile), y no es
+# un dossier (otros metadatos, otras secciones). Los informes semanales de
+# reportes-publicidad/ SÍ entran por SOURCES como hallazgos normales.
+# Estas constantes son la única fuente de verdad del contrato del guion y las
+# reusa validar_formato.py, igual que PROYECTO_SECCIONES.
+GUIONES_DIR = os.path.join(BASE, "publicidad", "guiones")
+METRICAS_CONFIG_PATH = os.path.join(BASE, "publicidad", "metricas", "config.json")
+
+GUION_SECCIONES = [
+    "Anatomía del original",
+    "Guion adaptable",
+    "Variables a rellenar",
+    "Targeting Chile",
+    "Producción",
+    "Medición",
+    "Trazabilidad",
+]
+GUION_META_CAMPOS = ["Estado", "Tipo", "Origen", "Métrica de referencia", "Tesis"]
+
+
+def es_guion_publicable(nombre_archivo):
+    """El contrato nombra los guiones `NN-slug.md`. Todo lo demás que viva en la
+    carpeta (README.md, _plantilla.md, notas) no es un guion: ni se publica ni
+    se valida como tal. Reusado por validar_formato.py."""
+    return (not nombre_archivo.startswith("_")
+            and re.match(r"^\d+-.+\.md$", nombre_archivo) is not None)
+
 DESTACADA = 15
 HIGH      = 13
 
@@ -74,7 +105,7 @@ def load_indice():
     """dominio -> lista de (nombre_truncado_lower, dict_campos), ya que el
     índice trunca el nombre a ~70 caracteres. Usamos coincidencia por
     prefijo (el nombre completo del hallazgo empieza igual)."""
-    out = {"ideas": [], "tendencias": [], "biohacking": []}
+    out = {"ideas": [], "tendencias": [], "biohacking": [], "publicidad": []}
     if not os.path.exists(INDICE_PATH):
         return out
     with open(INDICE_PATH, encoding="utf-8") as f:
@@ -214,6 +245,8 @@ def collect():
     for key, label, folder in SOURCES:
         reports = []
         for path in sorted(glob.glob(os.path.join(folder, "*.md")), reverse=True):
+            if os.path.basename(path).startswith("_"):
+                continue  # misma convención que proyectos/ y guiones: _plantilla.md no es un reporte
             try:
                 reports.append(parse_report(path, key))
             except Exception as e:
@@ -294,6 +327,98 @@ def collect_proyectos():
             print(f"  ! Dossier inválido, excluido: {path}: {e}")
     out.sort(key=lambda p: p["orden"])
     return out
+
+
+# ── MISIÓN 5: parser de guiones y estado del módulo de cuenta propia ────────
+
+def parse_guion(path):
+    """Parsea un guion de publicidad/guiones/. Devuelve dict, o lanza ValueError
+    si el archivo no cumple el contrato (ESPEC Misión 5: 5 líneas '>' y 7
+    secciones '##' con nombres exactos). Misma filosofía que parse_proyecto():
+    un guion mal formado es un error ruidoso, no un hueco silencioso."""
+    with open(path, encoding="utf-8-sig") as f:
+        txt = f.read().replace("\r\n", "\n")
+
+    m = re.search(r"^#\s+(.+?)\s*$", txt, re.MULTILINE)
+    if not m:
+        raise ValueError("falta el título '# Nombre del guion'")
+    titulo = m.group(1).strip()
+
+    meta = {}
+    for campo in GUION_META_CAMPOS:
+        mm = re.search(r"^>\s*\*\*" + re.escape(campo) + r":\*\*\s*(.+?)\s*$",
+                       txt, re.MULTILINE)
+        if not mm:
+            raise ValueError(f"falta la línea de metadatos '> **{campo}:** ...'")
+        meta[campo] = mm.group(1).strip()
+
+    secciones, faltantes = {}, []
+    for i, nombre in enumerate(GUION_SECCIONES, start=1):
+        pat = (r"^##\s+" + str(i) + r"\.\s+" + re.escape(nombre) +
+               r"\s*$(.*?)(?=^##\s|\Z)")
+        sm = re.search(pat, txt, re.MULTILINE | re.DOTALL)
+        if not sm:
+            faltantes.append(f"## {i}. {nombre}")
+            continue
+        secciones[nombre] = sm.group(1).strip()
+    if faltantes:
+        raise ValueError("faltan secciones: " + ", ".join(faltantes))
+
+    base = os.path.basename(path)
+    orden = int(base.split("-", 1)[0]) if base.split("-", 1)[0].isdigit() else 999
+
+    return {
+        "id": "guion-" + slug(base.rsplit(".", 1)[0]),
+        "orden": orden,
+        "archivo": base,
+        "titulo": titulo,
+        "estado": meta["Estado"],
+        "tipo": meta["Tipo"],
+        "origen": meta["Origen"],
+        "metrica_ref": meta["Métrica de referencia"],
+        "tesis": meta["Tesis"],
+        "secciones": [{"nombre": n, "md": secciones[n]} for n in GUION_SECCIONES],
+    }
+
+
+def collect_guiones():
+    if not os.path.isdir(GUIONES_DIR):
+        return []  # carpeta ausente = biblioteca vacía, sin romper el build
+    out = []
+    for path in sorted(glob.glob(os.path.join(GUIONES_DIR, "*.md"))):
+        if not es_guion_publicable(os.path.basename(path)):
+            continue  # README.md, _plantilla.md y afines no son guiones
+        try:
+            out.append(parse_guion(path))
+        except Exception as e:
+            print(f"  ! Guion inválido, excluido: {path}: {e}")
+    out.sort(key=lambda g: g["orden"])
+    return out
+
+
+def load_metricas_config():
+    """Estado del módulo 'Métricas de mi cuenta Meta' (MISIÓN 5). Por diseño
+    arranca APAGADO: si config.json no existe, no es JSON válido, no es un objeto
+    o 'conectado' no es exactamente true, el dashboard muestra el estado apagado
+    y ninguna cifra. Ni acá ni en el JS se inventan datos de ejemplo: lo único
+    que se muestra son los escalares de primer nivel que el archivo declare."""
+    cfg = {"conectado": False, "existe": False, "campos": {}}
+    if not os.path.exists(METRICAS_CONFIG_PATH):
+        return cfg
+    try:
+        with open(METRICAS_CONFIG_PATH, encoding="utf-8-sig") as f:
+            raw = json.load(f)
+    except Exception as e:
+        print(f"  ! publicidad/metricas/config.json ilegible, módulo tratado como apagado: {e}")
+        return cfg
+    if not isinstance(raw, dict):
+        print("  ! publicidad/metricas/config.json no es un objeto JSON; módulo tratado como apagado")
+        return cfg
+    cfg["existe"] = True
+    cfg["conectado"] = raw.get("conectado") is True
+    cfg["campos"] = {k: v for k, v in raw.items()
+                     if k != "conectado" and isinstance(v, (str, int, float, bool))}
+    return cfg
 
 # ── mapeo score → impacto/costo (heurístico, la mission no reporta estos
 #    dos ejes por separado con nombres consistentes entre ambas misiones) ──
@@ -430,6 +555,8 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 .chip.cat-oportunidades{color:var(--azul);background:var(--azul-dim);border-color:rgba(93,155,255,.4)}
 .chip.cat-tendencias{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.4)}
 .chip.cat-biohacking{color:var(--verde);background:var(--verde-dim);border-color:rgba(70,192,138,.4)}
+.chip.cat-publicidad{color:var(--rojo);background:var(--rojo-dim);border-color:rgba(224,114,106,.4)}
+.chip.tipo{color:var(--oro2);background:var(--oro-dim);border-color:rgba(216,169,83,.4)}
 .prio{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 7px;border-radius:7px;
   font-size:11.5px;font-weight:700;letter-spacing:.5px}
 .prio.p1{background:linear-gradient(135deg,var(--oro),#b07f2e);color:#181206}
@@ -539,6 +666,13 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 .ver-pilotear{background:rgba(216,169,83,.16);border-color:rgba(216,169,83,.5);color:#e5c07b}
 .ver-esperar{background:rgba(90,150,220,.16);border-color:rgba(90,150,220,.5);color:#8fbcf0}
 .ver-descartar{background:rgba(200,90,90,.16);border-color:rgba(200,90,90,.5);color:#e08b8b}
+.pub-estado{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#cfd6e0}
+.pub-dot{flex:0 0 auto;width:10px;height:10px;border-radius:99px;margin-top:7px}
+.pub-dot.on{background:var(--verde);box-shadow:0 0 0 4px var(--verde-dim)}
+.pub-dot.off{background:var(--gris);box-shadow:0 0 0 4px var(--gris-dim)}
+.pub-falta{font-size:12.5px;color:var(--muted);margin-top:5px}
+.pub-kv{font-size:12.5px;color:var(--muted);line-height:1.45}
+.pub-kv b{display:block;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted2)}
 .mini-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;cursor:pointer}
 .mini-card:hover{border-color:rgba(216,169,83,.4)}
 .mini-card .t{font-weight:700;font-size:13.5px;margin-bottom:5px}
@@ -604,6 +738,7 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
     <button class="tab" data-tab="explorar">Explorar <span class="pill" id="pillExplorar"></span></button>
     <button class="tab" data-tab="decisiones">Decisiones</button>
     <button class="tab" data-tab="proyectos">Proyectos <span class="pill" id="pillProy"></span></button>
+    <button class="tab" data-tab="publicidad">Publicidad <span class="pill" id="pillPub"></span></button>
     <button class="tab" data-tab="reportes">Reportes</button>
     <button class="tab" data-tab="miradar">Mi radar <span class="pill" id="pillFav"></span></button>
     <a class="tabx" href="cubicaje/" title="Cubicador de madera masiva HILAM (parámetros Arauco)">Cubicador madera ↗</a>
@@ -670,6 +805,16 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
   <div id="listaProyectos"></div>
 </section>
 
+<section class="tabpane" id="tab-publicidad">
+  <div class="res-header"><h2>Publicidad Meta</h2><span class="n" id="pubN"></span></div>
+  <p class="proy-intro">Tablero de inteligencia publicitaria: anuncios de terceros que ya funcionan,
+  guiones plug-and-play para cualquier rubro y targeting Chile. Los informes semanales aparecen en
+  Explorar y Reportes como cualquier misión; acá viven la biblioteca de guiones y el módulo de cuenta propia.</p>
+  <div class="panel-box"><h2>Métricas de mi cuenta Meta</h2><div id="metricasMeta"></div></div>
+  <div class="res-header"><h2>Biblioteca de guiones</h2><span class="n">haz clic en un guion para ver las 7 secciones</span></div>
+  <div class="grid" id="listaGuiones"></div>
+</section>
+
 <section class="tabpane" id="tab-reportes">
   <div class="res-header"><h2>Reportes diarios</h2><span class="n" id="repN"></span></div>
   <div id="listaReportes"></div>
@@ -715,11 +860,15 @@ main{max-width:1500px;margin:0 auto;padding:24px 26px 80px}
 <script id="datos" type="application/json">__DATA__</script>
 <script id="reportesJson" type="application/json">__REPORTES__</script>
 <script id="proyectosJson" type="application/json">__PROYECTOS__</script>
+<script id="guionesJson" type="application/json">__GUIONES__</script>
+<script id="metricasJson" type="application/json">__METRICAS__</script>
 <script>
 'use strict';
 var DATA = JSON.parse(document.getElementById('datos').textContent);
 var REPORTES = JSON.parse(document.getElementById('reportesJson').textContent);
 var PROYECTOS = JSON.parse(document.getElementById('proyectosJson').textContent);
+var GUIONES = JSON.parse(document.getElementById('guionesJson').textContent);
+var METRICAS = JSON.parse(document.getElementById('metricasJson').textContent);
 DATA.forEach(function(t, i){ t._i = i });
 
 var LSKEY = 'radar-negocios-v1';
@@ -1023,22 +1172,64 @@ function renderProyectos(){
   }).join('') || '<div class="vacio">Todavía no hay proyectos en la mesa.</div>';
 }
 
+function renderPublicidad(){
+  document.getElementById('pillPub').textContent = GUIONES.length || '';
+  document.getElementById('pubN').textContent =
+    GUIONES.length + (GUIONES.length === 1 ? ' guion' : ' guiones');
+
+  // Módulo de cuenta propia: APAGADO por diseño hasta que config.json declare
+  // "conectado": true. Nunca se pintan cifras de ejemplo ni placeholders
+  // numéricos: apagado = se dice que está apagado y qué falta, y punto.
+  var m = document.getElementById('metricasMeta');
+  var campos = METRICAS.campos || {};
+  if (!METRICAS.conectado) {
+    var falta = campos.pendiente || campos.que_falta || campos.nota ||
+      (METRICAS.existe
+        ? 'Falta: poner "conectado": true en publicidad/metricas/config.json y conectar la fuente de datos de la cuenta (ver publicidad/metricas/README.md).'
+        : 'Falta: crear publicidad/metricas/config.json con "conectado": true y conectar la fuente de datos de la cuenta (ver publicidad/metricas/README.md).');
+    m.innerHTML = '<div class="pub-estado"><span class="pub-dot off"></span><div>' +
+      '<b>Módulo no conectado</b> — el dashboard no muestra datos de cuenta propia todavía.' +
+      '<div class="pub-falta">' + esc(falta) + '</div></div></div>';
+  } else {
+    var ks = Object.keys(campos);
+    m.innerHTML = '<div class="pub-estado"><span class="pub-dot on"></span><div><b>Módulo conectado</b>' +
+      (ks.length ? '' : ' — config.json no declara ningún dato todavía; no hay nada que mostrar.') +
+      '</div></div>' +
+      (ks.length ? '<div class="kv" style="margin-top:12px">' + ks.map(function(k){
+        return '<div class="k"><b>' + esc(k) + '</b><span>' + esc(String(campos[k])) + '</span></div>';
+      }).join('') + '</div>' : '');
+  }
+
+  document.getElementById('listaGuiones').innerHTML = GUIONES.map(function(g, i){
+    return '<article class="card" data-guion="' + i + '">' +
+      '<div class="fila1"><span class="chip tipo">' + esc(g.tipo) + '</span><span class="chip">' + esc(g.estado) + '</span></div>' +
+      '<h3>' + esc(g.titulo) + '</h3>' +
+      '<p class="desc">' + esc(g.tesis) + '</p>' +
+      '<div class="pub-kv"><b>Origen</b>' + mdInline(g.origen) + '</div>' +
+      '<div class="pub-kv"><b>Métrica de referencia</b>' + mdInline(g.metrica_ref) + '</div>' +
+      '</article>';
+  }).join('') || '<div class="vacio">Todavía no hay guiones en la biblioteca.</div>';
+}
+
 function renderHeader(){
   var vistas = DATA.filter(function(t){ return st(t.id).visto }).length;
   document.getElementById('vistasNum').textContent = vistas;
   document.getElementById('totalNum').textContent = DATA.length;
   document.getElementById('progressFill').style.width = (DATA.length ? Math.round(vistas / DATA.length * 100) : 0) + '%';
 }
-function renderTodo(){ renderHeader(); renderGrid(); renderDecisiones(); renderPanorama(); renderMiRadar(); renderReportes(); renderProyectos(); if (modalIdx >= 0) refrescarMarksModal() }
+function renderTodo(){ renderHeader(); renderGrid(); renderDecisiones(); renderPanorama(); renderMiRadar(); renderReportes(); renderProyectos(); renderPublicidad(); if (modalIdx >= 0) refrescarMarksModal() }
 
 var modalLista = [], modalIdx = -1, notaTimer = null;
+// El overlay/modal es uno solo y lo comparten hallazgos y guiones; modalTipo
+// dice cuál está abierto para que ‹/› y las marcas actúen sobre el correcto.
+var modalTipo = 'hallazgo';
 function secKV(pares){
   var vivos = pares.filter(function(p){ return p[1] });
   if (!vivos.length) return '';
   return '<div class="kv">' + vivos.map(function(p){ return '<div class="k"><b>' + p[0] + '</b><span>' + esc(p[1]) + '</span></div>' }).join('') + '</div>';
 }
 function abrirModal(lista, idx){
-  modalLista = lista; modalIdx = idx;
+  modalLista = lista; modalIdx = idx; modalTipo = 'hallazgo';
   var t = lista[idx];
   var s = st(t.id);
   document.getElementById('modalHead').innerHTML =
@@ -1077,21 +1268,48 @@ function abrirModal(lista, idx){
     }, 450);
   };
 }
+function abrirGuion(lista, idx){
+  modalLista = lista; modalIdx = idx; modalTipo = 'guion';
+  var g = lista[idx];
+  document.getElementById('modalHead').innerHTML =
+    '<button class="cerrar" id="btnCerrar">✕</button>' +
+    '<div class="fila"><span class="chip tipo">' + esc(g.tipo) + '</span><span class="chip">' + esc(g.estado) + '</span>' +
+    '<span class="chip">' + esc(g.archivo) + '</span></div>' +
+    '<h2>' + esc(g.titulo) + '</h2>';
+  document.getElementById('modalCuerpo').innerHTML =
+    '<p class="proy-tesis">' + mdInline(g.tesis) + '</p>' +
+    '<p class="proy-fusion"><b>Origen:</b> ' + mdInline(g.origen) +
+    '<br><b>Métrica de referencia:</b> ' + mdInline(g.metrica_ref) + '</p>' +
+    g.secciones.map(function(s){
+      return '<div class="proy-sec"><h4>' + esc(s.nombre) + '</h4>' +
+             '<div class="proy-md">' + mdToHtml(s.md) + '</div></div>';
+    }).join('');
+  document.getElementById('navPrev').disabled = idx <= 0;
+  document.getElementById('navNext').disabled = idx >= lista.length - 1;
+  document.getElementById('overlay').classList.add('abierto');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('btnCerrar').onclick = cerrarModal;
+}
+function navModal(delta){
+  var n = modalIdx + delta;
+  if (modalIdx < 0 || n < 0 || n >= modalLista.length) return;
+  if (modalTipo === 'guion') abrirGuion(modalLista, n); else abrirModal(modalLista, n);
+}
 function refrescarMarksModal(){
-  if (modalIdx < 0) return;
+  if (modalIdx < 0 || modalTipo !== 'hallazgo') return;
   var t = modalLista[modalIdx];
   var el = document.getElementById('marksModal');
   if (el) el.innerHTML = botonesMark(t) + '<span style="font-size:12px;color:var(--muted)">' + esc(t.fuente_reporte) + '</span>';
 }
 function cerrarModal(){ document.getElementById('overlay').classList.remove('abierto'); document.body.style.overflow = ''; modalIdx = -1 }
 document.getElementById('overlay').addEventListener('click', function(e){ if (e.target === this) cerrarModal() });
-document.getElementById('navPrev').onclick = function(){ if (modalIdx > 0) abrirModal(modalLista, modalIdx - 1) };
-document.getElementById('navNext').onclick = function(){ if (modalIdx < modalLista.length - 1) abrirModal(modalLista, modalIdx + 1) };
+document.getElementById('navPrev').onclick = function(){ navModal(-1) };
+document.getElementById('navNext').onclick = function(){ navModal(1) };
 document.addEventListener('keydown', function(e){
   if (modalIdx < 0) return;
   if (e.key === 'Escape') cerrarModal();
-  if (e.key === 'ArrowLeft' && modalIdx > 0) abrirModal(modalLista, modalIdx - 1);
-  if (e.key === 'ArrowRight' && modalIdx < modalLista.length - 1) abrirModal(modalLista, modalIdx + 1);
+  if (e.key === 'ArrowLeft') navModal(-1);
+  if (e.key === 'ArrowRight') navModal(1);
 });
 
 document.addEventListener('click', function(e){
@@ -1104,6 +1322,8 @@ document.addEventListener('click', function(e){
     setSt(id, patch);
     return;
   }
+  var gi = e.target.closest('[data-guion]');
+  if (gi) { abrirGuion(GUIONES, parseInt(gi.getAttribute('data-guion'), 10)); return; }
   var op = e.target.closest('[data-open]');
   if (op) {
     var i = parseInt(op.getAttribute('data-open'), 10);
@@ -1226,6 +1446,8 @@ def main():
     reportes_meta.sort(key=lambda x: x["fecha"], reverse=True)
 
     proyectos = collect_proyectos()
+    guiones = collect_guiones()
+    metricas = load_metricas_config()
 
     latest = max((r["fecha"] for r in reportes_meta), default=None)
     n_rep = len(reportes_meta)
@@ -1233,6 +1455,8 @@ def main():
     sub = f"{len(rows)} hallazgos · {n_rep} reportes · {n_dom} misiones"
     if proyectos:
         sub += f" · {len(proyectos)} proyectos"
+    if guiones:
+        sub += f" · {len(guiones)} " + ("guion" if len(guiones) == 1 else "guiones")
     sub += f" · actualizado {latest or '—'}"
 
     html = TEMPLATE
@@ -1240,9 +1464,13 @@ def main():
     data_json = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")
     reportes_json = json.dumps(reportes_meta, ensure_ascii=False).replace("</", "<\\/")
     proyectos_json = json.dumps(proyectos, ensure_ascii=False).replace("</", "<\\/")
+    guiones_json = json.dumps(guiones, ensure_ascii=False).replace("</", "<\\/")
+    metricas_json = json.dumps(metricas, ensure_ascii=False).replace("</", "<\\/")
     html = html.replace("__DATA__", data_json)
     html = html.replace("__REPORTES__", reportes_json)
     html = html.replace("__PROYECTOS__", proyectos_json)
+    html = html.replace("__GUIONES__", guiones_json)
+    html = html.replace("__METRICAS__", metricas_json)
 
     with open(os.path.join(BASE, "dashboard.html"), "w", encoding="utf-8") as f:
         f.write(html)
@@ -1255,6 +1483,8 @@ def main():
     print("✓ dashboard generado (v4 — estilo investigacion-tendencias):")
     print(f"  {len(rows)} hallazgos · {n_rep} reportes · {n_dest} destacados ≥{DESTACADA}")
     print(f"✓ INDICE_IDEAS.md regenerado: {n_idx} ideas indexadas")
+    print(f"  {len(proyectos)} proyectos · {len(guiones)} guiones · módulo Meta "
+          + ("conectado" if metricas["conectado"] else "apagado"))
 
 if __name__ == "__main__":
     main()

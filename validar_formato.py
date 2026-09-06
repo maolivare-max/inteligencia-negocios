@@ -31,6 +31,9 @@ ERROR (sale 1, corrida en rojo):
   - un dossier de proyectos/ que viola el contrato de la Misión 4, incluida una
     fila de tabla sin separador (que además colgaba el navegador; ver
     _validar_tablas) y un '## ' de más que trunca una sección en silencio;
+  - un guion de publicidad/guiones/ que viola el contrato de la Misión 5 (misma
+    severidad que los dossiers: 5 metadatos, 7 secciones en orden, tabla de
+    variables, KPI con umbral, trazabilidad y cifras etiquetadas por origen);
   - un reporte con encabezados CASI válidos —guion en vez de raya, o score no
     entero—, porque ahí sí hubo intención de publicar hallazgos y se perdieron.
 AVISO (sale 0):
@@ -223,12 +226,120 @@ def validar_dossier(path):
                  "(ej. reportes/2026-07-15.md) — sin eso no se puede volver a la evidencia")
 
 
+# ── guiones de la misión 5 ─────────────────────────────────────────────────
+
+GUION_ESTADOS = {"Borrador", "Validado", "En uso", "Archivado"}
+GUION_TIPOS = {"Hook", "Ángulo", "Oferta", "Formato", "Secuencia"}
+GUION_PLACEHOLDERS = ["{oferta}", "{publico}", "{ciudad}", "{ticket}",
+                      "{prueba_social}", "{cta}"]
+GUION_SECCIONES_ESPERADAS = bd.GUION_SECCIONES
+RE_ETIQUETA_ORIGEN = re.compile(
+    r"\[(?:verificado(?:\s+sin\s+link)?|estimado|desconocido)\]")
+# "KPI con umbral numérico": una cifra acompañada de comparador, %, moneda o
+# palabra de meta. Sin esto, la sección Medición es una intención, no un KPI.
+RE_UMBRAL = re.compile(
+    r"[<>≤≥]\s*=?\s*(?:CLP|USD|\$)?\s*\d"                       # ≥ 20, < CLP 5.000
+    r"|\d[\d.,]*\s*%"                                          # 2,5 %
+    r"|(?:CLP|USD|\$)\s*\d"                                    # CLP 3.500
+    r"|(?:m[íi]nimo|m[áa]ximo|umbral|meta|objetivo|al menos|m[áa]s de|menos de)"
+    r"\s*(?:de|:)?\s*(?:CLP|USD|\$)?\s*\d",                      # mínimo 20 leads
+    re.IGNORECASE)
+RE_TRAZA_PUBLICIDAD = re.compile(r"reportes-publicidad/\d{4}-\d{2}-\d{2}\.md")
+
+
+def validar_guion(path):
+    """Contrato del guion (ESPEC Misión 5). Severidad ERROR, igual que los
+    dossiers: un guion es material de trabajo que se copia y se pega en una
+    campaña real, así que una variable sin tabla o un KPI sin umbral no es
+    cosmético."""
+    rel = os.path.relpath(path, bd.BASE)
+    try:
+        g = bd.parse_guion(path)
+    except Exception as e:
+        err(rel, str(e))
+        return
+
+    if g["estado"] not in GUION_ESTADOS:
+        err(rel, f"Estado '{g['estado']}' no es uno de {sorted(GUION_ESTADOS)}")
+    if g["tipo"] not in GUION_TIPOS:
+        err(rel, f"Tipo '{g['tipo']}' no es uno de {sorted(GUION_TIPOS)}")
+
+    # misma codificación que parse_guion(): utf-8-sig para tolerar BOM
+    with open(path, encoding="utf-8-sig") as f:
+        txt = f.read().replace("\r\n", "\n")
+
+    # un guion no es un hallazgo: no debe disparar el parser de las otras misiones
+    if RE_HALLAZGO.search(txt):
+        err(rel, "usa el patrón '## N. Nombre — Score X/20' en un encabezado; "
+                 "está reservado para hallazgos y confunde el contrato")
+
+    if len(re.findall(r"^#\s+\S", txt, re.MULTILINE)) != 1:
+        err(rel, "debe haber exactamente una línea de título con un solo '#'")
+
+    # nº exacto de '## ' Y en el orden del contrato (subtítulos internos = '###')
+    h2 = re.findall(r"^##\s+(.+?)\s*$", txt, re.MULTILINE)
+    esperados = [f"{i}. {n}" for i, n in enumerate(GUION_SECCIONES_ESPERADAS, start=1)]
+    if len(h2) != len(esperados):
+        extra = [h for h in h2 if h not in esperados]
+        err(rel, f"tiene {len(h2)} encabezados '## ' y deben ser exactamente "
+                 f"{len(esperados)}. Para subtítulos usar '###'. "
+                 + (f"Sobran: {extra}" if extra else ""))
+    elif h2 != esperados:
+        err(rel, f"las secciones '## ' no van en el orden del contrato: {h2}")
+
+    _validar_tablas(rel, txt)
+
+    for sec in g["secciones"]:
+        if not sec["md"].strip():
+            err(rel, f"la sección '{sec['nombre']}' está vacía")
+    sec = {s["nombre"]: s["md"] for s in g["secciones"]}
+
+    # 3. Variables a rellenar: tabla con separador + los 6 placeholders con llaves
+    variables = sec.get("Variables a rellenar", "")
+    if not re.search(r"^\s*\|[\s:|-]+\|\s*$", variables, re.MULTILINE):
+        err(rel, "la sección 'Variables a rellenar' no trae una tabla markdown "
+                 "con fila separadora '|---|---|'")
+    faltan = [p for p in GUION_PLACEHOLDERS if p not in variables]
+    if faltan:
+        err(rel, "a 'Variables a rellenar' le faltan placeholders con llaves: "
+                 + ", ".join(faltan))
+
+    # 6. Medición: al menos un KPI con umbral numérico
+    if not RE_UMBRAL.search(sec.get("Medición", "")):
+        err(rel, "la sección 'Medición' no declara ningún KPI con umbral numérico "
+                 "(ej. 'CPL ≤ CLP 4.000', 'CTR ≥ 1,5 %', 'mínimo 20 leads')")
+
+    # 7. Trazabilidad: cita al informe semanal de origen
+    if not RE_TRAZA_PUBLICIDAD.search(sec.get("Trazabilidad", "")):
+        err(rel, "la Trazabilidad no cita ningún reportes-publicidad/AAAA-MM-DD.md "
+                 "— sin eso no se puede volver a la evidencia")
+
+    # cifras etiquetadas por origen
+    if not RE_ETIQUETA_ORIGEN.search(txt):
+        err(rel, "no tiene ni una cifra etiquetada [verificado]/[verificado sin link]/"
+                 "[estimado]/[desconocido] — es obligatorio (MISIÓN 5)")
+    if re.search(r"\d", g["metrica_ref"]) and not RE_ETIQUETA_ORIGEN.search(g["metrica_ref"]):
+        err(rel, "la 'Métrica de referencia' trae una cifra sin etiqueta de origen "
+                 "[verificado]/[verificado sin link]/[estimado]/[desconocido]")
+    # Cifras de CPL/CTR/ROAS sueltas sin etiqueta: aviso, no error, porque el
+    # regex no distingue una cifra citada de un ejemplo. Se excluye Medición:
+    # ahí el umbral del KPI es una meta propia, no una cifra de origen.
+    cuerpo_sin_medicion = txt.replace(sec.get("Medición", ""), "")
+    for n, linea in enumerate(cuerpo_sin_medicion.split("\n"), start=1):
+        if (re.search(r"\b(?:CPL|CTR|ROAS)\b", linea) and re.search(r"\d", linea)
+                and not RE_ETIQUETA_ORIGEN.search(linea)):
+            avisar(rel, f"cifra de CPL/CTR/ROAS sin etiqueta de origen en la misma "
+                        f"línea: {linea.strip()[:70]}")
+
+
 def main():
     estricto = "--estricto" in sys.argv
 
     n_rep = 0
     for key, label, folder in bd.SOURCES:
         for path in sorted(glob.glob(os.path.join(folder, "*.md"))):
+            if os.path.basename(path).startswith("_"):
+                continue  # _plantilla.md no es un reporte (misma regla que build_dashboard.collect)
             validar_reporte(path, key)
             n_rep += 1
 
@@ -240,7 +351,15 @@ def main():
             validar_dossier(path)
             n_proy += 1
 
-    print(f"Validados {n_rep} reportes y {n_proy} dossiers.")
+    n_gui = 0
+    if os.path.isdir(bd.GUIONES_DIR):
+        for path in sorted(glob.glob(os.path.join(bd.GUIONES_DIR, "*.md"))):
+            if not bd.es_guion_publicable(os.path.basename(path)):
+                continue  # README.md / _plantilla.md no son guiones: ni se publican ni se validan
+            validar_guion(path)
+            n_gui += 1
+
+    print(f"Validados {n_rep} reportes, {n_proy} dossiers y {n_gui} guiones.")
 
     if AVISOS:
         print(f"\n⚠ {len(AVISOS)} aviso(s) de formato (no rompen el build):")

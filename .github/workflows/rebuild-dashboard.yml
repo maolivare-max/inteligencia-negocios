@@ -14,6 +14,8 @@ on:
       - "reportes-inmobiliario/**.md"
       - "reportes-biohacking/**.md"
       - "proyectos/**.md"
+      - "reportes-publicidad/**.md"
+      - "publicidad/guiones/**.md"
       - "build_dashboard.py"
   workflow_dispatch: {}
 

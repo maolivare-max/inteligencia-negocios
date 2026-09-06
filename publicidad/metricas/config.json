@@ -1,0 +1,7 @@
+{
+  "conectado": false,
+  "proveedor": null,
+  "cuentas": [],
+  "ultima_sincronizacion": null,
+  "nota": "Módulo de métricas de cuenta propia apagado. Ver README.md para encenderlo."
+}
