@@ -247,6 +247,99 @@ RE_UMBRAL = re.compile(
 RE_TRAZA_PUBLICIDAD = re.compile(r"reportes-publicidad/\d{4}-\d{2}-\d{2}\.md")
 
 
+# ── cifras vigiladas (anti auto-confirmación) ──────────────────────────────
+#
+# El índice anti-repetición indexa por concepto (slug) y por eso no ve una cifra
+# que cambia de nombre, de canal o de rubro y vuelve a entrar como dato nuevo.
+# Eso fue exactamente lo que pasó con el CPL de CLP 12.000: nació como dato de
+# Google Ads, reapareció titulado "Meta Ads" seis semanas después y terminó
+# citado bajo cinco agencias distintas como si fueran cinco mediciones.
+# radar/cifras.txt registra esas cifras; acá se avisa cuando un reporte las
+# vuelve a citar sin declarar que están contaminadas.
+
+CIFRAS_PATH = os.path.join(bd.BASE, "radar", "cifras.txt")
+CIFRA_ESTADOS = {"circular", "migrante", "vigilada"}
+# Decir en voz alta lo que se está citando es lo único que exime del aviso.
+RE_CIFRA_DECLARADA = re.compile(
+    r"circular|migrante|reatribuid|indirect[oa]|\[desconocido\]"
+    r"|misma cifra|cadena de citaci|auto-?confirmaci", re.IGNORECASE)
+# dominio del índice -> carpeta de reportes que le corresponde
+DOMINIO_CARPETA = {v: k for k, v in bd.DOMINIO.items()}
+
+
+def cargar_cifras_vigiladas():
+    """[(cifra, dominio, estado, nota)] desde radar/cifras.txt."""
+    out = []
+    if not os.path.exists(CIFRAS_PATH):
+        return out
+    with open(CIFRAS_PATH, encoding="utf-8-sig") as f:
+        for n, linea in enumerate(f, start=1):
+            linea = linea.strip()
+            if not linea or linea.startswith("#") or linea.startswith("cifra|"):
+                continue
+            partes = linea.split("|")
+            if len(partes) < 4:
+                err("radar/cifras.txt", f"línea {n}: se esperan 4 campos "
+                                        f"'cifra|dominio|estado|nota', hay {len(partes)}")
+                continue
+            cifra, dominio, estado, nota = (p.strip() for p in partes[:4])
+            if estado not in CIFRA_ESTADOS:
+                err("radar/cifras.txt", f"línea {n}: estado '{estado}' no es uno de "
+                                        f"{sorted(CIFRA_ESTADOS)}")
+                continue
+            out.append((cifra, dominio, estado, nota))
+    return out
+
+
+def validar_cifras_vigiladas(vigiladas):
+    """Avisa cuando un reporte cita una cifra registrada sin declarar su estado.
+
+    Severidad AVISO a propósito: la cifra puede citarse — de hecho el informe que
+    la denunció tiene que citarla para documentarla. Lo que no puede es citarse
+    en silencio, como si fuera una medición limpia."""
+    if not vigiladas:
+        return
+    for key, label, folder in bd.SOURCES:
+        dominio = bd.DOMINIO[key]
+        aplican = [v for v in vigiladas if v[1] in (dominio, "*")]
+        if not aplican:
+            continue
+        for path in sorted(glob.glob(os.path.join(folder, "*.md"))):
+            if os.path.basename(path).startswith("_"):
+                continue
+            rel = os.path.relpath(path, bd.BASE)
+            with open(path, encoding="utf-8-sig") as f:
+                lineas = f.read().replace("\r\n", "\n").split("\n")
+            # Una sección entera puede estar dedicada a documentar la cadena (el
+            # bloque de contra-evidencia, las decisiones del CEO): ahí la cifra se
+            # cita a propósito, fila por fila, y exigir la palabra en CADA línea
+            # llenaría el informe honesto de avisos. Se declara por sección.
+            secciones_declaradas, actual, declarada = {}, 0, False
+            for linea in lineas:
+                if re.match(r"^#{2,4}\s", linea):
+                    secciones_declaradas[actual] = declarada
+                    actual += 1
+                    declarada = bool(RE_CIFRA_DECLARADA.search(linea))
+                elif RE_CIFRA_DECLARADA.search(linea):
+                    declarada = True
+            secciones_declaradas[actual] = declarada
+
+            sec = 0
+            for i, linea in enumerate(lineas, start=1):
+                if re.match(r"^#{2,4}\s", linea):
+                    sec += 1
+                if RE_CIFRA_DECLARADA.search(linea) or secciones_declaradas.get(sec):
+                    continue  # se está citando con su estado a la vista
+                for cifra, _dom, estado, _nota in aplican:
+                    if cifra in linea:
+                        avisar(rel, f"línea {i}: cita la cifra vigilada '{cifra}' "
+                                    f"({estado}, ver radar/cifras.txt) sin declarar su "
+                                    f"estado en la misma línea. Si es la misma cifra "
+                                    f"reciclada, decirlo; si es una medición nueva e "
+                                    f"independiente, decir de quién y con qué muestra")
+                        break
+
+
 def validar_guion(path):
     """Contrato del guion (ESPEC Misión 5). Severidad ERROR, igual que los
     dossiers: un guion es material de trabajo que se copia y se pega en una
@@ -359,7 +452,11 @@ def main():
             validar_guion(path)
             n_gui += 1
 
-    print(f"Validados {n_rep} reportes, {n_proy} dossiers y {n_gui} guiones.")
+    vigiladas = cargar_cifras_vigiladas()
+    validar_cifras_vigiladas(vigiladas)
+
+    print(f"Validados {n_rep} reportes, {n_proy} dossiers y {n_gui} guiones "
+          f"({len(vigiladas)} cifra(s) vigilada(s)).")
 
     if AVISOS:
         print(f"\n⚠ {len(AVISOS)} aviso(s) de formato (no rompen el build):")
