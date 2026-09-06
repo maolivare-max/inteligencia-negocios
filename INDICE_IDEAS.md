@@ -2,23 +2,16 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
-- 2026-09-02 · Biohacking y longevidad · Oportunidades
-
-### Directorio/marketplace de medicina funcional y longevidad en Chile (Score 15/20)
-- 2026-08-29 · Biohacking y longevidad · Oportunidades
-
-### Wellness ocupacional para fatiga visual/digital vía mutualidades (Score 14/20)
+- 2026-09-02 · Biohacking y longevidad · Coach de recuperación/rendimiento vía WhatsApp para atletas de resistencia (Score 14/20)
+- 2026-09-02 · Biohacking y longevidad · Directorio/marketplace de medicina funcional y longevidad en Chile (Score 15/20)
+- 2026-08-29 · Biohacking y longevidad · Wellness ocupacional para fatiga visual/digital vía mutualidades (Score 14/20)
 - 2026-08-29 · Oportunidades de negocio · Evaluación y adaptación de hogar para "aging in place" (Score 15/20)
 - 2026-08-29 · Tendencias inmobiliarias · Meta Ads con targeting por interés de estilo de vida (golf/marina/club) para propiedades amenitizadas (Score 15/20)
-- 2026-08-28 · Biohacking y longevidad · Oportunidades
-
-### Coach de wellness cardiometabólico sobre wearables mainstream (Score 14/20)
+- 2026-08-28 · Biohacking y longevidad · Coach de wellness cardiometabólico sobre wearables mainstream (Score 14/20)
 - 2026-08-27 · Oportunidades de negocio · Dispositivo DTC de alivio de dolor mandibular con marketing de contenido viral (caso yourTMJ Pen) (Score 11/20)
 - 2026-08-27 · Oportunidades de negocio · Plataforma de "drops" para venta de comida casera/informal (clon del modelo Hotplate) (Score 14/20)
 - 2026-08-27 · Tendencias inmobiliarias · Edensign — staging virtual multi-ángulo consistente + análisis de listing con IA (Score 14/20)
-- 2026-08-27 · Biohacking y longevidad · Oportunidades que pasan los cuatro filtros hoy
-
-### Apps de auto-ayuda digital para BFRBs (Habit Reversal Training digitalizado) (Score 14/20)
+- 2026-08-27 · Biohacking y longevidad · Apps de auto-ayuda digital para BFRBs (Habit Reversal Training digitalizado) (Score 14/20)
 - 2026-08-26 · Tendencias inmobiliarias · La Porta Propiedades — corredora viral en TikTok vende propiedades de alto valor (Score 16/20)
 - 2026-08-25 · Oportunidades de negocio · Actualización — Zigpoll: SaaS de encuestas post-compra distribuido vía agencias (eleva `tactica-distribucion-via-agencias-multiplicador`, indexado 19-ago) (Score 13/20)
 - 2026-08-25 · Biohacking y longevidad · Interpretación de exámenes de laboratorio con IA, directo al consumidor (Score 14/20)
@@ -31,28 +24,7 @@ _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se reg
 - 2026-08-22 · Oportunidades de negocio · Ecommerce de productos religiosos/católicos (Score 14/20)
 - 2026-08-21 · Tendencias inmobiliarias · BuildersUpdate — modelo "pago 100% contra cierre" para captar mandatos de constructoras (Score 11/20)
 - 2026-08-21 · Oportunidades de negocio · DTC de nicho de dolor con growth engine 100% orgánico (UGC pagado) (Score 12/20)
-- 2026-08-20 · Tendencias inmobiliarias · Actualización — Ley subsidio tasa hipotecaria 6.000 UF + FOGAES: YA ESTÁ PUBLICADA Y VIGENTE
-
-**Cambio de estado (no solo cifra nueva):** la ley se publicó en el Diario Oficial el **lunes 17 de agosto de 2026** — deja de ser "despachada, pendiente de promulgación" (estado del 18-19 ago) y pasa a ser **un beneficio vigente hoy, usable en campaña desde ya**. Detalle confirmado: cupos suben de 50.000 a 80.000, tope de vivienda elegible sube de 4.000 a 6.000 UF (cubre el 88,1% de la oferta actual), tasa baja ~0,6 puntos porcentuales, pie mínimo 10%, vigencia hasta el 31-mayo-2028. Fuentes: [BioBioChile](https://www.biobiochile.cl/noticias/servicios/beneficios/2026/08/17/subsidio-al-credito-hipotecario-ahora-tiene-tope-de-6-mil-uf-revisa-cuanto-podrias-pagar-de-dividendo.shtml), [CNN Chile](https://www.cnnchile.com/pais/subsidio-hipotecario-extendido-a-6-mil-uf-nunoa-macul-y-la-florida-estarian-entre-las-comunas-mas-beneficiadas/). Confianza: **Alta** (múltiples medios coinciden en la fecha de publicación).
-
-**Dato de demanda asociado (con reserva):** un informe citado por La Tercera Pulso (dominio 403 en este entorno, solo vía snippet) atribuye a este avance legislativo un aumento de **~60% en contactos hacia proyectos del tramo 4.000-6.000 UF**. Comunas señaladas como más beneficiadas: Ñuñoa, Macul, La Florida (perfil urbano, no costero — utilidad indirecta para el segmento de Miguel salvo que tenga inventario en ese tramo de precio). Confianza: **Media** — cifra de un solo medio, sin metodología publicada ni acceso al informe original.
-
-*(Actualización de la entrada ya indexada `ley-subsidio-tasa-hipotecaria-6000uf-despachada-ago2026`, sube de `ADOPTAR_YA` con estado "pendiente" a `ADOPTAR_YA` con estado "vigente".)*
-
-**Pasos esta semana:**
-1. Si Miguel tiene unidades en el tramo hasta 6.000 UF, activar el mensaje "ya puedes acceder al subsidio ampliado — tasa más baja, hasta 6.000 UF" de inmediato — la ventana de urgencia narrativa (recién publicada) es más fuerte ahora que en dos semanas más, cuando ya sea noticia vieja.
-2. Verificar con el banco/ejecutivo hipotecario de referencia el mecanismo exacto de postulación bajo la ley ya vigente (no el proyecto) antes de prometer cifras a clientes.
-3. Métrica a 30 días: variación de contactos/consultas en unidades dentro del nuevo tramo de tope vs. las tres semanas previas a la publicación, para contrastar con el +60% reportado de tercero (que no es dato propio verificado).
-
----
-
-## Nota — corrección sobre BancoEstado Hipotecario PRO (ya indexado)
-
-Precisión relevante que cambia el uso del gancho: la ventana de **aprobación comercial** (tasa 3,10% UF + FOGAES) cerró el 30 de julio y **no hay segunda etapa anunciada** — solo queda vigente el plazo de firma de escritura hasta el 30-sep-2026 para créditos **ya aprobados** en esa ventana. Es decir, el mensaje "aprovecha la tasa 3,10%" ya no sirve para captar clientes nuevos que recién se acercan hoy — solo para acelerar el cierre de quienes ya tienen la aprobación en trámite. Fuente: [BancoEstado — Hipotecario Pro](https://www.bancoestado.cl/content/bancoestado-public/cl/es/home/inicio---bancoestado-corporativo/noticias/sala-de-prensa-2026---bancoestado-corporativo/junio---bancoestado-corporativo/bancoestado-presenta--hipotecario-pro--con-tasa-de-3-1--y-apunta.html). Confianza: Alta (fuente propia del banco). *(Precisión sobre `bancoestado-hipotecario-pro-2026-ventana-cerrada-ago2026`, sin cambio de veredicto.)*
-
----
-
-## Entrenador.ai / Inteliventa — simulador de ventas por WhatsApp con IA (Chile) (Score 10/20)
+- 2026-08-20 · Tendencias inmobiliarias · Entrenador.ai / Inteliventa — simulador de ventas por WhatsApp con IA (Chile) (Score 10/20)
 - 2026-08-19 · Tendencias inmobiliarias · PortalTerreno — estudio semestral de demanda por comuna (loteos/parcelas) (Score 11/20)
 - 2026-08-19 · Oportunidades de negocio · Kapso (Score 14/20)
 - 2026-08-18 · Tendencias inmobiliarias · Diseño de producto anclado en datos de renta corta — condohotel costero (Sendara/Foothold, Bariloche) (Score 13/20)
@@ -355,11 +327,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-17 · Oportunidades de negocio · LegalOS / Parley — Automatización con IA de Trámites Migratorios, Adaptado a la Regularización en Chile (Score 13/20)
 - 2026-07-17 · Tendencias inmobiliarias · Benchmarks Chilenos de CPL por Tipo de Propiedad (Muller y Pérez) (Score 13/20)
 - 2026-07-17 · Oportunidades de negocio · Bro Glo — De un Video Viral de TikTok a US$3,1M en Ventas en 3 Años (Autobronceante para Hombres) (Score 14/20)
-- 2026-07-17 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Gojiberry AI — Servicio de Prospección B2B con IA, Rentable Desde el Día 1 (Score 15/20)
+- 2026-07-17 · Oportunidades de negocio · Gojiberry AI — Servicio de Prospección B2B con IA, Rentable Desde el Día 1 (Score 15/20)
 - 2026-07-17 · Tendencias inmobiliarias · Tasa Hipotecaria en Mínimo de 24 Años en Chile: Mensaje de Urgencia Sin Explotar (Score 16/20)
 - 2026-07-16 · Tendencias inmobiliarias · Apelación al Settlement de NAR: Ventana de Incertidumbre Regulatoria en Comisiones (Score 10/20)
 - 2026-07-16 · Oportunidades de negocio · Agencia Freelance de Automatizaciones n8n para Pymes, Sin Marketing Formal (Score 12/20)
@@ -378,33 +346,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-15 · Tendencias inmobiliarias · FincaRaíz (Colombia): Portal con IA de Personalización Duplica Tráfico y Triplica Leads vs. su Competidor Más Cercano (Score 11/20)
 - 2026-07-15 · Oportunidades de negocio · Compliance Regulatorio con IA "Ex-Regulador Conoce el Problema", en Otro Organismo Chileno (patrón Inzai) (Score 12/20)
 - 2026-07-15 · Oportunidades de negocio · Red de Micro-Herramientas IA en Español, Monetizada con SEO + Ads (patrón BoredHumans.com) (Score 13/20)
-- 2026-07-15 · Tendencias inmobiliarias · Kipps.AI: Agente de Voz IA Reactiva 1.420 Leads Dormidos por US$1.840 (CAC ≈US$10/cita) — Score 16/20 *(Actualización — nuevo caso y cifra de CAC sobre la tendencia de reactivación de leads dormidos ya cubierta con Lofty el 7-jul)*
-*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 5 · Innovación 3)*
-
-· **Qué es:** Agente de voz con IA que llama telefónicamente a la base histórica de leads dormidos de un agente/inmobiliaria, los califica en conversación real y agenda citas de listing — a diferencia de Lofty (ya cubierto), que reactiva vía texto/CRM, este caso documenta el canal de voz con cifras unitarias de costo.
-
-· **Por qué genera leads:** En una campaña de **30 días**: 12.500 leads históricos marcados, **1.420 contactos dormidos reactivados**, **184 citas de listing calificadas** agendadas, con un costo total de campaña de **US$1.840** (~US$10 por cita agendada) y ROI reportado **&gt;1.100%** sobre comisiones cerradas.
-
-· **Dónde funciona:** EE.UU. Fuente: [Kipps.AI — AI Voice Agents for Real Estate](https://www.kipps.ai/blog/ai-voice-agents-for-real-estate).
-
-· **Confianza:** Media (caso propio del proveedor con cifras muy específicas, sin verificación independiente).
-
-· **Pasos esta semana:**
-  1. Exportar la base de contactos "fríos" de los últimos 12-24 meses (compradores/vendedores que no cerraron) y segmentarla por probabilidad de reactivación (ej. quienes calificaban para subsidios vigentes).
-  2. Evaluar un piloto pequeño (50-100 contactos) con una herramienta de voz IA en español o, si no hay presupuesto para eso, un script de llamada manual estandarizado que replique la lógica de calificación.
-  3. Medir a 30 días: % de contactos reactivados que agendan una visita/cita, y costo real por cita conseguida.
-
-### SEGUIMIENTO — Kipps.AI (voz)
-*Activado por: Score ≥16/20*
-
-1. **Caso documentado más cercano a Chile:** No hay caso LATAM de voz IA para reactivación de leads inmobiliarios; el antecedente más cercano en Chile es el uso de WhatsApp IA (Trichter/LAFHER, Entrenador.ai) para calificación, pero ninguno vía llamada de voz real.
-2. **Brecha de adopción en Chile:** Total en el canal de voz (0% documentado); alta también en general para reactivación sistemática de bases dormidas más allá de un envío de WhatsApp puntual.
-3. **Implementación Chile en 7 días:** Día 1-2: segmentar la base dormida propia por antigüedad y motivo de no-cierre. Día 3-5: piloto con una herramienta de voz IA en español (evaluar disponibilidad regional) o, como alternativa de bajo costo, telemarketing manual con guion estandarizado sobre 100 contactos. Día 6-7: agendar seguimiento de citas logradas. Costo estimado: CLP 200.000-500.000 para el piloto de 100 contactos.
-4. **Métrica de éxito a 30 días:** Número de citas/visitas agendadas sobre el total de contactos reactivados; umbral mínimo: ≥8% de conversión a cita sobre la base tocada.
-
----
-
-## 4. Zillow Showcase: Fichas Premium Ganan 35% Más Listings y +75% de Engagement (Score 13/20)
+- 2026-07-15 · Tendencias inmobiliarias · Zillow Showcase: Fichas Premium Ganan 35% Más Listings y +75% de Engagement (Score 13/20)
 - 2026-07-15 · Tendencias inmobiliarias · Google Local Services Ads (Pago por Lead, No por Clic) — Ventana de Arbitraje para Chile (Score 13/20)
 - 2026-07-15 · Oportunidades de negocio · Capital de Trabajo B2B Digital vía WhatsApp para Pymes No Bancarizadas (patrón Blanco, en nicho regional no atendido) (Score 14/20)
 - 2026-07-15 · Oportunidades de negocio · Vertical SaaS "Software para el Almacén de Barrio" en Chile (Score 15/20)
@@ -417,32 +359,10 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-14 · Tendencias inmobiliarias · Colombia: "Mi Casa Ya" sin Presupuesto en 2026, FNA Sube a 100% de Financiamiento (Score 13/20)
 - 2026-07-14 · Tendencias inmobiliarias · Programa "UpPayment" (EE.UU.): Patrón de Ventana Corta de Ayuda al Pie, Replicable con DS19/DS49 (Score 14/20)
 - 2026-07-14 · Oportunidades de negocio · Compra y Localización de Micro-SaaS para LATAM (patrón Noosa Labs) (Score 15/20)
-- 2026-07-14 · Tendencias inmobiliarias · BancoEstado "Hipotecario PRO" + FOGAES: Tasa 3,10% y Financiamiento hasta 90% — Score 15/20 *(Actualización con cifras nuevas)*
-*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 5 · Innovación 2)*
-
-· **Qué es:** Detalle numérico nuevo de la misma ventana FOGAES/BancoEstado que ya cubrimos el 6 de julio (vence 30 de julio): oferta con tasa preferencial UF+3,10%, financiamiento hasta el 90% del valor de la propiedad, plazos hasta 30 años, para viviendas de hasta UF 4.000.
-
-· **Por qué genera leads:** Ahora hay un ejemplo concreto que se puede usar directamente en marketing: una vivienda de 3.000 UF con 90% de financiamiento y 10% de pie a 30 años tiene un dividendo mensual aproximado de **$505.426**. La aprobación comercial debe otorgarse entre el 5 de junio y el **30 de julio de 2026**, con escritura firmada hasta el 30 de septiembre de 2026 — dos fechas límite encadenadas, no solo una.
-
-· **Dónde funciona:** Chile (BancoEstado, nacional). Fuente: [The Clinic, 09-jun-2026](https://www.theclinic.cl/2026/06/09/bancoestado-lanza-oferta-hipotecaria-compatible-con-subsidios-y-garantia-fogaes-financiamiento-puede-llegar-hasta-el-90/) · [Chócale](https://chocale.cl/2026/06/bancoestado-lanzo-hipotecazo-con-tasas-desde-31-y-pie-de-10/).
-
-· **Confianza:** Alta (cifras corroboradas entre dos medios).
-
-· **Pasos esta semana:**
-  1. Incorporar el ejemplo de dividendo ($505.426 para una vivienda de 3.000 UF) en fichas de propiedades elegibles, con la doble fecha límite (aprobación 30-jul, escritura 30-sep) visible.
-  2. Filtrar la cartera propia de propiedades en arriendo/venta que califiquen (≤UF 4.000) y priorizar su promoción activa antes del 30 de julio.
-  3. Medir a 30 días: número de clientes que inician trámite de aprobación comercial con BancoEstado a partir de propiedades promocionadas con este mensaje.
-
----
-
-## 4. Reglamento UE de Datos de Arriendo de Corto Plazo: Ventana de Arbitraje para un Servicio de Compliance Airbnb en Chile (Score 15/20)
+- 2026-07-14 · Tendencias inmobiliarias · Reglamento UE de Datos de Arriendo de Corto Plazo: Ventana de Arbitraje para un Servicio de Compliance Airbnb en Chile (Score 15/20)
 - 2026-07-14 · Oportunidades de negocio · Servicio de Acogimiento a la Condonación SII-TGR para Pymes con Deuda Tributaria (Score 16/20)
 - 2026-07-14 · Tendencias inmobiliarias · Arbitraje Ownwell: Reclamo de Avalúo Fiscal/Contribuciones "Sin Riesgo" como Generador de Leads Calificados (Score 16/20)
-- 2026-07-14 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Auditoría Exprés de Nómina Pre-Reforma Previsional (traspaso SIS → FAPP) (Score 18/20)
+- 2026-07-14 · Oportunidades de negocio · Auditoría Exprés de Nómina Pre-Reforma Previsional (traspaso SIS → FAPP) (Score 18/20)
 - 2026-07-14 · Tendencias inmobiliarias · Subsidio al Dividendo (Ley 21.748): 46.000 de 50.000 Cupos Ya Entregados, 8 Meses vs. 2 Años Proyectados (Score 18/20)
 - 2026-07-13 · Oportunidades de negocio · Marketplace B2B de Rescate de Excedentes No-Alimentarios en Chile (extensión de Cheaf/Too Good To Go) (Score 11/20)
 - 2026-07-13 · Tendencias inmobiliarias · Octia/PropFlow (Argentina): Sistema Operativo de Corretaje con WhatsApp y 30+ Portales Unificados (Score 11/20)
@@ -452,44 +372,18 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-13 · Oportunidades de negocio · Servicio de Cuentas Multi-Moneda y Compliance SII para Freelancers Remotos Chilenos (Ventana Antes de Wallbit) (Score 14/20)
 - 2026-07-13 · Tendencias inmobiliarias · Realguru (Alohome, México): Agente Virtual de IA Multiplica 7x las Conversaciones por Lead (Score 14/20)
 - 2026-07-13 · Tendencias inmobiliarias · Meta Business AI Nativo en WhatsApp (México): Calificación y Agenda Automática de Visitas (Score 15/20)
-- 2026-07-13 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Vambe: De US$20K a US$6M de ARR Vendiendo por WhatsApp con Agentes de IA (Score 16/20)
+- 2026-07-13 · Oportunidades de negocio · Vambe: De US$20K a US$6M de ARR Vendiendo por WhatsApp con Agentes de IA (Score 16/20)
 - 2026-07-13 · Oportunidades de negocio · Actualización — diio: De US$100K a Proyección de US$1M ARR en 6 Meses, Ahora en 5 Países (Score 16/20)
 - 2026-07-13 · Tendencias inmobiliarias · Loft (Brasil) — "Garantía Investe": Elimina el Aval de Arriendo con Bonos del Tesoro (Score 16/20)
 - 2026-07-12 · Tendencias inmobiliarias · Portal Inmobiliario: Mapa Interactivo de Densidad de Barrio como Nuevo Filtro Pre-Visita (Score 10/20)
 - 2026-07-12 · Tendencias inmobiliarias · Comprador Conjunto No-Matrimonial: Segmento en Alza Sin Herramienta ni Mensaje Local (Score 10/20)
 - 2026-07-12 · Oportunidades de negocio · App de Entrenamiento Personal con IA "Cero Empleados" para el Mercado Hispanohablante (arbitraje de GymStreak) (Score 11/20)
 - 2026-07-12 · Oportunidades de negocio · Fotos Profesionales con IA para LinkedIn en Chile (arbitraje de HeadshotPro) (Score 13/20)
-- 2026-07-12 · Tendencias inmobiliarias · Roomvu Amplía su Sistema de Visibilidad Autónoma + Recepcionista IA Multiidioma — Score 14/20 *(Actualización)*
-*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 3 · Innovación 3)*
-
-· **Actualización respecto a jul-01/jul-05:** Los reportes previos cubrieron "Roomvu Engage Pages" (landing pages generadas por IA en <5 min). Esta semana Roomvu añadió públicamente (actualización recogida en entrevista al CEO, 30 de junio 2026) un "Autonomous Visibility System" que publica contenido generado desde MLS en vivo en 8 canales sin que el agente tenga que loguearse, más un recepcionista de IA multiidioma para respuesta instantánea de leads — resuelve el problema de "publico dos semanas y luego desaparezco".
-
-· **Por qué genera leads:** **350.000+ profesionales** en la plataforma; **2% de ratio lead-a-venta** (sobre el benchmark de la industria); **49% de los consumidores** cree que habla con un humano; **65 horas/mes ahorradas** en marketing por agente.
-
-· **Dónde funciona:** EE.UU./Canadá (sin presencia confirmada en Chile). Fuente: [Inman, 28-abr-2026](https://www.inman.com/2026/04/28/roomvu-upgrades-ai-platform-to-keep-agents-visible-even-when-they-go-quiet/) · [HousingWire](https://www.housingwire.com/articles/roomvu-expands-ai-marketing-platform-for-agents/) · [Inman — entrevista CEO, 30-jun-2026](https://www.inman.com/2026/06/30/sam-mehrbod-roomvu-ceo-interview-new-era-of-ai-in-real-estate/)
-
-· **Confianza:** Media (cifras de la empresa, pero corroboradas de forma independiente en Inman y HousingWire).
-
-· **Pasos esta semana:**
-  1. Aplicar el concepto localmente sin depender de Roomvu: automatizar la publicación de fichas nuevas del MLS/portal propio en 3-4 canales (Instagram, WhatsApp Estados, Facebook) vía una herramienta de programación simple, para no depender de acordarse de publicar cada semana.
-  2. Configurar respuesta automática de primer contacto (aunque sea plantilla, no IA completa) para cubrir el "vacío" mientras se atiende a otros clientes.
-  3. Medir a 30 días: cantidad de semanas consecutivas con publicación activa vs. el historial de los últimos 3 meses (el problema que ataca esta herramienta es justamente la intermitencia).
-
----
-
-## 4. Comprador de Ingresos Medios (<UF 4.000) cerca de Metro: Caso Fundamenta Duplica Ventas (Score 13/20)
+- 2026-07-12 · Tendencias inmobiliarias · Comprador de Ingresos Medios (<UF 4.000) cerca de Metro: Caso Fundamenta Duplica Ventas (Score 13/20)
 - 2026-07-12 · Tendencias inmobiliarias · Ghostly Labs lanza "Phantom Realty Engine" (Sarah): Sitio Web + CRM Unificados en una Sola IA (Score 14/20)
 - 2026-07-12 · Oportunidades de negocio · Servicios Financieros Conversacionales por WhatsApp para PyMEs Chilenas — Cobranza, Contabilidad y Nómina (adyacente a Blanco) (Score 15/20)
 - 2026-07-12 · Tendencias inmobiliarias · Guerra de Descuentos por el Fin del IVA a la Vivienda: Urgencia y Garantía de Precio como Mensaje (Score 15/20)
-- 2026-07-12 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Actualización — Magnar AI: Legaltech Chilena Escala a LATAM con Carey como Inversionista Estratégico (Score 16/20)
+- 2026-07-12 · Oportunidades de negocio · Actualización — Magnar AI: Legaltech Chilena Escala a LATAM con Carey como Inversionista Estratégico (Score 16/20)
 - 2026-07-12 · Oportunidades de negocio · Bot de Fórmulas Excel/SQL en Español para PyMEs y Contadores Chilenos (arbitraje de Formula Bot) (Score 16/20)
 - 2026-07-12 · Oportunidades de negocio · Servicio de Formalización SII y Asesoría de Nuevo Régimen Pyme para Microemprendedores Informales (Score 16/20)
 - 2026-07-11 · Oportunidades de negocio · E-commerce Especializado en Mascotas Exóticas para Chile (Score 12/20)
@@ -503,11 +397,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-11 · Oportunidades de negocio · Concierge Telefónico para Adultos Mayores sin Smartphone en Chile (Score 15/20)
 - 2026-07-11 · Oportunidades de negocio · Agencia de Colocación Laboral Neuroinclusiva para Empresas Chilenas (Score 15/20)
 - 2026-07-11 · Tendencias inmobiliarias · Migrantes y Arrendatarios Extranjeros: Segmento de Bajo Riesgo Sin Marketing Dirigido (Score 15/20)
-- 2026-07-11 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Servicio de Regularización y Trámites con IA para la Comunidad Migrante en Chile (Score 16/20)
+- 2026-07-11 · Oportunidades de negocio · Servicio de Regularización y Trámites con IA para la Comunidad Migrante en Chile (Score 16/20)
 - 2026-07-11 · Tendencias inmobiliarias · Zillow Showcase — Staging IA y Planos Interactivos con Datos Propios de Conversión (Score 16/20)
 - 2026-07-10 · Tendencias inmobiliarias · Chile: Mesa Técnica de Autorregulación Gremial del Corretaje (Score 9/20)
 - 2026-07-10 · Tendencias inmobiliarias · Google Ads Performance Max para Inmobiliarias en Chile — Cifras Locales de CPL (Score 12/20)
@@ -524,11 +414,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-09 · Oportunidades de negocio · QA Automatizado que Verifica si un Agente de IA Realmente Arregló el Bug (inspirado en Osloq) (Score 14/20)
 - 2026-07-09 · Oportunidades de negocio · Agencia de Doblaje y Subtitulado con IA para Arbitraje de Contenido LATAM ↔ Inglés/Portugués (Score 14/20)
 - 2026-07-09 · Oportunidades de negocio · Chatbot de Soporte "Efecto IKEA": el Cliente Arma Su Propio Bot en Vez de Comprar una Implementación (inspirado en My AskAI) (Score 15/20)
-- 2026-07-09 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Servicio Gestionado de "Cerebro Corporativo" con IA para PyMEs y Consultoras Chilenas (patrón Hyper + GBrain open source) (Score 16/20)
+- 2026-07-09 · Oportunidades de negocio · Servicio Gestionado de "Cerebro Corporativo" con IA para PyMEs y Consultoras Chilenas (patrón Hyper + GBrain open source) (Score 16/20)
 - 2026-07-09 · Tendencias inmobiliarias · Propiteq y HousePricing.cl: Plataformas Chilenas de Tasación con IA Ganan Tracción (Score 16/20)
 - 2026-07-09 · Tendencias inmobiliarias · Trichter Consulting / Caso LAFHER Mazatlán: IA de Calificación de Leads por WhatsApp (Score 17/20)
 - 2026-07-09 · Tendencias inmobiliarias · AEO/GEO Inmobiliario: Tráfico desde IA Crece 527% y Convierte hasta 5x Mejor — Actualización (Score 17/20)
@@ -539,11 +425,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-08 · Oportunidades de negocio · GEO/AEO Chile — Actualización: Validar por Preventa Antes de Construir (caso Vismore) (Score 13/20)
 - 2026-07-08 · Tendencias inmobiliarias · Video Orgánico "Hook" en TikTok: Sin Pauta, 2,3M de Vistas y 11 Leads Directos (Score 13/20)
 - 2026-07-08 · Tendencias inmobiliarias · TOCTOC x Datamart: Precalificación Crediticia Automática Reduce el Expediente Hipotecario de Días a Horas (Score 14/20)
-- 2026-07-08 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Vertical SaaS + IA para Contadores/Notarios Chilenos (Playbook Magnar AI) (Score 15/20)
+- 2026-07-08 · Oportunidades de negocio · Vertical SaaS + IA para Contadores/Notarios Chilenos (Playbook Magnar AI) (Score 15/20)
 - 2026-07-08 · Oportunidades de negocio · Servicios-a-SaaS: Diagnóstico de Madurez de Datos/IA para PyMEs Chilenas (Score 15/20)
 - 2026-07-08 · Tendencias inmobiliarias · Data Inmobiliaria: Catastro Nacional Gratuito con IA — 9,5 Millones de Roles Indexados (Score 16/20)
 - 2026-07-08 · Tendencias inmobiliarias · RE/MAX Centre: Chatbot Multi-Oficina Sube los Leads del Sitio Web +385% (Score 16/20)
@@ -559,11 +441,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-07 · Oportunidades de negocio · Regularización Exprés del Certificado de Cumplimiento Tributario SII (nueva retención automática de IVA) (Score 15/20)
 - 2026-07-07 · Oportunidades de negocio · Kit de Compliance "Low-Cost" Ley 21.719 para PyMEs (riesgo de exclusión de licitaciones públicas) (Score 15/20)
 - 2026-07-07 · Tendencias inmobiliarias · Ley 21.748: Subsidio a la Tasa Hipotecaria se Agotaría Antes de su Plazo Legal (Score 16/20)
-- 2026-07-07 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Agencia de Agentes de Voz IA para PYMEs Chilenas (stack Callin.io + n8n + Cal.com) (Score 17/20)
+- 2026-07-07 · Oportunidades de negocio · Agencia de Agentes de Voz IA para PYMEs Chilenas (stack Callin.io + n8n + Cal.com) (Score 17/20)
 - 2026-07-07 · Tendencias inmobiliarias · Subsidio de Arriendo DS-52 2026 — Convocatoria Abre Hoy, Cierra 7 de Agosto (Score 17/20)
 - 2026-07-06 · Tendencias inmobiliarias · Habi Adquiere Pulppo: Consolidación de CRM con IA en LATAM (Score 11/20)
 - 2026-07-06 · Tendencias inmobiliarias · Benchmark LATAM de CPL: 35% Más Cierres al Integrar IA de Respuesta/Calificación (Score 12/20)
@@ -571,11 +449,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-06 · Oportunidades de negocio · Marketplace de Mentoría Async con Membresía Plana (modelo GrowthMentor) (Score 14/20)
 - 2026-07-06 · Oportunidades de negocio · Sincronización de Bases de Datos Notion con Google Sheets (modelo Sync2Sheets) (Score 14/20)
 - 2026-07-06 · Oportunidades de negocio · Notetaker de IA "Sin Bot" para Reuniones (modelo Bluedot) (Score 14/20)
-- 2026-07-06 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Encuestas Zero-Party para E-commerce (modelo Zigpoll) (Score 15/20)
+- 2026-07-06 · Oportunidades de negocio · Encuestas Zero-Party para E-commerce (modelo Zigpoll) (Score 15/20)
 - 2026-07-06 · Oportunidades de negocio · Video-Actores IA para Anuncios UGC (modelo Arcads) (Score 15/20)
 - 2026-07-06 · Oportunidades de negocio · Soporte al Cliente vía IA por WhatsApp para E-commerce (modelo Siena AI) (Score 15/20)
 - 2026-07-06 · Tendencias inmobiliarias · Folio Real Electrónico + Ley 21.772: El Cierre de Compraventa Baja de ~30 a ~10 Días Hábiles (Score 16/20)
@@ -586,11 +460,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-05 · Oportunidades de negocio · Distribución vía Comentarios Automatizados con IA (modelo Commentions) (Score 14/20)
 - 2026-07-05 · Tendencias inmobiliarias · Nicho de Vivienda Senior/Downsizing: Segmento en Crecimiento Estructural (Score 14/20)
 - 2026-07-05 · Tendencias inmobiliarias · Pre-Marketing / Listados por Fases: Testear Precio en Privado Antes de Publicar (Score 14/20)
-- 2026-07-05 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Alternativa Open-Source a DocSend para Compartir Documentos (modelo Papermark) (Score 15/20)
+- 2026-07-05 · Oportunidades de negocio · Alternativa Open-Source a DocSend para Compartir Documentos (modelo Papermark) (Score 15/20)
 - 2026-07-05 · Oportunidades de negocio · Videos "Faceless" con IA para Nichos en Español (modelo StoryShort.ai) (Score 15/20)
 - 2026-07-05 · Tendencias inmobiliarias · Roomvu Engage Pages: Landing Pages Generadas por IA en Menos de 5 Minutos (Score 15/20)
 - 2026-07-05 · Tendencias inmobiliarias · Vuun (ex-Verticcal): Concierge de IA que Factura US$70M en Ventas de Vivienda Nueva (Score 16/20)
@@ -604,33 +474,21 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-04 · Oportunidades de negocio · Doblaje y Localización de Video con IA para Nichos LATAM (modelo Rask AI) (Score 14/20)
 - 2026-07-04 · Tendencias inmobiliarias · Canva Listings: De Datos de Portal a Material de Marketing Publicado en Minutos (Score 14/20)
 - 2026-07-04 · Tendencias inmobiliarias · BrokerBot (Ribera AI): Copiloto de IA para Back-Office que Libera Tiempo Comercial (Score 14/20)
-- 2026-07-04 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Agente de IA que Agenda Citas por WhatsApp (modelo Setter AI) (Score 15/20)
+- 2026-07-04 · Oportunidades de negocio · Agente de IA que Agenda Citas por WhatsApp (modelo Setter AI) (Score 15/20)
 - 2026-07-04 · Tendencias inmobiliarias · Licitación de Inmuebles Fiscales: Nuevo Canal de Intermediación para Corredores (Score 15/20)
 - 2026-07-03 · Oportunidades de negocio · Servicio de Adaptación del Hogar para Adultos Mayores ("Aging in Place Chile") (Score 13/20)
 - 2026-07-03 · Oportunidades de negocio · Herramienta de IA para Marca Personal y Contenido en LinkedIn ("Kleo Chile") (Score 14/20)
 - 2026-07-03 · Oportunidades de negocio · Motor de Precios Dinámicos para Negocios que Venden Bloques de Tiempo ("Booko Chile") (Score 14/20)
 - 2026-07-03 · Oportunidades de negocio · Sitio de Currículums y Asesoría de Carrera en Español vía SEO ("StandOut CV Chile") (Score 14/20)
 - 2026-07-03 · Oportunidades de negocio · Vender una Herramienta de IA Exclusivamente a tu Propia Comunidad de Pago ("Launch Fast Chile") (Score 15/20)
-- 2026-07-03 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Plataforma de "Empresa Autónoma" Gestionada por Agentes de IA ("Polsia Chile") (Score 16/20)
+- 2026-07-03 · Oportunidades de negocio · Plataforma de "Empresa Autónoma" Gestionada por Agentes de IA ("Polsia Chile") (Score 16/20)
 - 2026-07-02 · Oportunidades de negocio · Monitoreo de Visibilidad de Marca en Respuestas de IA ("GEO Chile") (Score 13/20)
 - 2026-07-02 · Oportunidades de negocio · Portafolio de Apps Móviles de Suscripción Barata vía ASO en Español (Score 13/20)
 - 2026-07-02 · Oportunidades de negocio · Herramienta de Recuperación de Pagos Fallidos para Suscripciones Chilenas (Score 14/20)
 - 2026-07-02 · Oportunidades de negocio · Herramienta de Prueba Social y Testimonios vía WhatsApp Business ("Senja Chile") (Score 14/20)
 - 2026-07-02 · Tendencias inmobiliarias · Meta Ads: Optimizar Campañas a "Lead" en Vez de "Conversación" en WhatsApp (Score 14/20)
 - 2026-07-02 · Oportunidades de negocio · Marketplace de Ingresos Verificados para Freelancers y Micro-Negocios ("TrustMRR Chile") (Score 15/20)
-- 2026-07-02 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Herramienta de Marketing Automatizado en Comunidades Online ("Leadmore Chile") (Score 16/20)
+- 2026-07-02 · Oportunidades de negocio · Herramienta de Marketing Automatizado en Comunidades Online ("Leadmore Chile") (Score 16/20)
 - 2026-07-02 · Oportunidades de negocio · Automatización de Ingreso de Órdenes de Compra para Manufactura ("Smartbase Chile") (Score 16/20)
 - 2026-07-02 · Tendencias inmobiliarias · Cliperty: Red B2B de Corredores con Asistente IA por WhatsApp (Score 16/20)
 - 2026-07-02 · Tendencias inmobiliarias · AI SEO / GEO Inmobiliario: Optimizar para Ser Citado por ChatGPT y Gemini, no Solo por Google (Score 16/20)
@@ -641,11 +499,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-07-01 · Oportunidades de negocio · Bot de Reconocimiento y Cultura Laboral para Empresas Chilenas ("Kudos Bot Chile") (Score 14/20)
 - 2026-07-01 · Oportunidades de negocio · Vertical SaaS de Diagnósticos y Assessments para Consultoras y Coaches en Chile (Score 15/20)
 - 2026-07-01 · Tendencias inmobiliarias · Roomvu Engage Pages: Landing Pages Autogeneradas con IA en Menos de 5 Minutos (Score 15/20)
-- 2026-07-01 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. Escáner y Tasador de Láminas de Álbum Mundial con IA ("Panini Scanner Chile") (Score 17/20)
+- 2026-07-01 · Oportunidades de negocio · Escáner y Tasador de Láminas de Álbum Mundial con IA ("Panini Scanner Chile") (Score 17/20)
 - 2026-07-01 · Tendencias inmobiliarias · Compara Corredores: Matching Algorítmico Propietario→Corredor dentro de Portalinmobiliario.com (Score 17/20)
 - 2026-07-01 · Tendencias inmobiliarias · Propers: Comisión Hasta 2% y Acceso a 8.000+ Propiedades para Corredores Independientes (Score 17/20)
 - 2026-06-30 · Oportunidades de negocio · Operación de Clínica de Longevidad / Peptidos en Chile (Score 14/20)
@@ -658,11 +512,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-06-30 · Oportunidades de negocio · Micro-SaaS de Agendamiento para Groomers y Pet Care Chile (Score 16/20)
 - 2026-06-30 · Tendencias inmobiliarias · Meta Lead Ads + WhatsApp Directo: El Funnel Todo-en-Uno (Score 16/20)
 - 2026-06-30 · Tendencias inmobiliarias · Virtual Staging con IA: Fotos Vacías a Decoradas en 30 Segundos (Score 17/20)
-- 2026-06-30 · Oportunidades de negocio · TOP OPORTUNIDADES
-
----
-
-## 1. WhatsApp Commerce SaaS para eCommerce Chileno ("TxtCart LATAM") (Score 18/20)
+- 2026-06-30 · Oportunidades de negocio · WhatsApp Commerce SaaS para eCommerce Chileno ("TxtCart LATAM") (Score 18/20)
 - 2026-06-30 · Tendencias inmobiliarias · LIDZ.IA — IA Conversacional que Procesa el 25% de Propiedades Nuevas en Chile (Score 18/20)
 - 2026-06-29 · Tendencias inmobiliarias · Inversión Fraccionada Inmobiliaria: Fraccional.cl e InvestWE como Canal de Inversores (Score 13/20)
 - 2026-06-29 · Tendencias inmobiliarias · Portal Inmobiliario y Toctoc: Estrategia de Fichas Destacadas (Score 14/20)
@@ -754,29 +604,7 @@ Precisión relevante que cambia el uso del gancho: la ventana de **aprobación c
 - 2026-06-21 · Tendencias inmobiliarias · Click-to-WhatsApp Ads (CTWA) (Score 18/20)
 - 2026-06-20 · Oportunidades de negocio · App Gestión de Temporeros Agrícolas Chile (Mobile-First, Offline) (Score 13/20)
 - 2026-06-20 · Oportunidades de negocio · AI Agent de Cobranzas B2B Chile (DTE + WhatsApp Automático) (Score 13/20)
-- 2026-06-20 · Tendencias inmobiliarias · TikTok Paid Ads para Leads Inmobiliarios — Score 15/20 *(Actualización)*
-*(Generación de leads 4 · Implementación 4 · Costo-eficiencia 4 · Innovación 3)*
-
-*Actualización respecto a jun-18: el reporte del 18/jun cubrió la estrategia orgánica de TikTok y el workflow de CapCut para producir videos de propiedad. Este reporte cubre el mecanismo de TikTok Paid Ads (nuevo) y el caso chileno documentado de La Porta Propiedades (nuevo — no existía en el reporte anterior).*
-
-**Qué es:** TikTok Lead Generation Ads — campaña de pauta en TikTok donde el usuario ve un video del corredor en el feed y, al tocar el call-to-action, abre un formulario nativo de TikTok pre-rellenado con sus datos (nombre, email, teléfono) sin salir de la app. El formulario se entrega al corredor en tiempo real. Distinto del contenido orgánico de TikTok (cubierto el 18/jun): aquí hay presupuesto de pauta y el video llega a personas que no siguen al corredor, segmentadas por intereses (real estate, home buying), demografía y ubicación geográfica (commune, ciudad).
-
-**Por qué genera leads:** TikTok Lead Gen Ads en real estate promedian un CPL de **$15-45** en segmento residencial estándar — **40-60% más barato que Facebook Ads** que promedia $26-50 por lead en 2026 (Benly.ai, 2026). Solo el **15% de los agentes inmobiliarios globales** usa TikTok Ads, vs 87% en Facebook — lo que significa menor competencia y menor costo por impresión. Caso chileno documentado: María Jesús Macchiavello, ex profesora reconvertida en corredora, construyó La Porta Propiedades con ~110.000 seguidores en TikTok. **El 90% de sus ventas se originan en TikTok** (orgánico). Recientemente vendió una casa de más de **$1.000 millones CLP** a un cliente cuyo hijo vio sus videos en la plataforma (24horas.cl, GlobalBrokers.cl, 2025-2026). Su estrategia: propiedades mostradas con humor y cercanía, en vez del lenguaje rígido tradicional.
-
-**En Chile:** El mercado chileno de TikTok inmobiliario está en etapa muy temprana. El caso de La Porta Propiedades demuestra que es posible (y rentable) en Chile, pero sigue siendo la excepción absoluta. Solo un puñado de corredores chilenos tiene presencia activa en TikTok, y casi ninguno usa TikTok Paid Ads específicamente para lead generation. La ventana está abierta: quien active TikTok Lead Gen Ads apuntando a communes específicas de Santiago hoy, opera sin competencia directa en el canal más barato por lead del mercado digital.
-
-**Dónde lo encontré:** [TikTok Ads for Real Estate: Generate Buyer Leads 2026 (Benly.ai)](https://benly.ai/learn/tiktok-ads/tiktok-ads-real-estate) | [TikTok for Real Estate Agents: Complete 2026 Guide (Reel-E)](https://www.reel-e.ai/blog/tiktok-real-estate-agents) | [De profesora a corredora viral: la historia de la chilena que vende casas de $1.000 millones en TikTok (24Horas.cl)](https://www.24horas.cl/tendencias/redes-sociales/profesora-a-corredora-de-propiedades-viral-casas-millones-tiktok) | [La Porta Propiedades — caso TikTok Chile (GlobalBrokers.cl)](https://globalbrokers.cl/diario-inmobiliario/de-profesora-corredora-viral-la-historia-de-la-chilena-que-vende-casas-de-1000)
-
-**Confianza:** Alta para CPL de TikTok Ads ($15-45, Benly.ai 2026, fuente específica del canal); Alta para el caso de La Porta Propiedades (artículos verificables en 24horas.cl y GlobalBrokers.cl); Media para adopción de TikTok Ads en Chile específicamente (el 15% es dato global — en Chile la adopción es probablemente menor).
-
-**Pasos esta semana:**
-1. Crear cuenta en TikTok Ads Manager (ads.tiktok.com). Seleccionar objetivo "Lead Generation". Crear un grupo de anuncios con: segmentación por intereses ("Real Estate", "Home & Garden", "Personal Finance"), ubicación Chile, edad 25-45. Presupuesto inicial: $30 USD/día por 7 días = $210 USD de prueba. El video del anuncio debe tener gancho en los primeros 2 segundos: "Si estás buscando departamento en [commune], esto te cambia la búsqueda." Usar un clip real de propiedad filmado con el celular — TikTok penaliza la producción excesivamente pulida.
-2. Configurar el Lead Form nativo de TikTok: 3 campos máximo (nombre, teléfono, commune de interés). Responder a cada lead dentro de los primeros 15 minutos de recibido — TikTok Ads permite notificación inmediata por email o Zapier → WhatsApp cuando entra un lead.
-3. Medir a 30 días: CPL en TikTok Ads vs CPL histórico en Meta Ads (si existe) o vs el benchmark de $26-50 de Facebook (meta: CPL ≤ $25.000 CLP = ≈$27 USD); leads generados totales (meta: ≥30 leads en el primer mes con $210 USD de prueba); tasa de lead a visita (meta: ≥20% de los leads de TikTok avanzan a visita de propiedad).
-
----
-
-## 6. LinkedIn para Captación de Inversionistas Inmobiliarios (Score 13/20)
+- 2026-06-20 · Tendencias inmobiliarias · LinkedIn para Captación de Inversionistas Inmobiliarios (Score 13/20)
 - 2026-06-20 · Oportunidades de negocio · AI Recepcionista de Voz para Restaurantes y Servicios de Hogar Chile (Score 14/20)
 - 2026-06-20 · Oportunidades de negocio · Operador de Comunidad Paga en Nicho Profesional Español (Modelo Skool/LATAM) (Score 15/20)
 - 2026-06-20 · Tendencias inmobiliarias · Hyperlocal SEO — Páginas de Barrio por Commune (Score 15/20)
