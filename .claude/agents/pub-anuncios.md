@@ -6,7 +6,7 @@ description: >-
   ángulo, oferta, prueba social, CTA, formato, duración y por qué funciona el mecanismo.
   Su entregable es materia prima para los guiones plug-and-play. No mide (eso es pub-
   busqueda) ni aterriza a Chile (pub-chile).
-model: opus
+model: sonnet
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---
 

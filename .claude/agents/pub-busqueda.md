@@ -6,7 +6,7 @@ description: >-
   benchmarks por industria y prensa de marketing. Entrega una tabla de evidencia con link,
   fecha, etiqueta de origen y modo de verificación (primera mano vs. snippet). No
   disecciona creativos (pub-anuncios) ni aterriza a Chile (pub-chile).
-model: opus
+model: sonnet
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---
 

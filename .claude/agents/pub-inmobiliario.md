@@ -7,7 +7,7 @@ description: >-
   puente: cómo se integra eso a lo que necesitamos (corredor o inmobiliaria chica en
   Chile, leads calificados por WhatsApp, presupuesto chico, restricciones de categoría
   especial vivienda). No cubre tácticas sin anuncio concreto (eso es Misión 2).
-model: opus
+model: sonnet
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---
 
