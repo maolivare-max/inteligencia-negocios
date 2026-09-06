@@ -989,7 +989,10 @@ function renderGrid(){
       (s.visto ? '<span class="tag-vista">VISTA</span>' : '') +
       '<div class="fila1">' + chipsDe(t, false) + '<span class="sp"></span>' + botonesMark(t) + '</div>' +
       '<h3>' + esc(t.nombre) + '</h3>' +
-      '<p class="desc">' + esc(t.descripcion) + '</p>' +
+      // mdInline y no esc: la descripción viene del markdown del reporte y casi
+      // siempre abre en negrita, así que con esc() las tarjetas mostraban los
+      // asteriscos crudos. mdInline escapa primero, así que sigue siendo seguro.
+      '<p class="desc">' + mdInline(t.descripcion) + '</p>' +
       '<div class="meta"><span class="chip">Score ' + t.score + '/20</span><span class="chip">' + esc(t.fecha) + '</span></div>' +
       '</article>';
   }).join('');
