@@ -163,7 +163,28 @@ en Leads, haga lo que haga el resto.
   `*(Leads X · Facilidad X · Costo-eficiencia X · Innovación X)*` y los campos
   `**Qué es:**`, `**Por qué funciona:**`, `**En Chile:**`, `**Dónde lo encontré:**`
   (links en la MISMA línea), `**Confianza:**` (dos puntos fuera de las negritas),
-  `**Pasos esta semana:**` numerados.
+  `**Etiquetas:**` (ver más abajo) y `**Pasos esta semana:**` numerados.
+- **Etiqueta cada hallazgo.** Entre `**Confianza:**` y `**Pasos esta semana:**` va
+  `**Etiquetas:** táctica={...} · formato={...} · conciencia={...} · oferta={...}`, con
+  valores de `publicidad/taxonomia.md` (uno o más por eje, separados por coma si el
+  creativo combina mecanismos). Si un eje no aplica o la ficha no describe ese aspecto
+  del anuncio (visual no descrito, hallazgo de benchmark/tarifario/metodología en vez de
+  un creativo concreto), el valor es `sin_dato` — nunca inventes un valor solo para no
+  dejar el eje vacío, y nunca copies el mismo set de tácticas de un hallazgo a otro sin
+  verificar que el copy real las sostiene: la vuelta 1 de auditoría de esta taxonomía
+  encontró el mismo mecanismo (la tasación de Denny Menholt, hallazgo 3, hallazgo 6 y
+  guion 01) etiquetado con tácticas sin nada en común, y valores como `oferta_descuento`
+  puestos en una ficha que decía literalmente "no es un descuento" — revisa el texto de
+  la propia ficha antes de fijar cada valor, no lo que "suena parecido". Si un hallazgo
+  es la actualización o el origen de otro (lo dice el propio texto, ej. "es el origen del
+  guion 1" o "actualiza el hallazgo N"), sus tácticas compartidas deben reflejarlo: al
+  menos un valor en común si el mecanismo es el mismo.
+- Cuando `**Por qué funciona:**` de un hallazgo se apoya en tiempo activo en la Ad
+  Library en vez de una métrica medida, agrega la línea `Señal Ad Library: {días
+  activos} (consultado {fecha}) · {n} variantes · tier {tier_x}` (ver CLAUDE.md → MISIÓN
+  5 → "TIER DE LONGEVIDAD") y registra la fila en `publicidad/long-runners.md` — con o
+  sin fecha de inicio exacta, esa tabla es la memoria que evita que `pub-anuncios`
+  redescubra el mismo anunciante la próxima semana.
 - Los sub-bloques que no son hallazgo (Targeting Chile, Decisiones del CEO, Guiones
   producidos, contra-evidencia) van con `###`, nunca `##`.
 - `**Fuentes revisadas:**` es la suma de fuentes distintas con link que citan los cuatro
@@ -182,8 +203,11 @@ en Leads, haga lo que haga el resto.
   `ls publicidad/guiones/` y sigue; ignora los `_*`). Parte de `publicidad/guiones/_plantilla.md`
   si existe; nunca la modifiques.
 - Contrato literal en CLAUDE.md → MISIÓN 5 → "CONTRATO DEL GUION". Sin improvisar
-  encabezados: título único con `# `, las 5 líneas `>` en orden, las 7 secciones `##`
-  numeradas con esos nombres, subtítulos `###`. **Prohibido `— Score X/20` en `##`.**
+  encabezados: título único con `# `, las 5 líneas `>` de metadatos originales en orden
+  (Estado, Tipo, Origen, Métrica de referencia, Tesis) más la 6ª línea `> **Etiquetas:**`
+  (mismo vocabulario y misma regla de `sin_dato` que en el hallazgo, arriba), las 7
+  secciones `##` numeradas con esos nombres, subtítulos `###`. **Prohibido `— Score
+  X/20` en `##`.**
 - Sección 3 (Variables a rellenar): tabla markdown con separador `|---|---|` y los
   placeholders `{oferta}`, `{publico}`, `{ciudad}`, `{ticket}`, `{prueba_social}`,
   `{cta}`. El guion tiene que servir para una clínica dental y para un condominio sin

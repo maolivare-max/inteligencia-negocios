@@ -1,9 +1,9 @@
 # Taxonomía de creativos (Misión 5)
 
 > **Fuente:** [motion-team/creative-strategy-skills](https://github.com/motion-team/creative-strategy-skills),
-> commit `8e467a3` (2026-06-11). **Licencia:** MIT (Copyright (c) 2026 Motion Creative Strategy Team —
-> texto completo de la licencia en el repo de origen). El aviso de copyright se mantiene con esta
-> atribución, conforme exige la licencia.
+> commit `8e467a3` (2026-06-11). **Licencia:** MIT (Copyright (c) 2026 Motion Creative Strategy Team) —
+> texto completo reproducido al pie de este archivo, según exige la licencia para toda copia o
+> porción sustancial del software (las 79 definiciones traducidas abajo lo son).
 >
 > Este archivo existe para que `validar_formato.py` pueda comprobar que la línea
 > `· **Etiquetas:**` de cada hallazgo y cada guion usa valores de un vocabulario cerrado, en vez de
@@ -161,6 +161,7 @@ Qué aspecto tiene y cómo está producido el anuncio. Es el vehículo, no el me
 | `formato_nosotros_vs_ellos` | Us vs. Them | Video o estático | Comparación lado a lado o secuencial contra un competidor o alternativa. |
 | `formato_vsl` | VSL (Video Sales Letter) | Solo video | Video largo (60+ segundos) que introduce y agita un problema, construye deseo, presenta el producto como solución y cierra con CTA. |
 | `formato_hablando_camara` | Yapper | Solo video | Video de una sola toma, hablando directo a cámara, un solo hablante, un solo ambiente, sin cortes de material nuevo. |
+| `formato_estatico_texto` | **— (valor propio, NO viene de Motion)** | Solo estático | Imagen estática simple con copy superpuesto sobre fondo plano o un documento (avalúo, captura, cifra), sin foto de persona ni de producto y sin más detalle de producción disponible. Agregado el 2026-09-07 tras la auditoría de la vuelta 1 (ver Registro de cambios): la lista de Motion está hecha para creativos DTC con foto/video de producto, y no tiene un valor neutro para la pieza más común del corpus de servicios locales — texto plano sobre fondo, sin actor ni producto en pantalla. Usar solo cuando la ficha describe explícitamente este tipo de pieza (ej. la sección "Producción" de un guion); si la ficha no describe el visual en absoluto, usar `sin_dato`, no este valor. |
 
 ---
 
@@ -183,14 +184,63 @@ Schwartz (no es una taxonomía original de Motion).
 ## Eje 4 — Tipo de oferta (6 valores, eje propio — NO viene de Motion)
 
 Ver la nota de adaptación arriba: esta lista no tiene respaldo en el repo MIT de Motion. Se agrega
-para completar la línea de etiquetas que pide el informe de mejoras, con un vocabulario chico y
-explícito en vez de texto libre.
+para completar la línea de etiquetas, con un vocabulario chico y explícito en vez de texto libre.
 
 | Etiqueta | Explicación |
 |---|---|
 | `oferta_gratis` | Se entrega algo gratis (informe, muestra, contenido) sin condición de compra. |
-| `oferta_descuento` | Rebaja de precio directa, con o sin plazo. |
+| `oferta_descuento` | Rebaja de precio directa sobre el servicio principal, con o sin plazo. |
+| `oferta_entrada` | Producto o servicio de entrada a precio bajo (a veces con el precio normal visible al lado, a modo de ancla), que **no es una rebaja del servicio principal** — la consulta/evaluación se cobra poco o nada y el margen ocurre después, en el servicio que sí se vende caro. Agregado el 2026-09-07 tras la auditoría de la vuelta 1 (ver Registro de cambios): `oferta_descuento` no cubre este mecanismo, y varias fichas del corpus dicen explícitamente "no es un descuento". |
 | `oferta_prueba` | Período o unidad de prueba antes de comprometerse al pago completo. |
 | `oferta_garantia` | Garantía de devolución o resultado que reduce el riesgo percibido de comprar. |
 | `oferta_paquete` | Combo o bundle de productos/servicios a un precio conjunto. |
 | `oferta_sin_oferta` | El anuncio no trae oferta comercial explícita (es solo mensaje o marca). |
+
+---
+
+## Registro de cambios
+
+- **2026-09-06 — creación.** 33 tácticas de hook, 46 formatos visuales, 5 etapas de conciencia
+  (todos de Motion) y 6 valores de tipo de oferta (propios).
+- **2026-09-07 — vuelta 1 de auditoría (`pub-auditor`, acta en `scratchpad/mision5/acta-taxonomia.md`
+  de esa sesión).** El acta encontró que el retrofit inicial etiquetaba el mismo mecanismo de
+  tasación (hallazgo 3, hallazgo 6 y guion 01 de `reportes-publicidad/2026-09-06.md`) con cero
+  tácticas en común, usaba `oferta_descuento` en fichas que dicen textualmente "no es un descuento",
+  y usaba valores de formato (`formato_estadistica`, `formato_texto_nativo`, `formato_hablando_camara`)
+  en fichas que no describen el visual del anuncio. Cambios a este archivo como consecuencia:
+  agregado `oferta_entrada` (eje 4) y `formato_estatico_texto` (eje 2, marcado como valor propio).
+  El vocabulario de hook/formato/conciencia copiado de Motion no cambió — el problema estaba en qué
+  valor se le asignaba a cada ficha, no en la lista.
+
+---
+
+## Texto completo de la licencia (MIT, reproducido íntegro)
+
+Este archivo copia y traduce una porción sustancial de
+[motion-team/creative-strategy-skills](https://github.com/motion-team/creative-strategy-skills)
+(las 79 definiciones de los ejes 1 y 2), así que la licencia exige incluir el aviso de copyright y
+el aviso de permiso completos, no solo un link:
+
+```
+MIT License
+
+Copyright (c) 2026 Motion Creative Strategy Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

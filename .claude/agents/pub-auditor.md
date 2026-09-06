@@ -5,8 +5,10 @@ description: >-
   publicidad/) y los guiones (publicidad/guiones/) ANTES de publicar - contrato de
   formato, cifras sin etiqueta de origen, links rotos o inventados, repetición contra
   radar/indice-antirepeticion.txt, el vicio documentado del corpus (metas a 30 días sin
-  baseline, cero casos de fracaso) y que el módulo de métricas propias siga apagado. Corre
-  python3 validar_formato.py. No corrige - emite un acta con veredicto; el CEO corrige.
+  baseline, cero casos de fracaso), que las Etiquetas de taxonomía (publicidad/taxonomia.md)
+  reflejen lo que la ficha realmente describe y no solo estén en el vocabulario, y que el
+  módulo de métricas propias siga apagado. Corre python3 validar_formato.py. No corrige -
+  emite un acta con veredicto; el CEO corrige.
 model: fable
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
@@ -57,11 +59,53 @@ archivos de esta entrega = MAYOR; los de archivos históricos se listan como MEN
 - Hallazgos con score ≥ 12 solamente. Uno con score < 12 publicado = MENOR (debió ir a
   "evaluado y descartado").
 
+### 2b. Etiquetas de taxonomía (hallazgos y guiones)
+El validador solo chequea que la línea exista y que cada valor esté en el vocabulario de
+`publicidad/taxonomia.md` (severidad AVISO — no bloquea el build). Eso NO basta: un valor
+puede estar en el vocabulario y aun así ser falso para la ficha que etiqueta, y ese es el
+error de contenido que rompe el propósito de la taxonomía. Verifica, para cada hallazgo y
+cada guion de la entrega:
+- Existe `**Etiquetas:**` (hallazgo) o `> **Etiquetas:**` (guion) con los cuatro ejes
+  `táctica={...} · formato={...} · conciencia={...} · oferta={...}`. Falta = MAYOR (o
+  MENOR si el archivo es histórico, no de esta entrega).
+- **Cada valor de táctica/formato lo sostiene el texto de la propia ficha**, no una
+  asociación libre. Lee la definición del valor en `taxonomia.md` y compárala contra
+  `**Qué es:**`/`**Por qué funciona:**` (hallazgo) o la sección 1 (guion). Un valor que
+  no calza con lo que la ficha describe = MAYOR, con la cita del texto que lo contradice.
+  Ejemplo real de la vuelta 1: `oferta_descuento` en una ficha cuyo propio texto dice "el
+  ancla no es un descuento" — la etiqueta decía lo contrario de la ficha.
+- **`formato` solo lleva un valor cuando la ficha describe el visual del anuncio**
+  (foto, toma, montaje). Si el hallazgo solo da el copy/mecánica (caso típico: fuentes
+  tipo LeadSync o 9 Clouds que citan texto, no la pieza), el valor correcto es
+  `sin_dato`, no un formato inventado por asociación. Un `formato_*` sin descripción
+  visual que lo sostenga = MAYOR.
+- **Mismo mecanismo, mismo núcleo de tácticas.** Si el propio texto dice que un hallazgo
+  es "el origen de" un guion, una "actualización de" otro hallazgo, o describe el mismo
+  anuncio/mecánica que otra ficha ya auditada, sus tácticas deben compartir al menos un
+  valor. Cero tácticas en común entre fichas que el texto declara como el mismo mecanismo
+  = MAYOR (es la falla que la taxonomía existe para prevenir — ver `taxonomia.md` línea
+  10).
+- **Misma evidencia, misma etapa de conciencia.** Si un guion deriva de un hallazgo y
+  describe a los mismos anunciantes/anuncios, su `conciencia` debe coincidir con la del
+  hallazgo de origen (o la ficha explica por qué difiere). Valores distintos sin
+  explicación = MAYOR.
+- `sin_dato` en un eje no es, por sí solo, un defecto — es preferible a un valor
+  inventado. Solo es MAYOR si la ficha sí trae información suficiente para tageear ese
+  eje y el `sin_dato` es evasión, no honestidad.
+- Cuando `**Por qué funciona:**` se apoya en días activos de Ad Library sin métrica de
+  desempeño, verifica que traiga la línea `Señal Ad Library: ... tier {tier_x}` (ver
+  CLAUDE.md → MISIÓN 5 → "TIER DE LONGEVIDAD") y que `publicidad/long-runners.md` tenga
+  la fila correspondiente. Falta cualquiera de las dos = MENOR (la regla es nueva y no
+  bloquea, pero se anota para que no se pierda de nuevo).
+
 ### 3. Contrato del guion (`publicidad/guiones/NN-slug.md`, ignorando `_*`)
 - Exactamente **una** línea que empieza con `# ` (un solo `#`).
-- Las 5 líneas `>` en este orden exacto: `**Estado:**` (Borrador | Validado | En uso |
-  Archivado), `**Tipo:**` (Hook | Ángulo | Oferta | Formato | Secuencia), `**Origen:**`,
-  `**Métrica de referencia:**` (cifra + etiqueta), `**Tesis:**` (una frase).
+- Las 5 líneas `>` de metadatos originales en este orden exacto: `**Estado:**` (Borrador |
+  Validado | En uso | Archivado), `**Tipo:**` (Hook | Ángulo | Oferta | Formato |
+  Secuencia), `**Origen:**`, `**Métrica de referencia:**` (cifra + etiqueta),
+  `**Tesis:**` (una frase) — más la 6ª línea `> **Etiquetas:**` (ver punto 2b; su
+  ausencia es AVISO del validador, no BLOQUEANTE, pero repórtala igual como MENOR si
+  falta).
 - Exactamente 7 encabezados `##`, numerados, con estos nombres y en este orden:
   `1. Anatomía del original`, `2. Guion adaptable`, `3. Variables a rellenar`,
   `4. Targeting Chile`, `5. Producción`, `6. Medición`, `7. Trazabilidad`.

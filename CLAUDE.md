@@ -1016,9 +1016,9 @@ Reglas de operación sobre el contrato:
 
 La Ad Library de Meta no publica métricas de anuncios comerciales, pero sí cuánto tiempo lleva
 corriendo un anuncio — y un anuncio que sigue pagado más de dos meses es la única señal de
-desempeño que un tercero puede observar sin acceso a la cuenta. Método adaptado de un post de
-adlibrary.com sobre cómo armar un swipe file de competencia (se toma el método, no sus cifras —
-ver la nota de sesgo de fuente al inicio del informe de mejoras que originó esta sección).
+desempeño que un tercero puede observar sin acceso a la cuenta. Método adaptado de
+[adlibrary.com — cómo armar un swipe file de competencia](https://adlibrary.com/posts/building-a-competitor-swipe-file-as-a-creative-strategist):
+adlibrary.com vende un swipe file, así que se toma el método, no sus cifras.
 
 - **Tiers:** `tier_0_29` (0-29 días activo) · `tier_30_59` (30-59 días) · `tier_60_89` (60-89 días)
   · `tier_90_mas` (90 días o más).
