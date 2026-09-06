@@ -1,0 +1,32 @@
+cifra|dominio|estado|nota
+# REGISTRO DE CIFRAS VIGILADAS
+#
+# POR QUÉ EXISTE: radar/indice-antirepeticion.txt indexa por CONCEPTO (slug). Eso no
+# sirve para atrapar una cifra que cambia de nombre, de canal o de rubro y vuelve a
+# entrar como dato nuevo. El informe reportes-publicidad/2026-09-06.md documentó el
+# caso: un mismo CPL nació el 2026-06-28 como dato de GOOGLE ADS, el 06-29 se aplicó a
+# fichas de portal inmobiliario, y el 08-05 reapareció titulado "Meta Ads" — nadie midió
+# Meta nunca. Para el 09-06 circulaba bajo cinco nombres de agencia distintos y el
+# sistema lo leía como corroboración de terceros. Un índice por slug no ve eso: la cifra
+# viajaba sola, sin su concepto.
+#
+# CÓMO SE USA: cuando una cifra se detecta reciclada, reatribuida o imposible de rastrear
+# hasta una fuente primaria, se registra acá. validar_formato.py avisa cuando un reporte
+# del dominio la vuelve a citar sin declarar su estado.
+#
+# CAMPOS
+#   cifra   literal como aparece escrito en los reportes (con separador de miles chileno)
+#   dominio ideas | tendencias | biohacking | publicidad | proyectos | * (todos)
+#   estado  circular  = no usar como evidencia independiente ni como baseline
+#           migrante  = cambió de canal/rubro/atribución entre reportes
+#           vigilada  = sin fuente primaria confirmada; citar solo con etiqueta baja
+#   nota    una línea: de dónde salió y por qué está acá
+#
+# CÓMO SE CITA UNA CIFRA REGISTRADA SIN QUE EL VALIDADOR AVISE: en la misma línea del
+# reporte debe aparecer una de estas palabras — circular, migrante, reatribuid,
+# indirecto, [desconocido] — es decir, hay que decir en voz alta lo que se está citando.
+# El objetivo no es prohibir la cifra: es prohibir citarla como si fuera limpia.
+
+12.000|publicidad|circular|CPL "antes" del par 12.000→5.800/5.400. Nace 2026-06-28 como Google Ads/PMax, migra a portal inmobiliario el 06-29, reaparece como "Meta Ads" el 08-05. A 2026-09-06 circula bajo cinco agencias (Muller y Pérez, Trichter, Fuelads, Focus Ads, Zettamkt) con la misma causa y el mismo relato: es una copia, no cinco mediciones. Contamina el baseline del hallazgo -52% (Score 17/20) de reportes-inmobiliario.
+5.800|publicidad|circular|Mitad "después" del par circular anterior, mismo origen y mismos emisores.
+2,44|publicidad|vigilada|CPM Chile en USD atribuido a Lebesgue. Sin muestra ni ventana temporal declaradas, y Fuelads lo agrega como si fuera fuente propia: dos apariciones que parecen independientes son la misma. No usar como benchmark de planificación.
