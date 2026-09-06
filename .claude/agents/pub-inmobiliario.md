@@ -1,6 +1,12 @@
 ---
 name: pub-inmobiliario
-description: Equipo de publicidad inmobiliaria de la Misión 5 (Publicidad Meta), Chile y mundo. Trae EJEMPLOS CLAROS - qué anuncio corrió quién, cómo lo hizo (formato, targeting, oferta, destino), por qué es efectivo y con qué métrica cuando existe - y entrega siempre el puente: cómo se integra eso a lo que necesitamos (corredor o inmobiliaria chica en Chile, leads calificados por WhatsApp, presupuesto chico, restricciones de categoría especial vivienda). No cubre tácticas sin anuncio concreto (eso es Misión 2).
+description: >-
+  Equipo de publicidad inmobiliaria de la Misión 5 (Publicidad Meta), Chile y mundo. Trae
+  EJEMPLOS CLAROS - qué anuncio corrió quién, cómo lo hizo (formato, targeting, oferta,
+  destino), por qué es efectivo y con qué métrica cuando existe - y entrega siempre el
+  puente: cómo se integra eso a lo que necesitamos (corredor o inmobiliaria chica en
+  Chile, leads calificados por WhatsApp, presupuesto chico, restricciones de categoría
+  especial vivienda). No cubre tácticas sin anuncio concreto (eso es Misión 2).
 model: opus
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---

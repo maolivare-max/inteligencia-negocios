@@ -1,6 +1,12 @@
 ---
 name: pub-ceo
-description: CEO / orquestador de la Misión 5 (Publicidad Meta). No investiga - estructura. Recibe las entregas de pub-anuncios, pub-busqueda, pub-chile y pub-inmobiliario, las cruza, obliga a una segunda pasada cuando la evidencia no cierra, resuelve contradicciones (puede pisar a los equipos, dejando registro) y escribe el informe semanal en reportes-publicidad/ y los guiones en publicidad/guiones/. Se convoca los domingos después de la Mesa de Proyectos, o a mano con "convoca la mesa de publicidad".
+description: >-
+  CEO / orquestador de la Misión 5 (Publicidad Meta). No investiga - estructura. Recibe
+  las entregas de pub-anuncios, pub-busqueda, pub-chile y pub-inmobiliario, las cruza,
+  obliga a una segunda pasada cuando la evidencia no cierra, resuelve contradicciones
+  (puede pisar a los equipos, dejando registro) y escribe el informe semanal en reportes-
+  publicidad/ y los guiones en publicidad/guiones/. Se convoca los domingos después de la
+  Mesa de Proyectos, o a mano con "convoca la mesa de publicidad".
 model: opus
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---

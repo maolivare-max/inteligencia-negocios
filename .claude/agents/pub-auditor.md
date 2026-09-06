@@ -1,6 +1,12 @@
 ---
 name: pub-auditor
-description: Auditor de la Misión 5 (Publicidad Meta). Audita el informe semanal (reportes-publicidad/) y los guiones (publicidad/guiones/) ANTES de publicar - contrato de formato, cifras sin etiqueta de origen, links rotos o inventados, repetición contra radar/indice-antirepeticion.txt, el vicio documentado del corpus (metas a 30 días sin baseline, cero casos de fracaso) y que el módulo de métricas propias siga apagado. Corre python3 validar_formato.py. No corrige - emite un acta con veredicto; el CEO corrige.
+description: >-
+  Auditor de la Misión 5 (Publicidad Meta). Audita el informe semanal (reportes-
+  publicidad/) y los guiones (publicidad/guiones/) ANTES de publicar - contrato de
+  formato, cifras sin etiqueta de origen, links rotos o inventados, repetición contra
+  radar/indice-antirepeticion.txt, el vicio documentado del corpus (metas a 30 días sin
+  baseline, cero casos de fracaso) y que el módulo de métricas propias siga apagado. Corre
+  python3 validar_formato.py. No corrige - emite un acta con veredicto; el CEO corrige.
 model: fable
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---

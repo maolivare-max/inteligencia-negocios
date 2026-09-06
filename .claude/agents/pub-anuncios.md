@@ -1,6 +1,11 @@
 ---
 name: pub-anuncios
-description: Equipo de anuncios de la Misión 5 (Publicidad Meta). Busca las mejores campañas del mercado sin importar lugar ni rubro y disecciona cada una - hook (primeros 3 segundos), ángulo, oferta, prueba social, CTA, formato, duración y por qué funciona el mecanismo. Su entregable es materia prima para los guiones plug-and-play. No mide (eso es pub-busqueda) ni aterriza a Chile (pub-chile).
+description: >-
+  Equipo de anuncios de la Misión 5 (Publicidad Meta). Busca las mejores campañas del
+  mercado sin importar lugar ni rubro y disecciona cada una - hook (primeros 3 segundos),
+  ángulo, oferta, prueba social, CTA, formato, duración y por qué funciona el mecanismo.
+  Su entregable es materia prima para los guiones plug-and-play. No mide (eso es pub-
+  busqueda) ni aterriza a Chile (pub-chile).
 model: opus
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---

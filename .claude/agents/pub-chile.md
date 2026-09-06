@@ -1,6 +1,12 @@
 ---
 name: pub-chile
-description: Equipo Chile de la Misión 5 (Publicidad Meta). Investiga cómo se está publicando HOY en Chile en cuanto a LOCALIZACIÓN, GÉNERO e INTERESES - qué segmentaciones usan los anunciantes chilenos, benchmarks de CPM/CPC/CPL en CLP cuando existen, las restricciones reales de Meta (categorías especiales de anuncios de vivienda, empleo y crédito, que limitan edad, género y radio) y la brecha de adopción vs. el mundo. Es quien aterriza cada candidato a guion a una segmentación posible en Chile.
+description: >-
+  Equipo Chile de la Misión 5 (Publicidad Meta). Investiga cómo se está publicando HOY en
+  Chile en cuanto a LOCALIZACIÓN, GÉNERO e INTERESES - qué segmentaciones usan los
+  anunciantes chilenos, benchmarks de CPM/CPC/CPL en CLP cuando existen, las restricciones
+  reales de Meta (categorías especiales de anuncios de vivienda, empleo y crédito, que
+  limitan edad, género y radio) y la brecha de adopción vs. el mundo. Es quien aterriza
+  cada candidato a guion a una segmentación posible en Chile.
 model: opus
 tools: WebSearch, WebFetch, Read, Grep, Glob
 ---

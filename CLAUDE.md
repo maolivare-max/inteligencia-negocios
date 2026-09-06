@@ -685,3 +685,344 @@ todo — es que el corpus no registra fracasos.
 Español, directo. Este es el documento que se usa para decidir si se gasta plata y tiempo:
 sin adjetivos de venta, con cifras etiquetadas por origen y con los riesgos arriba, no
 escondidos al final.
+
+---
+---
+
+# MISIÓN 5 (SEMANAL): PUBLICIDAD META — TABLERO DE INTERACCIÓN Y BIBLIOTECA DE GUIONES
+
+Workflow semanal, independiente de las Misiones 1-4. Rastrea cómo se está publicitando
+**hoy** en Meta (Facebook e Instagram) —las mejores campañas del mundo sin importar
+rubro, cómo se segmenta en Chile, y los anuncios inmobiliarios concretos de Chile y el
+mundo— y lo convierte en dos activos: un **informe semanal** (tablero de inteligencia
+sobre anuncios de terceros) y una **biblioteca de guiones plug-and-play** (plantillas
+neutras con variables que se rellenan para cualquier rubro).
+
+**PRINCIPIO CENTRAL:** un anuncio que funciona es un mecanismo, no una pieza. Se extrae
+el mecanismo (hook, ángulo, oferta, prueba social, CTA), se neutraliza en variables y se
+documenta con la métrica que lo respalda y el origen de esa métrica. Sin métrica
+etiquetada no hay guion; sin anuncio visible no hay hallazgo.
+
+**POR QUÉ EXISTE:** casi todo lo que la Mesa de Proyectos aterriza depende de conseguir
+los primeros clientes con pauta chica en Meta, y el corpus trae cientos de "tácticas"
+pero casi ningún anuncio desarmado con su hook, su segmentación y su CPL con fuente.
+Nadie había mirado tampoco las restricciones de Meta que pegan de lleno a lo
+inmobiliario (categorías especiales de vivienda, empleo y crédito, que limitan edad,
+género y radio). Esta misión llena ese hueco y deja los guiones listos para el lunes.
+
+**DECISIONES YA TOMADAS (no re-preguntar):**
+1. Dashboard **híbrido**: arranca como tablero de INTELIGENCIA (anuncios de terceros,
+   guiones, targeting Chile). El módulo de métricas de la cuenta propia de Meta queda
+   **preparado pero apagado** (ver "MÓDULO DE MÉTRICAS PROPIAS").
+2. Cadencia **semanal**, domingos, después de la Mesa de Proyectos. Carpeta propia
+   `reportes-publicidad/` y pestaña propia "Publicidad" en el dashboard.
+3. La publicidad inmobiliaria (Chile y mundo) va **dentro** de esta misión, como sección
+   propia del informe. No toca `reportes-inmobiliario/`.
+4. Los guiones son **genéricos plug-and-play**: plantilla neutra con variables.
+
+---
+
+## CADENCIA
+
+- **Corre los domingos**, escalonada después de la Mesa de Proyectos (Mesa 09:30 →
+  publicidad sugerido 10:15) para no chocar los push a `main`.
+- Semanal, no diaria: 3-6 hallazgos bien desarmados y 1-3 guiones valen más que un
+  catálogo. Si en una semana nada supera el umbral, **el resultado válido es "esta
+  semana no hay hallazgo/guion nuevo"** más el registro de qué se evaluó y por qué no
+  pasó.
+- Fuera de cadencia se convoca a mano: "convoca la mesa de publicidad" (opcionalmente
+  con ángulo: "... con ángulo: anuncios click-to-WhatsApp en LATAM").
+
+---
+
+## LOS EQUIPOS Y CÓMO CONVERSAN
+
+El equipo vive en `.claude/agents/` (un archivo por agente; el modelo se cambia
+editando la línea `model:` de cada uno — ver `.claude/agents/README.md`). La misión
+**no analiza en la sesión principal**: convoca.
+
+| Agente | Rol | Entrega |
+|---|---|---|
+| `pub-ceo` | Orquestador. No investiga: cruza, exige segunda pasada, pisa con registro, escribe informe y guiones. | `ronda2.md`, informe, guiones, `entrega.md` |
+| `pub-anuncios` | Mejores campañas del mercado, cualquier lugar y rubro, diseccionadas: hook (0-3 s), ángulo, oferta, prueba social, CTA, formato, duración, mecanismo. Materia prima del guion. | fichas `A-N` |
+| `pub-busqueda` | Rastrea métricas publicadas: Meta Ad Library, casos, agencias con CPL/CTR/ROAS reales, benchmarks por industria, prensa de marketing. Marca cuándo una cifra solo se verificó por snippet. | tabla de evidencia `B-N` |
+| `pub-chile` | Cómo se publica hoy en Chile: localización, género, intereses; benchmarks en CLP; restricciones de Meta (categorías especiales) y normativa; brecha de adopción vs. el mundo. | bloques `C-N` |
+| `pub-inmobiliario` | Anuncios inmobiliarios concretos, Chile y mundo: qué corrió quién, cómo, por qué es efectivo, métrica cuando existe, y el puente a lo que necesitamos. | casos `I-N` |
+| `pub-auditor` | Audita informe y guiones antes del commit (contrato, etiquetas, links, repetición, vicios del corpus, módulo apagado). Corre `validar_formato.py`. No edita. | acta con veredicto |
+
+### Protocolo de rondas
+
+Un subagente no puede lanzar a otro, así que la conversación entre equipos se
+materializa en archivos de una carpeta de trabajo (`<scratchpad>/mision5/`) y la
+ejecuta la sesión principal:
+
+0. **Brief:** la sesión principal escribe `brief.md` con fecha, ángulo de la semana y la
+   **lista de exclusión** (dominio `publicidad` de `radar/indice-antirepeticion.txt` +
+   sección relevante de `INDICE_IDEAS.md`, pegadas literal).
+1. **Ronda 1 — investigación paralela:** los cuatro equipos reciben `brief.md` y
+   escriben `anuncios.md`, `busqueda.md`, `chile.md`, `inmobiliario.md`.
+2. **Ronda 2 — cruce:** el CEO lee las cuatro entregas y escribe `ronda2.md` con
+   preguntas dirigidas por equipo. **El equipo de anuncios y el de búsqueda deben
+   conversar:** lo que anuncios diseccionó sin métrica, búsqueda lo persigue; lo que
+   búsqueda midió sin ver, anuncios lo disecciona; todo candidato a guion pasa por Chile
+   para saber si su segmentación es posible aquí. La ronda es obligatoria si hay un
+   candidato a guion sin métrica ≥ [verificado sin link], una contradicción entre
+   equipos, o un candidato sin veredicto de Chile. Una sola segunda pasada (`*-r2.md`);
+   si después la evidencia sigue sin cerrar, el hallazgo baja de etiqueta, de score o
+   sale del informe.
+3. **Ronda 3 — síntesis:** el CEO escribe el informe, los guiones, actualiza el índice
+   anti-repetición y deja `entrega.md`.
+4. **Ronda 4 — auditoría:** `pub-auditor` emite el acta. RECHAZADO o APROBADO CON
+   CORRECCIONES → el CEO corrige solo lo señalado → nueva acta. Máximo dos vueltas; si
+   no pasa, no se publica y se reporta al usuario por qué.
+5. **Commit + push** (sesión principal).
+
+### Reglas del CEO
+
+- **(a) Los equipos conversan a través del CEO.** Ningún hallazgo entra al informe con
+  un solo equipo detrás si otro equipo podía contrastarlo y no se le pidió.
+- **(b) El CEO puede pisar información de los equipos cuantas veces estime necesario**
+  (bajar una etiqueta, bajar un score, descartar, elegir una cifra sobre otra,
+  reescribir una conclusión), **y cada pisada queda registrada** en una línea del
+  bloque `### Decisiones del CEO (qué pisó y por qué)` del Cierre:
+  `- [equipo] afirmaba X → se publica Y porque Z`. Si no pisó nada, el bloque dice
+  "Sin pisadas esta semana". El auditor verifica que exista.
+- **(c) Toda cifra que se publica lleva etiqueta de origen:** [verificado] (fuente
+  pública, link en la misma línea) · [verificado sin link] (se consultó pero no quedó
+  la URL, o solo snippet de búsqueda: sirve para decidir, no para comprometer gasto) ·
+  [estimado] (extrapolado, se dice de qué) · [desconocido] (no se pudo obtener; se
+  dice, no se inventa). Cifra de otro mercado usada para Chile → se dice ("CPL de
+  México, sin caso chileno medido").
+- **(d) Umbral, no cuota.** Si una semana no hay nada que supere el umbral, el resultado
+  válido es decirlo, no rellenar.
+
+---
+
+## DÓNDE BUSCAR
+
+- **Anuncios (mundo):** Meta Ad Library (existencia, formato, fecha de inicio,
+  variantes — no publica métricas de anuncios comerciales; un anuncio activo >60 días
+  es señal de que alguien sigue pagando, no una métrica), Meta Business Success
+  Stories, swipe files (Foreplay, Motion, MagicBrief), Effie (Chile/LATAM/EE.UU.),
+  analistas de creativos de performance, r/FacebookAds y r/PPC cuando muestran el
+  anuncio. LATAM y España con prioridad: los hooks en español viajan mejor a Chile.
+- **Métricas:** benchmarks por industria con año (WordStream/LocaliQ, Databox,
+  AdEspresso, Revealbot, Lebesgue, Varos, Tinuiti, Skai), agencias que publican casos
+  con cliente + periodo + presupuesto, prensa de marketing (Marketing Dive, Digiday,
+  Marketing Brew, AdAge; Marketing4eCommerce, PuroMarketing, Merca2.0; América Retail,
+  ANDA, IAB Chile).
+- **Chile:** Ad Library filtrada por Chile (segmentación inferida del copy: "vecinos de
+  Ñuñoa"), páginas oficiales de Meta (facebook.com/business/help) para categorías
+  especiales y su alcance geográfico, DataReportal Digital Chile, Kantar Ibope,
+  Comscore, SERNAC/Ley 19.496, Ley 21.719 de datos personales, CONAR.
+- **Inmobiliario:** Ad Library de inmobiliarias, portales y PropTech chilenas; CChC,
+  ACOP; LATAM (Inmuebles24, Habi, La Haus, QuintoAndar, Loft, Zonaprop); EE.UU./Europa
+  (The Close, Inman y NAR vía snippets, Zillow/Redfin research, Idealista, Rightmove);
+  plataformas de ads inmobiliarias (Ylopo, Real Geeks, CINC) marcando que sus cifras
+  son auto-reportadas por el vendedor.
+
+---
+
+## QUÉ IGNORAR
+
+- Gurús de Meta Ads, cursos, mentorías y "resultados de alumnos" sin cliente ni periodo.
+- Capturas de Ads Manager o de ingresos sin rubro, país, fecha y presupuesto.
+- Métricas prometidas ("este hook triplica tu CTR", "leads a $2") sin caso identificable.
+- Anuncios que nadie pudo ver ni por captura ni por transcripción de un tercero
+  identificable. Sin link que muestre o describa el anuncio, no existe.
+- Benchmarks sin año o anteriores a 2023, salvo como serie histórica explícita.
+- Tácticas sin anuncio concreto (eso es Misión 2: se enrutan "DUAL → tendencias").
+- Cualquier dato "de nuestra cuenta": el módulo está apagado, no hay datos propios.
+
+---
+
+## FILTROS (deben cumplirse los CUATRO)
+
+a) **Anuncio visible y verificable:** existe un link que muestra o describe el anuncio
+   (Ad Library, caso publicado, artículo con captura/transcripción). Sin eso, no hay
+   hallazgo.
+b) **Métrica o convergencia:** el anuncio trae una métrica con etiqueta ≥ [verificado
+   sin link], **o** la mecánica aparece en ≥ 2 anunciantes distintos sin relación entre
+   sí (se citan ambos). Una mecánica de un solo anunciante sin métrica es una
+   curiosidad, no un hallazgo.
+c) **Replicable con presupuesto chico:** lo produce una persona con celular,
+   Canva/CapCut y pauta de orden CLP 100.000-500.000/mes; no exige productora,
+   celebridad ni producto visual irrepetible.
+d) **Viable en Chile:** la segmentación que usa el original es posible aquí (bajo las
+   restricciones de Meta —categorías especiales— y la normativa chilena), o existe una
+   segmentación alternativa que conserva el mecanismo; y es (1) algo que ya se usa en
+   Chile con datos, o (2) ventana de arbitraje (se ve en el mundo, no en Chile). Lo
+   decide `pub-chile`, no el CEO. Si no cumple, se descarta aunque el score sea alto.
+
+---
+
+## SCORING (1-5 en cada eje, total /20)
+
+- **Generación de leads** (volumen/calidad documentada, no prometida)
+- **Facilidad de implementación** (solo, con herramientas accesibles)
+- **Costo-eficiencia** (CPL/CTR/ROAS documentado vs. benchmark del rubro; sin cifra, máx 3)
+- **Innovación / ventaja vs. la competencia local** (ya se hace en Chile = bajo;
+  ventana de arbitraje = alto)
+
+Ordenar de mayor a menor. Se publica solo con score ≥ 12/20 y al menos un link
+verificable. Un hallazgo cuya única evidencia es [desconocido] no supera 3 en
+Costo-eficiencia ni en Leads. Máximo 8 hallazgos por semana.
+
+---
+
+## FORMATO DE CADA HALLAZGO
+
+Reutiliza **exactamente** el contrato de hallazgos que valida `validar_formato.py`:
+
+```
+## N. [Nombre] — Score X/20
+*(Leads X · Facilidad X · Costo-eficiencia X · Innovación X)*
+
+· **Qué es:** 1-2 frases (anunciante, país, rubro, formato, mecanismo)
+· **Por qué funciona:** mecanismo + métrica con etiqueta de origen
+· **En Chile:** segmentación posible hoy (localización · género · intereses), si cae en
+  categoría especial y qué se pierde, brecha de adopción, y qué rubros chilenos lo
+  pueden usar tal cual
+· **Dónde lo encontré:** [texto](url) — links en la MISMA línea
+· **Confianza:** Alta / Media / Baja (dos puntos FUERA de las negritas)
+· **Pasos esta semana:**
+  1. Acción concreta
+  2. Acción concreta
+  3. Métrica a medir, con baseline declarado o "sin baseline, estimado"
+```
+
+Raya EM (`—`) y score entero: guion, en-dash o "~14" hacen que el hallazgo se pierda
+en silencio.
+
+---
+
+## ESTRUCTURA DEL INFORME SEMANAL
+
+Se guarda en `reportes-publicidad/YYYY-MM-DD.md`. Secciones, en este orden. **Los
+sub-bloques que NO son hallazgo usan `###`, nunca `##`** (un `##` sin score en medio del
+informe rompe el parser o crea un hallazgo fantasma):
+
+1. **Encabezado:** fecha, `**Fuentes revisadas:** N` (suma de fuentes distintas con
+   link de los cuatro equipos, no un número redondo), ángulo de la semana,
+   `**Resumen:** una línea`.
+2. **Mejores campañas del mundo (cualquier rubro):** hallazgos `## N. ... — Score X/20`.
+3. **Targeting Chile (localización · género · intereses):** `###` con lo de `pub-chile`:
+   cómo se segmenta hoy, benchmarks en CLP con tipo de cambio y fecha, restricciones de
+   Meta vigentes (categorías especiales y su alcance para Chile, con link o "sin
+   confirmación en esta sesión"), brecha de adopción. Puede contener hallazgos `##` si
+   una práctica de segmentación en sí misma es un hallazgo con métrica.
+4. **Publicidad inmobiliaria (Chile y mundo):** hallazgos `##` con el puente de
+   `pub-inmobiliario` dentro de `**En Chile:**`.
+5. **Guiones producidos esta semana:** `###` con lista de links a
+   `publicidad/guiones/NN-slug.md`, tipo y métrica de referencia de cada uno. Si no hubo
+   guion: "ningún original superó el umbral de guion esta semana" y por qué.
+6. **Cierre:** `### Decisiones del CEO (qué pisó y por qué)` · `### Contra-evidencia y
+   lo que no funcionó` (anuncios pausados, rechazados por Meta, métricas malas
+   publicadas; si nada: "sin contra-evidencia encontrada esta semana" — el corpus no
+   registra fracasos y esa es una de sus fallas) · `### Evaluado y descartado` (con
+   motivo, para que el equipo no lo redescubra) · `### Ángulo sugerido para la próxima
+   semana` · 1-2 tendencias de fondo.
+
+---
+
+## CONTRATO DEL GUION (`publicidad/guiones/NN-slug.md`) — copiar literal
+
+```
+# [Nombre del guion]
+
+> **Estado:** Borrador | Validado | En uso | Archivado
+> **Tipo:** Hook | Ángulo | Oferta | Formato | Secuencia
+> **Origen:** [marca/anunciante — país — dónde se vio + fecha]
+> **Métrica de referencia:** [cifra + [verificado]/[verificado sin link]/[estimado]/[desconocido]]
+> **Tesis:** una sola frase de por qué funciona.
+
+## 1. Anatomía del original
+## 2. Guion adaptable
+## 3. Variables a rellenar
+## 4. Targeting Chile
+## 5. Producción
+## 6. Medición
+## 7. Trazabilidad
+```
+
+Reglas duras del contrato (idénticas en espíritu a la Misión 4):
+- El título es la ÚNICA línea que empieza con un solo `# `.
+- Las 5 líneas `>` son obligatorias, en ese orden y con esos nombres exactos.
+- Las 7 secciones `##` van numeradas, con esos nombres exactos, en ese orden.
+  Subtítulos internos = `###`.
+- PROHIBIDO el patrón `— Score X/20` en encabezados `##` dentro de `publicidad/`.
+- Sección 3 (Variables a rellenar) debe traer una tabla markdown con separador
+  `|---|---|` y placeholders con llaves: {oferta}, {publico}, {ciudad}, {ticket},
+  {prueba_social}, {cta}.
+- Sección 6 (Medición) debe declarar al menos un KPI con umbral numérico.
+- Sección 7 (Trazabilidad) debe citar al menos un `reportes-publicidad/AAAA-MM-DD.md`.
+- Toda cifra de CPL/CTR/ROAS lleva etiqueta de origen [verificado] / [verificado sin
+  link] / [estimado] / [desconocido]. Cifra sin etiqueta = error de contrato.
+
+Reglas de operación sobre el contrato:
+- NN correlativo (`01-`, `02-`...); se parte de `publicidad/guiones/_plantilla.md` y
+  **nunca se modifica la plantilla**. Los archivos `_*` no se publican.
+- Un guion es plug-and-play si sirve para una clínica dental y para un condominio
+  cambiando solo las variables de la sección 3. Si depende de la marca, del producto
+  visual o de una celebridad, no es guion: queda como hallazgo.
+- Estado inicial siempre `Borrador`. Pasa a `Validado` solo con una métrica propia
+  medida — lo que hoy no ocurre porque el módulo de métricas está apagado.
+- Sección 6: el KPI trae baseline declarado o la marca "sin baseline, estimado". Metas a
+  30 días sin baseline es el vicio documentado del corpus.
+
+---
+
+## MÓDULO DE MÉTRICAS PROPIAS (PREPARADO, APAGADO)
+
+`publicidad/metricas/` contiene el `README.md` y el `config.json` del módulo que algún
+día leerá la cuenta propia de Meta. Hoy `config.json` dice `"conectado": false` y eso
+significa, sin excepción:
+- **No existen datos propios.** Ninguna cifra "de nuestra cuenta", "nuestro CPL",
+  "resultados propios" puede aparecer en informes ni guiones. Si aparece, el auditor
+  rechaza la entrega: es un dato inventado.
+- **No se hacen llamadas a MCP ni a APIs de Meta/Windsor/Supermetrics/Motion** desde
+  esta misión mientras el flag esté apagado, aunque los conectores estén disponibles en
+  la sesión.
+- **No se modifica `config.json` ni el README** desde la rutina. Encenderlo es una
+  decisión del usuario, a mano, y cuando ocurra se documentará aquí qué cambia (los
+  guiones en `Borrador` podrán pasar a `Validado` con métrica propia).
+- Los guiones se escriben para que ese día se puedan medir: por eso la sección 6 exige
+  KPI con umbral aunque hoy no haya cuenta que lo mida.
+
+---
+
+## ENTREGA Y GUARDADO
+
+- Informe en `reportes-publicidad/YYYY-MM-DD.md`; guiones en
+  `publicidad/guiones/NN-slug.md`. **NO se envía por email.** Entrega = dashboard
+  (pestaña "Publicidad"): https://maolivare-max.github.io/inteligencia-negocios/
+- Antes de commitear: acta del `pub-auditor` en APROBADO (o APROBADO CON CORRECCIONES ya
+  aplicadas) y `python3 validar_formato.py` pasando.
+- **Anti-repetición:** cada hallazgo y cada guion se agrega a
+  `radar/indice-antirepeticion.txt` con dominio **`publicidad`**, respetando el formato
+  de la primera línea del archivo. Antes de investigar, la lista de exclusión (dominio
+  `publicidad` + `tendencias` para lo inmobiliario, más `INDICE_IDEAS.md`) se pega
+  literal en `brief.md`. Lo ya publicado entra solo con novedad real y marcado
+  "Actualización".
+- **Enrutamiento con la Misión 2:** un anuncio inmobiliario concreto (creativo +
+  targeting + oferta) vive aquí; una táctica sin anuncio concreto vive en Misión 2. Lo
+  que aplica a ambas se marca "DUAL → tendencias" o "DUAL → publicidad" según dónde
+  se encontró.
+- Commit + push a `main` de **solo** el `.md` del informe, los `.md` de guiones nuevos y
+  `radar/indice-antirepeticion.txt`. **No commitear `dashboard.html`, `index.html` ni
+  `INDICE_IDEAS.md`** — los regenera la GitHub Action. Se puede correr
+  `python3 build_dashboard.py` para validar y luego
+  `git checkout -- dashboard.html index.html INDICE_IDEAS.md`.
+- Si el push a `main` es rechazado porque la Mesa de Proyectos ya avanzó, `git pull
+  --rebase origin main` y reintentar. No pushear la rama de trabajo efímera.
+- Aplica la NOTA TÉCNICA de WebFetch/403 de la Misión 1 (WebSearch como método
+  principal; la lista de dominios 403 va en el prompt de cada equipo).
+
+## IDIOMA Y TONO
+
+Español, directo, sin adjetivos de venta. "Abre con el monto del pie porque el pie es
+la barrera post-2022 y lo cierra con la cifra de unidades vendidas en el segundo 4" es
+útil; "un hook brutal" no. Cifras con etiqueta de origen y moneda original al lado de
+la conversión a CLP. Ante la duda entre publicar un guion con métrica sin origen o no
+publicarlo, no se publica: la biblioteca vale por lo que se puede defender, no por su
+tamaño.
