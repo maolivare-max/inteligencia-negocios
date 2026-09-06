@@ -5,6 +5,7 @@
 > **Origen:** [Marca o anunciante] — [País] — [dónde se vio: Meta Ad Library / feed de Instagram / caso publicado en (medio)] — [AAAA-MM-DD]
 > **Métrica de referencia:** sin cifra todavía [desconocido]
 > **Tesis:** Una sola frase: por qué el original funciona y qué parte de ese mecanismo sobrevive al cambiar de rubro.
+> **Etiquetas:** táctica={sin_dato} · formato={sin_dato} · conciencia={sin_dato} · oferta={sin_dato} — reemplazar cada `sin_dato` por uno o más valores de `publicidad/taxonomia.md` (separados por coma si aplica más de uno); dejar `sin_dato` solo en el eje que de verdad no aplica o no se pudo determinar, nunca por pereza
 
 ## 1. Anatomía del original
 

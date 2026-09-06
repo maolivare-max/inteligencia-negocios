@@ -68,10 +68,77 @@ def avisar(archivo, msg):
     AVISOS.append(f"{archivo}: {msg}")
 
 
+# ── taxonomía de creativos (Misión 5, mejora Nº1) ───────────────────────────
+#
+# publicidad/taxonomia.md es la única fuente de verdad del vocabulario cerrado
+# de la línea '**Etiquetas:**' de hallazgos y guiones de publicidad. Severidad
+# AVISO a propósito (ver política de severidad arriba): el informe de
+# 2026-09-06 y los 3 guiones ya publicados no traían el campo antes de esta
+# mejora, y un ERROR habría roto el build en verde que ya existía.
+
+TAXONOMIA_PATH = os.path.join(bd.BASE, "publicidad", "taxonomia.md")
+EJE_PREFIJO = {"táctica": "hook_", "formato": "formato_",
+               "conciencia": "conciencia_", "oferta": "oferta_"}
+RE_ETIQUETAS_LINEA = re.compile(r"\*\*Etiquetas:\*\*\s*(.+)")
+
+
+def cargar_taxonomia():
+    """{eje: set(valores válidos)} extraído de publicidad/taxonomia.md, agrupando
+    por prefijo (hook_/formato_/conciencia_/oferta_) cualquier tag entre backticks.
+    Si el archivo no existe, devuelve ejes vacíos (todo valor cuenta como inválido,
+    lo que de todas formas solo genera un AVISO, no un error)."""
+    vocab = {eje: set() for eje in EJE_PREFIJO}
+    if not os.path.exists(TAXONOMIA_PATH):
+        return vocab
+    with open(TAXONOMIA_PATH, encoding="utf-8-sig") as f:
+        txt = f.read()
+    for tag in re.findall(r"`([a-z0-9_]+)`", txt):
+        for eje, prefijo in EJE_PREFIJO.items():
+            if tag.startswith(prefijo):
+                vocab[eje].add(tag)
+    return vocab
+
+
+def validar_etiquetas(rel, contexto, texto, vocab):
+    """Chequea la línea '**Etiquetas:**' de un hallazgo o guion contra el
+    vocabulario de publicidad/taxonomia.md. Severidad AVISO siempre: es una
+    migración progresiva, no un contrato retroactivo (ver nota arriba)."""
+    m = RE_ETIQUETAS_LINEA.search(texto)
+    if not m:
+        avisar(rel, f"{contexto}: no tiene línea '**Etiquetas:**' — falta migrar a "
+                    f"la taxonomía (ver publicidad/taxonomia.md)")
+        return
+    linea = m.group(1)
+    for eje in EJE_PREFIJO:
+        em = re.search(re.escape(eje) + r"\s*=\s*\{([^}]*)\}", linea)
+        if not em:
+            avisar(rel, f"{contexto}: a la línea 'Etiquetas' le falta el eje "
+                        f"'{eje}={{...}}'")
+            continue
+        valores = [v.strip() for v in em.group(1).split(",") if v.strip()]
+        if not valores:
+            avisar(rel, f"{contexto}: el eje '{eje}' está vacío en la línea 'Etiquetas'")
+            continue
+        for v in valores:
+            if v == "sin_dato":
+                continue
+            if v not in vocab.get(eje, set()):
+                avisar(rel, f"{contexto}: valor '{v}' del eje '{eje}' no está en "
+                            f"publicidad/taxonomia.md (¿typo, o falta agregarlo a la "
+                            f"taxonomía?)")
+
+
+TAXONOMIA_VOCAB = cargar_taxonomia()  # cargado una sola vez, reusado por todos los validadores
+
+
 # ── reportes de las misiones 1-3 ────────────────────────────────────────────
 
 RE_HALLAZGO = re.compile(r"^##\s+\d+\.\s+(.+?)\s+—\s+Score\s+(\d+)/20\s*$",
                          re.MULTILINE)
+# hallazgo con cuerpo capturado (para chequear la línea 'Etiquetas' dentro de él)
+RE_HALLAZGO_CUERPO = re.compile(
+    r"^##\s+(\d+)\.\s+(.+?)\s+—\s+Score\s+(\d+)/20\s*$(.*?)(?=^##\s|\Z)",
+    re.MULTILINE | re.DOTALL)
 # variantes que la gente escribe y el parser NO acepta
 RE_CASI_HALLAZGO = re.compile(
     r"^##\s+\d+\.\s+.+?\s+[-–]\s+Score\s+\d+/20\s*$|"      # guion o en-dash
@@ -110,6 +177,14 @@ def validar_reporte(path, categoria):
                         "en la pestaña Reportes, pero su contenido NO entra a Explorar, "
                         "Decisiones ni INDICE_IDEAS.md")
         return
+
+    # Etiquetas de taxonomía: solo aplica al contrato de la Misión 5. Las otras
+    # tres misiones no tienen este campo y no deben llenarse de avisos por algo
+    # que nunca formó parte de su contrato.
+    if categoria == "publicidad":
+        for idx, nombre, score, cuerpo in RE_HALLAZGO_CUERPO.findall(txt):
+            validar_etiquetas(rel, f"hallazgo {idx} ('{nombre[:40]}')",
+                               cuerpo, TAXONOMIA_VOCAB)
 
     for n, (nombre, score) in enumerate(hallazgos, start=1):
         if not (0 <= int(score) <= 20):
@@ -360,6 +435,18 @@ def validar_guion(path):
     # misma codificación que parse_guion(): utf-8-sig para tolerar BOM
     with open(path, encoding="utf-8-sig") as f:
         txt = f.read().replace("\r\n", "\n")
+
+    # Etiquetas de taxonomía (mejora Nº1, MISIÓN 5): 6ª línea '>' opcional, no
+    # forma parte de GUION_META_CAMPOS (esos son los que exige parse_guion para
+    # considerar el guion válido). Severidad AVISO — ver nota junto a
+    # cargar_taxonomia().
+    m_etq = re.search(r"^>\s*\*\*Etiquetas:\*\*\s*(.+?)\s*$", txt, re.MULTILINE)
+    if not m_etq:
+        avisar(rel, "no tiene línea '> **Etiquetas:**' — falta migrar a la "
+                    "taxonomía (ver publicidad/taxonomia.md)")
+    else:
+        validar_etiquetas(rel, "metadatos", "**Etiquetas:** " + m_etq.group(1),
+                           TAXONOMIA_VOCAB)
 
     # un guion no es un hallazgo: no debe disparar el parser de las otras misiones
     if RE_HALLAZGO.search(txt):
