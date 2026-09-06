@@ -2,11 +2,12 @@
 
 > **NOTA DE FORMATO (esta plantilla no se publica; los archivos que empiezan con `_` quedan fuera del dashboard).**
 > El parser de hallazgos toma cada `## N. Nombre — Score X/20` y lee su cuerpo **hasta el siguiente `##`**.
-> Por eso: las seis secciones del informe van con `##` (sin número, para no confundirlas con hallazgos),
-> cada hallazgo va con `## N. Nombre — Score X/20`, y **todo sub-bloque que no sea hallazgo va con `###`,
-> nunca con `##`** (tablas de targeting, notas, seguimientos, descartes). Un `##` de más dentro de un
-> hallazgo lo trunca en silencio: el dashboard lo muestra sin Confianza, sin evidencia y sin pasos, y nadie
-> avisa. Detalles del formato exigido:
+> Por eso **solo los hallazgos usan `##`**. Las seis secciones del informe y todo sub-bloque que no sea
+> hallazgo (tablas de targeting, notas, seguimientos, descartes) van con `###`, nunca con `##`. Dos fallas
+> silenciosas si no se respeta: (1) un `##` de más dentro de un hallazgo lo trunca — el dashboard lo muestra
+> sin Confianza, sin evidencia y sin pasos, y nadie avisa; (2) un `##` de sección puesto antes de un hallazgo
+> es absorbido por el parser dentro del nombre del hallazgo siguiente (el nombre sale con el título de la
+> sección y el texto intermedio pegados). Detalles del formato exigido:
 > - Raya EM `—` (no guion `-` ni en-dash `–`) entre el nombre y `Score`, y score **entero** (`14/20`, no `14.5/20`).
 > - Confianza: negrita solo en la etiqueta `Confianza:` (dos puntos incluidos) y el valor fuera de la negrita. Si los dos puntos quedan dentro de la negrita, el parser no la reconoce y el hallazgo sale como no verificado.
 > - Fuente: la línea `Dónde lo encontré:` lleva los links en formato `[texto](url)` **en la misma línea**; una lista de URLs crudas debajo deja el hallazgo sin evidencia.
@@ -21,7 +22,7 @@
 
 ---
 
-## Mejores campañas del mundo
+### Mejores campañas del mundo
 
 [Una línea de contexto: qué se barrió (rubros, países, fuentes) y qué criterio dejó fuera al resto. Los hallazgos de esta sección son campañas de cualquier rubro con métrica o caso documentado.]
 
@@ -67,7 +68,7 @@
 
 ---
 
-## Targeting Chile
+### Targeting Chile
 
 [Localización · género · intereses. Qué se aprendió esta semana sobre a quién y dónde apuntar en Chile: cambios en la plataforma (nuevas audiencias, restricciones, categorías especiales), señales de demanda (Google Trends geo=CL), benchmarks de CPL por segmento. Si un aprendizaje tiene tracción documentada y aplica como táctica, va como hallazgo numerado; si es contexto, va en `###`.]
 
@@ -99,7 +100,7 @@
 
 ---
 
-## Publicidad inmobiliaria
+### Publicidad inmobiliaria
 
 [Chile y mundo. Campañas y tácticas de anuncios en Meta específicas del rubro inmobiliario. Esta sección vive dentro de la Misión 5 y NO toca `reportes-inmobiliario/`: antes de reportar, cruzar contra el dominio `tendencias` del índice para no repetir lo que la Misión 2 ya indexó; si hay novedad real sobre algo ya indexado, marcarlo "Actualización" en el nombre.]
 
@@ -127,7 +128,7 @@
 
 ---
 
-## Guiones producidos esta semana
+### Guiones producidos esta semana
 
 [Un ítem por guion nuevo o actualizado en `publicidad/guiones/`, con ruta, tipo y de qué hallazgo sale. Si no se produjo ninguno, decirlo: "Sin guiones nuevos esta semana" y por qué.]
 
@@ -140,7 +141,7 @@
 
 ---
 
-## Cierre
+### Cierre
 
 ### Evaluado y descartado
 
