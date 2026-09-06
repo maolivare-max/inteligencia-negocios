@@ -99,7 +99,7 @@ Este guion **no gatilla categoría especial** mientras la oferta sea un servicio
 - CPL esperado en Chile: **[desconocido].** No existe un CPL chileno de Meta auditado por un tercero.
 - Referencias extranjeras de CPL, útiles como estructura y no como meta: **dental USD 76,71, legal USD 18,17, hogar USD 41,26, educación USD 28,22** [verificado] (LocaliQ/WordStream, 1.180 campañas de EE.UU., abr-2024 a jun-2025). Es **CPL de EE.UU., sin caso chileno medido**, y su ventana cierra en junio de 2025, antes de la reestructuración de Advantage+ de 2026.
 - Única referencia chilena en el rubro salud, para dimensionar: **CLP 5.400 a 12.000 por lead dental en región** [verificado sin link] (autorreporte de la agencia que vende el servicio, cliente anónimo, Valdivia). Nótese que el "12.000" de esa cifra es el mismo número redondo que aparece como punto de partida en casos de otros rubros y otras ciudades: no es un baseline, es el "antes" que usan las agencias chilenas al publicar un caso de éxito. Ver la contra-evidencia del informe de origen.
-- CPM de planificación: **≈ CLP 3.400** [estimado] (cálculo propio sobre gasto e impresiones verificados de la Biblioteca de Anuncios política chilena), probablemente cota superior.
+- CPM de planificación: **≈ CLP 3.000-4.500** [estimado] (27,7 M ÷ 8 anuncios asumiendo ~1 M de impresiones por pieza; inventario político — orden de magnitud, no cota garantizada).
 
 ## 5. Producción
 
