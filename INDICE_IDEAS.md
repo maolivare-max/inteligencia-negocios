@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-08 · Oportunidades de negocio · Daymaker / "Cold Caking" — regalos físicos (tortas) como reemplazo del cold email B2B (Score 14/20)
 - 2026-09-06 · Publicidad Meta · Chilepropiedades: el único inventario chileno con tarifa pública, y el test que nadie ha corrido (Score 13/20)
 - 2026-09-06 · Publicidad Meta · Actualización — Click-to-WhatsApp: medir costo por conversación respondida, no CPL (Score 14/20)
 - 2026-09-06 · Publicidad Meta · Reencuadre de categoría: el creativo que no caduca porque su enemigo no caduca (Score 15/20)
