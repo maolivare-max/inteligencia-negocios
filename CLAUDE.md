@@ -28,7 +28,7 @@ woperty.com, chatsell.net, senioradvisor.cl, examedi.cl, nar.realtor, shorttermr
 fraccional.cl, es-us.noticias.yahoo.com, eldiarioinmobiliario.cl, fontaineycia.cl,
 siniva.cl, hacienda.cl, bcentral.cl, housingwire.com, nationalmortgagenews.com,
 soloestetica.cl, mercadolibre.cl, banco.santander.cl, camara.cl, theclose.com,
-toctoc.com.
+toctoc.com, ex-ante.cl.
 Si un dominio nuevo devuelve 403, agregarlo
 a esta lista. Incluir esta nota
 (y la lista de exclusión de INDICE_IDEAS.md) en el prompt de cada agente de investigación,
