@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-18 · Oportunidades de negocio · IntentPost — outbound B2B por correo físico gatillado por señales digitales (Score 14/20)
 - 2026-09-14 · Oportunidades de negocio · Escucha social para leads B2B en grupos de Facebook/WhatsApp (arbitraje de mecanismo, caso ancla Leadmore AI) (Score 16/20)
 - 2026-09-12 · Oportunidades de negocio · Atribución post-compra para Tiendanube/Jumpseller (arbitraje de plataforma, caso ancla Zigpoll) (Score 14/20)
 - 2026-09-12 · Tendencias inmobiliarias · Arbitraje de tarifas entre portales inmobiliarios chilenos (Score 18/20)
