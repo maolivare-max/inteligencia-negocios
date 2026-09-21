@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-21 · Oportunidades de negocio · LocalRank.so — SaaS de local SEO para agencias (Jacky Chou, Vancouver) (Score 15/20)
 - 2026-09-18 · Tendencias inmobiliarias · Correo físico dirigido (direct mail) para captación de mandatos — dueños ausentes de segunda vivienda costera y colindantes de loteos (Score 13/20)
 - 2026-09-18 · Oportunidades de negocio · IntentPost — outbound B2B por correo físico gatillado por señales digitales (Score 14/20)
 - 2026-09-18 · Tendencias inmobiliarias · Lista de pre-registro (waitlist) antes del lanzamiento + benchmark de CPL para preventa/desarrollo (Score 14/20)
