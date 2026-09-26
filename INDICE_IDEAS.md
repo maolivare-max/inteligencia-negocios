@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-26 · Oportunidades de negocio · Telementoría clínica para médicos de zonas rurales/regiones sin especialista cerca (Score 14/20)
 - 2026-09-22 · Oportunidades de negocio · IA de redacción y crecimiento para LinkedIn, adaptada a hispanohablante (Score 13/20)
 - 2026-09-21 · Oportunidades de negocio · LocalRank.so — SaaS de local SEO para agencias (Jacky Chou, Vancouver) (Score 15/20)
 - 2026-09-18 · Tendencias inmobiliarias · Correo físico dirigido (direct mail) para captación de mandatos — dueños ausentes de segunda vivienda costera y colindantes de loteos (Score 13/20)
