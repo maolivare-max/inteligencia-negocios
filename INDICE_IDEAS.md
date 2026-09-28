@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-09-28 · Oportunidades de negocio · Actualización — Cluster "foto + IA de visión → paywall" se generaliza a maquillaje/belleza (Score 15/20)
 - 2026-09-27 · Oportunidades de negocio · Apps de "photo-scan" IA para fitness/estética (AbMaxx, FaceKit, Dailyglowup) (Score 15/20)
 - 2026-09-26 · Oportunidades de negocio · Telementoría clínica para médicos de zonas rurales/regiones sin especialista cerca (Score 14/20)
 - 2026-09-22 · Oportunidades de negocio · IA de redacción y crecimiento para LinkedIn, adaptada a hispanohablante (Score 13/20)
