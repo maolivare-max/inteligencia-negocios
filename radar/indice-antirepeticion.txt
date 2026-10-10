@@ -1113,3 +1113,4 @@ biohacking|barrido-viernes-09oct-eeuu-europa-estructural-sin-hallazgo|Barrido vi
 ideas|barrido-sabado-10oct-nichos-demograficos-sin-hallazgo|Barrido sabado 10-oct nichos desatendidos: listicles de vendors sin casos verificados; mascotas Chile (CNC USD2.600M) mercado de servicios sin caso ancla; sin hallazgo|DESCARTAR|DESCARTAR|N1|P5
 tendencias|nichos-sabado-10oct-segunda-vivienda-parcelas-sin-hallazgo|Barrido sábado 10-oct nichos (segunda vivienda costera, parcelas) sin hallazgo con metrica de lead|DESCARTAR|OBSERVAR|N1|P5
 tendencias|mundo-parcelas-chile-ventas-sin-cpl-2023|Mundo Parcelas (Chile) 623 parcelas, campaña digital sin CPL ni conversión; auto-reportado 2023|APLICA_CON_AJUSTES|OBSERVAR|N1|P5
+biohacking|barrido-sabado-10oct-nichos-menopausia-adultos-mayores-sin-hallazgo|Barrido sábado 10-oct nichos: Hers/Midi/Clair (menopausia, clínico/VC), apps adultos mayores sin ingresos; sin análogo solo-founder Chile|OBSERVAR|N1|baja
