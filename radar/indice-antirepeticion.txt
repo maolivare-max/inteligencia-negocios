@@ -1158,3 +1158,4 @@ tendencias|ley-subsidio-tasa-hipotecaria-6000uf-despachada-ago2026|Actualizació
 biohacking|barrido-jueves-22oct-lanzamientos-ia-salud-sin-hallazgo|SIN_HALLAZGO|ninguna|N1|PNo
 ideas|barrido-viernes-23oct-eeuu-europa-sin-hallazgo|Barrido viernes 23-oct EEUU/Europa sin hallazgo: benchmarks micro-SaaS genericos, ventas Acquire/Microns 2022, land flipping EEUU margenes comprimidos y evidencia autoreportada|DESCARTAR|DESCARTAR|bajo|baja
 tendencias|barrido-viernes-23oct-eeuu-europa-inmobiliario-sin-hallazgo|Barrido viernes 23-oct (EE.UU./Europa estructural): sin cambio 2026 en portales Zillow/Rightmove con CPL nuevo; solo CPL UK 2021 y caso vendor Luxury Presence sin periodo; sin caso chileno Meta con CPL|descartado|ninguna|baja|baja
+biohacking|barrido-viernes-23oct-eeuu-europa-estructural-sin-hallazgo|Barrido viernes 23-oct EE.UU./Europa estructural: sin hallazgo (precios wearables sin novedad; listados Flippa autorreportados)|NO_APLICA_AUN|ninguna|N1|PNo
