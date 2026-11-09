@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-11-09 · Tendencias inmobiliarias · Lomas de Angelopolis (Puebla, México) — Click-to-WhatsApp + agente IA para lotes (Score 13/20)
 - 2026-11-08 · Tendencias inmobiliarias · Exención IVA vivienda nueva (Ley 21.850) — mecanismo operativo como gancho de venta (Score 14/20)
 - 2026-10-02 · Tendencias inmobiliarias · Rightmove New Homes — solicitud de tour virtual + brochure interactivo con agenda de visita (Score 13/20)
 - 2026-09-28 · Oportunidades de negocio · Actualización — Cluster "foto + IA de visión → paywall" se generaliza a maquillaje/belleza (Score 15/20)
