@@ -2,6 +2,8 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-11-16 · Tendencias inmobiliarias · Prelanzamiento sobre la base de compradores anteriores, sin pauta (Ciudad de México) (Score 12/20)
+- 2026-11-16 · Tendencias inmobiliarias · Cliente incógnito sobre la propia venta: medir qué pasa después del lead (Score 15/20)
 - 2026-11-13 · Tendencias inmobiliarias · Rol dedicado de ventas online en obra nueva (Online Sales Counselor, EE.UU.) (Score 12/20)
 - 2026-11-09 · Tendencias inmobiliarias · Lomas de Angelopolis (Puebla, México) — Click-to-WhatsApp + agente IA para lotes (Score 13/20)
 - 2026-11-08 · Tendencias inmobiliarias · Exención IVA vivienda nueva (Ley 21.850) — mecanismo operativo como gancho de venta (Score 14/20)
