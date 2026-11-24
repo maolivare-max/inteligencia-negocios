@@ -29,7 +29,7 @@ fraccional.cl, es-us.noticias.yahoo.com, eldiarioinmobiliario.cl, fontaineycia.c
 siniva.cl, hacienda.cl, bcentral.cl, housingwire.com, nationalmortgagenews.com,
 soloestetica.cl, mercadolibre.cl, banco.santander.cl, camara.cl, theclose.com,
 toctoc.com, ex-ante.cl, colliers.com, capitalremates.cl, ecosistemastartup.com,
-lifestyle.myeaglecountry.com, wefunder.com, emarketer.com, axios.com, leverage.immo, nsctotal.com.br.
+lifestyle.myeaglecountry.com, wefunder.com, emarketer.com, axios.com, leverage.immo, nsctotal.com.br, senado.cl.
 Si un dominio nuevo devuelve 403, agregarlo
 a esta lista. Incluir esta nota
 (y la lista de exclusión de INDICE_IDEAS.md) en el prompt de cada agente de investigación,
