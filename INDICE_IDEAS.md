@@ -2,6 +2,7 @@
 
 _Generado automáticamente por `build_dashboard.py` — no editar a mano. Se regenera solo en cada push a `main` vía `.github/workflows/rebuild-dashboard.yml`._
 
+- 2026-11-28 · Tendencias inmobiliarias · Persona mayor con vivienda pagada que se muda a la Región de Valparaíso (Score 12/20)
 - 2026-11-25 · Tendencias inmobiliarias · Fotos y descripción antes que tour virtual 3D (Score 14/20)
 - 2026-11-24 · Tendencias inmobiliarias · Presupuestar la resciliación antes de bajar el pie en loteos con financiamiento directo (Score 11/20)
 - 2026-11-19 · Oportunidades de negocio · Preparación en línea para exámenes de certificación obligatoria (aterrizaje: acreditación CMV) (Score 12/20)
